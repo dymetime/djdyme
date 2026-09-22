@@ -3,283 +3,440 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJ DYME | Official Site & Mixshows</title>
+  <title>Dymetime. RADIO — Pull Up Fridays</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Google Fonts for premium typography -->
+  <!-- Google Fonts matching the editorial condensed style -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">DJ <span>DYME</span></a>
-      <nav class="nav-links">
-        <a href="#pullup">Pull Up Fridays</a>
-        <a href="#dymetime-radio">Dymetime Radio</a>
-        <a href="#videos">Video Mixes</a>
-        <a href="#about">About</a>
-        <a href="#booking" class="nav-btn">Book Me</a>
-      </nav>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="#" class="brand-logo">
+        <span class="signal-icon">((•))</span> Dymetime. <span class="brand-sub">RADIO</span>
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#mix-archive">MIX ARCHIVE</a>
+      <a href="#dymetime-radio">DYMETIME RADIO</a>
+      <a href="#video-mixes">VIDEO MIXES</a>
+      <a href="#the-show">THE SHOW</a>
+      <a href="#booking">BOOK ME</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="schedule-pill">
+        <span class="live-dot"></span> FRIDAYS • 7PM EST
+      </div>
+      <a href="#booking" class="btn-book">BOOK THE SHOW</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero-section">
     <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="badge">ON AIR EVERY FRIDAY • 7PM EST</div>
-      <h1>PULL UP FRIDAYS</h1>
-      <p class="hero-sub">55 Minutes of Pure Energy, Curated Vibes & Unmatched Transitions.</p>
-      <div class="hero-actions">
-        <a href="#pullup" class="btn btn-gold">Listen to Latest Show</a>
-        <a href="#booking" class="btn btn-outline">Bookings & Gigs</a>
+    <div class="hero-container">
+      
+      <!-- Left Hero Info -->
+      <div class="hero-main">
+        <div class="kicker">
+          <span class="dash">—</span> DYMETIME RADIO • WEEKLY MIX SHOW
+        </div>
+        
+        <h1 class="hero-headline">
+          <span class="txt-white">PULL UP</span><br />
+          <span class="txt-orange">FRIDAYS</span>
+        </h1>
+
+        <p class="hero-desc">
+          Live on Spinz FM every Friday at 7:00 PM (EST). 55 minutes of pure energy and vibes. Playing the best of Afrobeat, Dancehall, Hip Hop, and more—mixed live and posted right after for anyone who missed it.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#latest-episode" class="btn-primary">
+            <span class="arrow">▶</span> PLAY EPISODE 56
+          </a>
+          <a href="#video-mixes" class="btn-secondary">
+            WATCH VIDEO MIXES
+          </a>
+        </div>
       </div>
+
+      <!-- Right Broadcast Timer Card -->
+      <div class="broadcast-card">
+        <div class="card-top">
+          <span class="card-label">NEXT BROADCAST</span>
+          <span class="gold-dot">●</span>
+        </div>
+
+        <div class="countdown-grid">
+          <div class="time-col">
+            <span class="time-val" id="days">04</span>
+            <span class="time-unit">DAYS</span>
+          </div>
+          <div class="time-col">
+            <span class="time-val" id="hrs">02</span>
+            <span class="time-unit">HRS</span>
+          </div>
+          <div class="time-col">
+            <span class="time-val" id="min">07</span>
+            <span class="time-unit">MIN</span>
+          </div>
+        </div>
+
+        <p class="broadcast-note">
+          <span class="headphones">🎧</span> Every Friday, 7PM EST on Spinz FM. Missed it? Every show lands in the archive the same night.
+        </p>
+
+        <a href="#booking" class="btn-reminder">
+          GET THE FRIDAY REMINDER <span>↓</span>
+        </a>
+      </div>
+
     </div>
   </section>
 
-  <!-- SECTION 1: PULL UP FRIDAYS (Weekly Spotlight + 3 Archives) -->
-  <section id="pullup" class="section">
+  <!-- Section 1: The Mix Archive (Pull Up Fridays) -->
+  <section id="mix-archive" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Weekly Radio Show</span>
-        <h2>Pull Up Fridays</h2>
-        <p class="section-desc">
-          Catch it live each and every Friday on <strong>Spinz FM at 7:00 PM EST</strong>. 55 minutes of pure energy bringing you the absolute best in Afrobeat, Dancehall, Hip Hop, and Caribbean rhythms.
+      <div class="archive-header">
+        <h2 class="section-title">THE MIX ARCHIVE</h2>
+        <p class="header-side-note">
+          Every Friday broadcast, in full and unedited.<br />Fresh episodes added every week.
         </p>
       </div>
 
-      <!-- Spotlight Latest Episode (Large) -->
-      <div class="spotlight-card">
-        <div class="spotlight-badge">★ LATEST EPISODE</div>
-        <div class="spotlight-info">
-          <h3>Pull Up Fridays — Episode 56</h3>
-          <p>The freshest heavy-hitters, exclusive edits, and club anthems. Mastered for broadcast.</p>
+      <!-- Latest Show Highlight (Big Card) -->
+      <div id="latest-episode" class="featured-show-card">
+        <div class="show-cover">
+          <div class="art-gradient">
+            <span class="ep-stamp">EP. 56</span>
+          </div>
         </div>
-        <div class="embed-wrapper">
-          <!-- Replace src with your latest Mixcloud / SoundCloud URL -->
-          <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=%2Fspinninrecords%2Fspinnin-sessions-540%2F" frameborder="0"></iframe>
+
+        <div class="show-content">
+          <div class="show-meta">
+            <span class="badge-tag">LATEST SHOW</span>
+            <span class="meta-item">SEP 18, 2026</span>
+            <span class="meta-item">⏱ 55M</span>
+          </div>
+
+          <h3 class="show-title">PULL UP FRIDAYS EPISODE 56</h3>
+
+          <p class="show-summary">
+            High-octane club transitions, heavy Afrobeat rhythms, and fresh Dancehall anthems straight from the Friday broadcast. Mastered for peak club and car audio.
+          </p>
+
+          <div class="genre-pills">
+            <span>AFROBEATS</span>
+            <span>DANCEHALL</span>
+            <span>HIP HOP</span>
+          </div>
+
+          <div class="platform-row">
+            <span class="platform-label">LISTEN ON</span>
+            <a href="https://mixcloud.com/djdyme" target="_blank">MIXCLOUD ↗</a>
+            <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD ↗</a>
+          </div>
         </div>
       </div>
 
-      <!-- Past 3 Episodes (Stacked) -->
-      <div class="episodes-stack">
-        <!-- Episode 55 -->
-        <div class="archive-item">
-          <div class="archive-meta">
-            <span class="ep-tag">EPISODE 55</span>
-            <h4>Pull Up Fridays ft. Special Guest Mix</h4>
+      <!-- Past 3 Pull Up Friday Episodes Grid -->
+      <div class="archive-grid">
+        <!-- Ep 55 -->
+        <div class="sub-show-card">
+          <div class="sub-meta-top">
+            <span>AUG 28, 2026</span>
+            <span>⏱ 55M</span>
           </div>
-          <div class="embed-wrapper compact">
-            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=0&feed=%2Fspinninrecords%2Fspinnin-sessions-539%2F" frameborder="0"></iframe>
+          <div class="sub-card-body">
+            <div class="sub-cover-mini"><span class="ep-stamp">EP. 55</span></div>
+            <div class="sub-text">
+              <h4>GUEST MIX TAKEOVER</h4>
+              <p>Deep Dancehall riddims into an aggressive peak-hour Afro-house segment.</p>
+            </div>
+          </div>
+          <div class="genre-pills mini">
+            <span>DANCEHALL</span>
+            <span>AFROBEAT</span>
+          </div>
+          <div class="platform-row mini">
+            <span>LISTEN ON</span>
+            <a href="https://mixcloud.com/djdyme" target="_blank">MIXCLOUD ↗</a>
+            <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD ↗</a>
           </div>
         </div>
 
-        <!-- Episode 54 -->
-        <div class="archive-item">
-          <div class="archive-meta">
-            <span class="ep-tag">EPISODE 54</span>
-            <h4>Pull Up Fridays — Pure Afro-Dancehall Heat</h4>
+        <!-- Ep 54 -->
+        <div class="sub-show-card">
+          <div class="sub-meta-top">
+            <span>AUG 21, 2026</span>
+            <span>⏱ 55M</span>
           </div>
-          <div class="embed-wrapper compact">
-            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=0&feed=%2Fspinninrecords%2Fspinnin-sessions-538%2F" frameborder="0"></iframe>
+          <div class="sub-card-body">
+            <div class="sub-cover-mini"><span class="ep-stamp">EP. 54</span></div>
+            <div class="sub-text">
+              <h4>ISLAND ENERGY RUN-BACK</h4>
+              <p>Soca-heavy opening set recorded live, followed by pure Caribbean heat.</p>
+            </div>
+          </div>
+          <div class="genre-pills mini">
+            <span>SOCA</span>
+            <span>DANCEHALL</span>
+          </div>
+          <div class="platform-row mini">
+            <span>LISTEN ON</span>
+            <a href="https://mixcloud.com/djdyme" target="_blank">MIXCLOUD ↗</a>
+            <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD ↗</a>
           </div>
         </div>
 
-        <!-- Episode 53 -->
-        <div class="archive-item">
-          <div class="archive-meta">
-            <span class="ep-tag">EPISODE 53</span>
-            <h4>Pull Up Fridays — Weekend Warmup Edition</h4>
+        <!-- Ep 53 -->
+        <div class="sub-show-card">
+          <div class="sub-meta-top">
+            <span>AUG 14, 2026</span>
+            <span>⏱ 55M</span>
           </div>
-          <div class="embed-wrapper compact">
-            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=0&feed=%2Fspinninrecords%2Fspinnin-sessions-537%2F" frameborder="0"></iframe>
+          <div class="sub-card-body">
+            <div class="sub-cover-mini"><span class="ep-stamp">EP. 53</span></div>
+            <div class="sub-text">
+              <h4>WEEKEND WARMUP EDITION</h4>
+              <p>Zero warmups, straight tempo climb from 102 to 128 BPM with unreleased edits.</p>
+            </div>
+          </div>
+          <div class="genre-pills mini">
+            <span>HIP HOP</span>
+            <span>AFROBEATS</span>
+          </div>
+          <div class="platform-row mini">
+            <span>LISTEN ON</span>
+            <a href="https://mixcloud.com/djdyme" target="_blank">MIXCLOUD ↗</a>
+            <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD ↗</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 2: DYMETIME RADIO (3 Mixshows Stacked) -->
-  <section id="dymetime-radio" class="section section-darker">
+  <!-- Section 2: Dymetime Radio (3 Curated Mixes) -->
+  <section id="dymetime-radio" class="section section-border">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Original Sessions</span>
-        <h2>Dymetime Radio</h2>
-        <p class="section-desc">Extended genre-bending concepts, party mixes, and curated road journeys.</p>
+      <div class="archive-header">
+        <h2 class="section-title">DYMETIME RADIO</h2>
+        <p class="header-side-note">
+          Extended concept tapes, genre showcases, and live tour recordings.
+        </p>
       </div>
 
-      <div class="radio-stack">
-        <!-- Radio Mix 1 -->
-        <div class="radio-card">
-          <div class="radio-thumb">
-            <div class="play-indicator">▶</div>
+      <div class="archive-grid">
+        <div class="sub-show-card">
+          <div class="sub-meta-top">
+            <span>SPECIAL</span>
+            <span>⏱ 1H 45M</span>
           </div>
-          <div class="radio-body">
-            <span class="radio-category">Dancehall & Shatta</span>
-            <h3>Dymetime Radio Vol. 3: Island Heatwave</h3>
-            <p>Strictly uptempo Jamaican and East African sound clash energy.</p>
-            <div class="embed-wrapper compact">
-              <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=0&feed=%2Fspinninrecords%2Fspinnin-sessions-536%2F" frameborder="0"></iframe>
+          <div class="sub-card-body">
+            <div class="sub-cover-mini radio-art-1"><span class="ep-stamp">VOL. 3</span></div>
+            <div class="sub-text">
+              <h4>SHATTA & DANCEHALL HEATWAVE</h4>
+              <p>East African club blends mixed live with Jamaican underground records.</p>
             </div>
+          </div>
+          <div class="genre-pills mini">
+            <span>SHATTA</span>
+            <span>DANCEHALL</span>
+          </div>
+          <div class="platform-row mini">
+            <span>LISTEN ON</span>
+            <a href="https://mixcloud.com/djdyme" target="_blank">MIXCLOUD ↗</a>
+            <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD ↗</a>
           </div>
         </div>
 
-        <!-- Radio Mix 2 -->
-        <div class="radio-card">
-          <div class="radio-thumb">
-            <div class="play-indicator">▶</div>
+        <div class="sub-show-card">
+          <div class="sub-meta-top">
+            <span>SPECIAL</span>
+            <span>⏱ 2H 10M</span>
           </div>
-          <div class="radio-body">
-            <span class="radio-category">Afrobeats & Amapiano</span>
-            <h3>Dymetime Radio Vol. 2: Lagos to Jo'burg</h3>
-            <p>Log drums, lush chords, and melodic grooves built for the dancefloor.</p>
-            <div class="embed-wrapper compact">
-              <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=0&feed=%2Fspinninrecords%2Fspinnin-sessions-535%2F" frameborder="0"></iframe>
+          <div class="sub-card-body">
+            <div class="sub-cover-mini radio-art-2"><span class="ep-stamp">VOL. 2</span></div>
+            <div class="sub-text">
+              <h4>LAGOS TO JOHANNESBURG</h4>
+              <p>Heavy Amapiano log-drums transitioning seamlessly into vibrant Naija anthems.</p>
             </div>
+          </div>
+          <div class="genre-pills mini">
+            <span>AMAPIANO</span>
+            <span>AFROBEATS</span>
+          </div>
+          <div class="platform-row mini">
+            <span>LISTEN ON</span>
+            <a href="https://mixcloud.com/djdyme" target="_blank">MIXCLOUD ↗</a>
+            <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD ↗</a>
           </div>
         </div>
 
-        <!-- Radio Mix 3 -->
-        <div class="radio-card">
-          <div class="radio-thumb">
-            <div class="play-indicator">▶</div>
+        <div class="sub-show-card">
+          <div class="sub-meta-top">
+            <span>SPECIAL</span>
+            <span>⏱ 1H 30M</span>
           </div>
-          <div class="radio-body">
-            <span class="radio-category">Classic Hip Hop & R&B</span>
-            <h3>Dymetime Radio Vol. 1: 90s & 2000s Throwback Session</h3>
-            <p>The timeless foundation: golden era classics and party cuts.</p>
-            <div class="embed-wrapper compact">
-              <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=0&feed=%2Fspinninrecords%2Fspinnin-sessions-534%2F" frameborder="0"></iframe>
+          <div class="sub-card-body">
+            <div class="sub-cover-mini radio-art-3"><span class="ep-stamp">VOL. 1</span></div>
+            <div class="sub-text">
+              <h4>GOLDEN ERA THROWBACKS</h4>
+              <p>Strict 90s & 2000s R&B blends and unedited East/West hip-hop anthems.</p>
             </div>
+          </div>
+          <div class="genre-pills mini">
+            <span>90S R&B</span>
+            <span>HIP HOP</span>
+          </div>
+          <div class="platform-row mini">
+            <span>LISTEN ON</span>
+            <a href="https://mixcloud.com/djdyme" target="_blank">MIXCLOUD ↗</a>
+            <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD ↗</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3: VIDEO MIXES (Album Sleeve / Vinyl Grid Style) -->
-  <section id="videos" class="section">
+  <!-- Section 3: Video Mixes (Square Album Sleeves) -->
+  <section id="video-mixes" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Visual Experience</span>
-        <h2>Video Mixes</h2>
-        <p class="section-desc">Live studio sets, festival performances, and visual track blends.</p>
+      <div class="archive-header">
+        <h2 class="section-title">VIDEO MIXES</h2>
+        <p class="header-side-note">
+          Live 4K multi-cam sets, studio performance blends, and festival footage.
+        </p>
       </div>
 
       <div class="album-grid">
-        <!-- Album Card 1 -->
-        <div class="album-card">
-          <div class="album-cover">
-            <div class="album-art vinyl-effect" style="background: linear-gradient(135deg, #2b1f17, #0f0c0a);">
-              <span class="album-title-stamp">AFRO VIBES LIVE</span>
-              <div class="play-btn-circle">▶</div>
+        <div class="vinyl-card">
+          <div class="sleeve">
+            <div class="sleeve-art art-v1">
+              <span class="vinyl-tag">LIVE SET</span>
+              <div class="center-play">▶</div>
             </div>
           </div>
-          <div class="album-details">
-            <h4>Afrobeat Sunset Live Set</h4>
-            <p>Full 45-min visual mix filmed live in 4K.</p>
-            <a href="https://www.youtube.com/@dymetime" target="_blank" class="album-link">Watch on YouTube →</a>
+          <div class="vinyl-details">
+            <h4>AFROBEAT SUNSET RUN</h4>
+            <p>Live DJ set filmed multi-angle with original soundboard audio.</p>
+            <a href="https://www.youtube.com/@dymetime" target="_blank" class="watch-link">WATCH ON YOUTUBE ↗</a>
           </div>
         </div>
 
-        <!-- Album Card 2 -->
-        <div class="album-card">
-          <div class="album-cover">
-            <div class="album-art vinyl-effect" style="background: linear-gradient(135deg, #3d2618, #18110c);">
-              <span class="album-title-stamp">SHATTA ATTACK</span>
-              <div class="play-btn-circle">▶</div>
+        <div class="vinyl-card">
+          <div class="sleeve">
+            <div class="sleeve-art art-v2">
+              <span class="vinyl-tag">CLUB FOOTAGE</span>
+              <div class="center-play">▶</div>
             </div>
           </div>
-          <div class="album-details">
-            <h4>Dancehall Club Heat Video Mix</h4>
-            <p>High intensity Caribbean club routine.</p>
-            <a href="https://www.youtube.com/@dymetime" target="_blank" class="album-link">Watch on YouTube →</a>
+          <div class="vinyl-details">
+            <h4>PULL UP FRIDAYS LIVE</h4>
+            <p>Direct booth footage from the weekly Spinz FM syndication studio.</p>
+            <a href="https://www.youtube.com/@dymetime" target="_blank" class="watch-link">WATCH ON YOUTUBE ↗</a>
           </div>
         </div>
 
-        <!-- Album Card 3 -->
-        <div class="album-card">
-          <div class="album-cover">
-            <div class="album-art vinyl-effect" style="background: linear-gradient(135deg, #1f1a14, #080706);">
-              <span class="album-title-stamp">NIGHT IN NAIROBI</span>
-              <div class="play-btn-circle">▶</div>
+        <div class="vinyl-card">
+          <div class="sleeve">
+            <div class="sleeve-art art-v3">
+              <span class="vinyl-tag">FESTIVAL CUT</span>
+              <div class="center-play">▶</div>
             </div>
           </div>
-          <div class="album-details">
-            <h4>Gengetone & East African Classics</h4>
-            <p>Visual retrospective and club transitions.</p>
-            <a href="https://www.youtube.com/@dymetime" target="_blank" class="album-link">Watch on YouTube →</a>
+          <div class="vinyl-details">
+            <h4>CARIBBEAN SOUND CLASH</h4>
+            <p>High energy dancehall juggle and crowd pull-ups.</p>
+            <a href="https://www.youtube.com/@dymetime" target="_blank" class="watch-link">WATCH ON YOUTUBE ↗</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: ABOUT DJ DYME -->
-  <section id="about" class="section section-darker">
-    <div class="container about-wrapper">
-      <div class="about-card">
-        <span class="eyebrow">Behind the Decks</span>
-        <h2>About DJ Dyme</h2>
-        <div class="about-quote">
-          "Pull Up Fridays: Each and every Friday, live on Spinz FM at 7:00 PM (EST). Nothing but 55 minutes of pure energy and vibes—playing the best of Afrobeat, Dancehall, Hip Hop, and more."
+  <!-- Section 4: The Show / About Me -->
+  <section id="the-show" class="section section-border">
+    <div class="container about-container">
+      <div class="about-grid">
+        <div class="about-lead">
+          <span class="kicker-gold">BEHIND THE DECKS</span>
+          <h2 class="section-title">DJ DYME</h2>
+          <p class="about-statement">
+            "Pull Up Fridays: Each and every Friday, live on Spinz FM at 7:00 PM (EST). Nothing but 55 minutes of pure energy and vibes—playing the best of Afrobeat, Dancehall, Hip Hop, and more."
+          </p>
+          <p class="about-text">
+            Operating under the Dymetime banner, DJ Dyme merges relentless cross-genre selection with clean technical execution. From club residencies and festival stages to weekly radio broadcasts, the goal is always the same: zero dead air, flawless transitions, and maximum crowd connection.
+          </p>
         </div>
-        <p class="about-body">
-          Known for flawless blends, high-octane stage command, and an innate instinct for what gets the room moving, DJ Dyme represents the pulse of modern cross-continental party culture. Whether hosting the syndicated airwaves or holding down packed dance floors, every set is curated to elevate the room from a simple night out into an unforgettable experience.
-        </p>
 
-        <div class="social-shelf">
-          <h4>Join the Community</h4>
-          <div class="social-links-grid">
-            <a href="https://www.instagram.com/djdyme" target="_blank" class="social-pill">Instagram: @djdyme</a>
-            <a href="https://www.facebook.com/djdyme" target="_blank" class="social-pill">Facebook: /djdyme</a>
-            <a href="https://www.youtube.com/@dymetime" target="_blank" class="social-pill">YouTube: @dymetime</a>
-            <a href="https://www.tiktok.com/@djdyme" target="_blank" class="social-pill">TikTok: @djdyme</a>
+        <div class="social-box">
+          <span class="kicker-gold">CONNECT EVERYWHERE</span>
+          <div class="social-pills-list">
+            <a href="https://www.instagram.com/djdyme" target="_blank" class="social-row">
+              <span>Instagram</span>
+              <strong>@djdyme ↗</strong>
+            </a>
+            <a href="https://www.facebook.com/djdyme" target="_blank" class="social-row">
+              <span>Facebook</span>
+              <strong>/djdyme ↗</strong>
+            </a>
+            <a href="https://www.youtube.com/@dymetime" target="_blank" class="social-row">
+              <span>YouTube</span>
+              <strong>@dymetime ↗</strong>
+            </a>
+            <a href="https://www.tiktok.com/@djdyme" target="_blank" class="social-row">
+              <span>TikTok</span>
+              <strong>@djdyme ↗</strong>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: CONTACT / BOOK ME -->
+  <!-- Section 5: Booking / Inquiries -->
   <section id="booking" class="section">
     <div class="container">
-      <div class="booking-box">
-        <span class="eyebrow">Direct Inquiries</span>
-        <h2>Book DJ Dyme</h2>
-        <p class="booking-lead">
-          Available for club residencies, festivals, guest radio mixes, corporate engagements, and exclusive private celebrations.
-        </p>
+      <div class="booking-wrap">
+        <div class="booking-header">
+          <span class="kicker-gold">GIGS & APPEARANCES</span>
+          <h2 class="section-title">BOOK THE SHOW</h2>
+          <p>Direct inquiries for club bookings, festivals, syndication, and private events.</p>
+        </div>
 
-        <form class="booking-form" action="mailto:booking@dymetime.com" method="POST" enctype="text/plain">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name / Organization</label>
-              <input type="text" name="name" placeholder="e.g. Venue / Promoter Name" required />
+        <form class="book-form" action="mailto:booking@dymetime.com" method="POST" enctype="text/plain">
+          <div class="form-columns">
+            <div class="form-item">
+              <label>NAME / PROMOTER</label>
+              <input type="text" name="name" placeholder="John Doe / Agency" required />
             </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" name="email" placeholder="contact@domain.com" required />
+            <div class="form-item">
+              <label>EMAIL ADDRESS</label>
+              <input type="email" name="email" placeholder="contact@email.com" required />
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Event Date</label>
+          <div class="form-columns">
+            <div class="form-item">
+              <label>DATE OF EVENT</label>
               <input type="date" name="event_date" />
             </div>
-            <div class="form-group">
-              <label>City & Venue</label>
-              <input type="text" name="venue" placeholder="e.g. Philadelphia, PA" />
+            <div class="form-item">
+              <label>LOCATION & VENUE</label>
+              <input type="text" name="location" placeholder="City, Venue Name" />
             </div>
           </div>
-          <div class="form-group">
-            <label>Event Details / Message</label>
-            <textarea name="details" rows="4" placeholder="Tell us about the event type, hours, and vision..."></textarea>
+          <div class="form-item">
+            <label>EVENT DETAILS & RUN TIME</label>
+            <textarea name="details" rows="4" placeholder="Tell us about the event type, sound system, and requirements..."></textarea>
           </div>
-          <button type="submit" class="btn btn-gold btn-full">Submit Booking Request</button>
+          <button type="submit" class="btn-primary form-submit">SUBMIT BOOKING REQUEST</button>
         </form>
       </div>
     </div>
@@ -287,9 +444,13 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-logo">DJ <span>DYME</span> • DYMETIME</div>
-      <p>&copy; 2026 DJ Dyme. All rights reserved. Spinz FM syndicated partner.</p>
+    <div class="container footer-inner">
+      <div>
+        <strong>Dymetime.</strong> RADIO • PULL UP FRIDAYS
+      </div>
+      <div>
+        &copy; 2026 DJ Dyme. Broadcasted via Spinz FM. All rights reserved.
+      </div>
     </div>
   </footer>
 
