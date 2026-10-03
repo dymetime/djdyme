@@ -24,12 +24,13 @@
           colors: {
             dyme: {
               orange: '#FF7A00',
-              orangeHover: '#e66e00',
+              orangeLight: '#FFA04D', // Light orange hover accent
+              orangeHover: '#FFA04D',
               bgDark: '#080c13',
               cardDark: '#0e1522',
               cardHover: '#141d2e',
+              charcoal: '#172033',    // Defined charcoal divider tone
               borderDark: '#1b263b',
-              charcoal: '#111827',
               accentGlow: 'rgba(255, 122, 0, 0.18)'
             }
           },
@@ -57,7 +58,7 @@
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #e66e00;
+      background: #FFA04D;
     }
 
     body {
@@ -78,7 +79,7 @@
     .ticker-track {
       display: inline-flex;
       white-space: nowrap;
-      animation: tickerLoop 28s linear infinite;
+      animation: tickerLoop 26s linear infinite;
     }
     @keyframes tickerLoop {
       0% { transform: translateX(0); }
@@ -102,59 +103,77 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+    /* Interactive Light Orange Hover styles for Bottom Player */
+    .player-dock {
+      transition: all 0.3s ease;
+    }
+    .player-dock:hover {
+      background-color: rgba(22, 18, 15, 0.98);
+      border-color: #FFA04D;
+      box-shadow: 0 -4px 25px rgba(255, 160, 77, 0.2);
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-[#FF7A00] selection:text-black pb-28">
 
-  <!-- ================= TOP HEADER (SKINNY max-w-4xl) ================= -->
-  <header class="sticky top-0 z-40 bg-[#080c13]/90 backdrop-blur-md border-b border-[#1b263b]/70">
+  <!-- =======================================================================
+       GUIDE: HEADER BRAND LOGO FOR WEB AND MOBILE
+       To replace the text logo with your own graphic logo for desktop and mobile,
+       replace the <a> content below with:
+       <a href="#" class="flex items-center">
+         <img src="images/logo.png" alt="DJ DYME Logo" class="h-7 sm:h-8 w-auto">
+       </a>
+       ======================================================================= -->
+  <header class="sticky top-0 z-40 bg-[#080c13]/90 backdrop-blur-md border-b border-[#172033]">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-      <!-- Brand Mark -->
+      
+      <!-- Brand Mark (Web & Mobile) -->
       <a href="#" class="flex items-center gap-1.5 group">
-        <span class="font-display font-black text-xl tracking-wider text-white group-hover:text-[#FF7A00] transition">DJDYME</span>
+        <span class="font-display font-black text-xl tracking-wider text-white group-hover:text-[#FFA04D] transition">DJDYME</span>
         <span class="w-1.5 h-1.5 rounded-full bg-[#FF7A00] shadow-[0_0_8px_#FF7A00]"></span>
       </a>
 
-      <!-- Updated Header Menu in ALL CAPS -->
+      <!-- Header Menu in ALL CAPS -->
       <nav class="hidden md:flex items-center gap-5 text-xs font-mono font-medium tracking-wider text-slate-300">
-        <a href="#pull-up-fridays" class="hover:text-[#FF7A00] transition">PULL UP FRIDAYS</a>
+        <a href="#pull-up-fridays" class="hover:text-[#FFA04D] transition">PULL UP FRIDAYS</a>
         <span class="text-slate-600">|</span>
-        <a href="#dymetime-radio" class="hover:text-[#FF7A00] transition">DYMETIME RADIO</a>
+        <a href="#dymetime-radio" class="hover:text-[#FFA04D] transition">DYMETIME RADIO</a>
         <span class="text-slate-600">|</span>
-        <a href="#video-mixes" class="hover:text-[#FF7A00] transition">VIDEO MIXES</a>
+        <a href="#video-mixes" class="hover:text-[#FFA04D] transition">VIDEO MIXES</a>
         <span class="text-slate-600">|</span>
-        <a href="#mix-vault" class="hover:text-[#FF7A00] transition">THE VAULT</a>
+        <a href="#mix-vault" class="hover:text-[#FFA04D] transition">THE VAULT</a>
         <span class="text-slate-600">|</span>
-        <a href="#events" class="hover:text-[#FF7A00] transition">EVENTS</a>
+        <a href="#events" class="hover:text-[#FFA04D] transition">EVENTS</a>
       </nav>
 
-      <!-- Bookings CTA -->
-      <button onclick="openBookingModal()" class="px-4 py-1.5 rounded bg-[#FF7A00] hover:bg-[#e66e00] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+      <!-- Bookings CTA with Light Orange Hover -->
+      <button onclick="openBookingModal()" class="px-4 py-1.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
         Bookings
       </button>
     </div>
   </header>
 
-  <!-- ================= HERO & BANNER SPEC SECTION ================= -->
-  <section class="max-w-4xl mx-auto px-4 pt-8 pb-6 w-full">
+  <!-- ================= HERO & BANNER SLOT SECTION ================= -->
+  <section class="max-w-4xl mx-auto px-4 pt-8 pb-4 w-full">
     
-    <!-- Hero Top Status -->
     <div class="flex items-center justify-center mb-5">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0e1522] border border-[#1b263b] text-[#FF7A00] text-[10px] sm:text-xs font-mono tracking-widest uppercase shadow-inner">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0e1522] border border-[#172033] text-[#FF7A00] text-[10px] sm:text-xs font-mono tracking-widest uppercase shadow-inner">
         <span class="w-1.5 h-1.5 rounded-full bg-[#FF7A00] animate-pulse"></span>
         OFFICIAL ARTIST HUB • WEEKLY DROPS
       </div>
     </div>
 
     <!-- 
-      HERO BANNER AREA (Exact Recommended Dimensions):
-      Aspect Ratio: 4:1 Widescreen (1920 x 480 px)
+      HERO BANNER AREA (1920 × 480 PX):
+      Replace the div below with:
+      <img src="Slider Main.jpg" alt="DJ DYME" class="w-full h-auto rounded-xl border border-[#172033] shadow-2xl">
     -->
-    <div class="relative w-full aspect-[4/1] min-h-[140px] sm:min-h-[190px] rounded-xl border-2 border-dashed border-[#1b263b] bg-[#0c121c] flex flex-col items-center justify-center p-4 text-center overflow-hidden group hover:border-[#FF7A00]/60 transition shadow-2xl">
+    <div class="relative w-full aspect-[4/1] min-h-[140px] sm:min-h-[180px] rounded-xl border-2 border-dashed border-[#172033] bg-[#0c121c] flex flex-col items-center justify-center p-4 text-center overflow-hidden group hover:border-[#FFA04D]/60 transition shadow-2xl">
       <div class="absolute inset-0 bg-radial-gradient from-transparent to-black/60 pointer-events-none"></div>
       
       <div class="relative z-10 flex flex-col items-center gap-1.5">
-        <div class="w-9 h-9 rounded-full bg-[#141d2e] border border-[#1b263b] flex items-center justify-center text-[#FF7A00]">
+        <div class="w-9 h-9 rounded-full bg-[#141d2e] border border-[#172033] flex items-center justify-center text-[#FF7A00]">
           <i data-lucide="image" class="w-4 h-4"></i>
         </div>
         <div class="font-display font-black text-sm sm:text-base text-white tracking-wider">
@@ -166,13 +185,13 @@
       </div>
     </div>
 
-    <!-- Quick Action Deck Buttons -->
+    <!-- Quick Action Deck Buttons with Light Orange Hover -->
     <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
-      <button onclick="playTrack(0)" class="flex items-center gap-2 px-6 py-2.5 rounded bg-[#FF7A00] hover:bg-[#e66e00] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md">
+      <button onclick="playTrack(0)" class="flex items-center gap-2 px-6 py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md">
         <i data-lucide="play" class="w-4 h-4 fill-current"></i>
         Stream Latest Drop
       </button>
-      <a href="#mix-vault" class="flex items-center gap-2 px-6 py-2.5 rounded bg-[#0e1522] hover:bg-[#141d2e] border border-[#1b263b] text-white font-display font-bold text-xs uppercase tracking-wider transition">
+      <a href="#mix-vault" class="flex items-center gap-2 px-6 py-2.5 rounded bg-[#0e1522] hover:bg-[#141d2e] hover:border-[#FFA04D]/50 border border-[#172033] text-white font-display font-bold text-xs uppercase tracking-wider transition">
         Explore The Vault
       </a>
     </div>
@@ -180,13 +199,13 @@
   </section>
 
   <!-- ================= MAIN CONTENT (SKINNY max-w-4xl) ================= -->
-  <main class="max-w-4xl mx-auto px-4 py-4 space-y-12 w-full">
+  <main class="max-w-4xl mx-auto px-4 py-4 space-y-10 w-full">
 
     <!-- 1. PULL UP FRIDAYS -->
-    <section id="pull-up-fridays" class="space-y-5">
+    <section id="pull-up-fridays" class="space-y-4">
       
       <!-- Section Header & Drop Timer -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#1b263b] pb-3">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#172033] pb-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
             <span class="px-2 py-0.5 rounded bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">WEEKLY MIXSHOW</span>
@@ -195,8 +214,8 @@
           <h2 class="text-xl sm:text-2xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
         </div>
 
-        <!-- Friday Drop Countdown Box (Target: Friday 12:00 PM EST) -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded px-3 py-1.5 flex items-center gap-3">
+        <!-- Friday Drop Countdown Box (Friday 12:00 PM EST) -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded px-3 py-1.5 flex items-center gap-3">
           <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
             Next Drop In:
           </div>
@@ -215,10 +234,10 @@
         
         <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-5 relative z-10">
           <!-- Thumbnail Cover -->
-          <div class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-lg overflow-hidden shrink-0 border border-[#1b263b] bg-black shadow-lg group-hover:border-[#FF7A00]/60 transition">
+          <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-lg overflow-hidden shrink-0 border border-[#172033] bg-black shadow-lg group-hover:border-[#FFA04D]/60 transition">
             <img id="featured-latest-thumb" src="https://placehold.co/400x400/0f172a/FF7A00?text=PUF+56" alt="Episode 56 Cover" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/0f172a/FF7A00?text=PUF+56'">
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(0)">
-              <div class="w-10 h-10 rounded-full bg-[#FF7A00] text-black flex items-center justify-center shadow-lg">
+              <div class="w-10 h-10 rounded-full bg-[#FF7A00] text-black flex items-center justify-center shadow-lg hover:bg-[#FFA04D] transition">
                 <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
               </div>
             </div>
@@ -228,12 +247,12 @@
           <!-- Featured Details -->
           <div class="flex-1 flex flex-col justify-between text-center sm:text-left space-y-2">
             <div>
-              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1.5">
+              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
                 <span class="px-2 py-0.5 rounded bg-[#FF7A00] text-black font-mono font-bold text-[10px] tracking-wider uppercase">LATEST DROP</span>
                 <span class="text-[11px] font-mono text-slate-400">EPISODE 56 • 104 BPM</span>
                 <span class="text-[10px] font-mono text-slate-500">55:00 DURATION</span>
               </div>
-              <h3 class="text-lg sm:text-xl font-display font-black text-white group-hover:text-[#FF7A00] transition">
+              <h3 class="text-lg sm:text-xl font-display font-black text-white group-hover:text-[#FFA04D] transition">
                 Dancehall Heatwave & Afrobeats Edition
               </h3>
               <p class="text-xs text-slate-300 leading-relaxed mt-1">
@@ -241,8 +260,8 @@
               </p>
             </div>
 
-            <div class="pt-2">
-              <button onclick="playTrack(0)" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded bg-[#FF7A00] hover:bg-[#e66e00] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg">
+            <div class="pt-1">
+              <button onclick="playTrack(0)" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg">
                 <i data-lucide="play" class="w-4 h-4 fill-current"></i>
                 Play Latest Drop
               </button>
@@ -251,32 +270,14 @@
         </div>
       </div>
 
-      <!-- ================= GENRE DIVIDER #1: UNDER LATEST TRACK ================= -->
-      <div class="w-full bg-[#0c121c] border-y border-[#1b263b] py-2 ticker-wrap my-4">
-        <div class="ticker-track text-slate-300 font-sans text-xs tracking-[0.2em] uppercase font-normal">
-          <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-          <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        </div>
-      </div>
-
-      <!-- 4 BOXES WITH COVER THUMBNAILS BELOW LATEST TRACK -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+      <!-- EXACTLY 3 BOXES BELOW LATEST TRACK (RESPONSIVE 3-COLUMN GRID) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
         
         <!-- Box 1 (Ep. 55) -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg p-3 hover:border-[#FF7A00]/50 transition group flex flex-col justify-between">
-          <div class="flex gap-3 mb-2.5">
-            <div class="relative w-16 h-16 rounded overflow-hidden shrink-0 border border-[#1b263b] bg-black">
-              <img src="https://placehold.co/200x200/0b121e/FF7A00?text=PUF+55" alt="Ep 55 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/200x200/0b121e/FF7A00?text=PUF+55'">
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="https://placehold.co/280x280/0b121e/FF7A00?text=PUF+55" alt="Ep 55 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/0b121e/FF7A00?text=PUF+55'">
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(1)">
                 <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
               </div>
@@ -286,23 +287,23 @@
                 <span class="text-[10px] font-mono text-[#FF7A00]">EPISODE 55</span>
                 <span class="text-[9px] font-mono text-slate-400">98 BPM</span>
               </div>
-              <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition truncate">
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
                 Old School Reggae & Zouk
               </h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Deep dubwise basslines into iconic French Caribbean zouk.</p>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Deep dubwise basslines into French Caribbean zouk.</p>
             </div>
           </div>
-          <button onclick="playTrack(1)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FF7A00] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+          <button onclick="playTrack(1)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
             <i data-lucide="play" class="w-3 h-3 fill-current"></i>
             Play Mix (55:00)
           </button>
         </div>
 
         <!-- Box 2 (Ep. 54) -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg p-3 hover:border-[#FF7A00]/50 transition group flex flex-col justify-between">
-          <div class="flex gap-3 mb-2.5">
-            <div class="relative w-16 h-16 rounded overflow-hidden shrink-0 border border-[#1b263b] bg-black">
-              <img src="https://placehold.co/200x200/0b121e/FF7A00?text=PUF+54" alt="Ep 54 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/200x200/0b121e/FF7A00?text=PUF+54'">
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="https://placehold.co/280x280/0b121e/FF7A00?text=PUF+54" alt="Ep 54 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/0b121e/FF7A00?text=PUF+54'">
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(4)">
                 <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
               </div>
@@ -312,23 +313,23 @@
                 <span class="text-[10px] font-mono text-[#FF7A00]">EPISODE 54</span>
                 <span class="text-[9px] font-mono text-slate-400">105 BPM</span>
               </div>
-              <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition truncate">
-                Afro-Fusion & Caribbean Energy
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
+                Afro-Fusion & Caribbean
               </h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">High octane mashup featuring modern Ghana & Nigeria bangers.</p>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">High octane Ghana & Nigeria dancefloor anthems.</p>
             </div>
           </div>
-          <button onclick="playTrack(4)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FF7A00] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+          <button onclick="playTrack(4)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
             <i data-lucide="play" class="w-3 h-3 fill-current"></i>
             Play Mix (55:00)
           </button>
         </div>
 
         <!-- Box 3 (Ep. 53) -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg p-3 hover:border-[#FF7A00]/50 transition group flex flex-col justify-between">
-          <div class="flex gap-3 mb-2.5">
-            <div class="relative w-16 h-16 rounded overflow-hidden shrink-0 border border-[#1b263b] bg-black">
-              <img src="https://placehold.co/200x200/0b121e/FF7A00?text=PUF+53" alt="Ep 53 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/200x200/0b121e/FF7A00?text=PUF+53'">
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="https://placehold.co/280x280/0b121e/FF7A00?text=PUF+53" alt="Ep 53 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/0b121e/FF7A00?text=PUF+53'">
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(5)">
                 <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
               </div>
@@ -338,39 +339,13 @@
                 <span class="text-[10px] font-mono text-[#FF7A00]">EPISODE 53</span>
                 <span class="text-[9px] font-mono text-slate-400">140 BPM</span>
               </div>
-              <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition truncate">
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
                 Heavy Drill & Shatta Warm-up
               </h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Brooklyn drill edits mixed into high energy Jamaican dancehall.</p>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Brooklyn drill blends into Jamaican dancehall riddims.</p>
             </div>
           </div>
-          <button onclick="playTrack(5)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FF7A00] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
-            Play Mix (55:00)
-          </button>
-        </div>
-
-        <!-- Box 4 (Ep. 52) -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg p-3 hover:border-[#FF7A00]/50 transition group flex flex-col justify-between">
-          <div class="flex gap-3 mb-2.5">
-            <div class="relative w-16 h-16 rounded overflow-hidden shrink-0 border border-[#1b263b] bg-black">
-              <img src="https://placehold.co/200x200/0b121e/FF7A00?text=PUF+52" alt="Ep 52 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/200x200/0b121e/FF7A00?text=PUF+52'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(1)">
-                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-0.5">
-                <span class="text-[10px] font-mono text-[#FF7A00]">EPISODE 52</span>
-                <span class="text-[9px] font-mono text-slate-400">SOLO SET</span>
-              </div>
-              <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition truncate">
-                Golden Era Hip Hop Throwbacks
-              </h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">2000s dirty south anthems layered with quick turntable blends.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(1)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FF7A00] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+          <button onclick="playTrack(5)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
             <i data-lucide="play" class="w-3 h-3 fill-current"></i>
             Play Mix (55:00)
           </button>
@@ -380,8 +355,104 @@
 
     </section>
 
-    <!-- ================= GENRE DIVIDER #2: ABOVE DYMETIME RADIO ================= -->
-    <div class="w-full bg-[#0c121c] border-y border-[#1b263b] py-2 ticker-wrap my-6">
+    <!-- CHARCOAL DIVIDER ABOVE DYMETIME RADIO -->
+    <div class="w-full h-px bg-[#172033] my-6"></div>
+
+    <!-- 2. DYMETIME RADIO: EXACTLY 3 PLAYERS -->
+    <section id="dymetime-radio" class="space-y-4">
+      <div class="flex items-center justify-between border-b border-[#172033] pb-3">
+        <div class="flex items-center gap-3">
+          <span class="px-2 py-0.5 rounded bg-white/10 text-slate-300 text-[10px] font-mono tracking-widest uppercase">SYNDICATED WORLDWIDE</span>
+          <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">DYMETIME RADIO</h2>
+        </div>
+        <span class="text-slate-400 font-mono text-xs">BROADCAST CUTS</span>
+      </div>
+
+      <!-- 3 PLAYERS IN RESPONSIVE GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        
+        <!-- Radio Player 1 -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+018" alt="Radio 018 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+018'">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(2)">
+                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex justify-between items-start mb-0.5">
+                <span class="text-[10px] font-mono text-[#FF7A00]">SESSION 018</span>
+                <span class="text-[9px] font-mono text-slate-400">320 KBPS</span>
+              </div>
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Global Club & Amapiano</h4>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Heavy log drum basslines blended into drill edits.</p>
+            </div>
+          </div>
+          <button onclick="playTrack(2)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            Play Mix (62:30)
+          </button>
+        </div>
+
+        <!-- Radio Player 2 -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+017" alt="Radio 017 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+017'">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(3)">
+                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex justify-between items-start mb-0.5">
+                <span class="text-[10px] font-mono text-[#FF7A00]">SESSION 017</span>
+                <span class="text-[9px] font-mono text-slate-400">320 KBPS</span>
+              </div>
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Mid-Tempo Afropop</h4>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">West African grooves locked into Martinique clashes.</p>
+            </div>
+          </div>
+          <button onclick="playTrack(3)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            Play Mix (58:15)
+          </button>
+        </div>
+
+        <!-- Radio Player 3 -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+016" alt="Radio 016 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+016'">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(2)">
+                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex justify-between items-start mb-0.5">
+                <span class="text-[10px] font-mono text-[#FF7A00]">SESSION 016</span>
+                <span class="text-[9px] font-mono text-slate-400">320 KBPS</span>
+              </div>
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Afrobeats Summer Wave</h4>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Pure Afropop heat with melodic Caribbean hooks.</p>
+            </div>
+          </div>
+          <button onclick="playTrack(2)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            Play Mix (60:00)
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHARCOAL DIVIDER -->
+    <div class="w-full h-px bg-[#172033] my-6"></div>
+
+    <!-- =======================================================================
+         EXACTLY ONE GENRE SLIDER: POSITIONED DIRECTLY ON TOP OF VIDEO MIXES
+         ======================================================================= -->
+    <div class="w-full bg-[#0c121c] border-y border-[#172033] py-2.5 ticker-wrap my-4">
       <div class="ticker-track text-slate-300 font-sans text-xs tracking-[0.2em] uppercase font-normal">
         <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
@@ -391,112 +462,58 @@
         <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
       </div>
     </div>
 
-    <!-- 2. DYMETIME RADIO WITH THUMBNAILS -->
-    <section id="dymetime-radio" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-[#1b263b] pb-3">
-        <div class="flex items-center gap-3">
-          <span class="px-2 py-0.5 rounded bg-white/10 text-slate-300 text-[10px] font-mono tracking-widest uppercase">SYNDICATED WORLDWIDE</span>
-          <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">DYMETIME RADIO</h2>
-        </div>
-        <span class="text-slate-400 font-mono text-xs">BROADCAST CUTS</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Radio 1 -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg p-3.5 hover:border-[#FF7A00]/50 transition group flex flex-col justify-between">
-          <div class="flex gap-3.5 mb-3">
-            <div class="relative w-20 h-20 rounded-md overflow-hidden shrink-0 border border-[#1b263b] bg-black">
-              <img src="https://placehold.co/240x240/131b2e/FF7A00?text=RADIO+018" alt="Radio 018 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/240x240/131b2e/FF7A00?text=RADIO+018'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(2)">
-                <i data-lucide="play" class="w-5 h-5 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-1">
-                <span class="text-[11px] font-mono text-[#FF7A00]">SESSION 018</span>
-                <span class="text-[10px] font-mono text-slate-400">320 KBPS</span>
-              </div>
-              <h3 class="font-display font-bold text-sm text-white group-hover:text-[#FF7A00] transition leading-tight">Global Club Anthems & Amapiano Wave</h3>
-              <p class="text-xs text-slate-400 line-clamp-2 mt-1">Log drum heavy transitions into heavy NYC drill edits.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(2)" class="w-full flex items-center justify-center gap-2 py-2 rounded bg-[#141d2e] hover:bg-[#FF7A00] text-slate-200 hover:text-black text-xs font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-            Play Mix (62:30)
-          </button>
-        </div>
-
-        <!-- Radio 2 -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg p-3.5 hover:border-[#FF7A00]/50 transition group flex flex-col justify-between">
-          <div class="flex gap-3.5 mb-3">
-            <div class="relative w-20 h-20 rounded-md overflow-hidden shrink-0 border border-[#1b263b] bg-black">
-              <img src="https://placehold.co/240x240/131b2e/FF7A00?text=RADIO+017" alt="Radio 017 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/240x240/131b2e/FF7A00?text=RADIO+017'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(3)">
-                <i data-lucide="play" class="w-5 h-5 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-1">
-                <span class="text-[11px] font-mono text-[#FF7A00]">SESSION 017</span>
-                <span class="text-[10px] font-mono text-slate-400">320 KBPS</span>
-              </div>
-              <h3 class="font-display font-bold text-sm text-white group-hover:text-[#FF7A00] transition leading-tight">Mid-Tempo Afropop & Shatta Sessions</h3>
-              <p class="text-xs text-slate-400 line-clamp-2 mt-1">West African rhythms locked into Martinique sound clashes.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(3)" class="w-full flex items-center justify-center gap-2 py-2 rounded bg-[#141d2e] hover:bg-[#FF7A00] text-slate-200 hover:text-black text-xs font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-            Play Mix (58:15)
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- CHARCOAL DIVIDER ABOVE VIDEO MIXES -->
-    <div class="w-full h-px bg-[#1b263b] my-8"></div>
-
-    <!-- 3. VIDEO MIXES (YOUTUBE SETS) -->
+    <!-- =======================================================================
+         3. VIDEO MIXES (TRUE YOUTUBE 16:9 WIDESCREEN ASPECT RATIO)
+         GUIDE: WHERE TO INPUT YOUR YOUTUBE MIX URLs
+         Replace the YouTube video IDs below (e.g. replace 'dQw4w9WgXcQ' with your ID).
+         Example: onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1')"
+         Thumbnail auto-loads via: https://img.youtube.com/vi/YOUR_VIDEO_ID/hqdefault.jpg
+         ======================================================================= -->
     <section id="video-mixes" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-[#1b263b] pb-3">
+      <div class="flex items-center justify-between border-b border-[#172033] pb-3">
         <div class="flex items-center gap-3">
           <span class="px-2 py-0.5 rounded bg-red-600/20 text-red-400 text-[10px] font-mono tracking-widest uppercase">VISUAL SETS</span>
           <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">VIDEO MIXES</h2>
         </div>
-        <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#FF7A00] font-mono text-xs flex items-center gap-1 transition">
+        <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#FFA04D] font-mono text-xs flex items-center gap-1 transition">
           YOUTUBE CHANNEL <i data-lucide="external-link" class="w-3 h-3"></i>
         </a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Video 1 -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg overflow-hidden group hover:border-[#FF7A00]/50 transition">
-          <div class="relative aspect-video bg-black/60 flex items-center justify-center cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <img src="https://placehold.co/600x340/0b121e/FF7A00?text=Live+Sunset+Rooftop+Set" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/600x340/0b121e/FF7A00?text=Live+DJ+Set'">
-            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+        <!-- Video 1 (16:9 YouTube Size) -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
+          <div class="relative w-full aspect-video bg-black flex items-center justify-center cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+            <img src="https://placehold.co/1280x720/080c13/FF7A00?text=Sunset+Rooftop+DJ+Set" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/1280x720/080c13/FF7A00?text=YouTube+Set'">
+            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
             </div>
-            <span class="absolute bottom-2 right-2 bg-black/80 text-white font-mono text-[10px] px-1.5 py-0.5 rounded">42:18</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-black/80 font-mono text-[10px] px-2 py-0.5 rounded text-white border border-[#172033]">42:18</span>
           </div>
           <div class="p-3">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FF7A00] transition">Live Sunset Rooftop DJ Set | Afro & Amapiano</h4>
+            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FFA04D] transition">Live Sunset Rooftop DJ Set | Afro & Amapiano</h4>
             <p class="text-[11px] text-slate-400 mt-1">Full 4K live club setup recording.</p>
           </div>
         </div>
 
-        <!-- Video 2 -->
-        <div class="bg-[#0e1522] border border-[#1b263b] rounded-lg overflow-hidden group hover:border-[#FF7A00]/50 transition">
-          <div class="relative aspect-video bg-black/60 flex items-center justify-center cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <img src="https://placehold.co/600x340/0b121e/FF7A00?text=Studio+Session+Shatta" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/600x340/0b121e/FF7A00?text=Studio+Session'">
-            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+        <!-- Video 2 (16:9 YouTube Size) -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
+          <div class="relative w-full aspect-video bg-black flex items-center justify-center cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+            <img src="https://placehold.co/1280x720/080c13/FF7A00?text=Studio+Session+Shatta" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/1280x720/080c13/FF7A00?text=YouTube+Set'">
+            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
             </div>
-            <span class="absolute bottom-2 right-2 bg-black/80 text-white font-mono text-[10px] px-1.5 py-0.5 rounded">38:40</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-black/80 font-mono text-[10px] px-2 py-0.5 rounded text-white border border-[#172033]">38:40</span>
           </div>
           <div class="p-3">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FF7A00] transition">Pull Up Fridays Studio Session | Shatta Reggae</h4>
+            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FFA04D] transition">Pull Up Fridays Studio Session | Shatta Reggae</h4>
             <p class="text-[11px] text-slate-400 mt-1">Live mixing and cue point performance.</p>
           </div>
         </div>
@@ -504,18 +521,18 @@
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE THE VAULT -->
-    <div class="w-full h-px bg-[#1b263b] my-8"></div>
+    <div class="w-full h-px bg-[#172033] my-6"></div>
 
     <!-- 4. THE VAULT (ARCHIVE ENGINE WITH THUMBNAILS) -->
     <section id="mix-vault" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#1b263b] pb-3">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#172033] pb-3">
         <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
         
         <!-- Filter Tabs -->
         <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
           <button onclick="filterVault('all')" class="tab-btn px-2.5 py-1 rounded bg-[#FF7A00] text-black font-bold uppercase transition" data-filter="all">All</button>
-          <button onclick="filterVault('puf')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#1b263b] text-slate-300 hover:text-white uppercase transition" data-filter="puf">Pull Up Fridays</button>
-          <button onclick="filterVault('radio')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#1b263b] text-slate-300 hover:text-white uppercase transition" data-filter="radio">Dymetime Radio</button>
+          <button onclick="filterVault('puf')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="puf">Pull Up Fridays</button>
+          <button onclick="filterVault('radio')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="radio">Dymetime Radio</button>
         </div>
       </div>
 
@@ -524,11 +541,16 @@
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE EVENTS -->
-    <div class="w-full h-px bg-[#1b263b] my-8"></div>
+    <div class="w-full h-px bg-[#172033] my-6"></div>
 
-    <!-- 5. EVENTS: HORIZONTAL ALBUM-STYLE SCROLLER -->
+    <!-- =======================================================================
+         5. EVENTS: HORIZONTAL ALBUM-STYLE SCROLLER (ONE SIZE SMALLER)
+         GUIDE: WHERE TO INPUT YOUR EVENT VIDEO URLs
+         Update the onclick="openVideoModal('https://www.youtube.com/embed/YOUR_EVENT_ID?autoplay=1')"
+         and the img src with your event flyer or video cover.
+         ======================================================================= -->
     <section id="events" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-[#1b263b] pb-3">
+      <div class="flex items-center justify-between border-b border-[#172033] pb-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
             <span class="px-2 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">LIVE ARCHIVES</span>
@@ -537,85 +559,85 @@
           <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">PAST EVENTS & STAGES</h2>
         </div>
         
-        <!-- Scroller Controls -->
+        <!-- Scroller Controls with Light Orange Hover -->
         <div class="flex items-center gap-1.5">
-          <button onclick="scrollEvents('left')" class="p-1.5 rounded bg-[#0e1522] border border-[#1b263b] hover:text-[#FF7A00] text-slate-400 transition" aria-label="Scroll left">
+          <button onclick="scrollEvents('left')" class="p-1.5 rounded bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] hover:border-[#FFA04D]/50 text-slate-400 transition" aria-label="Scroll left">
             <i data-lucide="chevron-left" class="w-4 h-4"></i>
           </button>
-          <button onclick="scrollEvents('right')" class="p-1.5 rounded bg-[#0e1522] border border-[#1b263b] hover:text-[#FF7A00] text-slate-400 transition" aria-label="Scroll right">
+          <button onclick="scrollEvents('right')" class="p-1.5 rounded bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] hover:border-[#FFA04D]/50 text-slate-400 transition" aria-label="Scroll right">
             <i data-lucide="chevron-right" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
 
-      <!-- 4 Horizontally Scrollable Album Cards -->
-      <div id="events-rail" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-3 snap-x snap-mandatory">
+      <!-- Compact Sized Album Cards (min-w-[210px] on mobile, min-w-[230px] on desktop) -->
+      <div id="events-rail" class="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth pb-2 snap-x snap-mandatory">
         
-        <!-- Event Album 1 -->
-        <div class="min-w-[260px] sm:min-w-[280px] bg-[#0e1522] border border-[#1b263b] rounded-xl overflow-hidden snap-start group hover:border-[#FF7A00]/50 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <img src="https://placehold.co/400x400/101826/FF7A00?text=Afro+Carnival+Recap" alt="Afro Carnival" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/400x400/101826/FF7A00?text=Event+Recap'">
+        <!-- Event Album 1 (INPUT EVENT VIDEO 1 URL BELOW) -->
+        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+            <img src="https://placehold.co/360x360/101826/FF7A00?text=Afro+Carnival" alt="Afro Carnival" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Event+Recap'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-xl">
-              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
             </div>
-            <span class="absolute bottom-2.5 left-3 z-20 text-[10px] font-mono text-[#FF7A00] font-bold">RECAP VIDEO</span>
-            <span class="absolute bottom-2.5 right-3 z-20 text-[10px] font-mono text-slate-300">2026 TOUR</span>
+            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">RECAP VIDEO</span>
+            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">2026 TOUR</span>
           </div>
-          <div class="p-3.5 space-y-1">
-            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition">Afro Carnival Club Takeover</h4>
-            <p class="text-[11px] text-slate-400 font-mono">Philadelphia, PA • 1,200+ Cap</p>
+          <div class="p-2.5 space-y-0.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Afro Carnival Club Takeover</h4>
+            <p class="text-[10px] text-slate-400 font-mono">Philadelphia, PA • 1,200+ Cap</p>
           </div>
         </div>
 
-        <!-- Event Album 2 -->
-        <div class="min-w-[260px] sm:min-w-[280px] bg-[#0e1522] border border-[#1b263b] rounded-xl overflow-hidden snap-start group hover:border-[#FF7A00]/50 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <img src="https://placehold.co/400x400/101826/FF7A00?text=Shatta+Soundclash" alt="Shatta Clash" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/400x400/101826/FF7A00?text=Festival+Stage'">
+        <!-- Event Album 2 (INPUT EVENT VIDEO 2 URL BELOW) -->
+        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+            <img src="https://placehold.co/360x360/101826/FF7A00?text=Shatta+Clash" alt="Shatta Clash" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Festival+Stage'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-xl">
-              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
             </div>
-            <span class="absolute bottom-2.5 left-3 z-20 text-[10px] font-mono text-[#FF7A00] font-bold">FESTIVAL STAGE</span>
-            <span class="absolute bottom-2.5 right-3 z-20 text-[10px] font-mono text-slate-300">LIVE AUDIO</span>
+            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">FESTIVAL STAGE</span>
+            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">LIVE AUDIO</span>
           </div>
-          <div class="p-3.5 space-y-1">
-            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition">Shatta Soundclash Festival</h4>
-            <p class="text-[11px] text-slate-400 font-mono">Brooklyn, NY • Main Arena</p>
+          <div class="p-2.5 space-y-0.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Shatta Soundclash Festival</h4>
+            <p class="text-[10px] text-slate-400 font-mono">Brooklyn, NY • Main Arena</p>
           </div>
         </div>
 
-        <!-- Event Album 3 -->
-        <div class="min-w-[260px] sm:min-w-[280px] bg-[#0e1522] border border-[#1b263b] rounded-xl overflow-hidden snap-start group hover:border-[#FF7A00]/50 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <img src="https://placehold.co/400x400/101826/FF7A00?text=Ignite+Midnight+Lounge" alt="Ignite Lounge" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/400x400/101826/FF7A00?text=Club+Residency'">
+        <!-- Event Album 3 (INPUT EVENT VIDEO 3 URL BELOW) -->
+        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+            <img src="https://placehold.co/360x360/101826/FF7A00?text=Ignite+Midnight" alt="Ignite Lounge" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Club+Residency'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-xl">
-              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
             </div>
-            <span class="absolute bottom-2.5 left-3 z-20 text-[10px] font-mono text-[#FF7A00] font-bold">CLUB RESIDENCY</span>
-            <span class="absolute bottom-2.5 right-3 z-20 text-[10px] font-mono text-slate-300">DJ SET</span>
+            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">CLUB RESIDENCY</span>
+            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">DJ SET</span>
           </div>
-          <div class="p-3.5 space-y-1">
-            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition">Ignite Friday Midnight Session</h4>
-            <p class="text-[11px] text-slate-400 font-mono">Drexel Hill Lounge • Sold Out</p>
+          <div class="p-2.5 space-y-0.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Ignite Friday Midnight Session</h4>
+            <p class="text-[10px] text-slate-400 font-mono">Drexel Hill Lounge • Sold Out</p>
           </div>
         </div>
 
-        <!-- Event Album 4 -->
-        <div class="min-w-[260px] sm:min-w-[280px] bg-[#0e1522] border border-[#1b263b] rounded-xl overflow-hidden snap-start group hover:border-[#FF7A00]/50 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <img src="https://placehold.co/400x400/101826/FF7A00?text=Amapiano+Boat+Cruise" alt="Boat Cruise" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/400x400/101826/FF7A00?text=Boat+Party'">
+        <!-- Event Album 4 (INPUT EVENT VIDEO 4 URL BELOW) -->
+        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+            <img src="https://placehold.co/360x360/101826/FF7A00?text=Boat+Cruise" alt="Boat Cruise" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Boat+Party'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-xl">
-              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
             </div>
-            <span class="absolute bottom-2.5 left-3 z-20 text-[10px] font-mono text-[#FF7A00] font-bold">SUMMER LIVE</span>
-            <span class="absolute bottom-2.5 right-3 z-20 text-[10px] font-mono text-slate-300">TOUR STOP</span>
+            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">SUMMER LIVE</span>
+            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">TOUR STOP</span>
           </div>
-          <div class="p-3.5 space-y-1">
-            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FF7A00] transition">Amapiano Sunset Boat Cruise</h4>
-            <p class="text-[11px] text-slate-400 font-mono">Miami, FL • Visual Recording</p>
+          <div class="p-2.5 space-y-0.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Amapiano Sunset Boat Cruise</h4>
+            <p class="text-[10px] text-slate-400 font-mono">Miami, FL • Visual Set</p>
           </div>
         </div>
 
@@ -623,29 +645,29 @@
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE EMAIL LIST -->
-    <div class="w-full h-px bg-[#1b263b] my-8"></div>
+    <div class="w-full h-px bg-[#172033] my-6"></div>
 
-    <!-- 6. JOIN EMAIL LIST (VIP MIXTAPE & EVENT DROPS) -->
-    <section class="bg-gradient-to-r from-[#0e1522] via-[#111928] to-[#0e1522] border border-[#1b263b] rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden">
-      <div class="max-w-md mx-auto space-y-3">
+    <!-- 6. JOIN EMAIL LIST -->
+    <section class="bg-gradient-to-r from-[#0e1522] via-[#111928] to-[#0e1522] border border-[#172033] rounded-xl p-5 sm:p-6 text-center relative overflow-hidden">
+      <div class="max-w-md mx-auto space-y-2.5">
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">
           <i data-lucide="mail" class="w-3 h-3"></i>
           EXCLUSIVE ACCESS
         </div>
-        <h3 class="font-display font-black text-xl sm:text-2xl text-white tracking-wide">
+        <h3 class="font-display font-black text-xl text-white tracking-wide">
           JOIN THE DJ DYME EMAIL LIST
         </h3>
         <p class="text-xs text-slate-400">
           Get weekly Pull Up Fridays download links at 12:00 PM before the public release, unreleased radio cuts, and exclusive event presales.
         </p>
 
-        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-2">
-          <input required type="email" id="email-input" placeholder="Enter your email address" class="flex-1 bg-[#080c13] border border-[#1b263b] rounded-lg px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FF7A00]">
-          <button type="submit" class="px-6 py-2.5 rounded-lg bg-[#FF7A00] hover:bg-[#e66e00] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md shrink-0">
+        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-1.5">
+          <input required type="email" id="email-input" placeholder="Enter your email address" class="flex-1 bg-[#080c13] border border-[#172033] rounded px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FFA04D]">
+          <button type="submit" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md shrink-0">
             Subscribe
           </button>
         </form>
-        <div id="email-feedback" class="text-[11px] font-mono text-[#FF7A00] hidden">
+        <div id="email-feedback" class="text-[11px] font-mono text-[#FFA04D] hidden">
           ✓ Welcome to the list. You're locked in for the next drop!
         </div>
       </div>
@@ -654,37 +676,37 @@
   </main>
 
   <!-- ================= FOOTER & SOCIAL MEDIA ================= -->
-  <footer class="max-w-4xl mx-auto px-4 pt-12 pb-16 border-t border-[#1b263b]/70 text-center w-full">
+  <footer class="max-w-4xl mx-auto px-4 pt-10 pb-16 border-t border-[#172033] text-center w-full">
     
-    <!-- Direct Social Media Links -->
-    <div class="flex flex-wrap items-center justify-center gap-6 mb-8">
-      <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FF7A00] transition">
+    <!-- Social Links with Light Orange Hover -->
+    <div class="flex flex-wrap items-center justify-center gap-6 mb-7">
+      <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="radio" class="w-4 h-4"></i>
         <span>Mixcloud</span>
       </a>
-      <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FF7A00] transition">
+      <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="instagram" class="w-4 h-4"></i>
         <span>Instagram</span>
       </a>
-      <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FF7A00] transition">
+      <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="facebook" class="w-4 h-4"></i>
         <span>Facebook</span>
       </a>
-      <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FF7A00] transition">
+      <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="youtube" class="w-4 h-4"></i>
         <span>YouTube</span>
       </a>
-      <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FF7A00] transition">
+      <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="music-2" class="w-4 h-4"></i>
         <span>TikTok</span>
       </a>
     </div>
 
     <!-- Booking Pitch -->
-    <div class="mb-6">
+    <div class="mb-5">
       <h3 class="font-display font-black text-xl text-white tracking-wide mb-1">LOCK IN DJ DYME</h3>
       <p class="text-xs text-slate-400 max-w-sm mx-auto mb-3">Available for club residencies, festival lineups, private showcases, and tours worldwide.</p>
-      <button onclick="openBookingModal()" class="px-6 py-2 rounded bg-[#FF7A00] hover:bg-[#e66e00] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+      <button onclick="openBookingModal()" class="px-6 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
         Inquire For Dates
       </button>
     </div>
@@ -694,13 +716,15 @@
     </div>
   </footer>
 
-  <!-- ================= PERSISTENT BOTTOM AUDIO PLAYER WITH THUMBNAIL ================= -->
-  <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#080c13]/95 backdrop-blur-md border-t border-[#1b263b] py-2 px-4 shadow-2xl">
+  <!-- =======================================================================
+       PERSISTENT BOTTOM AUDIO PLAYER (TURNS LIGHT ORANGE ON HOVER)
+       ======================================================================= -->
+  <div class="player-dock fixed bottom-0 left-0 right-0 z-50 bg-[#080c13]/95 backdrop-blur-md border-t border-[#172033] py-2 px-4 shadow-2xl">
     <div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
       
-      <!-- Track Details & Live Cover Art -->
+      <!-- Track Meta & Live Thumbnail -->
       <div class="flex items-center gap-3 min-w-0 w-1/3">
-        <img id="player-thumb" src="https://placehold.co/100x100/0f172a/FF7A00?text=56" alt="Now Playing" class="w-9 h-9 sm:w-10 sm:h-10 rounded-md object-cover border border-[#1b263b] shrink-0" onerror="this.src='https://placehold.co/100x100/0f172a/FF7A00?text=DJ'">
+        <img id="player-thumb" src="https://placehold.co/100x100/0f172a/FF7A00?text=56" alt="Now Playing" class="w-9 h-9 sm:w-10 sm:h-10 rounded object-cover border border-[#172033] shrink-0" onerror="this.src='https://placehold.co/100x100/0f172a/FF7A00?text=DJ'">
         <div class="hidden sm:flex items-end gap-0.5 h-4 w-4 shrink-0 text-[#FF7A00]" id="eq-container">
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.1s"></div>
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.3s"></div>
@@ -708,35 +732,35 @@
         </div>
         <div class="truncate">
           <h4 id="player-title" class="font-display font-bold text-xs text-white truncate">Pull Up Fridays - Ep. 56</h4>
-          <p id="player-subtitle" class="font-mono text-[10px] text-[#FF7A00] truncate">Dancehall Heatwave & Afrobeats Edition</p>
+          <p id="player-subtitle" class="font-mono text-[10px] text-[#FFA04D] truncate">Dancehall Heatwave & Afrobeats</p>
         </div>
       </div>
 
-      <!-- Center Controls & Scrub Timeline -->
+      <!-- Controls & Scrub Timeline with Light Orange Highlights -->
       <div class="flex flex-col items-center gap-1 w-1/2 max-w-xs">
         <div class="flex items-center gap-3">
-          <button onclick="prevTrack()" class="text-slate-400 hover:text-white transition" aria-label="Previous track">
+          <button onclick="prevTrack()" class="text-slate-400 hover:text-[#FFA04D] transition" aria-label="Previous track">
             <i data-lucide="skip-back" class="w-3.5 h-3.5"></i>
           </button>
-          <button onclick="togglePlay()" class="w-7 h-7 rounded-full bg-[#FF7A00] hover:bg-[#e66e00] flex items-center justify-center text-black transition shadow" aria-label="Toggle play/pause">
+          <button onclick="togglePlay()" class="w-7 h-7 rounded-full bg-[#FF7A00] hover:bg-[#FFA04D] flex items-center justify-center text-black transition shadow" aria-label="Toggle play/pause">
             <i data-lucide="play" id="play-icon" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
           </button>
-          <button onclick="nextTrack()" class="text-slate-400 hover:text-white transition" aria-label="Next track">
+          <button onclick="nextTrack()" class="text-slate-400 hover:text-[#FFA04D] transition" aria-label="Next track">
             <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
           </button>
         </div>
         <div class="w-full flex items-center gap-2 text-[10px] font-mono text-slate-400">
           <span id="current-time">00:00</span>
-          <div class="relative w-full h-1 bg-[#1b263b] rounded-full overflow-hidden cursor-pointer" onclick="seekTrack(event)">
-            <div id="progress-bar" class="h-full bg-[#FF7A00] w-0 rounded-full"></div>
+          <div class="relative w-full h-1 bg-[#172033] rounded-full overflow-hidden cursor-pointer" onclick="seekTrack(event)">
+            <div id="progress-bar" class="h-full bg-[#FF7A00] hover:bg-[#FFA04D] w-0 rounded-full transition-all"></div>
           </div>
           <span id="total-time">55:00</span>
         </div>
       </div>
 
-      <!-- Right Indicator -->
+      <!-- Right Side Live Deck Indicator -->
       <div class="hidden sm:flex items-center justify-end gap-3 w-1/4">
-        <span class="text-[10px] font-mono text-[#FF7A00] border border-[#FF7A00]/30 px-2 py-0.5 rounded">LIVE DECK</span>
+        <span class="text-[10px] font-mono text-[#FFA04D] border border-[#FFA04D]/30 px-2 py-0.5 rounded">LIVE DECK</span>
       </div>
 
     </div>
@@ -744,8 +768,8 @@
 
   <!-- ================= BOOKING MODAL ================= -->
   <div id="booking-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-[#0e1522] border border-[#1b263b] rounded-xl max-w-md w-full p-6 relative shadow-2xl">
-      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white" aria-label="Close modal">
+    <div class="bg-[#0e1522] border border-[#172033] rounded-xl max-w-md w-full p-6 relative shadow-2xl">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-[#FFA04D]" aria-label="Close modal">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <h3 class="font-display font-extrabold text-lg text-white mb-1">EVENT & SHOW INQUIRIES</h3>
@@ -754,31 +778,31 @@
       <form onsubmit="handleBookingSubmit(event)" class="space-y-3 font-sans text-xs">
         <div>
           <label class="block text-slate-300 font-mono text-[10px] uppercase mb-1">Your Name / Organization</label>
-          <input required type="text" class="w-full bg-[#080c13] border border-[#1b263b] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FF7A00]">
+          <input required type="text" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FFA04D]">
         </div>
         <div>
           <label class="block text-slate-300 font-mono text-[10px] uppercase mb-1">Email Address</label>
-          <input required type="email" class="w-full bg-[#080c13] border border-[#1b263b] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FF7A00]">
+          <input required type="email" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FFA04D]">
         </div>
         <div>
           <label class="block text-slate-300 font-mono text-[10px] uppercase mb-1">Event Date & City / Venue</label>
-          <input required type="text" placeholder="e.g. Nov 14 - Philadelphia, PA" class="w-full bg-[#080c13] border border-[#1b263b] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FF7A00]">
+          <input required type="text" placeholder="e.g. Nov 14 - Philadelphia, PA" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FFA04D]">
         </div>
         <div>
           <label class="block text-slate-300 font-mono text-[10px] uppercase mb-1">Set Details / Budget</label>
-          <textarea rows="3" class="w-full bg-[#080c13] border border-[#1b263b] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FF7A00]"></textarea>
+          <textarea rows="3" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FFA04D]"></textarea>
         </div>
-        <button type="submit" class="w-full py-2.5 rounded bg-[#FF7A00] hover:bg-[#e66e00] text-black font-display font-black text-xs uppercase tracking-wider transition">
+        <button type="submit" class="w-full py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition">
           Transmit Request
         </button>
       </form>
     </div>
   </div>
 
-  <!-- ================= VIDEO POPUP MODAL ================= -->
+  <!-- ================= VIDEO POPUP MODAL (16:9 YOUTUBE SIZED) ================= -->
   <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="relative max-w-2xl w-full bg-black rounded-xl overflow-hidden border border-[#1b263b] shadow-2xl">
-      <button onclick="closeVideoModal()" class="absolute top-2 right-2 z-10 p-1.5 bg-black/70 text-white rounded-full hover:text-[#FF7A00]" aria-label="Close video">
+    <div class="relative max-w-3xl w-full bg-black rounded-xl overflow-hidden border border-[#172033] shadow-2xl">
+      <button onclick="closeVideoModal()" class="absolute top-2 right-2 z-10 p-1.5 bg-black/70 text-white rounded-full hover:text-[#FFA04D]" aria-label="Close video">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="aspect-video w-full">
@@ -787,30 +811,39 @@
     </div>
   </div>
 
-  <!-- Audio Element -->
   <audio id="audio-engine" preload="none"></audio>
 
-  <!-- ================= SCRIPT LOGIC & CONTENT DATABASE WITH THUMBNAILS ================= -->
+  <!-- =======================================================================
+       SCRIPT LOGIC & HOW TO ORGANIZE YOUR CONTENT:
+       
+       1. KEEPING NEWEST FIRST & OLDEST LAST:
+          Always place your newest mix at the TOP of the array (Index 0).
+          The older mixes follow underneath in descending order (Ep 56 -> 55 -> 54).
+       
+       2. HOW TO TAG & DIFFERENTIATE MIXES:
+          - 'puf': Pull Up Fridays (tagged in series: 'puf')
+          - 'radio': Dymetime Radio (tagged in series: 'radio')
+          - Use the `tags: ['DANCEHALL', 'AFROBEATS']` array to differentiate genres.
+       ======================================================================= -->
   <script>
     lucide.createIcons();
 
     /* ========================================================================
-       EASY CONTENT DATABASE WITH COVER ART THUMBNAILS:
-       Update the `coverArt` path or URL below for every mix you add!
+       CONTENT DATABASE: NEWEST MIXES AT THE TOP (INDEX 0) -> OLDEST AT BOTTOM
        ======================================================================== */
     const mixDatabase = [
       {
         id: 0,
-        series: 'puf',
-        episode: 'EPISODE 56',
-        title: 'Pull Up Fridays - Ep. 56',
-        subtitle: 'Dancehall Heatwave & Afrobeats Edition',
+        series: 'puf', // <-- Tag for Pull Up Fridays
+        episode: 'EPISODE 57',
+        title: 'Pull Up Fridays - Ep. 57',
+        subtitle: 'Kompa . Afrobeat . Dancehall',
         bpm: '104 BPM',
-        duration: '55:00',
+        duration: '57:00',
         durationSec: 3300,
-        tags: ['PUF', 'AFROBEATS', 'DANCEHALL'],
+        tags: ['PUF', 'AFROBEATS', 'DANCEHALL', 'KOMPA],
         coverArt: 'https://placehold.co/400x400/0f172a/FF7A00?text=PUF+56',
-        audioUrl: 'audio/puf56.mp3'
+        audioUrl: 'https://www.mixcloud.com/djdyme/spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254/?utm_medium=share&utm_source=clipboard&utm_content=show&utm_term=M2M4NmU3NzRfN2MzZl80YTljX2JjMWVfOTM3YmE0ZjIzNDMx' // Direct MP3 or streaming link
       },
       {
         id: 1,
@@ -827,7 +860,7 @@
       },
       {
         id: 2,
-        series: 'radio',
+        series: 'radio', // <-- Tag for Dymetime Radio
         episode: 'SESSION 018',
         title: 'Dymetime Radio - Session 018',
         subtitle: 'Global Club Anthems & Amapiano Wave',
@@ -884,7 +917,7 @@
     let progressTimer = null;
     let currentSeconds = 0;
 
-    // 1. Render Vault List with Cover Art Thumbnails
+    // Render Vault with Thumbnails
     function renderVault(filter = 'all') {
       const container = document.getElementById('vault-list');
       container.innerHTML = '';
@@ -893,25 +926,24 @@
       
       filtered.forEach(t => {
         const row = document.createElement('div');
-        row.className = "flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-[#0e1522] border border-[#1b263b] hover:border-[#FF7A00]/50 transition cursor-pointer group";
+        row.className = "flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-[#0e1522] border border-[#172033] hover:border-[#FFA04D]/60 transition cursor-pointer group";
         row.onclick = () => playTrack(t.id);
         row.innerHTML = `
           <div class="flex items-center gap-3 min-w-0">
-            <!-- Vault Item Thumbnail -->
-            <div class="relative w-10 h-10 rounded overflow-hidden shrink-0 border border-[#1b263b] bg-black">
+            <div class="relative w-10 h-10 rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
               <img src="${t.coverArt}" alt="${t.title}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/100x100/0e1522/FF7A00?text=MIX'">
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                 <i data-lucide="play" class="w-3.5 h-3.5 fill-white text-white"></i>
               </div>
             </div>
             <div class="truncate">
-              <h5 class="text-xs font-display font-bold text-white group-hover:text-[#FF7A00] transition truncate">${t.title}</h5>
+              <h5 class="text-xs font-display font-bold text-white group-hover:text-[#FFA04D] transition truncate">${t.title}</h5>
               <p class="text-[10px] font-mono text-slate-400 truncate">${t.subtitle}</p>
             </div>
           </div>
           <div class="flex items-center gap-3 shrink-0 font-mono text-[10px] text-slate-400">
             <span>${t.duration}</span>
-            <button class="p-1 rounded text-slate-400 group-hover:text-[#FF7A00] transition" aria-label="Play track">
+            <button class="p-1 rounded text-slate-400 group-hover:text-[#FFA04D] transition" aria-label="Play track">
               <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
             </button>
           </div>
@@ -926,13 +958,13 @@
         if(btn.dataset.filter === category) {
           btn.className = "tab-btn px-2.5 py-1 rounded bg-[#FF7A00] text-black font-bold uppercase transition";
         } else {
-          btn.className = "tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#1b263b] text-slate-300 hover:text-white uppercase transition";
+          btn.className = "tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition";
         }
       });
       renderVault(category);
     }
 
-    // 2. Playback System with Live Thumbnail Synchronizer
+    // Playback System
     function playTrack(idx) {
       currentTrackIdx = idx;
       const track = mixDatabase[idx];
@@ -940,7 +972,6 @@
       document.getElementById('player-subtitle').innerText = track.subtitle;
       document.getElementById('total-time').innerText = track.duration;
       
-      // Update bottom player thumbnail image
       const thumb = document.getElementById('player-thumb');
       if (thumb && track.coverArt) {
         thumb.src = track.coverArt;
@@ -1006,18 +1037,16 @@
       document.getElementById('progress-bar').style.width = (clickPos * 100) + '%';
     }
 
-    // 3. Automatic Friday 12:00 PM EST Drop Countdown
+    // Friday 12:00 PM EST Drop Countdown
     function updateFridayCountdown() {
       const now = new Date();
-      
       let target = new Date();
-      const dayOfWeek = now.getDay(); // 0 is Sunday, 5 is Friday
+      const dayOfWeek = now.getDay();
       let daysUntilFriday = (5 - dayOfWeek + 7) % 7;
       
       target.setDate(now.getDate() + daysUntilFriday);
       target.setHours(12, 0, 0, 0);
 
-      // If it's Friday afternoon after 12:00 PM, set target to NEXT Friday
       if (dayOfWeek === 5 && now >= target) {
         target.setDate(target.getDate() + 7);
       }
@@ -1037,14 +1066,14 @@
     setInterval(updateFridayCountdown, 1000);
     updateFridayCountdown();
 
-    // 4. Horizontal Event Scroller
+    // Event Scroller
     function scrollEvents(dir) {
       const rail = document.getElementById('events-rail');
-      const amount = 300;
+      const amount = 240;
       rail.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
     }
 
-    // 5. Email List Form
+    // Email List Form
     function handleEmailSubmit(e) {
       e.preventDefault();
       document.getElementById('email-input').value = '';
@@ -1053,7 +1082,7 @@
       setTimeout(() => feedback.classList.add('hidden'), 5000);
     }
 
-    // 6. Booking Modal
+    // Booking Modal
     function openBookingModal() {
       const m = document.getElementById('booking-modal');
       m.classList.remove('hidden');
@@ -1066,11 +1095,10 @@
     }
     function handleBookingSubmit(e) {
       e.preventDefault();
-      const feedback = document.getElementById('email-feedback');
       closeBookingModal();
     }
 
-    // 7. Video Modal
+    // Video Modal
     function openVideoModal(url) {
       const m = document.getElementById('video-modal');
       document.getElementById('video-frame').src = url;
@@ -1084,7 +1112,6 @@
       m.classList.remove('flex');
     }
 
-    // Initialization
     window.onload = () => {
       renderVault('all');
     };
