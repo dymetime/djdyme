@@ -24,12 +24,11 @@
           colors: {
             dyme: {
               orange: '#FF7A00',
-              orangeLight: '#FFA04D', // Light orange hover accent
-              orangeHover: '#FFA04D',
+              orangeLight: '#FFA04D',
               bgDark: '#080c13',
               cardDark: '#0e1522',
               cardHover: '#141d2e',
-              charcoal: '#172033',    // Defined charcoal divider tone
+              charcoal: '#172033',
               borderDark: '#1b263b',
               accentGlow: 'rgba(255, 122, 0, 0.18)'
             }
@@ -70,7 +69,7 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Seamless Infinite Marquee: Right to Left */
+    /* Single Genre Ticker: Right to Left smooth loop */
     .ticker-wrap {
       overflow: hidden;
       white-space: nowrap;
@@ -104,37 +103,60 @@
       scrollbar-width: none;
     }
 
-    /* Interactive Light Orange Hover styles for Bottom Player */
+    /* Bottom Player Dock: Background turns crisp white on hover with smooth contrast shift */
     .player-dock {
-      transition: all 0.3s ease;
+      transition: background-color 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, color 0.28s ease;
     }
     .player-dock:hover {
-      background-color: rgba(22, 18, 15, 0.98);
-      border-color: #FFA04D;
-      box-shadow: 0 -4px 25px rgba(255, 160, 77, 0.2);
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.45);
+    }
+    .player-dock:hover #player-title {
+      color: #0f172a !important;
+    }
+    .player-dock:hover #player-subtitle {
+      color: #ea580c !important;
+    }
+    .player-dock:hover .dock-icon-btn {
+      color: #334155 !important;
+    }
+    .player-dock:hover .dock-icon-btn:hover {
+      color: #ea580c !important;
+    }
+    .player-dock:hover .dock-timer-text {
+      color: #475569 !important;
+    }
+    .player-dock:hover .dock-track-bg {
+      background-color: #e2e8f0 !important;
+    }
+    .player-dock:hover .dock-badge {
+      border-color: #fdba74 !important;
+      color: #c2410c !important;
+      background-color: #fff7ed !important;
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-[#FF7A00] selection:text-black pb-28">
 
   <!-- =======================================================================
-       GUIDE: HEADER BRAND LOGO FOR WEB AND MOBILE
-       To replace the text logo with your own graphic logo for desktop and mobile,
-       replace the <a> content below with:
-       <a href="#" class="flex items-center">
-         <img src="images/logo.png" alt="DJ DYME Logo" class="h-7 sm:h-8 w-auto">
+       1. WHERE TO INPUT YOUR HEADER LOGO (WEB AND MOBILE)
+       Find line below inside <header>. Replace the <span> text block with:
+       <a href="#" class="flex items-center gap-2">
+         <img src="images/logo.png" alt="DJ DYME" class="h-7 sm:h-8 w-auto">
        </a>
        ======================================================================= -->
   <header class="sticky top-0 z-40 bg-[#080c13]/90 backdrop-blur-md border-b border-[#172033]">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       
-      <!-- Brand Mark (Web & Mobile) -->
+      <!-- Brand Logo Area (Web & Mobile) -->
       <a href="#" class="flex items-center gap-1.5 group">
+        <!-- CUSTOM LOGO REPLACEMENT SPOT -->
         <span class="font-display font-black text-xl tracking-wider text-white group-hover:text-[#FFA04D] transition">DJDYME</span>
         <span class="w-1.5 h-1.5 rounded-full bg-[#FF7A00] shadow-[0_0_8px_#FF7A00]"></span>
       </a>
 
-      <!-- Header Menu in ALL CAPS -->
+      <!-- Header Navigation Links (All Caps) -->
       <nav class="hidden md:flex items-center gap-5 text-xs font-mono font-medium tracking-wider text-slate-300">
         <a href="#pull-up-fridays" class="hover:text-[#FFA04D] transition">PULL UP FRIDAYS</a>
         <span class="text-slate-600">|</span>
@@ -165,9 +187,9 @@
     </div>
 
     <!-- 
-      HERO BANNER AREA (1920 × 480 PX):
-      Replace the div below with:
-      <img src="Slider Main.jpg" alt="DJ DYME" class="w-full h-auto rounded-xl border border-[#172033] shadow-2xl">
+      HERO BANNER SLOT (1920 × 480 PX):
+      Replace the placeholder div below with your real graphic banner:
+      <img src="images/banner.jpg" alt="DJ DYME" class="w-full h-auto rounded-xl border border-[#172033] shadow-2xl">
     -->
     <div class="relative w-full aspect-[4/1] min-h-[140px] sm:min-h-[180px] rounded-xl border-2 border-dashed border-[#172033] bg-[#0c121c] flex flex-col items-center justify-center p-4 text-center overflow-hidden group hover:border-[#FFA04D]/60 transition shadow-2xl">
       <div class="absolute inset-0 bg-radial-gradient from-transparent to-black/60 pointer-events-none"></div>
@@ -228,129 +250,14 @@
         </div>
       </div>
 
-      <!-- PULL UP FRIDAYS: FEATURED LATEST DROP WITH COVER ARTWORK -->
-      <div class="bg-gradient-to-br from-[#0e1522] via-[#0d1420] to-[#121c2d] border-2 border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 shadow-xl relative overflow-hidden group">
-        <div class="absolute -top-12 -right-12 w-40 h-40 bg-[#FF7A00]/10 rounded-full blur-3xl pointer-events-none"></div>
-        
-        <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-5 relative z-10">
-          <!-- Thumbnail Cover -->
-          <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-lg overflow-hidden shrink-0 border border-[#172033] bg-black shadow-lg group-hover:border-[#FFA04D]/60 transition">
-            <img id="featured-latest-thumb" src="https://placehold.co/400x400/0f172a/FF7A00?text=PUF+56" alt="Episode 56 Cover" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/0f172a/FF7A00?text=PUF+56'">
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(0)">
-              <div class="w-10 h-10 rounded-full bg-[#FF7A00] text-black flex items-center justify-center shadow-lg hover:bg-[#FFA04D] transition">
-                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
-              </div>
-            </div>
-            <span class="absolute top-2 left-2 bg-[#FF7A00] text-black text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase">NEW</span>
-          </div>
-
-          <!-- Featured Details -->
-          <div class="flex-1 flex flex-col justify-between text-center sm:text-left space-y-2">
-            <div>
-              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
-                <span class="px-2 py-0.5 rounded bg-[#FF7A00] text-black font-mono font-bold text-[10px] tracking-wider uppercase">LATEST DROP</span>
-                <span class="text-[11px] font-mono text-slate-400">EPISODE 56 • 104 BPM</span>
-                <span class="text-[10px] font-mono text-slate-500">55:00 DURATION</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-display font-black text-white group-hover:text-[#FFA04D] transition">
-                Dancehall Heatwave & Afrobeats Edition
-              </h3>
-              <p class="text-xs text-slate-300 leading-relaxed mt-1">
-                Exclusively released first right here at 12:00 PM before the worldwide 7:00 PM Spinz FM broadcast. 55 minutes of relentless energy and heavy sound-system pressure.
-              </p>
-            </div>
-
-            <div class="pt-1">
-              <button onclick="playTrack(0)" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg">
-                <i data-lucide="play" class="w-4 h-4 fill-current"></i>
-                Play Latest Drop
-              </button>
-            </div>
-          </div>
-        </div>
+      <!-- FEATURED LATEST DROP (Auto-Populating Cover Art) -->
+      <div id="latest-drop-container" class="bg-gradient-to-br from-[#0e1522] via-[#0d1420] to-[#121c2d] border-2 border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 shadow-xl relative overflow-hidden group">
+        <!-- Rendered dynamically by script with auto-populated cover art -->
       </div>
 
-      <!-- EXACTLY 3 BOXES BELOW LATEST TRACK (RESPONSIVE 3-COLUMN GRID) -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
-        
-        <!-- Box 1 (Ep. 55) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
-          <div class="flex sm:flex-col gap-3 mb-2.5">
-            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
-              <img src="https://placehold.co/280x280/0b121e/FF7A00?text=PUF+55" alt="Ep 55 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/0b121e/FF7A00?text=PUF+55'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(1)">
-                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-0.5">
-                <span class="text-[10px] font-mono text-[#FF7A00]">EPISODE 55</span>
-                <span class="text-[9px] font-mono text-slate-400">98 BPM</span>
-              </div>
-              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
-                Old School Reggae & Zouk
-              </h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Deep dubwise basslines into French Caribbean zouk.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(1)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
-            Play Mix (55:00)
-          </button>
-        </div>
-
-        <!-- Box 2 (Ep. 54) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
-          <div class="flex sm:flex-col gap-3 mb-2.5">
-            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
-              <img src="https://placehold.co/280x280/0b121e/FF7A00?text=PUF+54" alt="Ep 54 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/0b121e/FF7A00?text=PUF+54'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(4)">
-                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-0.5">
-                <span class="text-[10px] font-mono text-[#FF7A00]">EPISODE 54</span>
-                <span class="text-[9px] font-mono text-slate-400">105 BPM</span>
-              </div>
-              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
-                Afro-Fusion & Caribbean
-              </h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">High octane Ghana & Nigeria dancefloor anthems.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(4)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
-            Play Mix (55:00)
-          </button>
-        </div>
-
-        <!-- Box 3 (Ep. 53) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
-          <div class="flex sm:flex-col gap-3 mb-2.5">
-            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
-              <img src="https://placehold.co/280x280/0b121e/FF7A00?text=PUF+53" alt="Ep 53 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/0b121e/FF7A00?text=PUF+53'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(5)">
-                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-0.5">
-                <span class="text-[10px] font-mono text-[#FF7A00]">EPISODE 53</span>
-                <span class="text-[9px] font-mono text-slate-400">140 BPM</span>
-              </div>
-              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
-                Heavy Drill & Shatta Warm-up
-              </h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Brooklyn drill blends into Jamaican dancehall riddims.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(5)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
-            Play Mix (55:00)
-          </button>
-        </div>
-
+      <!-- EXACTLY 3 BOXES BELOW LATEST TRACK (Responsive 3-Column Grid) -->
+      <div id="puf-three-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+        <!-- 3 Recent Pull Up Fridays boxes auto-populated via script -->
       </div>
 
     </section>
@@ -368,89 +275,18 @@
         <span class="text-slate-400 font-mono text-xs">BROADCAST CUTS</span>
       </div>
 
-      <!-- 3 PLAYERS IN RESPONSIVE GRID -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-        
-        <!-- Radio Player 1 -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
-          <div class="flex sm:flex-col gap-3 mb-2.5">
-            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
-              <img src="https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+018" alt="Radio 018 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+018'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(2)">
-                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-0.5">
-                <span class="text-[10px] font-mono text-[#FF7A00]">SESSION 018</span>
-                <span class="text-[9px] font-mono text-slate-400">320 KBPS</span>
-              </div>
-              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Global Club & Amapiano</h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Heavy log drum basslines blended into drill edits.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(2)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
-            Play Mix (62:30)
-          </button>
-        </div>
-
-        <!-- Radio Player 2 -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
-          <div class="flex sm:flex-col gap-3 mb-2.5">
-            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
-              <img src="https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+017" alt="Radio 017 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+017'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(3)">
-                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-0.5">
-                <span class="text-[10px] font-mono text-[#FF7A00]">SESSION 017</span>
-                <span class="text-[9px] font-mono text-slate-400">320 KBPS</span>
-              </div>
-              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Mid-Tempo Afropop</h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">West African grooves locked into Martinique clashes.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(3)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
-            Play Mix (58:15)
-          </button>
-        </div>
-
-        <!-- Radio Player 3 -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between">
-          <div class="flex sm:flex-col gap-3 mb-2.5">
-            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
-              <img src="https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+016" alt="Radio 016 Cover" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/280x280/131b2e/FF7A00?text=RADIO+016'">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(2)">
-                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
-              </div>
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex justify-between items-start mb-0.5">
-                <span class="text-[10px] font-mono text-[#FF7A00]">SESSION 016</span>
-                <span class="text-[9px] font-mono text-slate-400">320 KBPS</span>
-              </div>
-              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Afrobeats Summer Wave</h4>
-              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">Pure Afropop heat with melodic Caribbean hooks.</p>
-            </div>
-          </div>
-          <button onclick="playTrack(2)" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
-            Play Mix (60:00)
-          </button>
-        </div>
-
+      <!-- EXACTLY 3 PLAYERS IN RESPONSIVE GRID -->
+      <div id="radio-three-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <!-- 3 Dymetime Radio cards auto-populated via script -->
       </div>
     </section>
 
-    <!-- CHARCOAL DIVIDER -->
+    <!-- CHARCOAL DIVIDER ABOVE GENRE SLIDER -->
     <div class="w-full h-px bg-[#172033] my-6"></div>
 
     <!-- =======================================================================
-         EXACTLY ONE GENRE SLIDER: POSITIONED DIRECTLY ON TOP OF VIDEO MIXES
+         SINGLE GENRE SLIDER: POSITIONED DIRECTLY ON TOP OF VIDEO MIXES
+         Continuous smooth marquee sliding right-to-left
          ======================================================================= -->
     <div class="w-full bg-[#0c121c] border-y border-[#172033] py-2.5 ticker-wrap my-4">
       <div class="ticker-track text-slate-300 font-sans text-xs tracking-[0.2em] uppercase font-normal">
@@ -458,23 +294,19 @@
         <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>R&amp;B</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>Reggae</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
         <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>R&amp;B</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+        <span>Reggae</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
       </div>
     </div>
 
     <!-- =======================================================================
-         3. VIDEO MIXES (TRUE YOUTUBE 16:9 WIDESCREEN ASPECT RATIO)
-         GUIDE: WHERE TO INPUT YOUR YOUTUBE MIX URLs
-         Replace the YouTube video IDs below (e.g. replace 'dQw4w9WgXcQ' with your ID).
-         Example: onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1')"
-         Thumbnail auto-loads via: https://img.youtube.com/vi/YOUR_VIDEO_ID/hqdefault.jpg
+         3. VIDEO MIXES (TRUE YOUTUBE 16:9 RATIO & AUTO-POPULATED THUMBNAILS)
          ======================================================================= -->
     <section id="video-mixes" class="space-y-4">
       <div class="flex items-center justify-between border-b border-[#172033] pb-3">
@@ -487,43 +319,14 @@
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Video 1 (16:9 YouTube Size) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
-          <div class="relative w-full aspect-video bg-black flex items-center justify-center cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://placehold.co/1280x720/080c13/FF7A00?text=Sunset+Rooftop+DJ+Set" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/1280x720/080c13/FF7A00?text=YouTube+Set'">
-            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
-            </div>
-            <span class="absolute bottom-2.5 right-2.5 bg-black/80 font-mono text-[10px] px-2 py-0.5 rounded text-white border border-[#172033]">42:18</span>
-          </div>
-          <div class="p-3">
-            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FFA04D] transition">Live Sunset Rooftop DJ Set | Afro & Amapiano</h4>
-            <p class="text-[11px] text-slate-400 mt-1">Full 4K live club setup recording.</p>
-          </div>
-        </div>
-
-        <!-- Video 2 (16:9 YouTube Size) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
-          <div class="relative w-full aspect-video bg-black flex items-center justify-center cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://placehold.co/1280x720/080c13/FF7A00?text=Studio+Session+Shatta" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/1280x720/080c13/FF7A00?text=YouTube+Set'">
-            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
-            </div>
-            <span class="absolute bottom-2.5 right-2.5 bg-black/80 font-mono text-[10px] px-2 py-0.5 rounded text-white border border-[#172033]">38:40</span>
-          </div>
-          <div class="p-3">
-            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FFA04D] transition">Pull Up Fridays Studio Session | Shatta Reggae</h4>
-            <p class="text-[11px] text-slate-400 mt-1">Live mixing and cue point performance.</p>
-          </div>
-        </div>
-      </div>
+      <!-- 16:9 Responsive Video Grid (Populated from videoDatabase with auto-thumbnails) -->
+      <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE THE VAULT -->
     <div class="w-full h-px bg-[#172033] my-6"></div>
 
-    <!-- 4. THE VAULT (ARCHIVE ENGINE WITH THUMBNAILS) -->
+    <!-- 4. THE VAULT (ARCHIVE ENGINE WITH AUTO THUMBNAILS) -->
     <section id="mix-vault" class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#172033] pb-3">
         <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
@@ -536,7 +339,7 @@
         </div>
       </div>
 
-      <!-- Vault List Loaded Via Script with Thumbnails -->
+      <!-- Vault List Loaded Via Script -->
       <div id="vault-list" class="space-y-2"></div>
     </section>
 
@@ -544,10 +347,7 @@
     <div class="w-full h-px bg-[#172033] my-6"></div>
 
     <!-- =======================================================================
-         5. EVENTS: HORIZONTAL ALBUM-STYLE SCROLLER (ONE SIZE SMALLER)
-         GUIDE: WHERE TO INPUT YOUR EVENT VIDEO URLs
-         Update the onclick="openVideoModal('https://www.youtube.com/embed/YOUR_EVENT_ID?autoplay=1')"
-         and the img src with your event flyer or video cover.
+         5. EVENTS: HORIZONTAL ALBUM SCROLLER (ONE SIZE SMALLER: ~210px)
          ======================================================================= -->
     <section id="events" class="space-y-4">
       <div class="flex items-center justify-between border-b border-[#172033] pb-3">
@@ -570,77 +370,9 @@
         </div>
       </div>
 
-      <!-- Compact Sized Album Cards (min-w-[210px] on mobile, min-w-[230px] on desktop) -->
+      <!-- Compact Album Cards Container: reduced to 210px width -->
       <div id="events-rail" class="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth pb-2 snap-x snap-mandatory">
-        
-        <!-- Event Album 1 (INPUT EVENT VIDEO 1 URL BELOW) -->
-        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://placehold.co/360x360/101826/FF7A00?text=Afro+Carnival" alt="Afro Carnival" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Event+Recap'">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
-            </div>
-            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">RECAP VIDEO</span>
-            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">2026 TOUR</span>
-          </div>
-          <div class="p-2.5 space-y-0.5">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Afro Carnival Club Takeover</h4>
-            <p class="text-[10px] text-slate-400 font-mono">Philadelphia, PA • 1,200+ Cap</p>
-          </div>
-        </div>
-
-        <!-- Event Album 2 (INPUT EVENT VIDEO 2 URL BELOW) -->
-        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://placehold.co/360x360/101826/FF7A00?text=Shatta+Clash" alt="Shatta Clash" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Festival+Stage'">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
-            </div>
-            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">FESTIVAL STAGE</span>
-            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">LIVE AUDIO</span>
-          </div>
-          <div class="p-2.5 space-y-0.5">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Shatta Soundclash Festival</h4>
-            <p class="text-[10px] text-slate-400 font-mono">Brooklyn, NY • Main Arena</p>
-          </div>
-        </div>
-
-        <!-- Event Album 3 (INPUT EVENT VIDEO 3 URL BELOW) -->
-        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://placehold.co/360x360/101826/FF7A00?text=Ignite+Midnight" alt="Ignite Lounge" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Club+Residency'">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
-            </div>
-            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">CLUB RESIDENCY</span>
-            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">DJ SET</span>
-          </div>
-          <div class="p-2.5 space-y-0.5">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Ignite Friday Midnight Session</h4>
-            <p class="text-[10px] text-slate-400 font-mono">Drexel Hill Lounge • Sold Out</p>
-          </div>
-        </div>
-
-        <!-- Event Album 4 (INPUT EVENT VIDEO 4 URL BELOW) -->
-        <div class="min-w-[210px] sm:min-w-[230px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0">
-          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://placehold.co/360x360/101826/FF7A00?text=Boat+Cruise" alt="Boat Cruise" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/360x360/101826/FF7A00?text=Boat+Party'">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-            <div class="absolute w-10 h-10 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
-              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
-            </div>
-            <span class="absolute bottom-2 left-2.5 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">SUMMER LIVE</span>
-            <span class="absolute bottom-2 right-2.5 z-20 text-[9px] font-mono text-slate-300">TOUR STOP</span>
-          </div>
-          <div class="p-2.5 space-y-0.5">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Amapiano Sunset Boat Cruise</h4>
-            <p class="text-[10px] text-slate-400 font-mono">Miami, FL • Visual Set</p>
-          </div>
-        </div>
-
+        <!-- Event items auto-populated with automatic thumbnails via script -->
       </div>
     </section>
 
@@ -717,41 +449,41 @@
   </footer>
 
   <!-- =======================================================================
-       PERSISTENT BOTTOM AUDIO PLAYER (TURNS LIGHT ORANGE ON HOVER)
+       PERSISTENT BOTTOM AUDIO PLAYER (TURNS WHITE ON HOVER)
        ======================================================================= -->
   <div class="player-dock fixed bottom-0 left-0 right-0 z-50 bg-[#080c13]/95 backdrop-blur-md border-t border-[#172033] py-2 px-4 shadow-2xl">
     <div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
       
-      <!-- Track Meta & Live Thumbnail -->
+      <!-- Track Meta & Dynamic Thumbnail -->
       <div class="flex items-center gap-3 min-w-0 w-1/3">
-        <img id="player-thumb" src="https://placehold.co/100x100/0f172a/FF7A00?text=56" alt="Now Playing" class="w-9 h-9 sm:w-10 sm:h-10 rounded object-cover border border-[#172033] shrink-0" onerror="this.src='https://placehold.co/100x100/0f172a/FF7A00?text=DJ'">
+        <img id="player-thumb" src="" alt="Now Playing" class="w-9 h-9 sm:w-10 sm:h-10 rounded object-cover border border-[#172033] shrink-0">
         <div class="hidden sm:flex items-end gap-0.5 h-4 w-4 shrink-0 text-[#FF7A00]" id="eq-container">
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.1s"></div>
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.3s"></div>
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.2s"></div>
         </div>
         <div class="truncate">
-          <h4 id="player-title" class="font-display font-bold text-xs text-white truncate">Pull Up Fridays - Ep. 56</h4>
-          <p id="player-subtitle" class="font-mono text-[10px] text-[#FFA04D] truncate">Dancehall Heatwave & Afrobeats</p>
+          <h4 id="player-title" class="font-display font-bold text-xs text-white truncate transition-colors">Pull Up Fridays - Ep. 56</h4>
+          <p id="player-subtitle" class="font-mono text-[10px] text-[#FFA04D] truncate transition-colors">Dancehall Heatwave &amp; Afrobeats</p>
         </div>
       </div>
 
-      <!-- Controls & Scrub Timeline with Light Orange Highlights -->
+      <!-- Controls & Scrub Timeline with contrast shifts on hover -->
       <div class="flex flex-col items-center gap-1 w-1/2 max-w-xs">
         <div class="flex items-center gap-3">
-          <button onclick="prevTrack()" class="text-slate-400 hover:text-[#FFA04D] transition" aria-label="Previous track">
+          <button onclick="prevTrack()" class="dock-icon-btn text-slate-400 hover:text-[#FFA04D] transition" aria-label="Previous track">
             <i data-lucide="skip-back" class="w-3.5 h-3.5"></i>
           </button>
           <button onclick="togglePlay()" class="w-7 h-7 rounded-full bg-[#FF7A00] hover:bg-[#FFA04D] flex items-center justify-center text-black transition shadow" aria-label="Toggle play/pause">
             <i data-lucide="play" id="play-icon" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
           </button>
-          <button onclick="nextTrack()" class="text-slate-400 hover:text-[#FFA04D] transition" aria-label="Next track">
+          <button onclick="nextTrack()" class="dock-icon-btn text-slate-400 hover:text-[#FFA04D] transition" aria-label="Next track">
             <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
           </button>
         </div>
-        <div class="w-full flex items-center gap-2 text-[10px] font-mono text-slate-400">
+        <div class="w-full flex items-center gap-2 text-[10px] font-mono text-slate-400 dock-timer-text">
           <span id="current-time">00:00</span>
-          <div class="relative w-full h-1 bg-[#172033] rounded-full overflow-hidden cursor-pointer" onclick="seekTrack(event)">
+          <div class="relative w-full h-1.5 dock-track-bg bg-[#172033] rounded-full overflow-hidden cursor-pointer" onclick="seekTrack(event)">
             <div id="progress-bar" class="h-full bg-[#FF7A00] hover:bg-[#FFA04D] w-0 rounded-full transition-all"></div>
           </div>
           <span id="total-time">55:00</span>
@@ -760,7 +492,7 @@
 
       <!-- Right Side Live Deck Indicator -->
       <div class="hidden sm:flex items-center justify-end gap-3 w-1/4">
-        <span class="text-[10px] font-mono text-[#FFA04D] border border-[#FFA04D]/30 px-2 py-0.5 rounded">LIVE DECK</span>
+        <span class="dock-badge text-[10px] font-mono text-[#FFA04D] border border-[#FFA04D]/30 px-2 py-0.5 rounded transition">LIVE DECK</span>
       </div>
 
     </div>
@@ -772,7 +504,7 @@
       <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-[#FFA04D]" aria-label="Close modal">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
-      <h3 class="font-display font-extrabold text-lg text-white mb-1">EVENT & SHOW INQUIRIES</h3>
+      <h3 class="font-display font-extrabold text-lg text-white mb-1">EVENT &amp; SHOW INQUIRIES</h3>
       <p class="text-xs text-slate-400 mb-4 font-mono">Direct routing to DJ DYME tour management.</p>
       
       <form onsubmit="handleBookingSubmit(event)" class="space-y-3 font-sans text-xs">
@@ -785,7 +517,7 @@
           <input required type="email" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FFA04D]">
         </div>
         <div>
-          <label class="block text-slate-300 font-mono text-[10px] uppercase mb-1">Event Date & City / Venue</label>
+          <label class="block text-slate-300 font-mono text-[10px] uppercase mb-1">Event Date &amp; City / Venue</label>
           <input required type="text" placeholder="e.g. Nov 14 - Philadelphia, PA" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-white focus:outline-none focus:border-[#FFA04D]">
         </div>
         <div>
@@ -814,27 +546,85 @@
   <audio id="audio-engine" preload="none"></audio>
 
   <!-- =======================================================================
-       SCRIPT LOGIC & HOW TO ORGANIZE YOUR CONTENT:
-       
-       1. KEEPING NEWEST FIRST & OLDEST LAST:
-          Always place your newest mix at the TOP of the array (Index 0).
-          The older mixes follow underneath in descending order (Ep 56 -> 55 -> 54).
-       
-       2. HOW TO TAG & DIFFERENTIATE MIXES:
-          - 'puf': Pull Up Fridays (tagged in series: 'puf')
-          - 'radio': Dymetime Radio (tagged in series: 'radio')
-          - Use the `tags: ['DANCEHALL', 'AFROBEATS']` array to differentiate genres.
+       COMPREHENSIVE DATA & AUTO-POPULATION SCRIPT ENGINE
        ======================================================================= -->
   <script>
-    lucide.createIcons();
+    /* ========================================================================
+       AUTO-POPULATING ARTWORK HELPER ENGINE
+       1. If it's a YouTube URL/ID, it auto-extracts https://img.youtube.com/vi/{id}/hqdefault.jpg
+       2. If it's an audio episode, it defaults to 'images/puf-{ep}.jpg' or 'images/radio-{ep}.jpg'
+       3. If the file is missing or fails, it provides an automatic styled SVG data URI
+       ======================================================================== */
+    function getYoutubeId(urlOrId) {
+      if (!urlOrId) return '';
+      if (urlOrId.length === 11 && !urlOrId.includes('/') && !urlOrId.includes('.')) {
+        return urlOrId;
+      }
+      const match = urlOrId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+      return match ? match[1] : urlOrId;
+    }
+
+    function getYoutubeThumbnail(urlOrId) {
+      const id = getYoutubeId(urlOrId);
+      return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+    }
+
+    function generateFallbackArt(title, subtitle) {
+      const cleanTitle = (title || 'DJ DYME').substring(0, 16);
+      const cleanSub = (subtitle || 'OFFICIAL MIX').substring(0, 20);
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+          <defs>
+            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0c121c"/>
+              <stop offset="50%" stop-color="#141d2e"/>
+              <stop offset="100%" stop-color="#080c13"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg)"/>
+          <circle cx="200" cy="170" r="80" stroke="#FF7A00" stroke-width="6" fill="none" opacity="0.85"/>
+          <polygon points="190,145 225,170 190,195" fill="#FF7A00"/>
+          <text x="200" y="290" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat, sans-serif" font-weight="900" font-size="22" letter-spacing="1.5">${cleanTitle}</text>
+          <text x="200" y="325" text-anchor="middle" fill="#FFA04D" font-family="JetBrains Mono, monospace" font-weight="600" font-size="13" letter-spacing="1">${cleanSub}</text>
+        </svg>
+      `;
+      return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+    }
+
+    function resolveCoverArt(track) {
+      // 1. Explicit cover provided
+      if (track.coverArt && track.coverArt.trim() !== '') {
+        return track.coverArt;
+      }
+      // 2. YouTube ID provided
+      if (track.youtubeId) {
+        return getYoutubeThumbnail(track.youtubeId);
+      }
+      // 3. Auto-populate from Series + Episode Number (e.g. images/puf-56.jpg)
+      const numOnly = (track.episode || '').replace(/[^0-9]/g, '');
+      if (track.series === 'puf' && numOnly) {
+        return `images/puf-${numOnly}.jpg`;
+      }
+      if (track.series === 'radio' && numOnly) {
+        return `images/radio-${numOnly}.jpg`;
+      }
+      // 4. Default dynamic fallback
+      return generateFallbackArt(track.title, track.subtitle);
+    }
 
     /* ========================================================================
-       CONTENT DATABASE: NEWEST MIXES AT THE TOP (INDEX 0) -> OLDEST AT BOTTOM
+       HOW TO UPDATE YOUR MIXES (NEWEST FIRST, OLDEST LAST):
+       - ALWAYS place your brand-new episode at INDEX 0 (top of the array).
+       - Tags:
+         * series: 'puf'    --> Pull Up Fridays
+         * series: 'radio'  --> Dymetime Radio
+       - If you have an image at 'images/puf-57.jpg', leave coverArt blank and 
+         it AUTO-POPULATES!
        ======================================================================== */
     const mixDatabase = [
       {
         id: 0,
-        series: 'puf', // <-- Tag for Pull Up Fridays
+        series: 'puf',
         episode: 'EPISODE 56',
         title: 'Pull Up Fridays - Ep. 56',
         subtitle: 'Dancehall Heatwave & Afrobeats Edition',
@@ -842,8 +632,8 @@
         duration: '55:00',
         durationSec: 3300,
         tags: ['PUF', 'AFROBEATS', 'DANCEHALL'],
-        coverArt: 'https://placehold.co/400x400/0f172a/FF7A00?text=PUF+56',
-        audioUrl: 'audio/puf56.mp3' // Direct MP3 or streaming link
+        coverArt: '', // Leave blank to auto-populate from 'images/puf-56.jpg' or fallback!
+        audioUrl: 'audio/puf56.mp3'
       },
       {
         id: 1,
@@ -855,37 +645,11 @@
         duration: '55:00',
         durationSec: 3300,
         tags: ['PUF', 'REGGAE', 'ZOUK'],
-        coverArt: 'https://placehold.co/400x400/0b121e/FF7A00?text=PUF+55',
+        coverArt: '',
         audioUrl: 'audio/puf55.mp3'
       },
       {
         id: 2,
-        series: 'radio', // <-- Tag for Dymetime Radio
-        episode: 'SESSION 018',
-        title: 'Dymetime Radio - Session 018',
-        subtitle: 'Global Club Anthems & Amapiano Wave',
-        bpm: '112 BPM',
-        duration: '62:30',
-        durationSec: 3750,
-        tags: ['RADIO', 'AMAPIANO', 'CLUB'],
-        coverArt: 'https://placehold.co/400x400/131b2e/FF7A00?text=RADIO+018',
-        audioUrl: 'audio/radio018.mp3'
-      },
-      {
-        id: 3,
-        series: 'radio',
-        episode: 'SESSION 017',
-        title: 'Dymetime Radio - Session 017',
-        subtitle: 'Mid-Tempo Afropop & Shatta Sessions',
-        bpm: '102 BPM',
-        duration: '58:15',
-        durationSec: 3495,
-        tags: ['RADIO', 'SHATTA', 'AFROPOP'],
-        coverArt: 'https://placehold.co/400x400/131b2e/FF7A00?text=RADIO+017',
-        audioUrl: 'audio/radio017.mp3'
-      },
-      {
-        id: 4,
         series: 'puf',
         episode: 'EPISODE 54',
         title: 'Pull Up Fridays - Ep. 54',
@@ -894,11 +658,11 @@
         duration: '55:00',
         durationSec: 3300,
         tags: ['PUF', 'CARIBBEAN'],
-        coverArt: 'https://placehold.co/400x400/0b121e/FF7A00?text=PUF+54',
+        coverArt: '',
         audioUrl: 'audio/puf54.mp3'
       },
       {
-        id: 5,
+        id: 3,
         series: 'puf',
         episode: 'EPISODE 53',
         title: 'Pull Up Fridays - Ep. 53',
@@ -907,8 +671,109 @@
         duration: '55:00',
         durationSec: 3300,
         tags: ['PUF', 'DRILL', 'SHATTA'],
-        coverArt: 'https://placehold.co/400x400/0b121e/FF7A00?text=PUF+53',
+        coverArt: '',
         audioUrl: 'audio/puf53.mp3'
+      },
+      {
+        id: 4,
+        series: 'radio',
+        episode: 'SESSION 018',
+        title: 'Dymetime Radio - Session 018',
+        subtitle: 'Global Club Anthems & Amapiano Wave',
+        bpm: '112 BPM',
+        duration: '62:30',
+        durationSec: 3750,
+        tags: ['RADIO', 'AMAPIANO', 'CLUB'],
+        coverArt: '', // Auto-resolves to 'images/radio-018.jpg' or fallback
+        audioUrl: 'audio/radio018.mp3'
+      },
+      {
+        id: 5,
+        series: 'radio',
+        episode: 'SESSION 017',
+        title: 'Dymetime Radio - Session 017',
+        subtitle: 'Mid-Tempo Afropop & Shatta Sessions',
+        bpm: '102 BPM',
+        duration: '58:15',
+        durationSec: 3495,
+        tags: ['RADIO', 'SHATTA', 'AFROPOP'],
+        coverArt: '',
+        audioUrl: 'audio/radio017.mp3'
+      },
+      {
+        id: 6,
+        series: 'radio',
+        episode: 'SESSION 016',
+        title: 'Dymetime Radio - Session 016',
+        subtitle: 'Afrobeats Summer Wave',
+        bpm: '106 BPM',
+        duration: '60:00',
+        durationSec: 3600,
+        tags: ['RADIO', 'AFROPOP', 'CARIBBEAN'],
+        coverArt: '',
+        audioUrl: 'audio/radio016.mp3'
+      }
+    ];
+
+    /* ========================================================================
+       WHERE TO INPUT VIDEO MIXES URLs:
+       Put your YouTube link or 11-character video ID in `youtubeUrl`.
+       The cover art will AUTO-POPULATE straight from YouTube!
+       ======================================================================== */
+    const videoMixesDatabase = [
+      {
+        id: 0,
+        title: 'Live Sunset Rooftop DJ Set | Afro & Amapiano',
+        description: 'Full 4K live club setup recording.',
+        duration: '42:18',
+        youtubeUrl: 'dQw4w9WgXcQ' // <-- INPUT YOUTUBE URL OR ID HERE
+      },
+      {
+        id: 1,
+        title: 'Pull Up Fridays Studio Session | Shatta Reggae',
+        description: 'Live mixing and cue point performance.',
+        duration: '38:40',
+        youtubeUrl: 'dQw4w9WgXcQ' // <-- INPUT YOUTUBE URL OR ID HERE
+      }
+    ];
+
+    /* ========================================================================
+       WHERE TO INPUT EVENT VIDEOS URLs:
+       Put your event recap YouTube link or ID in `youtubeUrl`.
+       Thumbnails are AUTO-POPULATED automatically!
+       ======================================================================== */
+    const eventDatabase = [
+      {
+        id: 0,
+        title: 'Afro Carnival Club Takeover',
+        location: 'Philadelphia, PA • 1,200+ Cap',
+        badge: 'RECAP VIDEO',
+        year: '2026 TOUR',
+        youtubeUrl: 'dQw4w9WgXcQ' // <-- INPUT EVENT VIDEO 1 URL HERE
+      },
+      {
+        id: 1,
+        title: 'Shatta Soundclash Festival',
+        location: 'Brooklyn, NY • Main Arena',
+        badge: 'FESTIVAL STAGE',
+        year: 'LIVE AUDIO',
+        youtubeUrl: 'dQw4w9WgXcQ' // <-- INPUT EVENT VIDEO 2 URL HERE
+      },
+      {
+        id: 2,
+        title: 'Ignite Friday Midnight Session',
+        location: 'Drexel Hill Lounge • Sold Out',
+        badge: 'CLUB RESIDENCY',
+        year: 'DJ SET',
+        youtubeUrl: 'dQw4w9WgXcQ' // <-- INPUT EVENT VIDEO 3 URL HERE
+      },
+      {
+        id: 3,
+        title: 'Amapiano Sunset Boat Cruise',
+        location: 'Miami, FL • Visual Set',
+        badge: 'SUMMER LIVE',
+        year: 'TOUR STOP',
+        youtubeUrl: 'dQw4w9WgXcQ' // <-- INPUT EVENT VIDEO 4 URL HERE
       }
     ];
 
@@ -917,7 +782,156 @@
     let progressTimer = null;
     let currentSeconds = 0;
 
-    // Render Vault with Thumbnails
+    // 1. Render Featured Latest Drop
+    function renderLatestDrop() {
+      const pufTracks = mixDatabase.filter(t => t.series === 'puf');
+      if (!pufTracks.length) return;
+      const latest = pufTracks[0];
+      const art = resolveCoverArt(latest);
+      const fallback = generateFallbackArt(latest.title, latest.subtitle);
+
+      const container = document.getElementById('latest-drop-container');
+      container.innerHTML = `
+        <div class="absolute -top-12 -right-12 w-40 h-40 bg-[#FF7A00]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-5 relative z-10">
+          <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-lg overflow-hidden shrink-0 border border-[#172033] bg-black shadow-lg group-hover:border-[#FFA04D]/60 transition">
+            <img src="${art}" alt="${latest.title}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='${fallback}';">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(${latest.id})">
+              <div class="w-10 h-10 rounded-full bg-[#FF7A00] text-black flex items-center justify-center shadow-lg hover:bg-[#FFA04D] transition">
+                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+              </div>
+            </div>
+            <span class="absolute top-2 left-2 bg-[#FF7A00] text-black text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase">NEW</span>
+          </div>
+          <div class="flex-1 flex flex-col justify-between text-center sm:text-left space-y-2">
+            <div>
+              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
+                <span class="px-2 py-0.5 rounded bg-[#FF7A00] text-black font-mono font-bold text-[10px] tracking-wider uppercase">LATEST DROP</span>
+                <span class="text-[11px] font-mono text-slate-400">${latest.episode} • ${latest.bpm}</span>
+                <span class="text-[10px] font-mono text-slate-500">${latest.duration} DURATION</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-display font-black text-white group-hover:text-[#FFA04D] transition">
+                ${latest.subtitle}
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed mt-1">
+                Exclusively released first right here at 12:00 PM before the worldwide 7:00 PM Spinz FM broadcast. 55 minutes of relentless energy and heavy sound-system pressure.
+              </p>
+            </div>
+            <div class="pt-1">
+              <button onclick="playTrack(${latest.id})" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg">
+                <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                Play Latest Drop
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 2. Render 3 Recent Pull Up Fridays Mixes
+    function renderPufThreeGrid() {
+      const pufTracks = mixDatabase.filter(t => t.series === 'puf').slice(1, 4);
+      const container = document.getElementById('puf-three-grid');
+      container.innerHTML = '';
+
+      pufTracks.forEach(t => {
+        const art = resolveCoverArt(t);
+        const fallback = generateFallbackArt(t.title, t.subtitle);
+        const card = document.createElement('div');
+        card.className = "bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between";
+        card.innerHTML = `
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="${art}" alt="${t.title}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.onerror=null; this.src='${fallback}';">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(${t.id})">
+                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex justify-between items-start mb-0.5">
+                <span class="text-[10px] font-mono text-[#FF7A00]">${t.episode}</span>
+                <span class="text-[9px] font-mono text-slate-400">${t.bpm}</span>
+              </div>
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
+                ${t.subtitle}
+              </h4>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">${t.tags.join(' • ')}</p>
+            </div>
+          </div>
+          <button onclick="playTrack(${t.id})" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            Play Mix (${t.duration})
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // 3. Render Exactly 3 Players under Dymetime Radio
+    function renderRadioThreeGrid() {
+      const radioTracks = mixDatabase.filter(t => t.series === 'radio').slice(0, 3);
+      const container = document.getElementById('radio-three-grid');
+      container.innerHTML = '';
+
+      radioTracks.forEach(t => {
+        const art = resolveCoverArt(t);
+        const fallback = generateFallbackArt(t.title, t.subtitle);
+        const card = document.createElement('div');
+        card.className = "bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/60 transition group flex flex-col justify-between";
+        card.innerHTML = `
+          <div class="flex sm:flex-col gap-3 mb-2.5">
+            <div class="relative w-16 h-16 sm:w-full sm:aspect-square rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
+              <img src="${art}" alt="${t.title}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.onerror=null; this.src='${fallback}';">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer" onclick="playTrack(${t.id})">
+                <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex justify-between items-start mb-0.5">
+                <span class="text-[10px] font-mono text-[#FF7A00]">${t.episode}</span>
+                <span class="text-[9px] font-mono text-slate-400">${t.bpm}</span>
+              </div>
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">${t.subtitle}</h4>
+              <p class="text-[11px] text-slate-400 line-clamp-2 mt-0.5">${t.tags.join(' • ')}</p>
+            </div>
+          </div>
+          <button onclick="playTrack(${t.id})" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[11px] font-display font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            Play Mix (${t.duration})
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // 4. Render 16:9 YouTube Video Mixes
+    function renderVideoMixes() {
+      const container = document.getElementById('video-grid');
+      container.innerHTML = '';
+
+      videoMixesDatabase.forEach(v => {
+        const ytId = getYoutubeId(v.youtubeUrl);
+        const thumb = getYoutubeThumbnail(ytId);
+        const card = document.createElement('div');
+        card.className = "bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition";
+        card.innerHTML = `
+          <div class="relative w-full aspect-video bg-black flex items-center justify-center cursor-pointer" onclick="openVideoModal('${ytId}')">
+            <img src="${thumb}" alt="${v.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='${generateFallbackArt('DJ DYME', 'VIDEO SET')}';">
+            <div class="absolute w-12 h-12 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+            </div>
+            <span class="absolute bottom-2.5 right-2.5 bg-black/80 font-mono text-[10px] px-2 py-0.5 rounded text-white border border-[#172033]">${v.duration}</span>
+          </div>
+          <div class="p-3">
+            <h4 class="font-display font-bold text-xs sm:text-sm text-white group-hover:text-[#FFA04D] transition">${v.title}</h4>
+            <p class="text-[11px] text-slate-400 mt-1">${v.description}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // 5. Render The Vault with Filter
     function renderVault(filter = 'all') {
       const container = document.getElementById('vault-list');
       container.innerHTML = '';
@@ -925,13 +939,15 @@
       const filtered = filter === 'all' ? mixDatabase : mixDatabase.filter(t => t.series === filter);
       
       filtered.forEach(t => {
+        const art = resolveCoverArt(t);
+        const fallback = generateFallbackArt(t.title, t.subtitle);
         const row = document.createElement('div');
         row.className = "flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-[#0e1522] border border-[#172033] hover:border-[#FFA04D]/60 transition cursor-pointer group";
         row.onclick = () => playTrack(t.id);
         row.innerHTML = `
           <div class="flex items-center gap-3 min-w-0">
             <div class="relative w-10 h-10 rounded overflow-hidden shrink-0 border border-[#172033] bg-black">
-              <img src="${t.coverArt}" alt="${t.title}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://placehold.co/100x100/0e1522/FF7A00?text=MIX'">
+              <img src="${art}" alt="${t.title}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.onerror=null; this.src='${fallback}';">
               <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                 <i data-lucide="play" class="w-3.5 h-3.5 fill-white text-white"></i>
               </div>
@@ -964,6 +980,35 @@
       renderVault(category);
     }
 
+    // 6. Render Compact Album Scroller for Past Events (210px wide)
+    function renderEvents() {
+      const rail = document.getElementById('events-rail');
+      rail.innerHTML = '';
+
+      eventDatabase.forEach(ev => {
+        const ytId = getYoutubeId(ev.youtubeUrl);
+        const thumb = getYoutubeThumbnail(ytId);
+        const card = document.createElement('div');
+        card.className = "min-w-[205px] sm:min-w-[215px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/60 transition flex flex-col justify-between shrink-0";
+        card.innerHTML = `
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('${ytId}')">
+            <img src="${thumb}" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.onerror=null; this.src='${generateFallbackArt('DJ DYME', 'EVENT RECAP')}';">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+            <div class="absolute w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+            </div>
+            <span class="absolute bottom-2 left-2 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">${ev.badge}</span>
+            <span class="absolute bottom-2 right-2 z-20 text-[9px] font-mono text-slate-300">${ev.year}</span>
+          </div>
+          <div class="p-2.5 space-y-0.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">${ev.title}</h4>
+            <p class="text-[10px] text-slate-400 font-mono truncate">${ev.location}</p>
+          </div>
+        `;
+        rail.appendChild(card);
+      });
+    }
+
     // Playback System
     function playTrack(idx) {
       currentTrackIdx = idx;
@@ -973,8 +1018,10 @@
       document.getElementById('total-time').innerText = track.duration;
       
       const thumb = document.getElementById('player-thumb');
-      if (thumb && track.coverArt) {
-        thumb.src = track.coverArt;
+      const art = resolveCoverArt(track);
+      if (thumb) {
+        thumb.src = art;
+        thumb.onerror = () => { thumb.src = generateFallbackArt(track.title, track.subtitle); };
       }
       
       isPlaying = true;
@@ -1069,7 +1116,7 @@
     // Event Scroller
     function scrollEvents(dir) {
       const rail = document.getElementById('events-rail');
-      const amount = 240;
+      const amount = 220;
       rail.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
     }
 
@@ -1099,9 +1146,10 @@
     }
 
     // Video Modal
-    function openVideoModal(url) {
+    function openVideoModal(urlOrId) {
+      const id = getYoutubeId(urlOrId);
       const m = document.getElementById('video-modal');
-      document.getElementById('video-frame').src = url;
+      document.getElementById('video-frame').src = `https://www.youtube.com/embed/${id}?autoplay=1`;
       m.classList.remove('hidden');
       m.classList.add('flex');
     }
@@ -1112,8 +1160,18 @@
       m.classList.remove('flex');
     }
 
+    // Initialize all dynamic components
     window.onload = () => {
+      renderLatestDrop();
+      renderPufThreeGrid();
+      renderRadioThreeGrid();
+      renderVideoMixes();
       renderVault('all');
+      renderEvents();
+      playTrack(0); // Initialize first track into bottom dock
+      isPlaying = false;
+      updatePlayButton();
+      lucide.createIcons();
     };
   </script>
 </body>
