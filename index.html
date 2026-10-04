@@ -139,25 +139,19 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-[#FF7A00] selection:text-black pb-28">
 
-  <!-- =======================================================================
-       1. WHERE TO INPUT YOUR HEADER LOGO (WEB AND MOBILE)
-       Find line below inside <header>. Replace the <span> text block with:
-       <a href="#" class="flex items-center gap-2">
-         <img src="images/logo.png" alt="DJ DYME" class="h-7 sm:h-8 w-auto">
-       </a>
-       ======================================================================= -->
+  <!-- ================= TOP HEADER (EXPANSIVE FULL-WIDTH CONTAINER) ================= -->
   <header class="sticky top-0 z-40 bg-[#080c13]/90 backdrop-blur-md border-b border-[#172033]">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-3.5 flex items-center justify-between">
       
       <!-- Brand Logo Area (Web & Mobile) -->
       <a href="#" class="flex items-center gap-1.5 group">
         <!-- CUSTOM LOGO REPLACEMENT SPOT -->
-        <span class="font-display font-black text-xl tracking-wider text-white group-hover:text-[#FFA04D] transition">DJDYME</span>
+        <span class="font-display font-black text-xl sm:text-2xl tracking-wider text-white group-hover:text-[#FFA04D] transition">DJDYME</span>
         <span class="w-1.5 h-1.5 rounded-full bg-[#FF7A00] shadow-[0_0_8px_#FF7A00]"></span>
       </a>
 
       <!-- Header Navigation Links (All Caps) -->
-      <nav class="hidden md:flex items-center gap-5 text-xs font-mono font-medium tracking-wider text-slate-300">
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-mono font-medium tracking-wider text-slate-300">
         <a href="#pull-up-fridays" class="hover:text-[#FFA04D] transition">PULL UP FRIDAYS</a>
         <span class="text-slate-600">|</span>
         <a href="#dymetime-radio" class="hover:text-[#FFA04D] transition">DYMETIME RADIO</a>
@@ -170,78 +164,77 @@
       </nav>
 
       <!-- Bookings CTA with Light Orange Hover -->
-      <button onclick="openBookingModal()" class="px-4 py-1.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+      <button onclick="openBookingModal()" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
         Bookings
       </button>
     </div>
   </header>
 
-  <!-- ================= HERO & BANNER SLOT SECTION ================= -->
-  <section class="max-w-4xl mx-auto px-4 pt-8 pb-4 w-full">
+  <!-- ================= HERO & BANNER SLOT SECTION (FULL WIDTH) ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-8 pb-4 w-full">
     
     <div class="flex items-center justify-center mb-5">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0e1522] border border-[#172033] text-[#FF7A00] text-[10px] sm:text-xs font-mono tracking-widest uppercase shadow-inner">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0e1522] border border-[#172033] text-[#FF7A00] text-[11px] sm:text-xs font-mono tracking-widest uppercase shadow-inner">
         <span class="w-1.5 h-1.5 rounded-full bg-[#FF7A00] animate-pulse"></span>
         OFFICIAL ARTIST HUB • WEEKLY DROPS
       </div>
     </div>
 
     <!-- 
-      HERO BANNER SLOT (1920 × 480 PX):
-      Replace the placeholder div below with your real graphic banner:
-      <img src="images/banner.jpg" alt="DJ DYME" class="w-full h-auto rounded-xl border border-[#172033] shadow-2xl">
+      HERO BANNER SLOT (1920 × 480 PX NATIVE 4:1 ASPECT RATIO):
+      Expands dynamically across widescreen monitors with mobile responsive scaling.
     -->
-    <div class="relative w-full aspect-[4/1] min-h-[140px] sm:min-h-[180px] rounded-xl border-2 border-dashed border-[#172033] bg-[#0c121c] flex flex-col items-center justify-center p-4 text-center overflow-hidden group hover:border-[#FFA04D]/60 transition shadow-2xl">
+    <div class="relative w-full aspect-[4/1] min-h-[170px] sm:min-h-[240px] md:min-h-[290px] rounded-2xl border-2 border-dashed border-[#172033] bg-[#0c121c] flex flex-col items-center justify-center p-6 text-center overflow-hidden group hover:border-[#FFA04D]/60 transition shadow-2xl">
       <div class="absolute inset-0 bg-radial-gradient from-transparent to-black/60 pointer-events-none"></div>
       
-      <div class="relative z-10 flex flex-col items-center gap-1.5">
-        <div class="w-9 h-9 rounded-full bg-[#141d2e] border border-[#172033] flex items-center justify-center text-[#FF7A00]">
-          <i data-lucide="image" class="w-4 h-4"></i>
+      <div class="relative z-10 flex flex-col items-center gap-2">
+        <div class="w-11 h-11 rounded-full bg-[#141d2e] border border-[#172033] flex items-center justify-center text-[#FF7A00] group-hover:scale-110 transition">
+          <i data-lucide="image" class="w-5 h-5"></i>
         </div>
-        <div class="font-display font-black text-sm sm:text-base text-white tracking-wider">
-          BANNER SLOT: 1920 × 480 PX
+        <div class="font-display font-black text-base sm:text-lg md:text-xl text-white tracking-wider">
+          WIDESCREEN BANNER: 1920 × 480 PX
         </div>
-        <div class="text-[10px] sm:text-xs font-mono text-slate-400 max-w-md">
-          Recommended: 4:1 Ratio. Keep primary text & logos centered within the 1200px mobile-safe boundary.
+        <div class="text-[11px] sm:text-xs font-mono text-slate-400 max-w-lg">
+          Exact 4:1 Widescreen Ratio. Centered 1200px mobile-safe core. Replace with your banner image file when ready.
         </div>
       </div>
     </div>
 
     <!-- Quick Action Deck Buttons with Light Orange Hover -->
-    <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
-      <button onclick="playTrack(0)" class="flex items-center gap-2 px-6 py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md">
+    <div class="flex flex-wrap items-center justify-center gap-4 mt-6">
+      <button onclick="playTrack(0)" class="flex items-center gap-2 px-7 py-3 rounded-lg bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md">
         <i data-lucide="play" class="w-4 h-4 fill-current"></i>
         Stream Latest Drop
       </button>
-      <a href="#mix-vault" class="flex items-center gap-2 px-6 py-2.5 rounded bg-[#0e1522] hover:bg-[#141d2e] hover:border-[#FFA04D]/50 border border-[#172033] text-white font-display font-bold text-xs uppercase tracking-wider transition">
+      <a href="#mix-vault" class="flex items-center gap-2 px-7 py-3 rounded-lg bg-[#0e1522] hover:bg-[#141d2e] hover:border-[#FFA04D]/50 border border-[#172033] text-white font-display font-bold text-xs uppercase tracking-wider transition">
         Explore The Vault
       </a>
     </div>
 
   </section>
 
-  <!-- ================= MAIN CONTENT (SKINNY max-w-4xl) ================= -->
-  <main class="max-w-4xl mx-auto px-4 py-4 space-y-10 w-full">
+  <!-- ================= MAIN CONTENT (EXPANDED TO max-w-7xl) ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-6 space-y-12 w-full">
 
     <!-- 1. PULL UP FRIDAYS -->
-    <section id="pull-up-fridays" class="space-y-4">
+    <section id="pull-up-fridays" class="space-y-5">
       
       <!-- Section Header & Drop Timer -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#172033] pb-3">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#172033] pb-3.5">
         <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="px-2 py-0.5 rounded bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">WEEKLY MIXSHOW</span>
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="px-2.5 py-0.5 rounded bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">WEEKLY MIXSHOW</span>
             <span class="text-[10px] font-mono text-slate-500">EXCLUSIVES FIRST</span>
           </div>
-          <h2 class="text-xl sm:text-2xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
+          <h2 class="text-2xl sm:text-3xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
         </div>
 
         <!-- Friday Drop Countdown Box (Friday 12:00 PM EST) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded px-3 py-1.5 flex items-center gap-3">
-          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg px-4 py-2 flex items-center gap-3.5 shadow-sm">
+          <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
             Next Drop In:
           </div>
-          <div id="drop-timer" class="font-mono text-xs sm:text-sm font-bold text-[#FF7A00] flex items-center gap-1">
+          <div id="drop-timer" class="font-mono text-sm sm:text-base font-bold text-[#FF7A00] flex items-center gap-1">
             <span id="timer-days">00</span>d : 
             <span id="timer-hours">00</span>h : 
             <span id="timer-mins">00</span>m : 
@@ -250,156 +243,149 @@
         </div>
       </div>
 
-      <!-- FEATURED LATEST DROP (Auto-Populating Cover Art) -->
-      <div id="latest-drop-container" class="bg-gradient-to-br from-[#0e1522] via-[#0d1420] to-[#121c2d] border-2 border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 shadow-xl relative overflow-hidden group">
+      <!-- FEATURED LATEST DROP (Full Width Hero Card) -->
+      <div id="latest-drop-container" class="bg-gradient-to-br from-[#0e1522] via-[#0d1420] to-[#121c2d] border-2 border-[#FF7A00]/40 rounded-2xl p-5 sm:p-7 shadow-xl relative overflow-hidden group">
         <!-- Rendered dynamically by script with auto-populated cover art -->
       </div>
 
       <!-- EXACTLY 3 BOXES BELOW LATEST TRACK (Responsive 3-Column Grid) -->
-      <div id="puf-three-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+      <div id="puf-three-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
         <!-- 3 Recent Pull Up Fridays boxes auto-populated via script -->
       </div>
 
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE DYMETIME RADIO -->
-    <div class="w-full h-px bg-[#172033] my-6"></div>
+    <div class="w-full h-px bg-[#172033] my-8"></div>
 
     <!-- 2. DYMETIME RADIO: EXACTLY 3 PLAYERS -->
-    <section id="dymetime-radio" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-[#172033] pb-3">
+    <section id="dymetime-radio" class="space-y-5">
+      <div class="flex items-center justify-between border-b border-[#172033] pb-3.5">
         <div class="flex items-center gap-3">
-          <span class="px-2 py-0.5 rounded bg-white/10 text-slate-300 text-[10px] font-mono tracking-widest uppercase">SYNDICATED WORLDWIDE</span>
-          <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">DYMETIME RADIO</h2>
+          <span class="px-2.5 py-0.5 rounded bg-white/10 text-slate-300 text-[10px] font-mono tracking-widest uppercase">SYNDICATED WORLDWIDE</span>
+          <h2 class="text-xl sm:text-2xl font-display font-extrabold text-white tracking-wide">DYMETIME RADIO</h2>
         </div>
         <span class="text-slate-400 font-mono text-xs">BROADCAST CUTS</span>
       </div>
 
       <!-- EXACTLY 3 PLAYERS IN RESPONSIVE GRID -->
-      <div id="radio-three-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+      <div id="radio-three-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <!-- 3 Dymetime Radio cards auto-populated via script -->
       </div>
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE GENRE SLIDER -->
-    <div class="w-full h-px bg-[#172033] my-6"></div>
+    <div class="w-full h-px bg-[#172033] my-8"></div>
 
-    <!-- =======================================================================
-         SINGLE GENRE SLIDER: POSITIONED DIRECTLY ON TOP OF VIDEO MIXES
-         Continuous smooth marquee sliding right-to-left
-         ======================================================================= -->
-    <div class="w-full bg-[#0c121c] border-y border-[#172033] py-2.5 ticker-wrap my-4">
-      <div class="ticker-track text-slate-300 font-sans text-xs tracking-[0.2em] uppercase font-normal">
-        <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>R&amp;B</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Reggae</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Dancehall</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Amapiano</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>R&amp;B</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
-        <span>Reggae</span> <span class="mx-3 text-[#FF7A00] font-bold">•</span>
+    <!-- SINGLE GENRE SLIDER: ON TOP OF VIDEO MIXES (FULL BLEED WIDE) -->
+    <div class="w-full bg-[#0c121c] border-y border-[#172033] py-3 ticker-wrap my-6">
+      <div class="ticker-track text-slate-300 font-sans text-xs sm:text-sm tracking-[0.22em] uppercase font-normal">
+        <span>Hip Hop</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Dancehall</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Afrobeat</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Amapiano</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>R&amp;B</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Reggae</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Hip Hop</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Dancehall</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Afrobeat</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Amapiano</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>R&amp;B</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
+        <span>Reggae</span> <span class="mx-4 text-[#FF7A00] font-bold">•</span>
       </div>
     </div>
 
-    <!-- =======================================================================
-         3. VIDEO MIXES (TRUE YOUTUBE 16:9 RATIO & AUTO-POPULATED THUMBNAILS)
-         ======================================================================= -->
-    <section id="video-mixes" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-[#172033] pb-3">
+    <!-- 3. VIDEO MIXES (TRUE YOUTUBE 16:9 RATIO) -->
+    <section id="video-mixes" class="space-y-5">
+      <div class="flex items-center justify-between border-b border-[#172033] pb-3.5">
         <div class="flex items-center gap-3">
-          <span class="px-2 py-0.5 rounded bg-red-600/20 text-red-400 text-[10px] font-mono tracking-widest uppercase">VISUAL SETS</span>
-          <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">VIDEO MIXES</h2>
+          <span class="px-2.5 py-0.5 rounded bg-red-600/20 text-red-400 text-[10px] font-mono tracking-widest uppercase">VISUAL SETS</span>
+          <h2 class="text-xl sm:text-2xl font-display font-extrabold text-white tracking-wide">VIDEO MIXES</h2>
         </div>
-        <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#FFA04D] font-mono text-xs flex items-center gap-1 transition">
-          YOUTUBE CHANNEL <i data-lucide="external-link" class="w-3 h-3"></i>
+        <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#FFA04D] font-mono text-xs flex items-center gap-1.5 transition">
+          YOUTUBE CHANNEL <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
         </a>
       </div>
 
-      <!-- 16:9 Responsive Video Grid (Populated from videoDatabase with auto-thumbnails) -->
-      <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+      <!-- 16:9 Responsive Video Grid -->
+      <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE THE VAULT -->
-    <div class="w-full h-px bg-[#172033] my-6"></div>
+    <div class="w-full h-px bg-[#172033] my-8"></div>
 
-    <!-- 4. THE VAULT (ARCHIVE ENGINE WITH AUTO THUMBNAILS) -->
-    <section id="mix-vault" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#172033] pb-3">
-        <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
+    <!-- 4. THE VAULT (ARCHIVE ENGINE) -->
+    <section id="mix-vault" class="space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#172033] pb-3.5">
+        <h2 class="text-xl sm:text-2xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
         
         <!-- Filter Tabs -->
-        <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
-          <button onclick="filterVault('all')" class="tab-btn px-2.5 py-1 rounded bg-[#FF7A00] text-black font-bold uppercase transition" data-filter="all">All</button>
-          <button onclick="filterVault('puf')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="puf">Pull Up Fridays</button>
-          <button onclick="filterVault('radio')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="radio">Dymetime Radio</button>
+        <div class="flex flex-wrap gap-2 font-mono text-xs">
+          <button onclick="filterVault('all')" class="tab-btn px-3 py-1.5 rounded-lg bg-[#FF7A00] text-black font-bold uppercase transition" data-filter="all">All</button>
+          <button onclick="filterVault('puf')" class="tab-btn px-3 py-1.5 rounded-lg bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="puf">Pull Up Fridays</button>
+          <button onclick="filterVault('radio')" class="tab-btn px-3 py-1.5 rounded-lg bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="radio">Dymetime Radio</button>
         </div>
       </div>
 
-      <!-- Vault List Loaded Via Script -->
-      <div id="vault-list" class="space-y-2"></div>
+      <!-- Vault List -->
+      <div id="vault-list" class="space-y-2.5"></div>
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE EVENTS -->
-    <div class="w-full h-px bg-[#172033] my-6"></div>
+    <div class="w-full h-px bg-[#172033] my-8"></div>
 
-    <!-- =======================================================================
-         5. EVENTS: HORIZONTAL ALBUM SCROLLER (ONE SIZE SMALLER: ~210px)
-         ======================================================================= -->
-    <section id="events" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-[#172033] pb-3">
+    <!-- 5. EVENTS: HORIZONTAL ALBUM SCROLLER (EXPANDED STAGE VIEW) -->
+    <section id="events" class="space-y-5">
+      <div class="flex items-center justify-between border-b border-[#172033] pb-3.5">
         <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="px-2 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">LIVE ARCHIVES</span>
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="px-2.5 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">LIVE ARCHIVES</span>
             <span class="text-[10px] font-mono text-slate-500">EVENT RECAPS & PERFORMANCES</span>
           </div>
-          <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">PAST EVENTS & STAGES</h2>
+          <h2 class="text-xl sm:text-2xl font-display font-black text-white tracking-wide">PAST EVENTS & STAGES</h2>
         </div>
         
-        <!-- Scroller Controls with Light Orange Hover -->
-        <div class="flex items-center gap-1.5">
-          <button onclick="scrollEvents('left')" class="p-1.5 rounded bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] hover:border-[#FFA04D]/50 text-slate-400 transition" aria-label="Scroll left">
+        <!-- Scroller Controls -->
+        <div class="flex items-center gap-2">
+          <button onclick="scrollEvents('left')" class="p-2 rounded-lg bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] hover:border-[#FFA04D]/50 text-slate-400 transition" aria-label="Scroll left">
             <i data-lucide="chevron-left" class="w-4 h-4"></i>
           </button>
-          <button onclick="scrollEvents('right')" class="p-1.5 rounded bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] hover:border-[#FFA04D]/50 text-slate-400 transition" aria-label="Scroll right">
+          <button onclick="scrollEvents('right')" class="p-2 rounded-lg bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] hover:border-[#FFA04D]/50 text-slate-400 transition" aria-label="Scroll right">
             <i data-lucide="chevron-right" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
 
-      <!-- Compact Album Cards Container: reduced to 210px width -->
-      <div id="events-rail" class="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth pb-2 snap-x snap-mandatory">
-        <!-- Event items auto-populated with automatic thumbnails via script -->
+      <!-- Compact Album Cards Container -->
+      <div id="events-rail" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-3 snap-x snap-mandatory">
+        <!-- Event items auto-populated via script -->
       </div>
     </section>
 
     <!-- CHARCOAL DIVIDER ABOVE EMAIL LIST -->
-    <div class="w-full h-px bg-[#172033] my-6"></div>
+    <div class="w-full h-px bg-[#172033] my-8"></div>
 
-    <!-- 6. JOIN EMAIL LIST -->
-    <section class="bg-gradient-to-r from-[#0e1522] via-[#111928] to-[#0e1522] border border-[#172033] rounded-xl p-5 sm:p-6 text-center relative overflow-hidden">
-      <div class="max-w-md mx-auto space-y-2.5">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">
-          <i data-lucide="mail" class="w-3 h-3"></i>
+    <!-- 6. JOIN EMAIL LIST (VIP ACCESS) -->
+    <section class="bg-gradient-to-r from-[#0e1522] via-[#111928] to-[#0e1522] border border-[#172033] rounded-2xl p-6 sm:p-10 text-center relative overflow-hidden">
+      <div class="max-w-xl mx-auto space-y-3.5">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[11px] font-mono tracking-widest uppercase">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
           EXCLUSIVE ACCESS
         </div>
-        <h3 class="font-display font-black text-xl text-white tracking-wide">
+        <h3 class="font-display font-black text-2xl sm:text-3xl text-white tracking-wide">
           JOIN THE DJ DYME EMAIL LIST
         </h3>
-        <p class="text-xs text-slate-400">
+        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
           Get weekly Pull Up Fridays download links at 12:00 PM before the public release, unreleased radio cuts, and exclusive event presales.
         </p>
 
-        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-1.5">
-          <input required type="email" id="email-input" placeholder="Enter your email address" class="flex-1 bg-[#080c13] border border-[#172033] rounded px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FFA04D]">
-          <button type="submit" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md shrink-0">
+        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2.5 pt-2 max-w-md mx-auto">
+          <input required type="email" id="email-input" placeholder="Enter your email address" class="flex-1 bg-[#080c13] border border-[#172033] rounded-lg px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FFA04D]">
+          <button type="submit" class="px-6 py-2.5 rounded-lg bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-md shrink-0">
             Subscribe
           </button>
         </form>
-        <div id="email-feedback" class="text-[11px] font-mono text-[#FFA04D] hidden">
+        <div id="email-feedback" class="text-xs font-mono text-[#FFA04D] hidden">
           ✓ Welcome to the list. You're locked in for the next drop!
         </div>
       </div>
@@ -407,38 +393,38 @@
 
   </main>
 
-  <!-- ================= FOOTER & SOCIAL MEDIA ================= -->
-  <footer class="max-w-4xl mx-auto px-4 pt-10 pb-16 border-t border-[#172033] text-center w-full">
+  <!-- ================= FOOTER & SOCIAL MEDIA (FULL WIDTH) ================= -->
+  <footer class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-12 pb-16 border-t border-[#172033] text-center w-full">
     
     <!-- Social Links with Light Orange Hover -->
-    <div class="flex flex-wrap items-center justify-center gap-6 mb-7">
-      <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+    <div class="flex flex-wrap items-center justify-center gap-7 mb-8">
+      <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs sm:text-sm font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="radio" class="w-4 h-4"></i>
         <span>Mixcloud</span>
       </a>
-      <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+      <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs sm:text-sm font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="instagram" class="w-4 h-4"></i>
         <span>Instagram</span>
       </a>
-      <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+      <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs sm:text-sm font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="facebook" class="w-4 h-4"></i>
         <span>Facebook</span>
       </a>
-      <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+      <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs sm:text-sm font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="youtube" class="w-4 h-4"></i>
         <span>YouTube</span>
       </a>
-      <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+      <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs sm:text-sm font-mono text-slate-400 hover:text-[#FFA04D] transition">
         <i data-lucide="music-2" class="w-4 h-4"></i>
         <span>TikTok</span>
       </a>
     </div>
 
     <!-- Booking Pitch -->
-    <div class="mb-5">
-      <h3 class="font-display font-black text-xl text-white tracking-wide mb-1">LOCK IN DJ DYME</h3>
-      <p class="text-xs text-slate-400 max-w-sm mx-auto mb-3">Available for club residencies, festival lineups, private showcases, and tours worldwide.</p>
-      <button onclick="openBookingModal()" class="px-6 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+    <div class="mb-6">
+      <h3 class="font-display font-black text-2xl text-white tracking-wide mb-1.5">LOCK IN DJ DYME</h3>
+      <p class="text-xs sm:text-sm text-slate-400 max-w-md mx-auto mb-4">Available for club residencies, festival lineups, private showcases, and tours worldwide.</p>
+      <button onclick="openBookingModal()" class="px-7 py-2.5 rounded-lg bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
         Inquire For Dates
       </button>
     </div>
@@ -448,40 +434,38 @@
     </div>
   </footer>
 
-  <!-- =======================================================================
-       PERSISTENT BOTTOM AUDIO PLAYER (TURNS WHITE ON HOVER)
-       ======================================================================= -->
-  <div class="player-dock fixed bottom-0 left-0 right-0 z-50 bg-[#080c13]/95 backdrop-blur-md border-t border-[#172033] py-2 px-4 shadow-2xl">
-    <div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
+  <!-- ================= PERSISTENT BOTTOM AUDIO PLAYER (EXPANDED CONTAINER) ================= -->
+  <div class="player-dock fixed bottom-0 left-0 right-0 z-50 bg-[#080c13]/95 backdrop-blur-md border-t border-[#172033] py-2.5 px-4 sm:px-8 lg:px-12 shadow-2xl">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
       
       <!-- Track Meta & Dynamic Thumbnail -->
-      <div class="flex items-center gap-3 min-w-0 w-1/3">
-        <img id="player-thumb" src="" alt="Now Playing" class="w-9 h-9 sm:w-10 sm:h-10 rounded object-cover border border-[#172033] shrink-0">
+      <div class="flex items-center gap-3.5 min-w-0 w-1/3">
+        <img id="player-thumb" src="" alt="Now Playing" class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-cover border border-[#172033] shrink-0">
         <div class="hidden sm:flex items-end gap-0.5 h-4 w-4 shrink-0 text-[#FF7A00]" id="eq-container">
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.1s"></div>
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.3s"></div>
           <div class="w-1 bg-[#FF7A00] eq-bar" style="animation-delay: 0.2s"></div>
         </div>
         <div class="truncate">
-          <h4 id="player-title" class="font-display font-bold text-xs text-white truncate transition-colors">Pull Up Fridays - Ep. 56</h4>
-          <p id="player-subtitle" class="font-mono text-[10px] text-[#FFA04D] truncate transition-colors">Dancehall Heatwave &amp; Afrobeats</p>
+          <h4 id="player-title" class="font-display font-bold text-xs sm:text-sm text-white truncate transition-colors">Pull Up Fridays - Ep. 56</h4>
+          <p id="player-subtitle" class="font-mono text-[10px] sm:text-[11px] text-[#FFA04D] truncate transition-colors">Dancehall Heatwave &amp; Afrobeats</p>
         </div>
       </div>
 
       <!-- Controls & Scrub Timeline with contrast shifts on hover -->
-      <div class="flex flex-col items-center gap-1 w-1/2 max-w-xs">
-        <div class="flex items-center gap-3">
+      <div class="flex flex-col items-center gap-1.5 w-1/2 max-w-md">
+        <div class="flex items-center gap-4">
           <button onclick="prevTrack()" class="dock-icon-btn text-slate-400 hover:text-[#FFA04D] transition" aria-label="Previous track">
-            <i data-lucide="skip-back" class="w-3.5 h-3.5"></i>
+            <i data-lucide="skip-back" class="w-4 h-4"></i>
           </button>
-          <button onclick="togglePlay()" class="w-7 h-7 rounded-full bg-[#FF7A00] hover:bg-[#FFA04D] flex items-center justify-center text-black transition shadow" aria-label="Toggle play/pause">
-            <i data-lucide="play" id="play-icon" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
+          <button onclick="togglePlay()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FF7A00] hover:bg-[#FFA04D] flex items-center justify-center text-black transition shadow" aria-label="Toggle play/pause">
+            <i data-lucide="play" id="play-icon" class="w-4 h-4 fill-current ml-0.5"></i>
           </button>
           <button onclick="nextTrack()" class="dock-icon-btn text-slate-400 hover:text-[#FFA04D] transition" aria-label="Next track">
-            <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
+            <i data-lucide="skip-forward" class="w-4 h-4"></i>
           </button>
         </div>
-        <div class="w-full flex items-center gap-2 text-[10px] font-mono text-slate-400 dock-timer-text">
+        <div class="w-full flex items-center gap-2.5 text-[10px] sm:text-xs font-mono text-slate-400 dock-timer-text">
           <span id="current-time">00:00</span>
           <div class="relative w-full h-1.5 dock-track-bg bg-[#172033] rounded-full overflow-hidden cursor-pointer" onclick="seekTrack(event)">
             <div id="progress-bar" class="h-full bg-[#FF7A00] hover:bg-[#FFA04D] w-0 rounded-full transition-all"></div>
@@ -492,7 +476,7 @@
 
       <!-- Right Side Live Deck Indicator -->
       <div class="hidden sm:flex items-center justify-end gap-3 w-1/4">
-        <span class="dock-badge text-[10px] font-mono text-[#FFA04D] border border-[#FFA04D]/30 px-2 py-0.5 rounded transition">LIVE DECK</span>
+        <span class="dock-badge text-xs font-mono text-[#FFA04D] border border-[#FFA04D]/30 px-2.5 py-1 rounded-md transition">LIVE DECK</span>
       </div>
 
     </div>
@@ -625,15 +609,15 @@
       {
         id: 0,
         series: 'puf',
-        episode: 'EPISODE 57',
-        title: 'Pull Up Fridays - Ep. 57',
-        subtitle: 'Spinz Fm - Pull Up Fridays 57',
-        bpm: '100 BPM',
-        duration: '57:00',
+        episode: 'EPISODE 56',
+        title: 'Pull Up Fridays - Ep. 56',
+        subtitle: 'Dancehall Heatwave & Afrobeats Edition',
+        bpm: '104 BPM',
+        duration: '55:00',
         durationSec: 3300,
-        tags: ['PUF', 'AFROBEATS', 'DANCEHALL', 'KOMPA'],
+        tags: ['PUF', 'AFROBEATS', 'DANCEHALL'],
         coverArt: '', // Leave blank to auto-populate from 'images/puf-56.jpg' or fallback!
-        audioUrl: 'https://www.mixcloud.com/djdyme/spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254/'
+        audioUrl: 'audio/puf56.mp3'
       },
       {
         id: 1,
