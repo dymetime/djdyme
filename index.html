@@ -529,4 +529,583 @@
         <span>YouTube</span>
       </a>
       <a href="https://www.tiktok.com/@djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
-        <i data-lucide="music-2" class="w-3.
+        <i data-lucide="music-2" class="w-3.5 h-3.5"></i>
+        <span>TikTok</span>
+      </a>
+    </div>
+
+    <!-- Booking CTA -->
+    <div class="mb-5">
+      <h3 class="font-display font-black text-lg text-white tracking-wide mb-1">LOCK IN DJ DYME</h3>
+      <p class="text-xs text-slate-400 max-w-xs mx-auto mb-2.5">Available for club residencies, festival bookings, and broadcast syndication.</p>
+      <button onclick="openBookingModal()" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+        Inquire For Dates
+      </button>
+    </div>
+
+    <div class="text-[10px] font-mono text-slate-500">
+      &copy; 2026 DJ DYME. Mastered audio broadcast.
+    </div>
+  </footer>
+
+  <!-- ================= PERSISTENT BOTTOM AUDIO PLAYER (DARK OBSIDIAN THEME AT ALL TIMES) ================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#080c13]/95 backdrop-blur-md border-t border-[#172033] py-2 px-4 shadow-2xl">
+    <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Track Details + Cover Art Auto-Loaded -->
+      <div class="flex items-center gap-2.5 min-w-0 w-1/3">
+        <img id="player-thumb" src="" alt="Track Art" class="w-9 h-9 rounded object-cover border border-[#172033] shrink-0">
+        <div class="truncate">
+          <h4 id="player-title" class="font-display font-bold text-xs text-white truncate">Pull Up Fridays - Ep. 57</h4>
+          <p id="player-subtitle" class="font-mono text-[10px] text-[#FF7A00] truncate">Dancehall Heatwave & Afrobeats Edition</p>
+        </div>
+      </div>
+
+      <!-- Controls & Progress Bar -->
+      <div class="flex flex-col items-center gap-1 w-1/2 max-w-xs">
+        <div class="flex items-center gap-3">
+          <button onclick="prevTrack()" class="text-slate-400 hover:text-white transition">
+            <i data-lucide="skip-back" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="togglePlay()" class="w-7 h-7 rounded-full bg-[#FF7A00] hover:bg-[#FFA04D] flex items-center justify-center text-black transition shadow">
+            <i data-lucide="play" id="play-icon" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
+          </button>
+          <button onclick="nextTrack()" class="text-slate-400 hover:text-white transition">
+            <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <div class="w-full flex items-center gap-2 text-[9px] font-mono text-slate-400">
+          <span id="current-time">00:00</span>
+          <div class="relative w-full h-1 bg-[#172033] rounded-full overflow-hidden cursor-pointer" onclick="seekTrack(event)">
+            <div id="progress-bar" class="h-full bg-[#FF7A00] w-0 rounded-full"></div>
+          </div>
+          <span id="total-time">55:00</span>
+        </div>
+      </div>
+
+      <!-- Right Indicator -->
+      <div class="hidden sm:flex items-center justify-end gap-2 w-1/4">
+        <span class="text-[9px] font-mono text-[#FF7A00] border border-[#FF7A00]/30 px-2 py-0.5 rounded uppercase">LIVE DECK</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= BOOKING MODAL ================= -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-[#0e1522] border border-[#172033] rounded-xl max-w-md w-full p-5 relative shadow-2xl">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <h3 class="font-display font-extrabold text-base text-white mb-1">EVENT & SHOW INQUIRIES</h3>
+      <p class="text-xs text-slate-400 mb-3 font-mono">Direct routing to DJ DYME tour management.</p>
+      
+      <form onsubmit="handleBookingSubmit(event)" class="space-y-2.5 font-sans text-xs">
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Your Name / Organization</label>
+          <input required type="text" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Email Address</label>
+          <input required type="email" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Date & Venue</label>
+          <input required type="text" placeholder="e.g. Philadelphia, PA" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Budget / Set Notes</label>
+          <textarea rows="2" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]"></textarea>
+        </div>
+        <button type="submit" class="w-full py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition">
+          Transmit Request
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= 16:9 VIDEO MODAL ================= -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="relative max-w-2xl w-full bg-black rounded-lg overflow-hidden border border-[#172033] shadow-2xl">
+      <button onclick="closeVideoModal()" class="absolute top-2 right-2 z-10 p-1.5 bg-black/70 text-white rounded-full hover:text-[#FFA04D]">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div class="aspect-video w-full">
+        <iframe id="video-frame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="audio-engine" preload="none"></audio>
+
+  <!-- ================= SCRIPT & AUTO-POPULATING DATABASE ================= -->
+  <script>
+    lucide.createIcons();
+
+    /* ========================================================================
+       VIDEO MIXES DATABASE (6 TOTAL, SHOW 2 INITIALLY, 4 EXPANDABLE)
+       ======================================================================== */
+    const videoMixesDatabase = [
+      {
+        id: "yt-1",
+        ytId: "dQw4w9WgXcQ",
+        title: "Live Rooftop Sunset Set | Afrobeats & Amapiano",
+        desc: "Full 1080p club showcase recording.",
+        duration: "42:18"
+      },
+      {
+        id: "yt-2",
+        ytId: "dQw4w9WgXcQ",
+        title: "Pull Up Fridays Studio Session | Shatta Reggae",
+        desc: "Live vinyl & turntable transition set.",
+        duration: "38:40"
+      },
+      {
+        id: "yt-3",
+        ytId: "dQw4w9WgXcQ",
+        title: "Dymetime Radio Live Broadcast Session 020",
+        desc: "Live syndicated broadcast visual.",
+        duration: "52:10"
+      },
+      {
+        id: "yt-4",
+        ytId: "dQw4w9WgXcQ",
+        title: "Club Heatwave DJ DYME Live at Main Arena",
+        desc: "High energy festival visual mix.",
+        duration: "45:00"
+      },
+      {
+        id: "yt-5",
+        ytId: "dQw4w9WgXcQ",
+        title: "Afrobeat & Zouk Summer Sunset Special",
+        desc: "Outdoor stage live set.",
+        duration: "48:15"
+      },
+      {
+        id: "yt-6",
+        ytId: "dQw4w9WgXcQ",
+        title: "Old School Hip Hop & Reggae Blends Live",
+        desc: "Turntable quick-mix performance.",
+        duration: "40:22"
+      }
+    ];
+
+    /* ========================================================================
+       MASTER MIX DATABASE: 30 SHOWS (NEWEST FIRST)
+       ======================================================================== */
+    const mixDatabase = [
+      // PUF 10 shows (Featured = 57, 10 below = 56 to 47)
+      { id: 0, series: 'puf', episode: 'EPISODE 57', title: 'Pull Up Fridays - Ep. 57', subtitle: 'Dancehall Heatwave & Afrobeats Edition', bpm: '104 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'AFROBEATS', 'DANCEHALL'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-57.mp3' },
+      { id: 1, series: 'puf', episode: 'EPISODE 56', title: 'Pull Up Fridays - Ep. 56', subtitle: 'Afrobeats 360 & Mashups', bpm: '106 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'AFROBEATS'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-56.mp3' },
+      { id: 2, series: 'puf', episode: 'EPISODE 55', title: 'Pull Up Fridays - Ep. 55', subtitle: 'Old School Reggae & Dancehall', bpm: '98 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'REGGAE'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-55.mp3' },
+      { id: 3, series: 'puf', episode: 'EPISODE 54', title: 'Pull Up Fridays - Ep. 54', subtitle: 'Dirty South & 2000s R&B', bpm: '95 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'HIP HOP'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-54.mp3' },
+      { id: 4, series: 'puf', episode: 'EPISODE 53', title: 'Pull Up Fridays - Ep. 53', subtitle: 'Heavy Drill & Shatta Warm-up', bpm: '140 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'DRILL'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-53.mp3' },
+      { id: 5, series: 'puf', episode: 'EPISODE 52', title: 'Pull Up Fridays - Ep. 52', subtitle: 'Kompa & Zouk Club Anthems', bpm: '102 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'KOMPA'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-52.mp3' },
+      { id: 6, series: 'puf', episode: 'EPISODE 51', title: 'Pull Up Fridays - Ep. 51', subtitle: 'Amapiano Wave & Log Drum Pressure', bpm: '113 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'AMAPIANO'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-51.mp3' },
+      { id: 7, series: 'puf', episode: 'EPISODE 50', title: 'Pull Up Fridays - Ep. 50', subtitle: '50th Episode Celebration Mix', bpm: '108 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'CLUB'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-50.mp3' },
+      { id: 8, series: 'puf', episode: 'EPISODE 49', title: 'Pull Up Fridays - Ep. 49', subtitle: 'Caribbean Vibes & Shatta Clash', bpm: '105 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'SHATTA'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-49.mp3' },
+      { id: 9, series: 'puf', episode: 'EPISODE 48', title: 'Pull Up Fridays - Ep. 48', subtitle: 'East African Rhumba-Afro Blend', bpm: '99 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'AFROBEATS'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-48.mp3' },
+      { id: 10, series: 'puf', episode: 'EPISODE 47', title: 'Pull Up Fridays - Ep. 47', subtitle: 'Golden 2000s Hip Hop Anthems', bpm: '94 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'HIP HOP'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-47.mp3' },
+
+      // Dymetime Radio 10 shows (Sessions 020 to 011)
+      { id: 11, series: 'radio', episode: 'SESSION 020', title: 'Dymetime Radio - Session 020', subtitle: 'Global Club Anthems & Amapiano Wave', bpm: '113 BPM', duration: '60:00', durationSec: 3600, tags: ['RADIO', 'AMAPIANO'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-020.mp3' },
+      { id: 12, series: 'radio', episode: 'SESSION 019', title: 'Dymetime Radio - Session 019', subtitle: 'Mid-Tempo Afropop & Shatta Sessions', bpm: '102 BPM', duration: '58:00', durationSec: 3480, tags: ['RADIO', 'SHATTA'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-019.mp3' },
+      { id: 13, series: 'radio', episode: 'SESSION 018', title: 'Dymetime Radio - Session 018', subtitle: 'Afro-House Rhythms & Heavy Bass', bpm: '120 BPM', duration: '62:30', durationSec: 3750, tags: ['RADIO', 'HOUSE'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-018.mp3' },
+      { id: 14, series: 'radio', episode: 'SESSION 017', title: 'Dymetime Radio - Session 017', subtitle: 'Late Night R&B Blend & Smooth Afro', bpm: '96 BPM', duration: '59:10', durationSec: 3550, tags: ['RADIO', 'RNB'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-017.mp3' },
+      { id: 15, series: 'radio', episode: 'SESSION 016', title: 'Dymetime Radio - Session 016', subtitle: 'Caribbean Pressure & Dancehall Gold', bpm: '104 BPM', duration: '60:00', durationSec: 3600, tags: ['RADIO', 'DANCEHALL'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-016.mp3' },
+      { id: 16, series: 'radio', episode: 'SESSION 015', title: 'Dymetime Radio - Session 015', subtitle: 'Syndicated Club Warm-up Cuts', bpm: '108 BPM', duration: '57:40', durationSec: 3460, tags: ['RADIO', 'CLUB'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-015.mp3' },
+      { id: 17, series: 'radio', episode: 'SESSION 014', title: 'Dymetime Radio - Session 014', subtitle: 'East Coast Drill & Heavy Bass Blends', bpm: '141 BPM', duration: '61:15', durationSec: 3675, tags: ['RADIO', 'DRILL'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-014.mp3' },
+      { id: 18, series: 'radio', episode: 'SESSION 013', title: 'Dymetime Radio - Session 013', subtitle: 'Zouk Anthems & Caribbean Sunset', bpm: '100 BPM', duration: '58:45', durationSec: 3525, tags: ['RADIO', 'ZOUK'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-013.mp3' },
+      { id: 19, series: 'radio', episode: 'SESSION 012', title: 'Dymetime Radio - Session 012', subtitle: 'Afrobeats Worldwide Syndicate', bpm: '106 BPM', duration: '60:00', durationSec: 3600, tags: ['RADIO', 'AFROBEATS'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-012.mp3' },
+      { id: 20, series: 'radio', episode: 'SESSION 011', title: 'Dymetime Radio - Session 011', subtitle: 'South African Log Drums & Club Dubs', bpm: '112 BPM', duration: '63:00', durationSec: 3780, tags: ['RADIO', 'AMAPIANO'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-011.mp3' },
+
+      // Additional Vault Archives (Episodes 46 to 38) to reach 30 Shows Total
+      { id: 21, series: 'puf', episode: 'EPISODE 46', title: 'Pull Up Fridays - Ep. 46', subtitle: 'Afro-Fusion & Caribbean Energy', bpm: '104 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'AFROBEATS'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-46.mp3' },
+      { id: 22, series: 'puf', episode: 'EPISODE 45', title: 'Pull Up Fridays - Ep. 45', subtitle: 'Club Anthems & Shatta Rhythms', bpm: '106 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'SHATTA'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-45.mp3' },
+      { id: 23, series: 'puf', episode: 'EPISODE 44', title: 'Pull Up Fridays - Ep. 44', subtitle: 'Old School Dancehall Pressure', bpm: '99 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'DANCEHALL'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-44.mp3' },
+      { id: 24, series: 'puf', episode: 'EPISODE 43', title: 'Pull Up Fridays - Ep. 43', subtitle: 'Brooklyn Drill & Afropop Fusion', bpm: '140 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'DRILL'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-43.mp3' },
+      { id: 25, series: 'puf', episode: 'EPISODE 42', title: 'Pull Up Fridays - Ep. 42', subtitle: 'Classic Reggae Roots & Dubwise', bpm: '95 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'REGGAE'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-42.mp3' },
+      { id: 26, series: 'puf', episode: 'EPISODE 41', title: 'Pull Up Fridays - Ep. 41', subtitle: 'Summer Kickoff Urban Anthems', bpm: '105 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'CLUB'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-41.mp3' },
+      { id: 27, series: 'puf', episode: 'EPISODE 40', title: 'Pull Up Fridays - Ep. 40', subtitle: '40-Episode Milestone Blend', bpm: '107 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'HIP HOP'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-40.mp3' },
+      { id: 28, series: 'puf', episode: 'EPISODE 39', title: 'Pull Up Fridays - Ep. 39', subtitle: 'Afrobeats Sunrise Mashup', bpm: '103 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'AFROBEATS'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-39.mp3' },
+      { id: 29, series: 'puf', episode: 'EPISODE 38', title: 'Pull Up Fridays - Ep. 38', subtitle: 'Caribbean Vibes & Dancehall Masters', bpm: '100 BPM', duration: '55:00', durationSec: 3300, tags: ['PUF', 'CARIBBEAN'], coverArt: '', audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-38.mp3' }
+    ];
+
+    // Helper for auto artwork
+    function getArtworkUrl(track) {
+      if (track.coverArt && track.coverArt.trim() !== '') {
+        return track.coverArt;
+      }
+      const label = encodeURIComponent(track.episode || 'DJ DYME');
+      return `https://placehold.co/400x400/0e1522/FF7A00?text=${label}`;
+    }
+
+    let currentTrackIdx = 0;
+    let isPlaying = false;
+    let progressTimer = null;
+    let currentSeconds = 0;
+    const audioEl = document.getElementById('audio-engine');
+
+    // 1. Populate PUF (Featured + 3 visible + 7 hidden)
+    function renderPUFSections() {
+      const pufMixes = mixDatabase.filter(m => m.series === 'puf');
+      if (pufMixes.length === 0) return;
+
+      // Featured Top Mix
+      const latest = pufMixes[0];
+      document.getElementById('featured-ep-tag').innerText = `${latest.episode} • ${latest.bpm}`;
+      document.getElementById('featured-title').innerText = latest.title;
+      document.getElementById('featured-desc').innerText = latest.subtitle;
+      document.getElementById('featured-cover-img').src = getArtworkUrl(latest);
+
+      // 10 mixes below featured (indices 1 through 10)
+      const visibleGrid = document.getElementById('puf-visible-grid');
+      const hiddenGrid = document.getElementById('puf-hidden-grid');
+      visibleGrid.innerHTML = '';
+      hiddenGrid.innerHTML = '';
+
+      const firstThree = pufMixes.slice(1, 4);
+      const remainingSeven = pufMixes.slice(4, 11);
+
+      firstThree.forEach(t => visibleGrid.appendChild(createMixCard(t)));
+      remainingSeven.forEach(t => hiddenGrid.appendChild(createMixCard(t)));
+    }
+
+    // 2. Populate Dymetime Radio (3 visible + 7 hidden)
+    function renderRadioSection() {
+      const radioMixes = mixDatabase.filter(m => m.series === 'radio');
+      const visibleGrid = document.getElementById('radio-visible-grid');
+      const hiddenGrid = document.getElementById('radio-hidden-grid');
+      visibleGrid.innerHTML = '';
+      hiddenGrid.innerHTML = '';
+
+      const firstThree = radioMixes.slice(0, 3);
+      const remainingSeven = radioMixes.slice(3, 10);
+
+      firstThree.forEach(t => visibleGrid.appendChild(createMixCard(t)));
+      remainingSeven.forEach(t => hiddenGrid.appendChild(createMixCard(t)));
+    }
+
+    // Helper to generate a mix card
+    function createMixCard(t) {
+      const card = document.createElement('div');
+      card.className = "bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/50 transition group flex flex-col justify-between";
+      card.innerHTML = `
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <img src="${getArtworkUrl(t)}" alt="${t.title}" class="w-10 h-10 rounded object-cover border border-[#172033] shrink-0">
+            <div class="min-w-0">
+              <span class="text-[9px] font-mono text-[#FF7A00]">${t.episode}</span>
+              <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">${t.title}</h4>
+            </div>
+          </div>
+          <p class="text-[10px] text-slate-400 line-clamp-2 mb-2.5">${t.subtitle}</p>
+        </div>
+        <button onclick="playTrack(${t.id})" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
+          <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+          Play Mix (${t.duration})
+        </button>
+      `;
+      return card;
+    }
+
+    // 3. Populate Video Mixes (2 visible + 4 hidden)
+    function renderVideoSections() {
+      const visibleGrid = document.getElementById('video-visible-grid');
+      const hiddenGrid = document.getElementById('video-hidden-grid');
+      visibleGrid.innerHTML = '';
+      hiddenGrid.innerHTML = '';
+
+      const firstTwo = videoMixesDatabase.slice(0, 2);
+      const remainingFour = videoMixesDatabase.slice(2, 6);
+
+      firstTwo.forEach(v => visibleGrid.appendChild(createVideoCard(v)));
+      remainingFour.forEach(v => hiddenGrid.appendChild(createVideoCard(v)));
+    }
+
+    function createVideoCard(v) {
+      const card = document.createElement('div');
+      card.className = "bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition";
+      card.innerHTML = `
+        <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" 
+             onclick="openVideoModal('https://www.youtube.com/embed/${v.ytId}?autoplay=1')">
+          <img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" alt="${v.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+            </div>
+          </div>
+          <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">${v.duration}</span>
+        </div>
+        <div class="p-2.5">
+          <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
+            ${v.title}
+          </h4>
+          <p class="text-[10px] font-mono text-slate-400 mt-0.5">${v.desc}</p>
+        </div>
+      `;
+      return card;
+    }
+
+    // Toggle Expanders
+    function togglePUFList() {
+      const grid = document.getElementById('puf-hidden-grid');
+      const text = document.getElementById('puf-toggle-text');
+      const icon = document.getElementById('puf-toggle-icon');
+      const isHidden = grid.classList.contains('hidden');
+
+      if (isHidden) {
+        grid.classList.remove('hidden');
+        text.innerText = "Show Fewer Episodes";
+        icon.classList.add('rotate-180');
+      } else {
+        grid.classList.add('hidden');
+        text.innerText = "Show More Episodes (7)";
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleRadioList() {
+      const grid = document.getElementById('radio-hidden-grid');
+      const text = document.getElementById('radio-toggle-text');
+      const icon = document.getElementById('radio-toggle-icon');
+      const isHidden = grid.classList.contains('hidden');
+
+      if (isHidden) {
+        grid.classList.remove('hidden');
+        text.innerText = "Show Fewer Sessions";
+        icon.classList.add('rotate-180');
+      } else {
+        grid.classList.add('hidden');
+        text.innerText = "Show More Sessions (7)";
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleVideoList() {
+      const grid = document.getElementById('video-hidden-grid');
+      const text = document.getElementById('video-toggle-text');
+      const icon = document.getElementById('video-toggle-icon');
+      const isHidden = grid.classList.contains('hidden');
+
+      if (isHidden) {
+        grid.classList.remove('hidden');
+        text.innerText = "Show Fewer Video Sets";
+        icon.classList.add('rotate-180');
+      } else {
+        grid.classList.add('hidden');
+        text.innerText = "Show More Video Sets (4)";
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // 4. Render The Vault (30 shows)
+    function renderVault(filter = 'all') {
+      const container = document.getElementById('vault-list');
+      container.innerHTML = '';
+      
+      const filtered = filter === 'all' ? mixDatabase : mixDatabase.filter(t => t.series === filter);
+      
+      filtered.forEach(t => {
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between p-2 rounded bg-[#0e1522] border border-[#172033] hover:border-[#FFA04D]/50 transition cursor-pointer";
+        row.onclick = () => playTrack(t.id);
+        row.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0">
+            <img src="${getArtworkUrl(t)}" alt="${t.title}" class="w-7 h-7 rounded object-cover border border-[#172033] shrink-0">
+            <div class="truncate">
+              <h5 class="text-xs font-display font-bold text-white truncate">${t.title}</h5>
+              <p class="text-[9px] font-mono text-slate-400 truncate">${t.subtitle}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0 font-mono text-[9px] text-slate-400">
+            <span>${t.duration}</span>
+            <button class="p-1 rounded hover:text-[#FFA04D] text-slate-300">
+              <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            </button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+      lucide.createIcons();
+    }
+
+    function filterVault(category) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if(btn.dataset.filter === category) {
+          btn.className = "tab-btn px-2.5 py-1 rounded bg-[#FF7A00] text-black font-bold uppercase transition";
+        } else {
+          btn.className = "tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition";
+        }
+      });
+      renderVault(category);
+    }
+
+    // Audio Playback Engine
+    function playTrack(idx) {
+      currentTrackIdx = idx;
+      const track = mixDatabase[idx];
+      document.getElementById('player-title').innerText = track.title;
+      document.getElementById('player-subtitle').innerText = track.subtitle;
+      document.getElementById('total-time').innerText = track.duration;
+      document.getElementById('player-thumb').src = getArtworkUrl(track);
+      
+      if (track.audioUrl && track.audioUrl.trim() !== '') {
+        audioEl.src = track.audioUrl;
+        audioEl.play().catch(e => console.log('Audio playback initiated.'));
+      }
+
+      isPlaying = true;
+      currentSeconds = 0;
+      updatePlayButton();
+      startProgress();
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        if (!audioEl.src && mixDatabase[currentTrackIdx]) {
+          audioEl.src = mixDatabase[currentTrackIdx].audioUrl;
+        }
+        audioEl.play().catch(e => console.log(e));
+        startProgress();
+      } else {
+        audioEl.pause();
+        clearInterval(progressTimer);
+      }
+      updatePlayButton();
+    }
+
+    function updatePlayButton() {
+      const icon = document.getElementById('play-icon');
+      if (isPlaying) {
+        icon.setAttribute('data-lucide', 'pause');
+      } else {
+        icon.setAttribute('data-lucide', 'play');
+      }
+      lucide.createIcons();
+    }
+
+    function prevTrack() {
+      currentTrackIdx = (currentTrackIdx - 1 + mixDatabase.length) % mixDatabase.length;
+      playTrack(currentTrackIdx);
+    }
+
+    function nextTrack() {
+      currentTrackIdx = (currentTrackIdx + 1) % mixDatabase.length;
+      playTrack(currentTrackIdx);
+    }
+
+    function startProgress() {
+      clearInterval(progressTimer);
+      progressTimer = setInterval(() => {
+        if (!isPlaying) return;
+        currentSeconds += 1;
+        const mins = Math.floor(currentSeconds / 60);
+        const secs = currentSeconds % 60;
+        document.getElementById('current-time').innerText = 
+          `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        const track = mixDatabase[currentTrackIdx];
+        const pct = Math.min((currentSeconds / track.durationSec) * 100, 100);
+        document.getElementById('progress-bar').style.width = pct + '%';
+      }, 1000);
+    }
+
+    function seekTrack(event) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const clickPos = (event.clientX - rect.left) / rect.width;
+      const track = mixDatabase[currentTrackIdx];
+      currentSeconds = Math.floor(clickPos * track.durationSec);
+      if (audioEl.duration) {
+        audioEl.currentTime = clickPos * audioEl.duration;
+      }
+      document.getElementById('progress-bar').style.width = (clickPos * 100) + '%';
+    }
+
+    // Friday 12:00 PM EST Drop Countdown
+    function updateFridayCountdown() {
+      const now = new Date();
+      let target = new Date();
+      const dayOfWeek = now.getDay();
+      let daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+      
+      target.setDate(now.getDate() + daysUntilFriday);
+      target.setHours(12, 0, 0, 0);
+
+      if (dayOfWeek === 5 && now >= target) {
+        target.setDate(target.getDate() + 7);
+      }
+
+      const diff = target - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('timer-days').innerText = days.toString().padStart(2, '0');
+      document.getElementById('timer-hours').innerText = hours.toString().padStart(2, '0');
+      document.getElementById('timer-mins').innerText = minutes.toString().padStart(2, '0');
+      document.getElementById('timer-secs').innerText = seconds.toString().padStart(2, '0');
+    }
+    setInterval(updateFridayCountdown, 1000);
+    updateFridayCountdown();
+
+    // Horizontal Event Scroller
+    function scrollEvents(dir) {
+      const rail = document.getElementById('events-rail');
+      const amount = 220;
+      rail.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+    }
+
+    // Modals
+    function openBookingModal() {
+      const m = document.getElementById('booking-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+    function closeBookingModal() {
+      const m = document.getElementById('booking-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      alert('Inquiry dispatched to DJ DYME tour management!');
+      closeBookingModal();
+    }
+
+    function openVideoModal(url) {
+      const m = document.getElementById('video-modal');
+      document.getElementById('video-frame').src = url;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+    function closeVideoModal() {
+      const m = document.getElementById('video-modal');
+      document.getElementById('video-frame').src = '';
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function handleEmailSubmit(e) {
+      e.preventDefault();
+      document.getElementById('email-input').value = '';
+      const feedback = document.getElementById('email-feedback');
+      feedback.classList.remove('hidden');
+      setTimeout(() => feedback.classList.add('hidden'), 5000);
+    }
+
+    // Initialize Layout
+    window.onload = () => {
+      renderPUFSections();
+      renderRadioSection();
+      renderVideoSections();
+      renderVault('all');
+      document.getElementById('player-thumb').src = getArtworkUrl(mixDatabase[0]);
+      lucide.createIcons();
+    };
+  </script>
+</body>
+</html>
