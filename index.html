@@ -45,7 +45,7 @@
   </script>
 
   <style>
-    /* Custom Orange Scrollbar */
+    /* Custom Orange Scrollbar for Document & Vault */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -70,7 +70,7 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Seamless Infinite Marquee: Right to Left */
+    /* Single Seamless Marquee over Video Mixes */
     .ticker-wrap {
       overflow: hidden;
       white-space: nowrap;
@@ -135,6 +135,12 @@
     .bottom-player-dock:hover .dock-badge {
       border-color: #FF7A00 !important;
       color: #FF7A00 !important;
+      background-color: #fff7ed !important;
+    }
+
+    /* Smooth Height Transition Helper */
+    .collapsible-grid {
+      transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -150,7 +156,7 @@
         <span class="w-1.5 h-1.5 rounded-full bg-[#FF7A00] shadow-[0_0_8px_#FF7A00]"></span>
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Nav (All Caps) -->
       <nav class="hidden md:flex items-center gap-4 text-[11px] font-mono font-medium tracking-wider text-slate-300">
         <a href="#pull-up-fridays" class="hover:text-[#FFA04D] transition">PULL UP FRIDAYS</a>
         <span class="text-slate-600">|</span>
@@ -170,7 +176,7 @@
     </div>
   </header>
 
-  <!-- ================= HERO & BANNER (SLIM max-w-4xl) ================= -->
+  <!-- ================= HERO & BANNER SLOT (SLIM max-w-4xl) ================= -->
   <section class="max-w-4xl mx-auto px-4 pt-6 pb-4 w-full">
     
     <!-- Hero Status Badge -->
@@ -181,7 +187,7 @@
       </div>
     </div>
 
-    <!-- 1920x480 Banner Slot (4:1 Ratio) -->
+    <!-- 1920x480 Widescreen Banner Slot (4:1 Ratio) -->
     <div class="relative w-full aspect-[4/1] min-h-[120px] sm:min-h-[160px] rounded-lg border-2 border-dashed border-[#172033] bg-[#0c121c] flex flex-col items-center justify-center p-3 text-center overflow-hidden group hover:border-[#FFA04D]/60 transition shadow-xl">
       <div class="absolute inset-0 bg-radial-gradient from-transparent to-black/60 pointer-events-none"></div>
       
@@ -198,7 +204,7 @@
       </div>
     </div>
 
-    <!-- Action Buttons -->
+    <!-- Quick Action Deck Buttons -->
     <div class="flex flex-wrap items-center justify-center gap-2.5 mt-5">
       <button onclick="playTrack(0)" class="flex items-center gap-2 px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow">
         <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
@@ -227,7 +233,7 @@
           <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
         </div>
 
-        <!-- Friday Drop Countdown -->
+        <!-- Friday Drop Countdown (Target: Friday 12:00 PM EST) -->
         <div class="bg-[#0e1522] border border-[#172033] rounded px-3 py-1 flex items-center gap-2.5 self-start sm:self-auto">
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider">
             Next Drop:
@@ -278,9 +284,25 @@
         </div>
       </div>
 
-      <!-- 3 RECENT MIXES (3-COLUMN COMPACT GRID) -->
-      <div id="recent-puf-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <!-- Rendered by JavaScript -->
+      <!-- 5 EPISODES BELOW LATEST MIX (3 Initially Visible, 2 Expandable) -->
+      <div class="space-y-3">
+        <!-- Initial 3 Boxes -->
+        <div id="puf-initial-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Hidden Extra 2 Boxes -->
+        <div id="puf-extra-grid" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Toggle Button with Chevron Arrow -->
+        <div class="flex justify-center pt-1">
+          <button id="puf-toggle-btn" onclick="togglePufEpisodes()" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0e1522] hover:bg-[#141d2e] border border-[#172033] hover:border-[#FFA04D]/60 text-xs font-mono text-slate-300 hover:text-white transition">
+            <span id="puf-toggle-text">Show More Episodes (2)</span>
+            <i data-lucide="chevron-down" id="puf-toggle-icon" class="w-3.5 h-3.5 text-[#FF7A00] transition-transform duration-300"></i>
+          </button>
+        </div>
       </div>
 
     </section>
@@ -288,7 +310,7 @@
     <!-- CHARCOAL DIVIDER -->
     <div class="w-full h-px bg-[#172033]"></div>
 
-    <!-- 2. DYMETIME RADIO (3 PLAYERS) -->
+    <!-- 2. DYMETIME RADIO (5 SESSIONS TOTAL: 3 SHOWN, 2 EXPANDABLE) -->
     <section id="dymetime-radio" class="space-y-4">
       <div class="flex items-center justify-between border-b border-[#172033] pb-2.5">
         <div class="flex items-center gap-2.5">
@@ -298,9 +320,24 @@
         <span class="text-slate-400 font-mono text-xs">BROADCAST CUTS</span>
       </div>
 
-      <!-- 3 Radio Cards Grid -->
-      <div id="radio-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <!-- Rendered by JavaScript -->
+      <div class="space-y-3">
+        <!-- Initial 3 Radio Boxes -->
+        <div id="radio-initial-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Hidden Extra 2 Radio Boxes -->
+        <div id="radio-extra-grid" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Toggle Button with Chevron Arrow -->
+        <div class="flex justify-center pt-1">
+          <button id="radio-toggle-btn" onclick="toggleRadioSessions()" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0e1522] hover:bg-[#141d2e] border border-[#172033] hover:border-[#FFA04D]/60 text-xs font-mono text-slate-300 hover:text-white transition">
+            <span id="radio-toggle-text">Show More Sessions (2)</span>
+            <i data-lucide="chevron-down" id="radio-toggle-icon" class="w-3.5 h-3.5 text-[#FF7A00] transition-transform duration-300"></i>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -322,83 +359,73 @@
       </div>
     </div>
 
-    <!-- 3. VIDEO MIXES (SMALLER 16:9 YOUTUBE SIZES) -->
+    <!-- 3. VIDEO MIXES (6 TOTAL: 2 INITIALLY VISIBLE, 4 EXPANDABLE) -->
     <section id="video-mixes" class="space-y-4">
       <div class="flex items-center justify-between border-b border-[#172033] pb-2.5">
         <div class="flex items-center gap-2.5">
           <span class="px-2 py-0.5 rounded bg-red-600/20 text-red-400 text-[10px] font-mono tracking-widest uppercase">VISUAL SETS</span>
           <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">VIDEO MIXES</h2>
         </div>
-        <a href="https://www.youtube.com/@dymetime" target="_blank" class="text-slate-400 hover:text-[#FFA04D] font-mono text-xs flex items-center gap-1 transition">
+        <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#FFA04D] font-mono text-xs flex items-center gap-1 transition">
           YOUTUBE <i data-lucide="external-link" class="w-3 h-3"></i>
         </a>
       </div>
 
-      <!-- Compact 16:9 Video Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-        
-        <!-- Video 1 (Paste your YouTube ID in data-yt-id) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
-          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" 
-               onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video Set 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
-                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
-              </div>
-            </div>
-            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">42:18</span>
-          </div>
-          <div class="p-2.5">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
-              Live Rooftop Sunset Set | Afrobeats & Amapiano
-            </h4>
-            <p class="text-[10px] font-mono text-slate-400 mt-0.5">Full 1080p club showcase recording.</p>
-          </div>
+      <div class="space-y-3.5">
+        <!-- Initial 2 YouTube Boxes (16:9) -->
+        <div id="video-initial-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- Populated by JS -->
         </div>
 
-        <!-- Video 2 (Paste your YouTube ID in data-yt-id) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
-          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" 
-               onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video Set 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
-                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
-              </div>
-            </div>
-            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">38:40</span>
-          </div>
-          <div class="p-2.5">
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
-              Pull Up Fridays Studio Session | Shatta Reggae
-            </h4>
-            <p class="text-[10px] font-mono text-slate-400 mt-0.5">Live vinyl & turntable transition set.</p>
-          </div>
+        <!-- Hidden 4 Extra YouTube Boxes (16:9) -->
+        <div id="video-extra-grid" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+          <!-- Populated by JS -->
         </div>
 
+        <!-- Toggle Button for YouTube Visual Sets -->
+        <div class="flex justify-center pt-1">
+          <button id="video-toggle-btn" onclick="toggleVideoMixes()" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0e1522] hover:bg-[#141d2e] border border-[#172033] hover:border-[#FFA04D]/60 text-xs font-mono text-slate-300 hover:text-white transition">
+            <span id="video-toggle-text">Show More Video Sets (4)</span>
+            <i data-lucide="chevron-down" id="video-toggle-icon" class="w-3.5 h-3.5 text-[#FF7A00] transition-transform duration-300"></i>
+          </button>
+        </div>
       </div>
     </section>
 
     <!-- CHARCOAL DIVIDER -->
     <div class="w-full h-px bg-[#172033]"></div>
 
-    <!-- 4. THE VAULT -->
+    <!-- 4. THE VAULT (15 TOTAL SHOWS: 10 VISIBLE IN SCROLL CONTAINER) -->
     <section id="mix-vault" class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-[#172033] pb-2.5">
-        <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
+        <div class="flex items-center gap-3">
+          <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
+          <span class="text-[10px] font-mono text-[#FF7A00] border border-[#FF7A00]/30 px-2 py-0.5 rounded">15 SHOWS ARCHIVED</span>
+        </div>
         
         <!-- Filter Tabs -->
         <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
-          <button onclick="filterVault('all')" class="tab-btn px-2.5 py-1 rounded bg-[#FF7A00] text-black font-bold uppercase transition" data-filter="all">All</button>
+          <button onclick="filterVault('all')" class="tab-btn px-2.5 py-1 rounded bg-[#FF7A00] text-black font-bold uppercase transition" data-filter="all">All (15)</button>
           <button onclick="filterVault('puf')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="puf">Pull Up Fridays</button>
           <button onclick="filterVault('radio')" class="tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition" data-filter="radio">Dymetime Radio</button>
         </div>
       </div>
 
-      <!-- Vault List Container -->
-      <div id="vault-list" class="space-y-1.5">
-        <!-- Rendered by JavaScript -->
+      <!-- Scrollable Vault Container (10 visible height with sleek scrollbar) -->
+      <div class="relative bg-[#0c121c] border border-[#172033] rounded-xl p-2.5">
+        <!-- Header Scroll Hint -->
+        <div class="flex items-center justify-between px-2 py-1 mb-1 text-[10px] font-mono text-slate-400 border-b border-[#172033]/60">
+          <span>SHOW CATALOG (SORTED NEWEST FIRST)</span>
+          <span class="flex items-center gap-1 text-[#FFA04D]">
+            <i data-lucide="arrow-down" class="w-3 h-3 animate-bounce"></i>
+            Scroll for all 15 shows
+          </span>
+        </div>
+
+        <!-- Scroll list (approx 10 cards visible without scrolling) -->
+        <div id="vault-list" class="max-h-[460px] overflow-y-auto space-y-1.5 pr-1.5">
+          <!-- Rendered by JavaScript -->
+        </div>
       </div>
     </section>
 
@@ -409,4 +436,900 @@
     <section id="events" class="space-y-3.5">
       <div class="flex items-center justify-between border-b border-[#172033] pb-2.5">
         <div>
-          <div class="flex items-center gap
+          <div class="flex items-center gap-2 mb-0.5">
+            <span class="px-2 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">STAGE ARCHIVES</span>
+            <span class="text-[9px] font-mono text-slate-500">EVENT RECAPS</span>
+          </div>
+          <h2 class="text-base sm:text-lg font-display font-black text-white tracking-wide">PAST EVENTS & STAGES</h2>
+        </div>
+        
+        <!-- Scroller Controls -->
+        <div class="flex items-center gap-1">
+          <button onclick="scrollEvents('left')" class="p-1 rounded bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] text-slate-400 transition" aria-label="Scroll left">
+            <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="scrollEvents('right')" class="p-1 rounded bg-[#0e1522] border border-[#172033] hover:text-[#FFA04D] text-slate-400 transition" aria-label="Scroll right">
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Compact 4-Card Horizontal Rail -->
+      <div id="events-rail" class="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth pb-2 snap-x snap-mandatory">
+        
+        <!-- Event Card 1 -->
+        <div class="min-w-[190px] sm:min-w-[210px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/50 transition shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('dQw4w9WgXcQ')">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+            <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+            </div>
+            <span class="absolute bottom-2 left-2 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">RECAP</span>
+            <span class="absolute bottom-2 right-2 z-20 text-[9px] font-mono text-slate-300">PHILLY</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Afro Carnival Takeover</h4>
+            <p class="text-[10px] text-slate-400 font-mono">1,200+ Capacity</p>
+          </div>
+        </div>
+
+        <!-- Event Card 2 -->
+        <div class="min-w-[190px] sm:min-w-[210px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/50 transition shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('dQw4w9WgXcQ')">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+            <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+            </div>
+            <span class="absolute bottom-2 left-2 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">FESTIVAL</span>
+            <span class="absolute bottom-2 right-2 z-20 text-[9px] font-mono text-slate-300">NYC</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Shatta Soundclash Fest</h4>
+            <p class="text-[10px] text-slate-400 font-mono">Brooklyn Arena</p>
+          </div>
+        </div>
+
+        <!-- Event Card 3 -->
+        <div class="min-w-[190px] sm:min-w-[210px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/50 transition shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('dQw4w9WgXcQ')">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+            <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+            </div>
+            <span class="absolute bottom-2 left-2 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">RESIDENCY</span>
+            <span class="absolute bottom-2 right-2 z-20 text-[9px] font-mono text-slate-300">DELCO</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Ignite Midnight Session</h4>
+            <p class="text-[10px] text-slate-400 font-mono">Drexel Hill Lounge</p>
+          </div>
+        </div>
+
+        <!-- Event Card 4 -->
+        <div class="min-w-[190px] sm:min-w-[210px] bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden snap-start group hover:border-[#FFA04D]/50 transition shrink-0">
+          <div class="relative aspect-square bg-[#141d2e] flex items-center justify-center overflow-hidden cursor-pointer" onclick="openVideoModal('dQw4w9WgXcQ')">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+            <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black z-20 group-hover:scale-110 transition shadow">
+              <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+            </div>
+            <span class="absolute bottom-2 left-2 z-20 text-[9px] font-mono text-[#FF7A00] font-bold">BOAT PARTY</span>
+            <span class="absolute bottom-2 right-2 z-20 text-[9px] font-mono text-slate-300">MIAMI</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Amapiano Sunset Cruise</h4>
+            <p class="text-[10px] text-slate-400 font-mono">South Beach Deck</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHARCOAL DIVIDER -->
+    <div class="w-full h-px bg-[#172033]"></div>
+
+    <!-- 6. VIP EMAIL LIST -->
+    <section class="bg-[#0e1522] border border-[#172033] rounded-xl p-5 text-center">
+      <div class="max-w-md mx-auto space-y-2.5">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">
+          <i data-lucide="mail" class="w-3 h-3"></i>
+          EXCLUSIVE ACCESS
+        </div>
+        <h3 class="font-display font-black text-lg text-white tracking-wide">
+          JOIN THE VIP EMAIL LIST
+        </h3>
+        <p class="text-xs text-slate-400">
+          Receive Pull Up Fridays direct downloads at 12:00 PM EST before public syndication.
+        </p>
+
+        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-1">
+          <input required type="email" id="email-input" placeholder="Enter your email" class="flex-1 bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FF7A00]">
+          <button type="submit" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow shrink-0">
+            Subscribe
+          </button>
+        </form>
+        <div id="email-feedback" class="text-[10px] font-mono text-[#FFA04D] hidden">
+          ✓ Subscribed! You are set for the next drop.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER & SOCIAL MEDIA ================= -->
+  <footer class="max-w-4xl mx-auto px-4 pt-8 pb-12 border-t border-[#172033] text-center w-full">
+    
+    <!-- Social Links -->
+    <div class="flex flex-wrap items-center justify-center gap-5 mb-6">
+      <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+        <span>Mixcloud</span>
+      </a>
+      <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="facebook" class="w-3.5 h-3.5"></i>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
+        <span>YouTube</span>
+      </a>
+      <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="music-2" class="w-3.5 h-3.5"></i>
+        <span>TikTok</span>
+      </a>
+    </div>
+
+    <!-- Booking CTA -->
+    <div class="mb-5">
+      <h3 class="font-display font-black text-lg text-white tracking-wide mb-1">LOCK IN DJ DYME</h3>
+      <p class="text-xs text-slate-400 max-w-xs mx-auto mb-2.5">Available for club residencies, festival bookings, and broadcast syndication.</p>
+      <button onclick="openBookingModal()" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+        Inquire For Dates
+      </button>
+    </div>
+
+    <div class="text-[10px] font-mono text-slate-500">
+      &copy; 2026 DJ DYME. Mastered audio broadcast.
+    </div>
+  </footer>
+
+  <!-- ================= PERSISTENT BOTTOM AUDIO PLAYER (WHITE HOVER) ================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bottom-player-dock backdrop-blur-md border-t border-[#172033] py-2 px-4 shadow-2xl">
+    <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Track Details + Cover Art Auto-Loaded -->
+      <div class="flex items-center gap-2.5 min-w-0 w-1/3">
+        <img id="player-thumb" src="" alt="Track Art" class="w-9 h-9 rounded object-cover border border-[#172033] shrink-0">
+        <div class="truncate">
+          <h4 id="player-title" class="dock-text-title font-display font-bold text-xs text-white truncate transition-colors">Pull Up Fridays - Ep. 57</h4>
+          <p id="player-subtitle" class="dock-text-sub font-mono text-[10px] text-[#FF7A00] truncate transition-colors">Dancehall Heatwave &amp; Afrobeats Edition</p>
+        </div>
+      </div>
+
+      <!-- Controls & Progress Bar -->
+      <div class="flex flex-col items-center gap-1 w-1/2 max-w-xs">
+        <div class="flex items-center gap-3">
+          <button onclick="prevTrack()" class="dock-icon-btn text-slate-400 hover:text-white transition" aria-label="Previous track">
+            <i data-lucide="skip-back" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="togglePlay()" class="w-7 h-7 rounded-full bg-[#FF7A00] hover:bg-[#FFA04D] flex items-center justify-center text-black transition shadow" aria-label="Toggle playback">
+            <i data-lucide="play" id="play-icon" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
+          </button>
+          <button onclick="nextTrack()" class="dock-icon-btn text-slate-400 hover:text-white transition" aria-label="Next track">
+            <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <div class="w-full flex items-center gap-2 text-[9px] font-mono dock-time-text text-slate-400">
+          <span id="current-time">00:00</span>
+          <div class="dock-progress-bg relative w-full h-1 bg-[#172033] rounded-full overflow-hidden cursor-pointer" onclick="seekTrack(event)">
+            <div id="progress-bar" class="h-full bg-[#FF7A00] w-0 rounded-full"></div>
+          </div>
+          <span id="total-time">55:00</span>
+        </div>
+      </div>
+
+      <!-- Right Indicator -->
+      <div class="hidden sm:flex items-center justify-end gap-2 w-1/4">
+        <span class="dock-badge text-[9px] font-mono text-[#FF7A00] border border-[#FF7A00]/30 px-2 py-0.5 rounded uppercase">LIVE DECK</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= BOOKING MODAL ================= -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-[#0e1522] border border-[#172033] rounded-xl max-w-md w-full p-5 relative shadow-2xl">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white" aria-label="Close modal">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <h3 class="font-display font-extrabold text-base text-white mb-1">EVENT &amp; SHOW INQUIRIES</h3>
+      <p class="text-xs text-slate-400 mb-3 font-mono">Direct routing to DJ DYME tour management.</p>
+      
+      <form onsubmit="handleBookingSubmit(event)" class="space-y-2.5 font-sans text-xs">
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Your Name / Organization</label>
+          <input required type="text" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Email Address</label>
+          <input required type="email" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Date &amp; Venue</label>
+          <input required type="text" placeholder="e.g. Philadelphia, PA" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-mono text-[9px] uppercase mb-1">Budget / Set Notes</label>
+          <textarea rows="2" class="w-full bg-[#080c13] border border-[#172033] rounded px-3 py-1.5 text-white focus:outline-none focus:border-[#FF7A00]"></textarea>
+        </div>
+        <button type="submit" class="w-full py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition">
+          Transmit Request
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= 16:9 VIDEO MODAL ================= -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="relative max-w-2xl w-full bg-black rounded-lg overflow-hidden border border-[#172033] shadow-2xl">
+      <button onclick="closeVideoModal()" class="absolute top-2 right-2 z-10 p-1.5 bg-black/70 text-white rounded-full hover:text-[#FFA04D]" aria-label="Close modal">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div class="aspect-video w-full">
+        <iframe id="video-frame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Audio Engine -->
+  <audio id="audio-engine" preload="none"></audio>
+
+  <script>
+    lucide.createIcons();
+
+    /* ========================================================================
+       YOUTUBE 6-VIDEO DATABASE:
+       - Displays 2 initially, expands to show all 6 with 16:9 standard ratio.
+       - Put your 11-char ID or YouTube URL in `youtubeUrl`.
+       ======================================================================== */
+    const videoMixesDatabase = [
+      {
+        id: 0,
+        title: 'Live Sunset Rooftop DJ Set | Afro & Amapiano',
+        description: 'Full 4K live club setup recording from the rooftop stage.',
+        duration: '42:18',
+        youtubeUrl: 'dQw4w9WgXcQ'
+      },
+      {
+        id: 1,
+        title: 'Pull Up Fridays Studio Session | Shatta Reggae',
+        description: 'Turntable routines, vocal drops, and live cue mixes.',
+        duration: '38:40',
+        youtubeUrl: 'dQw4w9WgXcQ'
+      },
+      {
+        id: 2,
+        title: 'Mid-Tempo Caribbean Clash | Carnival Warmup',
+        description: 'French Caribbean Zouk and Dancehall clash recording.',
+        duration: '45:10',
+        youtubeUrl: 'dQw4w9WgXcQ'
+      },
+      {
+        id: 3,
+        title: 'Amapiano Wave Live Session | Sunset Edition',
+        description: 'Heavy log drums and South African club transitions.',
+        duration: '50:22',
+        youtubeUrl: 'dQw4w9WgXcQ'
+      },
+      {
+        id: 4,
+        title: 'Exclusive NYC Drill x Dancehall Blend Set',
+        description: 'Quick-mix blend session recorded live in the studio.',
+        duration: '34:15',
+        youtubeUrl: 'dQw4w9WgXcQ'
+      },
+      {
+        id: 5,
+        title: 'Afrobeats Summer Sunset Showcase 2026',
+        description: 'Festival headline rehearsal visual recording.',
+        duration: '48:30',
+        youtubeUrl: 'dQw4w9WgXcQ'
+      }
+    ];
+
+    /* ========================================================================
+       MASTER 15-SHOW CATALOG (NEWEST FIRST):
+       - mixDatabase[0]: Featured Latest Drop (PUF Ep. 57)
+       - mixDatabase[1..5]: 5 Pull Up Fridays Boxes (3 shown, 2 expandable)
+       - mixDatabase[6..10]: 5 Dymetime Radio Boxes (3 shown, 2 expandable)
+       - The Vault displays all 15 shows in the scrollable 10-show viewport!
+       ======================================================================== */
+    const mixDatabase = [
+      // 0. Latest Featured Drop
+      {
+        id: 0,
+        series: 'puf',
+        episode: 'EPISODE 57',
+        title: 'Pull Up Fridays - Ep. 57',
+        subtitle: 'Dancehall Heatwave & Afrobeats Edition',
+        bpm: '104 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'AFROBEATS', 'DANCEHALL'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-57.mp3'
+      },
+
+      // 1..5: The 5 Pull Up Fridays Boxes (Below Latest Drop)
+      {
+        id: 1,
+        series: 'puf',
+        episode: 'EPISODE 56',
+        title: 'Pull Up Fridays - Ep. 56',
+        subtitle: 'Afrobeats 360 & Mashups',
+        bpm: '106 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'AFROBEATS'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-56.mp3'
+      },
+      {
+        id: 2,
+        series: 'puf',
+        episode: 'EPISODE 55',
+        title: 'Pull Up Fridays - Ep. 55',
+        subtitle: 'Old School Reggae & Dancehall',
+        bpm: '98 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'REGGAE'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-55.mp3'
+      },
+      {
+        id: 3,
+        series: 'puf',
+        episode: 'EPISODE 54',
+        title: 'Pull Up Fridays - Ep. 54',
+        subtitle: 'Dirty South & 2000s R&B',
+        bpm: '95 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'HIP HOP'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-54.mp3'
+      },
+      {
+        id: 4,
+        series: 'puf',
+        episode: 'EPISODE 53',
+        title: 'Pull Up Fridays - Ep. 53',
+        subtitle: 'Heavy Drill & Shatta Warm-up',
+        bpm: '140 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'DRILL', 'SHATTA'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-53.mp3'
+      },
+      {
+        id: 5,
+        series: 'puf',
+        episode: 'EPISODE 52',
+        title: 'Pull Up Fridays - Ep. 52',
+        subtitle: 'Golden Era Turntable Anthems',
+        bpm: '100 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'CLASSICS'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-52.mp3'
+      },
+
+      // 6..10: The 5 Dymetime Radio Boxes (3 shown, 2 expandable)
+      {
+        id: 6,
+        series: 'radio',
+        episode: 'SESSION 020',
+        title: 'Dymetime Radio - Session 020',
+        subtitle: 'Global Club Anthems & Amapiano',
+        bpm: '112 BPM',
+        duration: '62:30',
+        durationSec: 3750,
+        tags: ['RADIO', 'AMAPIANO'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-020.mp3'
+      },
+      {
+        id: 7,
+        series: 'radio',
+        episode: 'SESSION 019',
+        title: 'Dymetime Radio - Session 019',
+        subtitle: 'Mid-Tempo Afropop & Shatta Sessions',
+        bpm: '102 BPM',
+        duration: '58:15',
+        durationSec: 3495,
+        tags: ['RADIO', 'SHATTA'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-019.mp3'
+      },
+      {
+        id: 8,
+        series: 'radio',
+        episode: 'SESSION 018',
+        title: 'Dymetime Radio - Session 018',
+        subtitle: 'Afro-House Rhythms & Heavy Bass',
+        bpm: '120 BPM',
+        duration: '60:00',
+        durationSec: 3600,
+        tags: ['RADIO', 'HOUSE'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-018.mp3'
+      },
+      {
+        id: 9,
+        series: 'radio',
+        episode: 'SESSION 017',
+        title: 'Dymetime Radio - Session 017',
+        subtitle: 'Caribbean Carnival Roadmix',
+        bpm: '108 BPM',
+        duration: '61:40',
+        durationSec: 3700,
+        tags: ['RADIO', 'SOCA', 'ZOUK'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-017.mp3'
+      },
+      {
+        id: 10,
+        series: 'radio',
+        episode: 'SESSION 016',
+        title: 'Dymetime Radio - Session 016',
+        subtitle: 'Late Night Afrobeats & R&B Meltdown',
+        bpm: '98 BPM',
+        duration: '59:20',
+        durationSec: 3560,
+        tags: ['RADIO', 'R&B', 'AFROBEATS'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-016.mp3'
+      },
+
+      // 11..14: Vault Catalog Completers (Bringing Total to 15)
+      {
+        id: 11,
+        series: 'puf',
+        episode: 'EPISODE 51',
+        title: 'Pull Up Fridays - Ep. 51',
+        subtitle: 'Kompa Rhythms & Zouk Love Special',
+        bpm: '96 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'KOMPA', 'ZOUK'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-51.mp3'
+      },
+      {
+        id: 12,
+        series: 'radio',
+        episode: 'SESSION 015',
+        title: 'Dymetime Radio - Session 015',
+        subtitle: 'Afropop World Premiere Cuts',
+        bpm: '104 BPM',
+        duration: '57:45',
+        durationSec: 3465,
+        tags: ['RADIO', 'AFROPOP'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-015.mp3'
+      },
+      {
+        id: 13,
+        series: 'puf',
+        episode: 'EPISODE 50',
+        title: 'Pull Up Fridays - Ep. 50 (50th Anniversary)',
+        subtitle: '2-Hour All-Genre Sound System Marathon',
+        bpm: '105 BPM',
+        duration: '110:00',
+        durationSec: 6600,
+        tags: ['PUF', 'ANNIVERSARY', 'ALL-GENRE'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-50.mp3'
+      },
+      {
+        id: 14,
+        series: 'puf',
+        episode: 'EPISODE 49',
+        title: 'Pull Up Fridays - Ep. 49',
+        subtitle: 'Summer Finale Rooftop Warmup',
+        bpm: '103 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'SUMMER'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-49.mp3'
+      }
+    ];
+
+    // Helper functions
+    function getYoutubeId(urlOrId) {
+      if (!urlOrId) return '';
+      if (urlOrId.length === 11 && !urlOrId.includes('/') && !urlOrId.includes('.')) {
+        return urlOrId;
+      }
+      const match = urlOrId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+      return match ? match[1] : urlOrId;
+    }
+
+    function getArtworkUrl(track) {
+      if (track.coverArt && track.coverArt.trim() !== '') {
+        return track.coverArt;
+      }
+      const label = encodeURIComponent(track.episode || 'DJ DYME');
+      return `https://placehold.co/400x400/0e1522/FF7A00?text=${label}`;
+    }
+
+    function buildMiniMixCard(t) {
+      return `
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/50 transition group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <img src="${getArtworkUrl(t)}" alt="${t.title}" class="w-10 h-10 rounded object-cover border border-[#172033] shrink-0">
+              <div class="min-w-0">
+                <span class="text-[9px] font-mono text-[#FF7A00]">${t.episode}</span>
+                <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">${t.title}</h4>
+              </div>
+            </div>
+            <p class="text-[10px] text-slate-400 line-clamp-2 mb-2.5">${t.subtitle}</p>
+          </div>
+          <button onclick="playTrack(${t.id})" class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            Play (${t.duration})
+          </button>
+        </div>
+      `;
+    }
+
+    function buildVideoCard(v) {
+      const ytId = getYoutubeId(v.youtubeUrl);
+      const thumb = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+      return `
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
+          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" 
+               onclick="openVideoModal('${ytId}')">
+            <img src="${thumb}" alt="${v.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/640x360/0e1522/FF7A00?text=DJ+DYME+VIDEO';">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow-lg">
+                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+              </div>
+            </div>
+            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">${v.duration}</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">
+              ${v.title}
+            </h4>
+            <p class="text-[10px] font-mono text-slate-400 mt-0.5 truncate">${v.description}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // 1. Render Pull Up Fridays (Latest + 5 Boxes with 3 shown, 2 expandable)
+    let pufExpanded = false;
+    function renderPUFSections() {
+      // Latest Featured
+      const latest = mixDatabase[0];
+      document.getElementById('featured-ep-tag').innerText = `${latest.episode} • ${latest.bpm}`;
+      document.getElementById('featured-title').innerText = latest.title;
+      document.getElementById('featured-desc').innerText = latest.subtitle;
+      document.getElementById('featured-cover-img').src = getArtworkUrl(latest);
+
+      // 5 Episodes: Ep 56, 55, 54 in initial; Ep 53, 52 in extra
+      const pufBoxes = mixDatabase.filter(m => m.series === 'puf').slice(1, 6);
+      const initial3 = pufBoxes.slice(0, 3);
+      const extra2 = pufBoxes.slice(3, 5);
+
+      const initContainer = document.getElementById('puf-initial-grid');
+      initContainer.innerHTML = initial3.map(buildMiniMixCard).join('');
+
+      const extraContainer = document.getElementById('puf-extra-grid');
+      extraContainer.innerHTML = extra2.map(buildMiniMixCard).join('');
+    }
+
+    function togglePufEpisodes() {
+      pufExpanded = !pufExpanded;
+      const extra = document.getElementById('puf-extra-grid');
+      const text = document.getElementById('puf-toggle-text');
+      const icon = document.getElementById('puf-toggle-icon');
+
+      if (pufExpanded) {
+        extra.classList.remove('hidden');
+        text.innerText = 'Show Fewer Episodes';
+        icon.classList.add('rotate-180');
+      } else {
+        extra.classList.add('hidden');
+        text.innerText = 'Show More Episodes (2)';
+        icon.classList.remove('rotate-180');
+      }
+      lucide.createIcons();
+    }
+
+    // 2. Render Dymetime Radio (5 Sessions: 3 shown, 2 expandable)
+    let radioExpanded = false;
+    function renderRadioSection() {
+      const radioBoxes = mixDatabase.filter(m => m.series === 'radio').slice(0, 5);
+      const initial3 = radioBoxes.slice(0, 3);
+      const extra2 = radioBoxes.slice(3, 5);
+
+      const initContainer = document.getElementById('radio-initial-grid');
+      initContainer.innerHTML = initial3.map(buildMiniMixCard).join('');
+
+      const extraContainer = document.getElementById('radio-extra-grid');
+      extraContainer.innerHTML = extra2.map(buildMiniMixCard).join('');
+    }
+
+    function toggleRadioSessions() {
+      radioExpanded = !radioExpanded;
+      const extra = document.getElementById('radio-extra-grid');
+      const text = document.getElementById('radio-toggle-text');
+      const icon = document.getElementById('radio-toggle-icon');
+
+      if (radioExpanded) {
+        extra.classList.remove('hidden');
+        text.innerText = 'Show Fewer Sessions';
+        icon.classList.add('rotate-180');
+      } else {
+        extra.classList.add('hidden');
+        text.innerText = 'Show More Sessions (2)';
+        icon.classList.remove('rotate-180');
+      }
+      lucide.createIcons();
+    }
+
+    // 3. Render 6 YouTube Videos: 2 initially shown, 4 expandable
+    let videoExpanded = false;
+    function renderVideoSection() {
+      const initial2 = videoMixesDatabase.slice(0, 2);
+      const extra4 = videoMixesDatabase.slice(2, 6);
+
+      document.getElementById('video-initial-grid').innerHTML = initial2.map(buildVideoCard).join('');
+      document.getElementById('video-extra-grid').innerHTML = extra4.map(buildVideoCard).join('');
+    }
+
+    function toggleVideoMixes() {
+      videoExpanded = !videoExpanded;
+      const extra = document.getElementById('video-extra-grid');
+      const text = document.getElementById('video-toggle-text');
+      const icon = document.getElementById('video-toggle-icon');
+
+      if (videoExpanded) {
+        extra.classList.remove('hidden');
+        text.innerText = 'Show Fewer Video Sets';
+        icon.classList.add('rotate-180');
+      } else {
+        extra.classList.add('hidden');
+        text.innerText = 'Show More Video Sets (4)';
+        icon.classList.remove('rotate-180');
+      }
+      lucide.createIcons();
+    }
+
+    // 4. Render The Vault (All 15 shows loaded in scroll rail)
+    function renderVault(filter = 'all') {
+      const container = document.getElementById('vault-list');
+      container.innerHTML = '';
+      
+      const filtered = filter === 'all' ? mixDatabase : mixDatabase.filter(t => t.series === filter);
+      
+      filtered.forEach((t, idx) => {
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between p-2 rounded-lg bg-[#0e1522] border border-[#172033] hover:border-[#FFA04D]/50 transition cursor-pointer";
+        row.onclick = () => playTrack(t.id);
+        row.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0">
+            <span class="text-[9px] font-mono text-slate-500 w-4 text-right">${idx + 1}</span>
+            <img src="${getArtworkUrl(t)}" alt="${t.title}" class="w-7 h-7 rounded object-cover border border-[#172033] shrink-0">
+            <div class="truncate">
+              <h5 class="text-xs font-display font-bold text-white truncate">${t.title}</h5>
+              <p class="text-[9px] font-mono text-slate-400 truncate">${t.subtitle}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0 font-mono text-[9px] text-slate-400">
+            <span class="hidden sm:inline text-slate-500">${t.bpm}</span>
+            <span>${t.duration}</span>
+            <button class="p-1 rounded hover:text-[#FFA04D] text-slate-300">
+              <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+            </button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+      lucide.createIcons();
+    }
+
+    function filterVault(category) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if(btn.dataset.filter === category) {
+          btn.className = "tab-btn px-2.5 py-1 rounded bg-[#FF7A00] text-black font-bold uppercase transition";
+        } else {
+          btn.className = "tab-btn px-2.5 py-1 rounded bg-[#0e1522] border border-[#172033] text-slate-300 hover:text-white uppercase transition";
+        }
+      });
+      renderVault(category);
+    }
+
+    // Audio Playback Engine
+    let currentTrackIdx = 0;
+    let isPlaying = false;
+    let progressTimer = null;
+    let currentSeconds = 0;
+    const audioEl = document.getElementById('audio-engine');
+
+    function playTrack(idx) {
+      currentTrackIdx = idx;
+      const track = mixDatabase.find(t => t.id === idx) || mixDatabase[0];
+      document.getElementById('player-title').innerText = track.title;
+      document.getElementById('player-subtitle').innerText = track.subtitle;
+      document.getElementById('total-time').innerText = track.duration;
+      document.getElementById('player-thumb').src = getArtworkUrl(track);
+      
+      if (track.audioUrl && track.audioUrl.trim() !== '') {
+        audioEl.src = track.audioUrl;
+        audioEl.play().catch(e => console.log('Audio playback initialized:', e));
+      }
+
+      isPlaying = true;
+      currentSeconds = 0;
+      updatePlayButton();
+      startProgress();
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        if (!audioEl.src && mixDatabase[currentTrackIdx]) {
+          audioEl.src = mixDatabase[currentTrackIdx].audioUrl;
+        }
+        audioEl.play().catch(e => console.log(e));
+        startProgress();
+      } else {
+        audioEl.pause();
+        clearInterval(progressTimer);
+      }
+      updatePlayButton();
+    }
+
+    function updatePlayButton() {
+      const icon = document.getElementById('play-icon');
+      if (isPlaying) {
+        icon.setAttribute('data-lucide', 'pause');
+      } else {
+        icon.setAttribute('data-lucide', 'play');
+      }
+      lucide.createIcons();
+    }
+
+    function prevTrack() {
+      currentTrackIdx = (currentTrackIdx - 1 + mixDatabase.length) % mixDatabase.length;
+      playTrack(currentTrackIdx);
+    }
+
+    function nextTrack() {
+      currentTrackIdx = (currentTrackIdx + 1) % mixDatabase.length;
+      playTrack(currentTrackIdx);
+    }
+
+    function startProgress() {
+      clearInterval(progressTimer);
+      progressTimer = setInterval(() => {
+        if (!isPlaying) return;
+        currentSeconds += 1;
+        const mins = Math.floor(currentSeconds / 60);
+        const secs = currentSeconds % 60;
+        document.getElementById('current-time').innerText = 
+          `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        const track = mixDatabase.find(t => t.id === currentTrackIdx) || mixDatabase[0];
+        const pct = Math.min((currentSeconds / track.durationSec) * 100, 100);
+        document.getElementById('progress-bar').style.width = pct + '%';
+      }, 1000);
+    }
+
+    function seekTrack(event) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const clickPos = (event.clientX - rect.left) / rect.width;
+      const track = mixDatabase.find(t => t.id === currentTrackIdx) || mixDatabase[0];
+      currentSeconds = Math.floor(clickPos * track.durationSec);
+      if (audioEl.duration) {
+        audioEl.currentTime = clickPos * audioEl.duration;
+      }
+      document.getElementById('progress-bar').style.width = (clickPos * 100) + '%';
+    }
+
+    // Friday 12:00 PM EST Drop Countdown
+    function updateFridayCountdown() {
+      const now = new Date();
+      let target = new Date();
+      const dayOfWeek = now.getDay();
+      let daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+      
+      target.setDate(now.getDate() + daysUntilFriday);
+      target.setHours(12, 0, 0, 0);
+
+      if (dayOfWeek === 5 && now >= target) {
+        target.setDate(target.getDate() + 7);
+      }
+
+      const diff = target - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('timer-days').innerText = days.toString().padStart(2, '0');
+      document.getElementById('timer-hours').innerText = hours.toString().padStart(2, '0');
+      document.getElementById('timer-mins').innerText = minutes.toString().padStart(2, '0');
+      document.getElementById('timer-secs').innerText = seconds.toString().padStart(2, '0');
+    }
+    setInterval(updateFridayCountdown, 1000);
+    updateFridayCountdown();
+
+    // Event Scroller
+    function scrollEvents(dir) {
+      const rail = document.getElementById('events-rail');
+      const amount = 220;
+      rail.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+    }
+
+    // Modals
+    function openBookingModal() {
+      const m = document.getElementById('booking-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+    function closeBookingModal() {
+      const m = document.getElementById('booking-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      closeBookingModal();
+    }
+
+    function openVideoModal(urlOrId) {
+      const id = getYoutubeId(urlOrId);
+      const m = document.getElementById('video-modal');
+      document.getElementById('video-frame').src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+    function closeVideoModal() {
+      const m = document.getElementById('video-modal');
+      document.getElementById('video-frame').src = '';
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function handleEmailSubmit(e) {
+      e.preventDefault();
+      document.getElementById('email-input').value = '';
+      const feedback = document.getElementById('email-feedback');
+      feedback.classList.remove('hidden');
+      setTimeout(() => feedback.classList.add('hidden'), 5000);
+    }
+
+    // Initialization
+    window.onload = () => {
+      renderPUFSections();
+      renderRadioSection();
+      renderVideoSection();
+      renderVault('all');
+      document.getElementById('player-thumb').src = getArtworkUrl(mixDatabase[0]);
+      lucide.createIcons();
+    };
+  </script>
+</body>
+</html>
