@@ -86,13 +86,41 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Equalizer Wave */
+    /* Dynamic Playing Equalizer Bars in Bottom Player */
     .eq-bar {
-      animation: bounce 1.1s ease-in-out infinite alternate;
+      width: 3px;
+      background-color: #FF7A00;
+      border-radius: 2px;
+      transition: height 0.2s ease;
     }
-    @keyframes bounce {
-      0% { height: 3px; }
-      100% { height: 14px; }
+    .eq-playing .eq-bar:nth-child(1) {
+      animation: eqBounce1 0.75s ease-in-out infinite alternate;
+    }
+    .eq-playing .eq-bar:nth-child(2) {
+      animation: eqBounce2 0.55s ease-in-out infinite alternate;
+    }
+    .eq-playing .eq-bar:nth-child(3) {
+      animation: eqBounce3 0.85s ease-in-out infinite alternate;
+    }
+    .eq-playing .eq-bar:nth-child(4) {
+      animation: eqBounce4 0.65s ease-in-out infinite alternate;
+    }
+
+    @keyframes eqBounce1 {
+      0% { height: 4px; }
+      100% { height: 16px; }
+    }
+    @keyframes eqBounce2 {
+      0% { height: 14px; }
+      100% { height: 5px; }
+    }
+    @keyframes eqBounce3 {
+      0% { height: 6px; }
+      100% { height: 18px; }
+    }
+    @keyframes eqBounce4 {
+      0% { height: 16px; }
+      100% { height: 4px; }
     }
 
     /* Hide scrollbars for album rail */
@@ -146,7 +174,7 @@
   <!-- ================= HERO & BANNER SLOT ================= -->
   <section class="max-w-4xl mx-auto px-4 pt-6 pb-4 w-full">
     
-    <!-- Hero Status Badge: Updated to "THE TURN UP KING • WEEKLY DROPS" -->
+    <!-- Hero Status Badge: "THE TURN UP KING • WEEKLY DROPS" -->
     <div class="flex items-center justify-center mb-4">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0e1522] border border-[#172033] text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase shadow-inner">
         <span class="w-1.5 h-1.5 rounded-full bg-[#FF7A00] animate-pulse"></span>
@@ -251,14 +279,14 @@
         </div>
       </div>
 
-      <!-- 8 EPISODES BELOW LATEST MIX (3 Initially Visible, 5 Expandable) -->
+      <!-- 9 EPISODES BELOW LATEST MIX (3 Initially Visible, 6 Expandable) -->
       <div class="space-y-3">
         <!-- Initial 3 Boxes -->
         <div id="puf-initial-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <!-- Populated by JS -->
         </div>
 
-        <!-- Hidden Extra 5 Boxes -->
+        <!-- Hidden Extra 6 Boxes -->
         <div id="puf-extra-grid" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <!-- Populated by JS -->
         </div>
@@ -266,7 +294,7 @@
         <!-- Toggle Button with Chevron Arrow -->
         <div class="flex justify-center pt-1">
           <button id="puf-toggle-btn" onclick="togglePufEpisodes()" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0e1522] hover:bg-[#141d2e] border border-[#172033] hover:border-[#FFA04D]/60 text-xs font-mono text-slate-300 hover:text-white transition">
-            <span id="puf-toggle-text">Show More Episodes (5)</span>
+            <span id="puf-toggle-text">Show More Episodes (6)</span>
             <i data-lucide="chevron-down" id="puf-toggle-icon" class="w-3.5 h-3.5 text-[#FF7A00] transition-transform duration-300"></i>
           </button>
         </div>
@@ -277,7 +305,7 @@
     <!-- CHARCOAL DIVIDER -->
     <div class="w-full h-px bg-[#172033]"></div>
 
-    <!-- 2. DYMETIME RADIO (8 SESSIONS: 3 SHOWN, 5 EXPANDABLE) -->
+    <!-- 2. DYMETIME RADIO (9 SESSIONS: 3 SHOWN, 6 EXPANDABLE) -->
     <section id="dymetime-radio" class="space-y-4">
       <div class="flex items-center justify-between border-b border-[#172033] pb-2.5">
         <div class="flex items-center gap-2.5">
@@ -293,7 +321,7 @@
           <!-- Populated by JS -->
         </div>
 
-        <!-- Hidden Extra 5 Radio Boxes -->
+        <!-- Hidden Extra 6 Radio Boxes -->
         <div id="radio-extra-grid" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <!-- Populated by JS -->
         </div>
@@ -301,7 +329,7 @@
         <!-- Toggle Button with Chevron Arrow -->
         <div class="flex justify-center pt-1">
           <button id="radio-toggle-btn" onclick="toggleRadioSessions()" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0e1522] hover:bg-[#141d2e] border border-[#172033] hover:border-[#FFA04D]/60 text-xs font-mono text-slate-300 hover:text-white transition">
-            <span id="radio-toggle-text">Show More Sessions (5)</span>
+            <span id="radio-toggle-text">Show More Sessions (6)</span>
             <i data-lucide="chevron-down" id="radio-toggle-icon" class="w-3.5 h-3.5 text-[#FF7A00] transition-transform duration-300"></i>
           </button>
         </div>
@@ -563,13 +591,23 @@
     </div>
   </footer>
 
-  <!-- ================= PERSISTENT BOTTOM AUDIO PLAYER (ORIGINAL OBSIDIAN THEME) ================= -->
+  <!-- ================= PERSISTENT BOTTOM AUDIO PLAYER (ORIGINAL OBSIDIAN THEME + ACTIVE EQ EFFECT) ================= -->
   <div class="fixed bottom-0 left-0 right-0 z-50 bottom-player-dock backdrop-blur-md py-2 px-4 shadow-2xl">
     <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
       
-      <!-- Track Details + Cover Art Auto-Loaded -->
+      <!-- Track Details + Cover Art Auto-Loaded + Active EQ Effect on Left -->
       <div class="flex items-center gap-2.5 min-w-0 w-1/3">
+        
+        <!-- Animated Playing Equalizer Wave on Left Side of Track -->
+        <div id="playing-eq" class="flex items-end gap-0.5 h-4 shrink-0 transition-opacity duration-300 opacity-40">
+          <div class="eq-bar h-1"></div>
+          <div class="eq-bar h-2"></div>
+          <div class="eq-bar h-1.5"></div>
+          <div class="eq-bar h-3"></div>
+        </div>
+
         <img id="player-thumb" src="" alt="Track Art" class="w-9 h-9 rounded object-cover border border-[#172033] shrink-0">
+        
         <div class="truncate">
           <h4 id="player-title" class="font-display font-bold text-xs text-white truncate">Pull Up Fridays - Ep. 57</h4>
           <p id="player-subtitle" class="font-mono text-[10px] text-[#FF7A00] truncate">Dancehall Heatwave &amp; Afrobeats Edition</p>
@@ -710,9 +748,9 @@
     /* ========================================================================
        MASTER 20-SHOW DATABASE (NEWEST FIRST):
        - mixDatabase[0]: Featured Latest Drop (PUF Ep. 57)
-       - mixDatabase[1..8]: 8 Pull Up Fridays Boxes (3 shown, 5 expandable)
-       - mixDatabase[9..16]: 8 Dymetime Radio Boxes (3 shown, 5 expandable)
-       - mixDatabase[17..19]: 3 Additional Milestone Shows
+       - mixDatabase[1..9]: Exactly 9 Pull Up Fridays Boxes (3 shown, 6 expandable)
+       - mixDatabase[10..18]: Exactly 9 Dymetime Radio Boxes (3 shown, 6 expandable)
+       - mixDatabase[19]: Milestone Show
        - Total: Exactly 20 shows in The Vault!
        ======================================================================== */
     const mixDatabase = [
@@ -731,7 +769,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-57.mp3'
       },
 
-      // 1..8: Exactly 8 PUF Boxes Below Latest Drop (Ep. 56 down to Ep. 49)
+      // 1..9: Exactly 9 PUF Boxes Below Latest Drop (Ep. 56 down to Ep. 48)
       {
         id: 1,
         series: 'puf',
@@ -836,10 +874,23 @@
         coverArt: '',
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-49.mp3'
       },
-
-      // 9..16: Exactly 8 Dymetime Radio Boxes (Session 020 down to Session 013)
       {
         id: 9,
+        series: 'puf',
+        episode: 'EPISODE 48',
+        title: 'Pull Up Fridays - Ep. 48',
+        subtitle: 'East African Rhumba-Afro Blend',
+        bpm: '99 BPM',
+        duration: '55:00',
+        durationSec: 3300,
+        tags: ['PUF', 'AFROBEATS'],
+        coverArt: '',
+        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-48.mp3'
+      },
+
+      // 10..18: Exactly 9 Dymetime Radio Boxes (Session 020 down to Session 012)
+      {
+        id: 10,
         series: 'radio',
         episode: 'SESSION 020',
         title: 'Dymetime Radio - Session 020',
@@ -852,7 +903,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-020.mp3'
       },
       {
-        id: 10,
+        id: 11,
         series: 'radio',
         episode: 'SESSION 019',
         title: 'Dymetime Radio - Session 019',
@@ -865,7 +916,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-019.mp3'
       },
       {
-        id: 11,
+        id: 12,
         series: 'radio',
         episode: 'SESSION 018',
         title: 'Dymetime Radio - Session 018',
@@ -878,7 +929,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-018.mp3'
       },
       {
-        id: 12,
+        id: 13,
         series: 'radio',
         episode: 'SESSION 017',
         title: 'Dymetime Radio - Session 017',
@@ -891,7 +942,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-017.mp3'
       },
       {
-        id: 13,
+        id: 14,
         series: 'radio',
         episode: 'SESSION 016',
         title: 'Dymetime Radio - Session 016',
@@ -904,7 +955,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-016.mp3'
       },
       {
-        id: 14,
+        id: 15,
         series: 'radio',
         episode: 'SESSION 015',
         title: 'Dymetime Radio - Session 015',
@@ -917,7 +968,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-015.mp3'
       },
       {
-        id: 15,
+        id: 16,
         series: 'radio',
         episode: 'SESSION 014',
         title: 'Dymetime Radio - Session 014',
@@ -930,7 +981,7 @@
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-014.mp3'
       },
       {
-        id: 16,
+        id: 17,
         series: 'radio',
         episode: 'SESSION 013',
         title: 'Dymetime Radio - Session 013',
@@ -941,21 +992,6 @@
         tags: ['RADIO', 'ZOUK'],
         coverArt: '',
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-013.mp3'
-      },
-
-      // 17..19: Remaining 3 Catalog Shows (Total 20)
-      {
-        id: 17,
-        series: 'puf',
-        episode: 'EPISODE 48',
-        title: 'Pull Up Fridays - Ep. 48',
-        subtitle: 'East African Rhumba-Afro Blend',
-        bpm: '99 BPM',
-        duration: '55:00',
-        durationSec: 3300,
-        tags: ['PUF', 'AFROBEATS'],
-        coverArt: '',
-        audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-48.mp3'
       },
       {
         id: 18,
@@ -970,6 +1006,8 @@
         coverArt: '',
         audioUrl: 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/radio-012.mp3'
       },
+
+      // 19: Milestone Show (Total Exactly 20 Shows in The Vault)
       {
         id: 19,
         series: 'puf',
@@ -1049,7 +1087,7 @@
       `;
     }
 
-    // 1. Render Pull Up Fridays (Latest Drop + 8 Boxes: 3 initial, 5 extra)
+    // 1. Render Pull Up Fridays (Latest Drop + Exactly 9 Boxes: 3 initial, 6 extra)
     let pufExpanded = false;
     function renderPUFSections() {
       // Latest Featured Drop
@@ -1059,13 +1097,13 @@
       document.getElementById('featured-desc').innerText = latest.subtitle;
       document.getElementById('featured-cover-img').src = getArtworkUrl(latest);
 
-      // Exactly 8 Previous PUF Episodes (indices 1 through 8)
-      const pufEight = mixDatabase.filter(m => m.series === 'puf').slice(1, 9);
-      const initial3 = pufEight.slice(0, 3);
-      const extra5 = pufEight.slice(3, 8);
+      // Exactly 9 Previous PUF Episodes (indices 1 through 9)
+      const pufNine = mixDatabase.filter(m => m.series === 'puf').slice(1, 10);
+      const initial3 = pufNine.slice(0, 3);
+      const extra6 = pufNine.slice(3, 9);
 
       document.getElementById('puf-initial-grid').innerHTML = initial3.map(buildMiniMixCard).join('');
-      document.getElementById('puf-extra-grid').innerHTML = extra5.map(buildMiniMixCard).join('');
+      document.getElementById('puf-extra-grid').innerHTML = extra6.map(buildMiniMixCard).join('');
     }
 
     function togglePufEpisodes() {
@@ -1080,21 +1118,21 @@
         icon.classList.add('rotate-180');
       } else {
         extra.classList.add('hidden');
-        text.innerText = 'Show More Episodes (5)';
+        text.innerText = 'Show More Episodes (6)';
         icon.classList.remove('rotate-180');
       }
       lucide.createIcons();
     }
 
-    // 2. Render Dymetime Radio (Exactly 8 Sessions: 3 initial, 5 extra)
+    // 2. Render Dymetime Radio (Exactly 9 Sessions: 3 initial, 6 extra)
     let radioExpanded = false;
     function renderRadioSection() {
-      const radioEight = mixDatabase.filter(m => m.series === 'radio').slice(0, 8);
-      const initial3 = radioEight.slice(0, 3);
-      const extra5 = radioEight.slice(3, 8);
+      const radioNine = mixDatabase.filter(m => m.series === 'radio').slice(0, 9);
+      const initial3 = radioNine.slice(0, 3);
+      const extra6 = radioNine.slice(3, 9);
 
       document.getElementById('radio-initial-grid').innerHTML = initial3.map(buildMiniMixCard).join('');
-      document.getElementById('radio-extra-grid').innerHTML = extra5.map(buildMiniMixCard).join('');
+      document.getElementById('radio-extra-grid').innerHTML = extra6.map(buildMiniMixCard).join('');
     }
 
     function toggleRadioSessions() {
@@ -1109,7 +1147,7 @@
         icon.classList.add('rotate-180');
       } else {
         extra.classList.add('hidden');
-        text.innerText = 'Show More Sessions (5)';
+        text.innerText = 'Show More Sessions (6)';
         icon.classList.remove('rotate-180');
       }
       lucide.createIcons();
@@ -1187,12 +1225,25 @@
       renderVault(category);
     }
 
-    // Audio Playback Engine
+    // Audio Playback Engine with Visual Equalizer Effect
     let currentTrackIdx = 0;
     let isPlaying = false;
     let progressTimer = null;
     let currentSeconds = 0;
     const audioEl = document.getElementById('audio-engine');
+
+    function updateVisualizer(playing) {
+      const eq = document.getElementById('playing-eq');
+      if (playing) {
+        eq.classList.add('eq-playing');
+        eq.classList.remove('opacity-40');
+        eq.classList.add('opacity-100');
+      } else {
+        eq.classList.remove('eq-playing');
+        eq.classList.remove('opacity-100');
+        eq.classList.add('opacity-40');
+      }
+    }
 
     function playTrack(idx) {
       currentTrackIdx = idx;
@@ -1210,6 +1261,7 @@
       isPlaying = true;
       currentSeconds = 0;
       updatePlayButton();
+      updateVisualizer(true);
       startProgress();
     }
 
@@ -1220,9 +1272,11 @@
           audioEl.src = mixDatabase[currentTrackIdx].audioUrl;
         }
         audioEl.play().catch(e => console.log(e));
+        updateVisualizer(true);
         startProgress();
       } else {
         audioEl.pause();
+        updateVisualizer(false);
         clearInterval(progressTimer);
       }
       updatePlayButton();
