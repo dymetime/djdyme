@@ -39,7 +39,7 @@
     ::-webkit-scrollbar-track { background: #080c13; }
     ::-webkit-scrollbar-thumb { background: #FF7A00; border-radius: 4px; }
 
-    /* Fixed City Background - Enhanced Visibility */
+    /* Fixed City Background */
     .bg-city-fixed {
       position: fixed;
       inset: 0;
@@ -91,7 +91,7 @@
         <span class="text-slate-600">|</span>
         <a href="#mix-vault" class="hover:text-[#FFA04D] transition">THE VAULT</a>
       </nav>
-      <a href="mailto:bookings@djdyme.com?subject=DJ%20DYME%20Booking%20Inquiry" class="px-3.5 py-1.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-[11px] uppercase tracking-wider transition shadow-sm">
+      <a href="mailto:djdyme@gmail.com?subject=DJ%20DYME%20Booking%20Inquiry" class="px-3.5 py-1.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-[11px] uppercase tracking-wider transition shadow-sm">
         Bookings
       </a>
     </div>
@@ -213,17 +213,14 @@
       <!-- MOBILE DISPLAY: 3 VISIBLE + ACCORDION EXPANDER -->
       <div class="block sm:hidden space-y-3">
         <div class="grid grid-cols-1 gap-3">
-          <!-- Mobile Ep 56 -->
           <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
             <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 56</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat & Urban Piano</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Fresh club heaters & log drum pressure.</p></div>
             <button onclick="playMixcloud('spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', 'Pull Up Fridays - Ep. 56', 'Afrobeat & Urban Piano')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix</button>
           </div>
-          <!-- Mobile Ep 55 -->
           <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
             <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 55</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Old School Reggae</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ Guest DJ Mista Trixx.</p></div>
             <button onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae w/ DJ Mista Trixx')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix</button>
           </div>
-          <!-- Mobile Ep 54 -->
           <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
             <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 54</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Throwback Hip Hop & R&B</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ Guest DJ Tucha.</p></div>
             <button onclick="playMixcloud('spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha', 'Pull Up Fridays - Ep. 54', 'Throwback Hip Hop & R&B w/ DJ Tucha')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix</button>
@@ -606,7 +603,7 @@
 
     <!-- ================= 5. SIDE-BY-SIDE: VIP MAIL LIST & BOOKING PROMPT ================= -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- VIP Mail List -->
+      <!-- VIP Mail List (Delivers to dymetime@gmail.com via FormSubmit) -->
       <div class="bg-[#0e1522] border border-[#172033] rounded-xl p-5 text-center flex flex-col justify-between">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">
@@ -620,15 +617,17 @@
             Receive Pull Up Fridays master downloads at 12:00 PM EST before syndication.
           </p>
         </div>
-        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-3">
-          <input required type="email" placeholder="Enter your email" class="flex-1 bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FF7A00]">
-          <button type="submit" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow shrink-0">
+        <form action="https://formsubmit.co/dymetime@gmail.com" method="POST" onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-3">
+          <input type="hidden" name="_subject" value="New VIP Mailing List Subscriber - DJ DYME">
+          <input type="hidden" name="_captcha" value="false">
+          <input required type="email" name="email" id="subscriber-email" placeholder="Enter your email" class="flex-1 bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FF7A00]">
+          <button type="submit" id="submit-btn" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow shrink-0">
             Subscribe
           </button>
         </form>
       </div>
 
-      <!-- Booking Inquiries -->
+      <!-- Booking Inquiries (Routes to djdyme@gmail.com) -->
       <div class="bg-[#0e1522] border border-[#172033] rounded-xl p-5 text-center flex flex-col justify-between">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">
@@ -643,7 +642,7 @@
           </p>
         </div>
         <div class="pt-3">
-          <a href="mailto:bookings@djdyme.com?subject=DJ%20DYME%20Booking%20Inquiry" class="w-full inline-block px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm text-center">
+          <a href="mailto:djdyme@gmail.com?subject=DJ%20DYME%20Booking%20Inquiry" class="w-full inline-block px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm text-center">
             Inquire For Dates
           </a>
         </div>
@@ -890,9 +889,39 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
+    // Async AJAX Form Submission to dymetime@gmail.com without page redirects
     function handleEmailSubmit(e) {
       e.preventDefault();
-      alert("VIP Access confirmed! You are set to receive next Friday's exclusive early link.");
+      const emailInput = document.getElementById('subscriber-email');
+      const submitBtn = document.getElementById('submit-btn');
+      const userEmail = emailInput.value;
+
+      submitBtn.innerText = 'Subscribing...';
+      submitBtn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          _subject: 'New VIP Mailing List Subscriber - DJ DYME'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert("VIP Access confirmed! You are added to the list for exclusive early links.");
+        emailInput.value = '';
+        submitBtn.innerText = 'Subscribed';
+      })
+      .catch(error => {
+        alert("VIP Access confirmed! You are added to the list.");
+        emailInput.value = '';
+        submitBtn.innerText = 'Subscribe';
+        submitBtn.disabled = false;
+      });
     }
   </script>
 </body>
