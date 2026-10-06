@@ -83,14 +83,13 @@
     </div>
   </header>
 
-  <!-- ================= HERO & BANNER ================= -->
+  <!-- ================= HERO BANNER ================= -->
   <section class="max-w-4xl mx-auto px-4 pt-6 pb-4 w-full">
-    <!-- Banner Container (Self-Healing File Fallbacks) -->
     <div class="w-full aspect-[4/1] rounded-lg overflow-hidden border border-[#172033] shadow-2xl bg-[#0c121c]">
-      <img src="dymebanner26.jpg" 
+      <img src="images/dymebanner26.jpg" 
            alt="DJ DYME - Official Website" 
            class="w-full h-full object-cover"
-           onerror="if (!this.t1) { this.t1 = true; this.src = 'images/dymebanner26.jpg'; } else if (!this.t2) { this.t2 = true; this.src = 'images/djdymebanner26.png'; } else { this.src = 'djdymebanner26.png'; }">
+           onerror="if(!this.t1){this.t1=true;this.src='images/dymebanner26.png';}else if(!this.t2){this.t2=true;this.src='dymebanner26.jpg';}else{this.src='dymebanner26.png';}">
     </div>
 
     <!-- Action Buttons -->
@@ -150,7 +149,6 @@
 
       <!-- 3 VISIBLE MIXES -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <!-- Ep 56 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/50 transition group flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-2">
@@ -166,7 +164,6 @@
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Mix (55:00)
           </button>
         </div>
-        <!-- Ep 55 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/50 transition group flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-2">
@@ -182,7 +179,6 @@
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Mix (55:00)
           </button>
         </div>
-        <!-- Ep 54 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 hover:border-[#FFA04D]/50 transition group flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-2">
@@ -202,32 +198,26 @@
 
       <!-- 6 EXPANDABLE MIXES -->
       <div id="puf-hidden-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3 hidden pt-1">
-        <!-- Ep 53 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=EP+53" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span><h4 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 53</h4></div></div>
           <button onclick="playTrackByData('Pull Up Fridays - Ep. 53', 'Heavy Drill & Shatta Warm-up', '55:00', 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-53.mp3')" class="w-full py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
         </div>
-        <!-- Ep 52 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=EP+52" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 52</span><h4 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 52</h4></div></div>
           <button onclick="playTrackByData('Pull Up Fridays - Ep. 52', 'Kompa & Zouk Club Anthems', '55:00', 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-52.mp3')" class="w-full py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
         </div>
-        <!-- Ep 51 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=EP+51" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 51</span><h4 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 51</h4></div></div>
           <button onclick="playTrackByData('Pull Up Fridays - Ep. 51', 'Amapiano Wave & Pressure', '55:00', 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-51.mp3')" class="w-full py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
         </div>
-        <!-- Ep 50 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=EP+50" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 50</span><h4 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 50</h4></div></div>
           <button onclick="playTrackByData('Pull Up Fridays - Ep. 50', '50th Episode Celebration', '55:00', 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-50.mp3')" class="w-full py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
         </div>
-        <!-- Ep 49 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=EP+49" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 49</span><h4 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 49</h4></div></div>
           <button onclick="playTrackByData('Pull Up Fridays - Ep. 49', 'Caribbean Vibes & Shatta Clash', '55:00', 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-49.mp3')" class="w-full py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
         </div>
-        <!-- Ep 48 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=EP+48" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 48</span><h4 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 48</h4></div></div>
           <button onclick="playTrackByData('Pull Up Fridays - Ep. 48', 'Rhumba-Afro Blend', '55:00', 'https://archive.org/download/djdyme-pull-up-fridays-master-vault/puf-48.mp3')" class="w-full py-1.5 rounded bg-[#141d2e] hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
@@ -253,7 +243,6 @@
         <span class="text-slate-400 font-mono text-xs">BROADCAST CUTS</span>
       </div>
 
-      <!-- 3 VISIBLE RADIO -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=RADIO+020" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">SESSION 020</span><h4 class="text-xs font-bold text-white truncate">Dymetime Radio - 020</h4></div></div>
@@ -269,7 +258,6 @@
         </div>
       </div>
 
-      <!-- 6 EXPANDABLE RADIO -->
       <div id="radio-hidden-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3 hidden pt-1">
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg p-3 flex flex-col justify-between">
           <div class="flex items-center gap-2 mb-2"><img src="https://placehold.co/400x400/0e1522/FF7A00?text=RADIO+017" class="w-10 h-10 rounded"><div class="min-w-0"><span class="text-[9px] font-mono text-[#FF7A00]">SESSION 017</span><h4 class="text-xs font-bold text-white truncate">Dymetime Radio - 017</h4></div></div>
@@ -318,7 +306,7 @@
       </div>
     </div>
 
-    <!-- 3. VIDEO MIXES (6 TOTAL, 2 VISIBLE, 4 EXPANDABLE) -->
+    <!-- ================= 3. VIDEO MIXES (YOUR 6 YOUTUBE RELEASES) ================= -->
     <section id="video-mixes" class="space-y-4">
       <div class="flex items-center justify-between border-b border-[#172033] pb-2.5">
         <div class="flex items-center gap-2.5">
@@ -326,55 +314,115 @@
           <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">VIDEO MIXES</h2>
         </div>
         <a href="https://www.youtube.com/@dymetime" target="_blank" class="text-slate-400 hover:text-[#FFA04D] font-mono text-xs flex items-center gap-1 transition">
-          YOUTUBE <i data-lucide="external-link" class="w-3 h-3"></i>
+          YOUTUBE CHANNEL <i data-lucide="external-link" class="w-3 h-3"></i>
         </a>
       </div>
 
-      <!-- 2 VISIBLE VIDEOS -->
+      <!-- 2 FEATURED VIDEO MIXES -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        
+        <!-- Video 1: Uganda Video Mix 2024 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
-          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="w-full h-full object-cover">
+          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/lFpetLPcdqI?autoplay=1')">
+            <img src="https://img.youtube.com/vi/lFpetLPcdqI/hqdefault.jpg" alt="Uganda Video Mix 2024" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-9 h-9 rounded-full bg-[#FF7A00] flex items-center justify-center text-black shadow"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+              <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow">
+                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+              </div>
             </div>
-            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">42:18</span>
+            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">26:24</span>
           </div>
-          <div class="p-2.5"><h4 class="font-display font-bold text-xs text-white truncate">Live Rooftop Set | Afrobeats</h4><p class="text-[10px] font-mono text-slate-400 mt-0.5">Full club showcase recording.</p></div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Uganda Video Mix 2024</h4>
+            <p class="text-[10px] font-mono text-slate-400 mt-0.5 truncate">Sheebah, Vinka, Karole Kasita, Jose Chameleone</p>
+          </div>
         </div>
 
+        <!-- Video 2: Arbantone Video Mix 2024 -->
         <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
-          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="w-full h-full object-cover">
+          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/gsoHGAKgpbs?autoplay=1')">
+            <img src="https://img.youtube.com/vi/gsoHGAKgpbs/hqdefault.jpg" alt="Arbantone Video Mix 2024" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-9 h-9 rounded-full bg-[#FF7A00] flex items-center justify-center text-black shadow"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+              <div class="w-9 h-9 rounded-full bg-[#FF7A00] group-hover:bg-[#FFA04D] flex items-center justify-center text-black group-hover:scale-110 transition shadow">
+                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+              </div>
             </div>
-            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">38:40</span>
+            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">32:15</span>
           </div>
-          <div class="p-2.5"><h4 class="font-display font-bold text-xs text-white truncate">Pull Up Fridays Studio Session</h4><p class="text-[10px] font-mono text-slate-400 mt-0.5">Live turntable transition set.</p></div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-[#FFA04D] transition truncate">Arbantone Video Mix 2024</h4>
+            <p class="text-[10px] font-mono text-slate-400 mt-0.5 truncate">Breeder, Maandy, Tipsy Gee, Wakadinali</p>
+          </div>
         </div>
+
       </div>
 
-      <!-- 4 EXPANDABLE VIDEOS -->
+      <!-- 4 EXPANDABLE VIDEO MIXES -->
       <div id="video-hidden-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 hidden pt-1">
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden">
-          <div class="relative w-full aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')"><img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="w-full h-full object-cover"></div>
-          <div class="p-2.5"><h4 class="text-xs font-bold text-white truncate">Dymetime Radio Session 020 Visual</h4></div>
+        
+        <!-- Video 3: Afrobeat Video Mix 2024 -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
+          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/hZIx5C5m49c?autoplay=1')">
+            <img src="https://img.youtube.com/vi/hZIx5C5m49c/hqdefault.jpg" alt="Afrobeat Video Mix 2024" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-9 h-9 rounded-full bg-[#FF7A00] flex items-center justify-center text-black shadow"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+            </div>
+            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">46:33</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white truncate">Afrobeat Video Mix 2024</h4>
+            <p class="text-[10px] font-mono text-slate-400 mt-0.5 truncate">Asake, Ayra Starr, BNXN, Burna Boy, Rema</p>
+          </div>
         </div>
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden">
-          <div class="relative w-full aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')"><img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="w-full h-full object-cover"></div>
-          <div class="p-2.5"><h4 class="text-xs font-bold text-white truncate">Club Heatwave Arena Live</h4></div>
+
+        <!-- Video 4: East African Vibes Mix 2023 -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
+          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/tTRZg9DS9-U?autoplay=1')">
+            <img src="https://img.youtube.com/vi/tTRZg9DS9-U/hqdefault.jpg" alt="East African Vibes Mix 2023" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-9 h-9 rounded-full bg-[#FF7A00] flex items-center justify-center text-black shadow"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+            </div>
+            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">41:39</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white truncate">East African Vibes Mix 2023</h4>
+            <p class="text-[10px] font-mono text-slate-400 mt-0.5 truncate">Arrow Bwoy, Bahati, Nandy, Otile Brown</p>
+          </div>
         </div>
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden">
-          <div class="relative w-full aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')"><img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="w-full h-full object-cover"></div>
-          <div class="p-2.5"><h4 class="text-xs font-bold text-white truncate">Afrobeat Sunset Special</h4></div>
+
+        <!-- Video 5: Urban Club & Dancehall Visual Set -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
+          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/zD9njkvhyd8?autoplay=1')">
+            <img src="https://img.youtube.com/vi/zD9njkvhyd8/hqdefault.jpg" alt="Dancehall & Afrobeats Heatwave Set" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-9 h-9 rounded-full bg-[#FF7A00] flex items-center justify-center text-black shadow"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+            </div>
+            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">38:50</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white truncate">Urban Club & Dancehall Set</h4>
+            <p class="text-[10px] font-mono text-slate-400 mt-0.5 truncate">Heavyweight Club & Festival Transition Blends</p>
+          </div>
         </div>
-        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden">
-          <div class="relative w-full aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')"><img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="w-full h-full object-cover"></div>
-          <div class="p-2.5"><h4 class="text-xs font-bold text-white truncate">Old School Hip Hop & Reggae Blends</h4></div>
+
+        <!-- Video 6: Rhumba Video Mix 2022 -->
+        <div class="bg-[#0e1522] border border-[#172033] rounded-lg overflow-hidden group hover:border-[#FFA04D]/50 transition">
+          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/F6UonIliRRM?autoplay=1')">
+            <img src="https://img.youtube.com/vi/F6UonIliRRM/hqdefault.jpg" alt="Rhumba Video Mix 2022" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-9 h-9 rounded-full bg-[#FF7A00] flex items-center justify-center text-black shadow"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+            </div>
+            <span class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">34:43</span>
+          </div>
+          <div class="p-2.5">
+            <h4 class="font-display font-bold text-xs text-white truncate">Rhumba Video Mix</h4>
+            <p class="text-[10px] font-mono text-slate-400 mt-0.5 truncate">Best of Okello Max, Sauti Sol, Wanavokali</p>
+          </div>
         </div>
+
       </div>
 
+      <!-- Toggle Button for Video Mixes -->
       <div class="text-center pt-2">
         <button id="video-toggle-btn" onclick="toggleSection('video-hidden-grid', 'video-toggle-text', 'Show More Video Sets (4)', 'Show Fewer Video Sets')" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#0e1522] border border-[#172033] hover:border-[#FF7A00] text-slate-300 hover:text-[#FFA04D] font-mono text-[11px] transition">
           <span id="video-toggle-text">Show More Video Sets (4)</span>
@@ -384,7 +432,7 @@
 
     <div class="w-full h-px bg-[#172033]"></div>
 
-    <!-- 4. THE VAULT (20 SHOWS HARDCODED DIRECTLY) -->
+    <!-- 4. THE VAULT (20 MASTER SHOWS) -->
     <section id="mix-vault" class="space-y-4">
       <div class="flex items-center justify-between border-b border-[#172033] pb-2.5">
         <div class="flex items-center gap-3">
@@ -437,7 +485,63 @@
       </div>
     </section>
 
+    <!-- 5. VIP EMAIL LIST -->
+    <section class="bg-[#0e1522] border border-[#172033] rounded-xl p-5 text-center">
+      <div class="max-w-md mx-auto space-y-2.5">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">
+          <i data-lucide="mail" class="w-3 h-3"></i>
+          EXCLUSIVE ACCESS
+        </div>
+        <h3 class="font-display font-black text-lg text-white tracking-wide">
+          JOIN THE VIP EMAIL LIST
+        </h3>
+        <p class="text-xs text-slate-400">
+          Receive Pull Up Fridays direct downloads at 12:00 PM EST before syndication.
+        </p>
+        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-1">
+          <input required type="email" id="email-input" placeholder="Enter your email" class="flex-1 bg-[#080c13] border border-[#172033] rounded px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FF7A00]">
+          <button type="submit" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow shrink-0">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
   </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="max-w-4xl mx-auto px-4 pt-8 pb-12 border-t border-[#172033] text-center w-full">
+    <div class="flex flex-wrap items-center justify-center gap-5 mb-6">
+      <a href="https://www.mixcloud.com/djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+        <span>Mixcloud</span>
+      </a>
+      <a href="https://www.instagram.com/djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.facebook.com/djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="facebook" class="w-3.5 h-3.5"></i>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.youtube.com/@dymetime" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <div class="mb-5">
+      <h3 class="font-display font-black text-lg text-white tracking-wide mb-1">LOCK IN DJ DYME</h3>
+      <p class="text-xs text-slate-400 max-w-xs mx-auto mb-2.5">Available for club residencies, festival bookings, and syndication.</p>
+      <button onclick="openBookingModal()" class="px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+        Inquire For Dates
+      </button>
+    </div>
+
+    <div class="text-[10px] font-mono text-slate-500">
+      &copy; 2026 DJ DYME. Mastered audio broadcast.
+    </div>
+  </footer>
 
   <!-- ================= BOTTOM AUDIO PLAYER ================= -->
   <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#080c13]/95 backdrop-blur-md border-t border-[#172033] py-2 px-4 shadow-2xl">
@@ -472,6 +576,19 @@
     </div>
   </div>
 
+  <!-- ================= 16:9 VIDEO MODAL ================= -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="relative max-w-2xl w-full bg-black rounded-lg overflow-hidden border border-[#172033] shadow-2xl">
+      <button onclick="closeVideoModal()" class="absolute top-2 right-2 z-10 p-1.5 bg-black/70 text-white rounded-full hover:text-[#FFA04D]">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div class="aspect-video w-full">
+        <iframe id="video-frame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
   <audio id="audio-engine" preload="none"></audio>
 
   <script>
@@ -539,6 +656,20 @@
       }
     }
 
+    function openVideoModal(url) {
+      const m = document.getElementById('video-modal');
+      document.getElementById('video-frame').src = url;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeVideoModal() {
+      const m = document.getElementById('video-modal');
+      document.getElementById('video-frame').src = '';
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
     function updateCountdown() {
       const now = new Date();
       let target = new Date();
@@ -555,6 +686,9 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    function openBookingModal() { window.location.href = "mailto:bookings@djdyme.com?subject=DJ%20DYME%20Booking%20Inquiry"; }
+    function handleEmailSubmit(e) { e.preventDefault(); alert("Subscribed! You'll receive VIP access to the next Friday drop."); }
   </script>
 </body>
 </html>
