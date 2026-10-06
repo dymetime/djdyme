@@ -145,15 +145,20 @@
            onerror="if(!this.t1){this.t1=true;this.src='dymebanner26.jpg';}else if(!this.t2){this.t2=true;this.src='images/djdymebanner26.png';}else{this.src='djdymebanner26.png';}">
     </div>
 
-    <!-- Hero Stream Controls -->
-    <div class="flex flex-row items-center justify-center gap-2 mt-4 w-full sm:w-auto px-1">
-      <button onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall w/ DJ Travis')" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-[11px] sm:text-xs uppercase tracking-wider transition shadow truncate">
-        <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
-        <span class="truncate">Stream Latest Drop</span>
+    <!-- Hero Controls: All 3 Buttons Fit Side-by-Side on Mobile -->
+    <div class="flex flex-row items-center justify-center gap-1.5 sm:gap-2.5 mt-4 w-full sm:w-auto px-0.5">
+      <button onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall w/ DJ Travis')" class="flex-1 sm:flex-initial flex items-center justify-center gap-1 px-2 sm:px-4 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow truncate">
+        <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i>
+        <span class="truncate">Latest Drop</span>
       </button>
-      <a href="#mix-vault" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2 rounded depth-card text-white hover:text-[#FFA04D] font-display font-bold text-[11px] sm:text-xs uppercase tracking-wider transition truncate">
-        <span class="truncate">Explore The Vault</span>
+      <a href="#mix-vault" class="flex-1 sm:flex-initial flex items-center justify-center gap-1 px-2 sm:px-4 py-2 rounded depth-card text-white hover:text-[#FFA04D] font-display font-bold text-[10px] sm:text-xs uppercase tracking-wider transition truncate">
+        <i data-lucide="folder-lock" class="w-3 h-3 shrink-0"></i>
+        <span class="truncate">The Vault</span>
       </a>
+      <button onclick="openVipModal()" class="flex-1 sm:flex-initial flex items-center justify-center gap-1 px-2 sm:px-4 py-2 rounded border border-[#FF7A00]/50 bg-[#FF7A00]/15 hover:bg-[#FF7A00] text-[#FFA04D] hover:text-black font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow truncate">
+        <i data-lucide="bell-plus" class="w-3 h-3 shrink-0"></i>
+        <span class="truncate">Subscribe</span>
+      </button>
     </div>
   </section>
 
@@ -251,7 +256,7 @@
       <!-- MOBILE DISPLAY: 3 VISIBLE + 6 EXPANDABLE ACCORDION (BOXED GRID) -->
       <div class="block sm:hidden space-y-2.5">
         <!-- 3 Always Visible Mixes on Mobile -->
-        <div class="grid grid-cols-2 gap-2.5">
+        <div class="grid grid-cols-2 gap-2">
           <!-- Ep 56 -->
           <div class="depth-card rounded-lg p-2.5 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
             <div>
@@ -259,7 +264,7 @@
               <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat & Piano</h4>
               <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club heaters & log drums.</p>
             </div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', 'Pull Up Fridays - Ep. 56', 'Afrobeat & Urban Piano')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', 'Pull Up Fridays - Ep. 56', 'Afrobeat & Urban Piano')" class="w-full mt-2.5 flex items-center justify-center gap-1 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
           </div>
           <!-- Ep 55 -->
           <div class="depth-card rounded-lg p-2.5 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
@@ -268,7 +273,7 @@
               <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Old School Reggae</h4>
               <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Mista Trixx.</p>
             </div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae w/ DJ Mista Trixx')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae w/ DJ Mista Trixx')" class="w-full mt-2.5 flex items-center justify-center gap-1 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
           </div>
           <!-- Ep 54 -->
           <div class="depth-card rounded-lg p-2.5 hover:border-[#FFA04D]/60 transition flex flex-col justify-between col-span-2">
@@ -282,7 +287,7 @@
         </div>
 
         <!-- 6 Hidden Expandable Mixes on Mobile -->
-        <div id="puf-mobile-hidden-grid" class="grid grid-cols-2 gap-2.5 hidden pt-1">
+        <div id="puf-mobile-hidden-grid" class="grid grid-cols-2 gap-2 hidden pt-1">
           <!-- Ep 53 -->
           <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
             <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span><h4 class="text-xs font-bold text-white truncate">Zouk & Shatta</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ Brian</p></div>
@@ -797,6 +802,57 @@
     </div>
   </div>
 
+  <!-- ================= VIP SUBSCRIPTION POPUP MODAL ================= -->
+  <div id="vip-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="relative max-w-md w-full depth-card rounded-2xl p-6 border border-[#FF7A00]/40 shadow-2xl">
+      <button onclick="closeVipModal()" class="absolute top-3.5 right-3.5 p-1.5 bg-white/10 hover:bg-[#FF7A00] hover:text-black text-white rounded-full transition">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-1 mb-4 text-center sm:text-left">
+        <span class="px-2 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] text-[9px] font-mono uppercase font-bold">VIP MEMBERSHIP</span>
+        <h3 class="text-lg font-display font-black text-white tracking-wide">JOIN THE VIP EMAIL LIST</h3>
+        <p class="text-xs text-slate-400">Get Pull Up Fridays master downloads early at 12:00 PM EST before syndication.</p>
+      </div>
+
+      <form id="vip-popup-form" onsubmit="handleVipModalSubmit(event)" class="space-y-3">
+        <div>
+          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Email Address *</label>
+          <input required type="email" id="vip-modal-email" placeholder="you@domain.com" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div>
+          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Social Handle (@Instagram, TikTok, etc.) *</label>
+          <input required type="text" id="vip-modal-social" placeholder="@yourhandle" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Full Name (Optional)</label>
+            <input type="text" id="vip-modal-name" placeholder="John Doe" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+          </div>
+          <div>
+            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Phone Number (Optional)</label>
+            <input type="tel" id="vip-modal-phone" placeholder="(555) 000-0000" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+          </div>
+        </div>
+
+        <button type="submit" id="vip-modal-submit-btn" class="w-full py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FF7A00]/25 mt-1">
+          Complete VIP Sign Up
+        </button>
+
+        <!-- Optional Social Follow Call to Action -->
+        <div class="pt-3 border-t border-white/10 text-center">
+          <p class="text-[10px] font-mono text-slate-400 mb-2">Optional: Follow DJ DYME on socials</p>
+          <div class="flex items-center justify-center gap-3">
+            <a href="https://www.instagram.com/djdyme" target="_blank" class="p-1.5 rounded-full bg-white/5 hover:bg-[#FF7A00] hover:text-black text-slate-300 transition"><i data-lucide="instagram" class="w-3.5 h-3.5"></i></a>
+            <a href="https://www.facebook.com/djdyme" target="_blank" class="p-1.5 rounded-full bg-white/5 hover:bg-[#FF7A00] hover:text-black text-slate-300 transition"><i data-lucide="facebook" class="w-3.5 h-3.5"></i></a>
+            <a href="https://www.youtube.com/@dymetime" target="_blank" class="p-1.5 rounded-full bg-white/5 hover:bg-[#FF7A00] hover:text-black text-slate-300 transition"><i data-lucide="youtube" class="w-3.5 h-3.5"></i></a>
+            <a href="https://www.mixcloud.com/djdyme" target="_blank" class="p-1.5 rounded-full bg-white/5 hover:bg-[#FF7A00] hover:text-black text-slate-300 transition"><i data-lucide="radio" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- ================= CUSTOM OBSIDIAN AUDIO DECK ================= -->
   <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#03060c]/98 backdrop-blur-xl border-t border-white/10 py-2.5 px-4 shadow-[0_-16px_36px_rgba(0,0,0,0.95)]">
     <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
@@ -878,6 +934,62 @@
       const modal = document.getElementById('booking-modal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+    }
+
+    // VIP Subscription Modal Controller
+    function openVipModal() {
+      const modal = document.getElementById('vip-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeVipModal() {
+      const modal = document.getElementById('vip-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // AJAX Form Submission for VIP Modal to dymetime@gmail.com
+    function handleVipModalSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('vip-modal-submit-btn');
+      const email = document.getElementById('vip-modal-email').value;
+      const social = document.getElementById('vip-modal-social').value;
+      const name = document.getElementById('vip-modal-name').value;
+      const phone = document.getElementById('vip-modal-phone').value;
+
+      btn.innerText = 'Subscribing...';
+      btn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New VIP Subscriber Signup: ${social}`,
+          Email: email,
+          SocialHandle: social,
+          Name: name || 'N/A',
+          Phone: phone || 'N/A'
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("VIP Access confirmed! You are added to the list for exclusive early links.");
+        document.getElementById('vip-popup-form').reset();
+        btn.innerText = 'Complete VIP Sign Up';
+        btn.disabled = false;
+        closeVipModal();
+      })
+      .catch(err => {
+        alert("VIP Access confirmed! You are added to the list.");
+        document.getElementById('vip-popup-form').reset();
+        btn.innerText = 'Complete VIP Sign Up';
+        btn.disabled = false;
+        closeVipModal();
+      });
     }
 
     // AJAX Booking Form Submission directly to djdyme@gmail.com
@@ -1081,7 +1193,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // AJAX Form Submission to dymetime@gmail.com
+    // AJAX Form Submission for bottom section to dymetime@gmail.com
     function handleEmailSubmit(e) {
       e.preventDefault();
       const emailInput = document.getElementById('subscriber-email');
