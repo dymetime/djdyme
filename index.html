@@ -171,7 +171,7 @@
     </div>
   </header>
 
-  <!-- ================= HERO & BANNER SLOT ================= -->
+  <!-- ================= HERO & BANNER (SLIM max-w-4xl) ================= -->
   <section class="max-w-4xl mx-auto px-4 pt-6 pb-4 w-full">
     
     <!-- Hero Status Badge: "THE TURN UP KING • WEEKLY DROPS" -->
@@ -182,43 +182,26 @@
       </div>
     </div>
 
-    <!-- 1920x480 Widescreen Banner Slot (4:1 Ratio) -->
-    <img src="images/covers/djdyme%20banner%2026.png" alt="DJ DYME - The Turn Up King" class="w-full aspect-[4/1] object-cover rounded-lg border border-[#172033] shadow-2xl">
+    <!-- Banner Container (Self-Healing File Path) -->
+    <div class="w-full aspect-[4/1] rounded-lg overflow-hidden border border-[#172033] shadow-2xl bg-[#0c121c]">
+      <img src="images/covers/djdyme%20banner%2026.png" 
+           alt="DJ DYME - The Turn Up King" 
+           class="w-full h-full object-cover"
+           onerror="this.onerror=null; this.src='djdyme%20banner%2026.png';">
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-2.5 mt-5">
+      <button onclick="playTrack(0)" class="flex items-center gap-2 px-5 py-2 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow">
+        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+        Stream Latest Drop
+      </button>
+      <a href="#mix-vault" class="flex items-center gap-2 px-5 py-2 rounded bg-[#0e1522] hover:bg-[#141d2e] border border-[#172033] text-white font-display font-bold text-xs uppercase tracking-wider transition">
+        Explore The Vault
       </a>
     </div>
 
   </section>
-
-  <!-- ================= MAIN CONTENT (SLIM max-w-4xl) ================= -->
-  <main class="max-w-4xl mx-auto px-4 py-2 space-y-10 w-full">
-
-    <!-- 1. PULL UP FRIDAYS -->
-    <section id="pull-up-fridays" class="space-y-4">
-      
-      <!-- Section Header & Drop Timer -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 border-b border-[#172033] pb-2.5">
-        <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="px-2 py-0.5 rounded bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase">WEEKLY MIXSHOW</span>
-            <span class="text-[10px] font-mono text-slate-500">EXCLUSIVES FIRST</span>
-          </div>
-          <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
-        </div>
-
-        <!-- Friday Drop Countdown (Target: Friday 12:00 PM EST) -->
-        <div class="bg-[#0e1522] border border-[#172033] rounded px-3 py-1 flex items-center gap-2.5 self-start sm:self-auto">
-          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider">
-            Next Drop:
-          </div>
-          <div id="drop-timer" class="font-mono text-xs font-bold text-[#FF7A00] flex items-center gap-1">
-            <span id="timer-days">00</span>d : 
-            <span id="timer-hours">00</span>h : 
-            <span id="timer-mins">00</span>m : 
-            <span id="timer-secs">00</span>s
-          </div>
-        </div>
-      </div>
-
       <!-- FEATURED LATEST DROP -->
       <div id="featured-latest-drop" class="bg-gradient-to-br from-[#0e1522] via-[#0d1420] to-[#121c2d] border border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 shadow-lg relative overflow-hidden group">
         <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#FF7A00]/10 rounded-full blur-2xl pointer-events-none"></div>
