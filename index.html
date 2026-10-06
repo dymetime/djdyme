@@ -39,55 +39,45 @@
     ::-webkit-scrollbar-track { background: #05080e; }
     ::-webkit-scrollbar-thumb { background: #FF7A00; border-radius: 4px; }
 
-    /* Fixed Background Layer: Grayscale City + Heavy Blur + Dark Tint */
-    .bg-city-fixed {
-      position: fixed;
-      inset: 0;
-      z-index: -20;
-      background-image: url('https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2160&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: grayscale(100%) contrast(110%) blur(18px);
-      transform: scale(1.06);
-      opacity: 0.16;
-      pointer-events: none;
-    }
-
-    .bg-tint-fixed {
-      position: fixed;
-      inset: 0;
-      z-index: -10;
+    /* Fixed Clean Ambient Backdrop */
+    body {
       background-color: #06090f;
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(255, 122, 0, 0.18) 0%, transparent 45%),
-        radial-gradient(circle at 15% 45%, rgba(255, 122, 0, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 85% 70%, rgba(255, 122, 0, 0.05) 0%, transparent 40%);
-      pointer-events: none;
+        radial-gradient(circle at 50% 0%, rgba(255, 122, 0, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 15% 45%, rgba(255, 122, 0, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 85% 70%, rgba(255, 122, 0, 0.04) 0%, transparent 40%);
+      background-attachment: fixed;
+      color: #e2e8f0;
+      font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Apple-style Frosted Glass Layers */
+    /* Apple-style Frosted Glass with Layered Drop Shadows */
     .ios-glass-header {
-      background: rgba(6, 9, 15, 0.68) !important;
+      background: rgba(6, 9, 15, 0.72) !important;
       backdrop-filter: blur(28px) saturate(190%) !important;
       -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
     }
 
     .ios-glass-deck {
-      background: rgba(6, 9, 15, 0.75) !important;
+      background: rgba(6, 9, 15, 0.78) !important;
       backdrop-filter: blur(32px) saturate(210%) !important;
       -webkit-backdrop-filter: blur(32px) saturate(210%) !important;
       border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 -15px 35px -5px rgba(0, 0, 0, 0.85);
     }
 
     .ios-glass-card {
-      background: rgba(13, 19, 29, 0.58) !important;
+      background: rgba(13, 19, 29, 0.65) !important;
       backdrop-filter: blur(20px) saturate(160%) !important;
       -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.65), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+    }
+
+    .ios-glass-card:hover {
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.8), 0 0 20px -2px rgba(255, 122, 0, 0.15);
     }
 
     .ticker-wrap { overflow: hidden; white-space: nowrap; }
@@ -99,13 +89,9 @@
     .vault-scroll-container { max-height: 400px; overflow-y: auto; padding-right: 4px; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-[#FF7A00] selection:text-black pb-28 relative">
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#FF7A00] selection:text-black pb-28">
 
-  <!-- Fixed Blurred City Background & Tint (Stay Still While Template Scrolls) -->
-  <div class="bg-city-fixed"></div>
-  <div class="bg-tint-fixed"></div>
-
-  <!-- ================= TOP HEADER (APPLE FROSTED GLASS) ================= -->
+  <!-- ================= TOP HEADER ================= -->
   <header class="sticky top-0 z-40 ios-glass-header transition-all duration-300">
     <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2 group">
@@ -127,10 +113,10 @@
     </div>
   </header>
 
-  <!-- ================= CINEMATIC HERO BANNER (TRANSLUCENT FROSTED MATTE) ================= -->
+  <!-- ================= CINEMATIC HERO BANNER ================= -->
   <section class="relative w-full max-w-6xl mx-auto px-4 pt-6 pb-2">
-    <div class="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#090e17]/85 backdrop-blur-xl group">
-      <div class="absolute -inset-1 bg-gradient-to-r from-[#FF7A00]/25 via-transparent to-[#FF7A00]/25 blur-2xl opacity-70 pointer-events-none"></div>
+    <div class="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] bg-[#090e17]/85 backdrop-blur-xl group">
+      <div class="absolute -inset-1 bg-gradient-to-r from-[#FF7A00]/20 via-transparent to-[#FF7A00]/20 blur-2xl opacity-70 pointer-events-none"></div>
       <img src="images/dymebanner26.jpg" 
            alt="DJ DYME Banner" 
            class="relative w-full h-auto object-cover transform duration-500 group-hover:scale-[1.01]"
@@ -158,7 +144,32 @@
   <!-- ================= SLIM MAIN CONTENT ================= -->
   <main class="max-w-4xl mx-auto px-4 py-3 space-y-10 w-full">
 
-    <!-- 1. PULL UP FRIDAYS -->
+    <!-- VIP EMAIL SUBSCRIBER BOX (LOCATED UNDER BANNER) -->
+    <section class="ios-glass-card rounded-xl p-5 text-center">
+      <div class="max-w-md mx-auto space-y-2">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">
+          <i data-lucide="mail" class="w-3 h-3"></i>
+          EXCLUSIVE ACCESS
+        </div>
+        <h3 class="font-display font-black text-lg text-white tracking-wide">
+          JOIN THE VIP EMAIL LIST
+        </h3>
+        <p class="text-xs text-slate-400">
+          Receive Pull Up Fridays master downloads at 12:00 PM EST before syndicated release.
+        </p>
+        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-1">
+          <input required type="email" placeholder="Enter your email" class="flex-1 bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FF7A00]">
+          <button type="submit" class="px-5 py-2 rounded-lg bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FF7A00]/25 shrink-0">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="w-full h-px bg-white/10 shadow-[0_1px_3px_rgba(0,0,0,0.5)]"></div>
+
+    <!-- 1. PULL UP FRIDAYS (ALL 10 SHOWS DISPLAYED DIRECTLY) -->
     <section id="pull-up-fridays" class="space-y-4">
       <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-2">
@@ -169,7 +180,7 @@
       </div>
 
       <!-- FEATURED EPISODE 57 -->
-      <div class="ios-glass-card border border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 shadow-xl group">
+      <div class="ios-glass-card border border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 group">
         <div class="flex flex-col sm:flex-row items-center gap-4">
           <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg bg-[#141d2e] border border-white/10 flex items-center justify-center cursor-pointer group-hover:border-[#FF7A00]/60 transition" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall w/ DJ Travis')">
             <span class="font-display font-black text-2xl text-[#FF7A00]">57</span>
@@ -189,7 +200,7 @@
         </div>
       </div>
 
-      <!-- 3 VISIBLE EPISODES -->
+      <!-- FULL 9 EPISODES GRID (DISPLAYED IN FULL) -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <!-- Ep 56 -->
         <div class="ios-glass-card rounded-lg p-3 hover:border-[#FFA04D]/50 transition flex flex-col justify-between">
@@ -226,45 +237,82 @@
             <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
           </button>
         </div>
-      </div>
 
-      <!-- 6 EXPANDABLE PUF EPISODES -->
-      <div id="puf-hidden-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3 hidden pt-1">
-        <div class="ios-glass-card rounded-lg p-3 flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span><h4 class="text-xs font-bold text-white truncate">Zouk & Shatta Warm-up</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ Brian</p></div>
-          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta w/ DJ Brian')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
+        <!-- Ep 53 -->
+        <div class="ios-glass-card rounded-lg p-3 hover:border-[#FFA04D]/50 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Zouk & Shatta Warm-up</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ Guest DJ Brian.</p>
+          </div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta w/ DJ Brian')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
+          </button>
         </div>
-        <div class="ios-glass-card rounded-lg p-3 flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 52</span><h4 class="text-xs font-bold text-white truncate">Afrobeat & Dancehall Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5">Club Anthems</p></div>
-          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Afrobeat & Dancehall Mashups')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
-        </div>
-        <div class="ios-glass-card rounded-lg p-3 flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 51</span><h4 class="text-xs font-bold text-white truncate">Afrobeats & Dancehall</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ Rom & 8th Wonder</p></div>
-          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall w/ DJ Rom')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
-        </div>
-        <div class="ios-glass-card rounded-lg p-3 flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 50</span><h4 class="text-xs font-bold text-white truncate">50th Milestone Edition</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ 4-Eign & DJ Slay</p></div>
-          <button onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set w/ DJ 4-Eign & DJ Slay')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
-        </div>
-        <div class="ios-glass-card rounded-lg p-3 flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 49</span><h4 class="text-xs font-bold text-white truncate">Urban Afrobeat Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5">Club Transition Blends</p></div>
-          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Afrobeat Mashups')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
-        </div>
-        <div class="ios-glass-card rounded-lg p-3 flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 48</span><h4 class="text-xs font-bold text-white truncate">Fresh Vibes Only</h4><p class="text-[10px] text-slate-400 mt-0.5">Global Afro Rhythms</p></div>
-          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes Only')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play Mix</button>
-        </div>
-      </div>
 
-      <div class="text-center pt-1">
-        <button onclick="toggleSection('puf-hidden-grid', 'puf-toggle-text', 'Show More Episodes (6)', 'Show Fewer Episodes')" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full ios-glass-card hover:border-[#FF7A00] text-slate-300 hover:text-[#FFA04D] font-mono text-[11px] transition">
-          <span id="puf-toggle-text">Show More Episodes (6)</span>
-          <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
-        </button>
+        <!-- Ep 52 -->
+        <div class="ios-glass-card rounded-lg p-3 hover:border-[#FFA04D]/50 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 52</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat & Dancehall Mashups</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club Turn Up Anthems.</p>
+          </div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Afrobeat & Dancehall Mashups')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
+          </button>
+        </div>
+
+        <!-- Ep 51 -->
+        <div class="ios-glass-card rounded-lg p-3 hover:border-[#FFA04D]/50 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 51</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeats & Dancehall</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Rom & 8th Wonder.</p>
+          </div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall w/ DJ Rom')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
+          </button>
+        </div>
+
+        <!-- Ep 50 -->
+        <div class="ios-glass-card rounded-lg p-3 hover:border-[#FFA04D]/50 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 50</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">50th Milestone Edition</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ 4-Eign & DJ Slay.</p>
+          </div>
+          <button onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set w/ DJ 4-Eign & DJ Slay')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
+          </button>
+        </div>
+
+        <!-- Ep 49 -->
+        <div class="ios-glass-card rounded-lg p-3 hover:border-[#FFA04D]/50 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 49</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Urban Afrobeat Mashups</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club Transition Blends.</p>
+          </div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Afrobeat Mashups')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
+          </button>
+        </div>
+
+        <!-- Ep 48 -->
+        <div class="ios-glass-card rounded-lg p-3 hover:border-[#FFA04D]/50 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 48</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Fresh Vibes Only</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Global Afro Rhythms.</p>
+          </div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes Only')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold uppercase transition">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
+          </button>
+        </div>
       </div>
     </section>
 
-    <div class="w-full h-px bg-white/10"></div>
+    <div class="w-full h-px bg-white/10 shadow-[0_1px_3px_rgba(0,0,0,0.5)]"></div>
 
     <!-- 2. DYMETIME RADIO -->
     <section id="dymetime-radio" class="space-y-4">
@@ -277,7 +325,7 @@
       </div>
 
       <!-- FEATURED SESSION 029 -->
-      <div class="ios-glass-card border border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 shadow-xl group">
+      <div class="ios-glass-card border border-[#FF7A00]/40 rounded-xl p-4 sm:p-5 group">
         <div class="flex flex-col sm:flex-row items-center gap-4">
           <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg bg-[#141d2e] border border-white/10 flex items-center justify-center cursor-pointer group-hover:border-[#FF7A00]/60 transition" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
             <span class="font-display font-black text-2xl text-[#FF7A00]">029</span>
@@ -307,7 +355,7 @@
             <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Current Dancehall and Shatta bangers.</p>
           </div>
           <button onclick="playMixcloud('dymetime-radio-28-dancehall-baddest-tunes-2026', 'Dymetime Radio - 028', 'Dancehall Baddest Tunes 2026')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Session
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Session
           </button>
         </div>
 
@@ -319,7 +367,7 @@
             <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Throwback Hip Hop & R&B Morning Show.</p>
           </div>
           <button onclick="playMixcloud('hip-hop-rewind-morning-show-live-92525-throwback-hip-hop-rnb', 'Hip Hop Rewind', 'Throwback Hip Hop & R&B Live')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Session
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Session
           </button>
         </div>
 
@@ -331,7 +379,7 @@
             <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Raw Hip Hop & RnB transition session.</p>
           </div>
           <button onclick="playMixcloud('basement-mix-ep-1-hip-hop-rnb', 'Basement Mix - Ep. 1', 'Hip Hop & RnB')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Session
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Session
           </button>
         </div>
       </div>
@@ -387,7 +435,7 @@
       </div>
     </div>
 
-    <!-- ================= 3. VIDEO MIXES (RESPONSIVE: 1 WITH CONTROLS ON MOBILE, FULL GRID ON DESKTOP) ================= -->
+    <!-- 3. VIDEO MIXES (RESPONSIVE: 1 ON MOBILE WITH PREV/NEXT, 3-COL GRID ON DESKTOP) -->
     <section id="video-mixes" class="space-y-4">
       <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-2">
@@ -502,7 +550,7 @@
       </div>
     </section>
 
-    <div class="w-full h-px bg-white/10"></div>
+    <div class="w-full h-px bg-white/10 shadow-[0_1px_3px_rgba(0,0,0,0.5)]"></div>
 
     <!-- 4. THE VAULT (20 SHOWS IN HARDCODED SCROLL CONTAINER) -->
     <section id="mix-vault" class="space-y-4">
@@ -601,49 +649,27 @@
       </div>
     </section>
 
-    <!-- 5. VIP EMAIL SUBSCRIBER BOX -->
-    <section class="ios-glass-card rounded-xl p-5 text-center">
-      <div class="max-w-md mx-auto space-y-2">
-        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">
-          <i data-lucide="mail" class="w-3 h-3"></i>
-          EXCLUSIVE ACCESS
-        </div>
-        <h3 class="font-display font-black text-lg text-white tracking-wide">
-          JOIN THE VIP EMAIL LIST
-        </h3>
-        <p class="text-xs text-slate-400">
-          Receive Pull Up Fridays master downloads at 12:00 PM EST before syndicated release.
-        </p>
-        <form onsubmit="handleEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2 pt-1">
-          <input required type="email" placeholder="Enter your email" class="flex-1 bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FF7A00]">
-          <button type="submit" class="px-5 py-2 rounded-lg bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FF7A00]/25 shrink-0">
-            Subscribe
-          </button>
-        </form>
-      </div>
-    </section>
-
   </main>
 
   <!-- ================= FOOTER ================= -->
   <footer class="max-w-4xl mx-auto px-4 pt-8 pb-10 border-t border-white/10 text-center w-full">
     <!-- Social Links -->
-    <div class="flex flex-wrap items-center justify-center gap-5 mb-5">
-      <a href="https://www.mixcloud.com/djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
-        <i data-lucide="radio" class="w-3.5 h-3.5"></i>
-        <span>Mixcloud</span>
-      </a>
+    <div class="flex flex-wrap items-center justify-center gap-6 mb-5">
       <a href="https://www.instagram.com/djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
-        <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+        <i data-lucide="instagram" class="w-4 h-4"></i>
         <span>Instagram</span>
       </a>
       <a href="https://www.facebook.com/djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
-        <i data-lucide="facebook" class="w-3.5 h-3.5"></i>
+        <i data-lucide="facebook" class="w-4 h-4"></i>
         <span>Facebook</span>
       </a>
       <a href="https://www.youtube.com/@dymetime" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
-        <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
+        <i data-lucide="youtube" class="w-4 h-4"></i>
         <span>YouTube</span>
+      </a>
+      <a href="https://www.tiktok.com/@djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFA04D] transition">
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.46 2.77 1.49-.01 2.74-1.04 2.97-2.52.06-.55.05-1.11.05-1.67V.02z"/></svg>
+        <span>TikTok</span>
       </a>
     </div>
 
@@ -657,11 +683,11 @@
     </div>
 
     <div class="text-[10px] font-mono text-slate-500">
-      &copy; 2027 Dymetime Ent. Music is for Promo Use only.
+      &copy; 2027 Dymetime Ent.
     </div>
   </footer>
 
-  <!-- ================= CUSTOM OBSIDIAN AUDIO DECK (APPLE BLUR FROSTED GLASS) ================= -->
+  <!-- ================= CUSTOM OBSIDIAN AUDIO DECK ================= -->
   <div class="fixed bottom-0 left-0 right-0 z-50 ios-glass-deck py-2.5 px-4">
     <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
       <!-- Track Meta -->
