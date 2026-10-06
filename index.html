@@ -39,7 +39,7 @@
     ::-webkit-scrollbar-track { background: #080c13; }
     ::-webkit-scrollbar-thumb { background: #FF7A00; border-radius: 4px; }
 
-    /* Fixed City Background */
+    /* Fixed City Background - Noticeably Visible */
     .bg-city-fixed {
       position: fixed;
       inset: 0;
@@ -48,15 +48,15 @@
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
-      filter: grayscale(100%) contrast(125%) blur(6px);
-      transform: scale(1.03);
-      opacity: 0.24;
+      filter: grayscale(100%) contrast(135%) blur(3px);
+      transform: scale(1.02);
+      opacity: 0.42;
       pointer-events: none;
     }
 
     body {
       background-color: #080c13;
-      background-image: radial-gradient(circle at 50% 0%, rgba(255, 122, 0, 0.08) 0%, transparent 50%);
+      background-image: radial-gradient(circle at 50% 0%, rgba(255, 122, 0, 0.12) 0%, transparent 55%);
       color: #e2e8f0;
       font-family: 'Space Grotesk', sans-serif;
     }
@@ -719,11 +719,11 @@
     </div>
   </div>
 
-  <!-- Hidden Mixcloud Widget Container -->
+  <!-- Hidden Mixcloud Widget Container (With Full Autoplay Permissions) -->
   <iframe id="mixcloud-frame" 
-          src="https://player-widget.mixcloud.com/widget/iframe/?mini=1&light=0&feed=%2Fdjdyme%2Fspinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254%2F" 
+          src="https://player-widget.mixcloud.com/widget/iframe/?mini=1&light=0&autoplay=1&feed=%2Fdjdyme%2Fspinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254%2F" 
           class="hidden" 
-          allow="autoplay">
+          allow="autoplay *; encrypted-media *">
   </iframe>
 
   <!-- Video Modal -->
@@ -809,11 +809,21 @@
       });
     });
 
+    // Instant Playback Trigger on Any Mix Click
     function playMixcloud(slug, title, subtitle) {
       document.getElementById('player-title').innerText = title;
       document.getElementById('player-subtitle').innerText = subtitle;
+      
+      // Force immediate visual state change
+      isPlaying = true;
+      updateDeckUI();
+
       if (mcWidget) {
-        mcWidget.load(`/djdyme/${slug}/`, true);
+        mcWidget.load(`/djdyme/${slug}/`, true).then(() => {
+          mcWidget.play();
+        }).catch(() => {
+          mcWidget.play();
+        });
       }
     }
 
@@ -889,7 +899,6 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Async AJAX Form Submission to dymetime@gmail.com without page redirects
     function handleEmailSubmit(e) {
       e.preventDefault();
       const emailInput = document.getElementById('subscriber-email');
