@@ -22,10 +22,12 @@
               orange: '#FF7A00',
               orangeHover: '#FFA04D',
               borderDark: '#172033',
+              purple: '#8B5CF6',
+              purpleDeep: '#4C1D95',
             },
             spotify: {
-              green: '#1DB954',
-              greenHover: '#1ed760',
+              green: '#10B981',
+              greenHover: '#059669',
               black: '#121212',
             }
           },
@@ -44,7 +46,7 @@
     ::-webkit-scrollbar-track { background: #070c18; }
     ::-webkit-scrollbar-thumb { background: #FF7A00; border-radius: 4px; }
 
-    /* Fixed Stationary City Background with Dark Navy Blue Tint */
+    /* Fixed Stationary City Background with Dark Navy Blue Tint & Soft Violet Haze */
     .bg-city-fixed {
       position: fixed;
       inset: 0;
@@ -60,15 +62,17 @@
       pointer-events: none;
     }
 
-    /* Dark Navy Blue Atmospheric Overlay with Peripheral Black Vignette */
+    /* Dark Navy & Violet Atmospheric Overlay */
     .bg-ambient-overlay {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
       z-index: -10;
-      background: radial-gradient(circle at 50% 0%, rgba(255, 122, 0, 0.10) 0%, transparent 50%),
-                  radial-gradient(circle at 50% 50%, rgba(11, 20, 38, 0.65) 0%, rgba(7, 12, 24, 0.88) 65%, rgba(0, 0, 0, 0.94) 100%);
+      background: radial-gradient(circle at 50% 0%, rgba(255, 122, 0, 0.09) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 35%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+                  radial-gradient(circle at 15% 65%, rgba(99, 102, 241, 0.06) 0%, transparent 45%),
+                  radial-gradient(circle at 50% 50%, rgba(11, 20, 38, 0.65) 0%, rgba(7, 12, 24, 0.88) 65%, rgba(0, 0, 0, 0.95) 100%);
       pointer-events: none;
     }
 
@@ -78,12 +82,12 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Frosted Dark Navy Cards with Layered Depth */
+    /* Frosted Dark Navy Cards with Soft Violet Highlights */
     .depth-card {
       background: rgba(11, 18, 32, 0.86) !important;
       backdrop-filter: blur(14px) saturate(140%) !important;
       -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.85), 0 4px 12px -2px rgba(0, 0, 0, 0.5);
     }
 
@@ -95,20 +99,70 @@
     @keyframes bounce { 0% { height: 3px; } 100% { height: 14px; } }
     .vault-scroll-container { max-height: 400px; overflow-y: auto; padding-right: 4px; }
 
-    /* Dynamic Live Pulse on Stats Tick */
-    .stat-bump {
-      animation: statPop 0.45s ease-out;
+    /* Crossfader UI Styling */
+    .crossfader-groove {
+      position: relative;
+      height: 10px;
+      background: #03060c;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
     }
-    @keyframes statPop {
-      0% { transform: scale(1); color: #FFA04D; text-shadow: 0 0 14px rgba(255,122,0,0.9); }
-      50% { transform: scale(1.08); color: #FFFFFF; text-shadow: 0 0 20px rgba(255,122,0,1); }
-      100% { transform: scale(1); color: #FF7A00; text-shadow: none; }
+    .crossfader-knob {
+      position: absolute;
+      top: 50%;
+      width: 32px;
+      height: 22px;
+      margin-top: -11px;
+      background: linear-gradient(180deg, #2b3548 0%, #151e2d 100%);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s ease;
+    }
+    .crossfader-knob::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 3px;
+      bottom: 3px;
+      width: 2px;
+      background: #FF7A00;
+      transform: translateX(-50%);
+      box-shadow: 0 0 4px #FF7A00;
+    }
+
+    /* Crossfader slide-down with blur effect */
+    .fader-reveal {
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, filter 0.4s ease;
+    }
+    .fader-reveal.is-closed {
+      max-height: 0;
+      opacity: 0;
+      filter: blur(12px);
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .fader-reveal.is-open {
+      max-height: 1200px;
+      opacity: 1;
+      filter: blur(0px);
+      overflow: visible;
+    }
+
+    /* Vault Active Mode Button */
+    .vault-btn-active {
+      background: linear-gradient(135deg, rgba(255, 122, 0, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%) !important;
+      border-color: #FF7A00 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 14px rgba(255, 122, 0, 0.35);
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-[#FF7A00] selection:text-black pb-24 relative">
 
-  <!-- Fixed Cityscape & Dark Navy Tint with Black Vignette -->
+  <!-- Fixed Cityscape & Dark Navy Tint with Black Vignette & Soft Purple Glow -->
   <div class="bg-city-fixed"></div>
   <div class="bg-ambient-overlay"></div>
 
@@ -151,7 +205,7 @@
       <a href="#video-mixes" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFA04D] transition">VIDEO MIXES</a>
       <a href="#mix-vault" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFA04D] transition">THE VAULT</a>
       <a href="#about-me" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFA04D] transition">ABOUT</a>
-      <a href="#spotify-playlist" onclick="toggleMobileMenu()" class="block py-1 text-[#1DB954] hover:text-[#1ed760] transition">SPOTIFY PLAYLIST</a>
+      <a href="#spotify-playlist" onclick="toggleMobileMenu()" class="block py-1 text-emerald-400 hover:text-emerald-300 transition">SPOTIFY PLAYLIST</a>
       <a href="#vip-and-inquiries" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFA04D] transition">VIP & INQUIRIES</a>
     </div>
   </header>
@@ -175,12 +229,12 @@
         <i data-lucide="folder-lock" class="w-3 h-3 shrink-0"></i>
         <span class="truncate">The Vault</span>
       </a>
-      <a href="#spotify-playlist" class="flex items-center justify-center gap-1 px-2 sm:px-3.5 py-2 rounded bg-[#1DB954] hover:bg-[#1ed760] text-black font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow-md shadow-[#1DB954]/20 truncate">
+      <a href="#spotify-playlist" class="flex items-center justify-center gap-1 px-2 sm:px-3.5 py-2 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow-md shadow-emerald-900/30 truncate">
         <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
         <span class="truncate">Spotify List</span>
       </a>
-      <button onclick="openVipModal()" class="flex items-center justify-center gap-1 px-2 sm:px-3.5 py-2 rounded border border-[#FF7A00]/50 bg-[#FF7A00]/15 hover:bg-[#FF7A00] text-[#FFA04D] hover:text-black font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow truncate">
-        <i data-lucide="bell-plus" class="w-3 h-3 shrink-0"></i>
+      <button onclick="openVipModal()" class="flex items-center justify-center gap-1 px-2 sm:px-3.5 py-2 rounded border border-purple-500/40 bg-purple-950/40 hover:bg-purple-900 text-purple-200 hover:text-white font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow truncate">
+        <i data-lucide="bell-plus" class="w-3 h-3 text-[#FF7A00] shrink-0"></i>
         <span class="truncate">Subscribe</span>
       </button>
     </div>
@@ -195,7 +249,7 @@
         <div>
           <div class="flex items-center gap-2 mb-1">
             <span class="px-2 py-0.5 rounded bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-mono tracking-widest uppercase font-semibold">WEEKLY DROPS</span>
-            <span class="text-[10px] font-mono text-slate-500">SPINZ FM BROADCAST</span>
+            <span class="text-[10px] font-mono text-purple-300/80 bg-purple-950/40 border border-purple-800/30 px-1.5 py-0.5 rounded">FRIDAY DROP FRANCHISE</span>
           </div>
           <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
         </div>
@@ -208,18 +262,19 @@
       </div>
 
       <!-- FEATURED LATEST DROP: EP 57 -->
-      <div class="depth-card border border-[#FF7A00]/50 rounded-xl p-4 sm:p-5 shadow-2xl group">
-        <div class="flex flex-col sm:flex-row items-center gap-4">
-          <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg bg-[#0e172a] border border-white/10 flex items-center justify-center cursor-pointer group-hover:border-[#FF7A00]/70 transition" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall w/ DJ Travis')">
+      <div class="depth-card border border-[#FF7A00]/50 rounded-xl p-4 sm:p-5 shadow-2xl group relative overflow-hidden">
+        <div class="absolute -right-12 -top-12 w-32 h-32 bg-purple-600/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="flex flex-col sm:flex-row items-center gap-4 relative z-10">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg bg-[#0e172a] border border-white/10 flex items-center justify-center cursor-pointer group-hover:border-[#FF7A00]/70 transition shadow-inner" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall w/ DJ Travis')">
             <span class="font-display font-black text-2xl text-[#FF7A00]">57</span>
           </div>
           <div class="space-y-1 flex-1 text-center sm:text-left min-w-0">
             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span class="px-2 py-0.5 rounded bg-[#FF7A00] text-black font-mono font-bold text-[9px] uppercase">LATEST DROP</span>
-              <span class="text-[10px] font-mono text-[#FFA04D]">PULL UP FRIDAYS EP. 57</span>
+              <span class="text-[10px] font-mono text-purple-300">PULL UP FRIDAYS EP. 57</span>
             </div>
             <h3 class="text-base sm:text-lg font-display font-black text-white truncate">Kompa, Afrobeat & Dancehall</h3>
-            <p class="text-xs text-slate-300">Featuring Guest DJ Travis (254). Syndicated broadcast cut.</p>
+            <p class="text-xs text-slate-300">Featuring Guest DJ Travis (254). Exclusive syndicated cut.</p>
           </div>
           <button onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall w/ DJ Travis')" class="shrink-0 w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FF7A00]/20">
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
@@ -247,38 +302,38 @@
         </div>
         <!-- Ep 53 -->
         <div class="depth-card rounded-lg p-3 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Zouk & Shatta</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Brian.</p></div>
+          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span><h4 class="text-xs font-bold text-white truncate mt-0.5">Zouk & Shatta</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Brian.</p></div>
           <button onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta w/ DJ Brian')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
         </div>
         <!-- Ep 52 -->
         <div class="depth-card rounded-lg p-3 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 52</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat Mashups</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Turn Up Anthems.</p></div>
+          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 52</span><h4 class="text-xs font-bold text-white truncate mt-0.5">Afrobeat Mashups</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Turn Up Anthems.</p></div>
           <button onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Afrobeat & Dancehall Mashups')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
         </div>
         <!-- Ep 51 -->
         <div class="depth-card rounded-lg p-3 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 51</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeats Dancehall</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Rom & 8th Wonder.</p></div>
+          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 51</span><h4 class="text-xs font-bold text-white truncate mt-0.5">Afrobeats Dancehall</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Rom & 8th Wonder.</p></div>
           <button onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall w/ DJ Rom')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
         </div>
         <!-- Ep 50 -->
         <div class="depth-card rounded-lg p-3 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 50</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">50th Milestone</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ 4-Eign & DJ Slay.</p></div>
+          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 50</span><h4 class="text-xs font-bold text-white truncate mt-0.5">50th Milestone</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ 4-Eign & DJ Slay.</p></div>
           <button onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set w/ DJ 4-Eign & DJ Slay')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
         </div>
         <!-- Ep 49 -->
         <div class="depth-card rounded-lg p-3 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 49</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Urban Afro Mashups</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club Transitions.</p></div>
+          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 49</span><h4 class="text-xs font-bold text-white truncate mt-0.5">Urban Afro Mashups</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club Transitions.</p></div>
           <button onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Afrobeat Mashups')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
         </div>
         <!-- Ep 48 -->
         <div class="depth-card rounded-lg p-3 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
-          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 48</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Fresh Vibes Only</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Global Afro Rhythms.</p></div>
+          <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 48</span><h4 class="text-xs font-bold text-white truncate mt-0.5">Fresh Vibes Only</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Global Afro Rhythms.</p></div>
           <button onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes Only')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
         </div>
       </div>
 
-      <!-- MOBILE DISPLAY: 3 VISIBLE + 6 EXPANDABLE ACCORDION (BOXED GRID) -->
-      <div class="block sm:hidden space-y-2.5">
+      <!-- MOBILE DISPLAY: 3 VISIBLE + CROSSFADER SLIDER REVEAL -->
+      <div class="block sm:hidden space-y-3">
         <div class="grid grid-cols-2 gap-2">
           <!-- Ep 56 -->
           <div class="depth-card rounded-lg p-2.5 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
@@ -296,7 +351,7 @@
               <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Old School Reggae</h4>
               <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Mista Trixx.</p>
             </div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae w/ DJ Mista Trixx')" class="w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae w/ DJ Mista Trixx')" class="w-full mt-2.5 flex items-center justify-center gap-1 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
           </div>
           <!-- Ep 54 -->
           <div class="depth-card rounded-lg p-2.5 hover:border-[#FFA04D]/60 transition flex flex-col justify-between col-span-2">
@@ -309,52 +364,60 @@
           </div>
         </div>
 
-        <!-- 6 Hidden Expandable Mixes on Mobile -->
-        <div id="puf-mobile-hidden-grid" class="grid grid-cols-2 gap-2 hidden pt-1">
-          <!-- Ep 53 -->
-          <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
-            <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span><h4 class="text-xs font-bold text-white truncate">Zouk & Shatta</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ Brian</p></div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta w/ DJ Brian')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        <!-- DJ CROSSFADER INTERACTIVE SLIDER -->
+        <div class="depth-card rounded-xl p-3 border border-purple-900/30">
+          <div class="flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-slate-400 mb-2">
+            <span id="fader-label-left" class="text-[#FF7A00] font-bold cursor-pointer" onclick="setFaderPosition(0)">DECK A (TOP 3)</span>
+            <span class="text-slate-500 font-semibold">• CROSSFADE TO REVEAL •</span>
+            <span id="fader-label-right" class="text-purple-400/70 cursor-pointer" onclick="setFaderPosition(100)">DECK B (+6 MIXES)</span>
           </div>
-          <!-- Ep 52 -->
-          <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
-            <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 52</span><h4 class="text-xs font-bold text-white truncate">Afrobeat Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5">Club Anthems</p></div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Afrobeat & Dancehall Mashups')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
-          </div>
-          <!-- Ep 51 -->
-          <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
-            <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 51</span><h4 class="text-xs font-bold text-white truncate">Afrobeats Dancehall</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ Rom</p></div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall w/ DJ Rom')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
-          </div>
-          <!-- Ep 50 -->
-          <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
-            <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 50</span><h4 class="text-xs font-bold text-white truncate">50th Milestone</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ 4-Eign</p></div>
-            <button onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set w/ DJ 4-Eign & DJ Slay')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
-          </div>
-          <!-- Ep 49 -->
-          <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
-            <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 49</span><h4 class="text-xs font-bold text-white truncate">Urban Afro Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5">Club Blends</p></div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Afrobeat Mashups')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
-          </div>
-          <!-- Ep 48 -->
-          <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
-            <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 48</span><h4 class="text-xs font-bold text-white truncate">Fresh Vibes Only</h4><p class="text-[10px] text-slate-400 mt-0.5">Afro Rhythms</p></div>
-            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes Only')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+
+          <div id="crossfader-touchzone" class="crossfader-groove cursor-pointer select-none">
+            <div id="crossfader-knob" class="crossfader-knob" style="left: 0%;"></div>
           </div>
         </div>
 
-        <div class="text-center pt-1">
-          <button onclick="toggleSection('puf-mobile-hidden-grid', 'puf-mobile-toggle-text', 'Show More Episodes (6)', 'Show Fewer Episodes')" class="inline-flex items-center gap-1 px-4 py-1.5 rounded-full depth-card hover:border-[#FF7A00] text-slate-300 hover:text-[#FFA04D] font-mono text-[11px] transition">
-            <span id="puf-mobile-toggle-text">Show More Episodes (6)</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
-          </button>
+        <!-- 6 Hidden Expandable Mixes with Smooth Slide Blur Transition -->
+        <div id="puf-mobile-fader-container" class="fader-reveal is-closed">
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <!-- Ep 53 -->
+            <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
+              <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 53</span><h4 class="text-xs font-bold text-white truncate">Zouk & Shatta</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ Brian</p></div>
+              <button onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta w/ DJ Brian')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+            </div>
+            <!-- Ep 52 -->
+            <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
+              <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 52</span><h4 class="text-xs font-bold text-white truncate">Afrobeat Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5">Club Anthems</p></div>
+              <button onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Afrobeat & Dancehall Mashups')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+            </div>
+            <!-- Ep 51 -->
+            <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
+              <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 51</span><h4 class="text-xs font-bold text-white truncate">Afrobeats Dancehall</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ Rom</p></div>
+              <button onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall w/ DJ Rom')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+            </div>
+            <!-- Ep 50 -->
+            <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
+              <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 50</span><h4 class="text-xs font-bold text-white truncate">50th Milestone</h4><p class="text-[10px] text-slate-400 mt-0.5">w/ DJ 4-Eign</p></div>
+              <button onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set w/ DJ 4-Eign & DJ Slay')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+            </div>
+            <!-- Ep 49 -->
+            <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
+              <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 49</span><h4 class="text-xs font-bold text-white truncate">Urban Afro Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5">Club Blends</p></div>
+              <button onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Afrobeat Mashups')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+            </div>
+            <!-- Ep 48 -->
+            <div class="depth-card rounded-lg p-2.5 flex flex-col justify-between">
+              <div><span class="text-[9px] font-mono text-[#FF7A00]">EPISODE 48</span><h4 class="text-xs font-bold text-white truncate">Fresh Vibes Only</h4><p class="text-[10px] text-slate-400 mt-0.5">Afro Rhythms</p></div>
+              <button onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes Only')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="w-full h-px bg-white/10"></div>
 
-    <!-- DYNAMIC LIVE STATS BOX: DYMETIME RADIO (ANIMATING COUNT-UP + REAL-TIME INCREMENT TICKS) -->
+    <!-- DYNAMIC LIVE STATS BOX: DYMETIME RADIO -->
     <div id="stats-container" class="depth-card border border-[#FF7A00]/40 rounded-xl p-3 sm:p-4 shadow-[0_0_24px_rgba(255,122,0,0.18)]">
       <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10 px-1">
         <div class="flex items-center gap-2">
@@ -364,7 +427,7 @@
           </span>
           <span class="text-[10px] font-mono uppercase tracking-widest text-slate-300 font-bold">LIVE SYNDICATION METRICS</span>
         </div>
-        <span class="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded uppercase">● REAL-TIME STREAM ACTIVITY</span>
+        <span class="text-[9px] font-mono text-purple-300 bg-purple-950/40 border border-purple-800/40 px-2 py-0.5 rounded uppercase">● REAL-TIME STREAM ACTIVITY</span>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/10">
@@ -377,13 +440,13 @@
         <div class="pt-1.5 sm:pt-0">
           <div id="stat-favorites" class="text-lg sm:text-xl font-display font-black text-[#FF7A00] transition-transform">100,000</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="heart" class="w-2.5 h-2.5 text-rose-500"></i> Favorites
+            <i data-lucide="heart" class="w-2.5 h-2.5 text-purple-400"></i> Favorites
           </div>
         </div>
         <div class="pt-1.5 sm:pt-0">
           <div id="stat-reposts" class="text-lg sm:text-xl font-display font-black text-[#FF7A00] transition-transform">10,000</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="repeat" class="w-2.5 h-2.5 text-cyan-400"></i> Reposts
+            <i data-lucide="repeat" class="w-2.5 h-2.5 text-indigo-400"></i> Reposts
           </div>
         </div>
         <div class="pt-1.5 sm:pt-0">
@@ -414,7 +477,7 @@
           <div class="space-y-1 flex-1 text-center sm:text-left min-w-0">
             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span class="px-2 py-0.5 rounded bg-[#FF7A00] text-black font-mono font-bold text-[9px] uppercase">LATEST SESSION</span>
-              <span class="text-[10px] font-mono text-[#FFA04D]">DYMETIME RADIO 029</span>
+              <span class="text-[10px] font-mono text-purple-300">DYMETIME RADIO 029</span>
             </div>
             <h3 class="text-base sm:text-lg font-display font-black text-white truncate">Throwback Atlanta Hits</h3>
             <p class="text-xs text-slate-300">Southern Hip Hop, Crunk classics & Dirty South master blend.</p>
@@ -426,7 +489,7 @@
         </div>
       </div>
 
-      <!-- 3 VISIBLE RADIO SESSIONS (BOXED GRID) -->
+      <!-- 3 VISIBLE RADIO SESSIONS -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
         <!-- 028 -->
         <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFA04D]/60 transition flex flex-col justify-between">
@@ -459,7 +522,7 @@
         </div>
       </div>
 
-      <!-- 6 EXPANDABLE RADIO SESSIONS (BOXED GRID) -->
+      <!-- 6 EXPANDABLE RADIO SESSIONS -->
       <div id="radio-hidden-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3 hidden pt-1">
         <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between">
           <div><span class="text-[9px] font-mono text-[#FF7A00]">SESSION 027</span><h4 class="text-xs font-bold text-white truncate">Keepin' It Ugandan</h4><p class="text-[10px] text-slate-400 mt-0.5">Club anthems</p></div>
@@ -500,17 +563,17 @@
       <div class="ticker-track text-slate-300 font-mono text-xs tracking-[0.2em] uppercase">
         <span>Hip Hop</span> <span class="mx-3 text-[#FF7A00]">•</span>
         <span>Dancehall</span> <span class="mx-3 text-[#FF7A00]">•</span>
-        <span>Afrobeat</span> <span class="mx-3 text-[#FF7A00]">•</span>
+        <span>Afrobeat</span> <span class="mx-3 text-purple-400">•</span>
         <span>Amapiano</span> <span class="mx-3 text-[#FF7A00]">•</span>
         <span>Zouk</span> <span class="mx-3 text-[#FF7A00]">•</span>
-        <span>Kompa</span> <span class="mx-3 text-[#FF7A00]">•</span>
+        <span>Kompa</span> <span class="mx-3 text-purple-400">•</span>
         <span>Shatta</span> <span class="mx-3 text-[#FF7A00]">•</span>
         <span>Reggae</span> <span class="mx-3 text-[#FF7A00]">•</span>
-        <span>Dirty South</span> <span class="mx-3 text-[#FF7A00]">•</span>
+        <span>Dirty South</span> <span class="mx-3 text-purple-400">•</span>
       </div>
     </div>
 
-    <!-- 3. VIDEO MIXES (RESPONSIVE: 1 ON MOBILE WITH CONTROLS, 3-COL GRID ON DESKTOP) -->
+    <!-- 3. VIDEO MIXES -->
     <section id="video-mixes" class="space-y-4">
       <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-2">
@@ -562,7 +625,6 @@
           </div>
           <div class="p-2"><h4 class="font-display font-bold text-xs text-white truncate">Uganda Video Mix 2024</h4><p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">Sheebah, Vinka, Jose Chameleone</p></div>
         </div>
-
         <!-- V2 -->
         <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/gsoHGAKgpbs?autoplay=1')">
@@ -574,7 +636,6 @@
           </div>
           <div class="p-2"><h4 class="font-display font-bold text-xs text-white truncate">Arbantone Video Mix 2024</h4><p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">Breeder, Maandy, Tipsy Gee</p></div>
         </div>
-
         <!-- V3 -->
         <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/hZIx5C5m49c?autoplay=1')">
@@ -586,7 +647,6 @@
           </div>
           <div class="p-2"><h4 class="font-display font-bold text-xs text-white truncate">Afrobeat Video Mix 2024</h4><p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">Asake, Burna Boy, Rema</p></div>
         </div>
-
         <!-- V4 -->
         <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/tTRZg9DS9-U?autoplay=1')">
@@ -598,7 +658,6 @@
           </div>
           <div class="p-2"><h4 class="font-display font-bold text-xs text-white truncate">East African Vibes Mix</h4><p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">Arrow Bwoy, Bahati, Otile Brown</p></div>
         </div>
-
         <!-- V5 -->
         <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/zD9njkvhyd8?autoplay=1')">
@@ -610,7 +669,6 @@
           </div>
           <div class="p-2"><h4 class="font-display font-bold text-xs text-white truncate">Club & Dancehall Set</h4><p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">Festival Transition Blends</p></div>
         </div>
-
         <!-- V6 -->
         <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFA04D]/60 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/F6UonIliRRM?autoplay=1')">
@@ -627,98 +685,28 @@
 
     <div class="w-full h-px bg-white/10"></div>
 
-    <!-- 4. THE VAULT (RESTORED: 20 MASTER SHOWS) -->
+    <!-- 4. THE VAULT (WITH PULL UP FRIDAYS / DYMETIME RADIO TOGGLE SWITCH) -->
     <section id="mix-vault" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-3">
           <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
-          <span class="text-[10px] font-mono text-[#FF7A00] bg-[#FF7A00]/15 border border-[#FF7A00]/30 px-2 py-0.5 rounded-full">20 MASTER SHOWS</span>
+          <span id="vault-count-badge" class="text-[10px] font-mono text-[#FF7A00] bg-[#FF7A00]/15 border border-[#FF7A00]/30 px-2 py-0.5 rounded-full">10 SHOWS</span>
         </div>
-        <span class="text-xs font-mono text-slate-400">INSTANT PLAYBACK</span>
+
+        <!-- TOGGLE SWITCH FOR VAULT -->
+        <div class="inline-flex p-1 rounded-xl bg-[#03060c] border border-white/10 gap-1 self-start sm:self-auto shadow-inner">
+          <button id="vault-tab-puf" onclick="switchVaultTab('puf')" class="vault-btn-active px-3 py-1.5 rounded-lg text-[10px] font-mono font-bold tracking-wider transition uppercase border border-transparent">
+            Pull Up Fridays
+          </button>
+          <button id="vault-tab-radio" onclick="switchVaultTab('radio')" class="px-3 py-1.5 rounded-lg text-[10px] font-mono font-bold tracking-wider text-slate-400 hover:text-white transition uppercase border border-transparent">
+            Dymetime Radio
+          </button>
+        </div>
       </div>
 
-      <div class="vault-scroll-container space-y-1.5">
-        <!-- PUF 57-48 -->
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 57</h5><p class="text-[9px] font-mono text-slate-400">Kompa & Afrobeat w/ DJ Travis</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', 'Pull Up Fridays - Ep. 56', 'Afrobeat & Urban Piano')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 56</h5><p class="text-[9px] font-mono text-slate-400">Afrobeat & Urban Piano</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 55</h5><p class="text-[9px] font-mono text-slate-400">Reggae & Dancehall w/ DJ Mista Trixx</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha', 'Pull Up Fridays - Ep. 54', 'Throwback Hip Hop & R&B')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 54</h5><p class="text-[9px] font-mono text-slate-400">Throwback Hip Hop w/ DJ Tucha</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 53</h5><p class="text-[9px] font-mono text-slate-400">Zouk, Shatta & Hip Hop w/ DJ Brian</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Dancehall Mashups')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 52</h5><p class="text-[9px] font-mono text-slate-400">Afrobeat & Dancehall Mashups</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 51</h5><p class="text-[9px] font-mono text-slate-400">w/ DJ Rom & DJ 8th Wonder</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set w/ DJ 4-Eign & DJ Slay')" class="w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFA04D] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Mashups')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 49</h5><p class="text-[9px] font-mono text-slate-400">Urban Afrobeat Mashups</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Pull Up Fridays - Ep. 48</h5><p class="text-[9px] font-mono text-slate-400">Fresh Vibes Only Edition</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-
-        <!-- Dymetime Radio 29-23 -->
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime Radio - Session 029</h5><p class="text-[9px] font-mono text-slate-400">Throwback Atlanta Hits</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-radio-28-dancehall-baddest-tunes-2026', 'Dymetime Radio - 028', 'Dancehall 2026')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dancehall Baddest Tunes</h5><p class="text-[9px] font-mono text-slate-400">Current bangers.</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('hip-hop-rewind-morning-show-live-92525-throwback-hip-hop-rnb', 'Hip Hop Rewind', 'Throwback Live')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Hip Hop Rewind Morning Show</h5><p class="text-[9px] font-mono text-slate-400">Throwback Hip Hop & R&B</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('basement-mix-ep-1-hip-hop-rnb', 'Basement Mix - Ep. 1', 'Hip Hop & RnB')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Basement Mix - Ep. 1</h5><p class="text-[9px] font-mono text-slate-400">Raw Hip Hop & RnB</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-radio-27-keepin-it-ugandan', 'Dymetime Radio - 027', 'Keepin It Ugandan')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime Radio - Session 027</h5><p class="text-[9px] font-mono text-slate-400">Keepin' It Ugandan</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-radio-26-best-of-east-african-vibes-4', 'Dymetime Radio - 026', 'East African Vibes 4')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime Radio - Session 026</h5><p class="text-[9px] font-mono text-slate-400">Best of East African Vibes 4</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-radio-25-my-friends-like-amapiano-and-tequila', 'Dymetime Radio - 025', 'Amapiano & Tequila')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime Radio - Session 025</h5><p class="text-[9px] font-mono text-slate-400">Amapiano & Tequila</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-x-dj-slay', 'Dymetime x DJ Slay', 'Collab Live Set')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime x DJ Slay</h5><p class="text-[9px] font-mono text-slate-400">Back-to-Back Club Set</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-radio-24-trap-house-2-re-upload', 'Dymetime Radio - 024', 'Trap House 2')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime Radio - Session 024</h5><p class="text-[9px] font-mono text-slate-400">Trap House 2 Re-Upload</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
-        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('dymetime-radio-23-reggae-masive', 'Dymetime Radio - 023', 'Reggae Massive')">
-          <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime Radio - Session 023</h5><p class="text-[9px] font-mono text-slate-400">Reggae Massive</p></div>
-          <span class="text-[9px] font-mono text-[#FF7A00]">STREAM</span>
-        </div>
+      <!-- FILTERABLE VAULT LIST -->
+      <div id="vault-items-container" class="vault-scroll-container space-y-1.5">
+        <!-- Rendered dynamically via JavaScript switch -->
       </div>
     </section>
 
@@ -746,7 +734,7 @@
           </p>
           <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2">
             <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">5+ Weekly Club Residencies</span>
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">SPiNZ FM Host</span>
+            <span class="text-[10px] font-mono text-purple-300 bg-purple-950/40 border border-purple-800/30 px-2.5 py-1 rounded">SPiNZ FM Host</span>
             <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">10+ Year Franchise</span>
           </div>
         </div>
@@ -754,17 +742,17 @@
     </section>
 
     <!-- ================= 6. SPOTIFY PLAYLIST ================= -->
-    <section id="spotify-playlist" class="depth-card rounded-2xl p-4 sm:p-6 border border-[#1DB954]/40 shadow-[0_12px_32px_rgba(29,185,84,0.12)] overflow-hidden">
+    <section id="spotify-playlist" class="depth-card rounded-2xl p-4 sm:p-6 border border-emerald-500/40 shadow-[0_12px_32px_rgba(16,185,129,0.12)] overflow-hidden">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
-        <!-- Playlist Meta: Wrapped and constrained to prevent text spillover on mobile -->
+        <!-- Playlist Meta -->
         <div class="flex items-center gap-3 w-full min-w-0 text-center sm:text-left">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#1DB954]/20 border border-[#1DB954]/40 flex items-center justify-center shrink-0 text-[#1DB954]">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 text-emerald-400">
             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
           </div>
           <div class="flex-1 min-w-0">
             <div class="flex items-center justify-center sm:justify-start gap-2">
-              <span class="px-2 py-0.5 rounded bg-[#1DB954]/20 text-[#1DB954] text-[9px] font-mono uppercase font-bold tracking-wider">OFFICIAL CURATION</span>
-              <span class="text-[10px] font-mono text-slate-400 hidden xs:inline">PULL UP FRIDAYS COMPANION</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[9px] font-mono uppercase font-bold tracking-wider">OFFICIAL CURATION</span>
+              <span class="text-[10px] font-mono text-purple-300 hidden xs:inline">PULL UP FRIDAYS COMPANION</span>
             </div>
             <h4 class="font-display font-black text-base sm:text-lg text-white truncate mt-0.5">DJ DYME Official Playlist</h4>
             <p class="text-xs text-slate-300 break-words line-clamp-2 sm:line-clamp-none">Listen to every new track featured on Pull Up Fridays directly on Spotify.</p>
@@ -772,7 +760,7 @@
         </div>
 
         <!-- Single Spotify Play Trigger Button -->
-        <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1?si=S6Kx-IiyRkawj60wCElJKA" target="_blank" class="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-xl shadow-[#1DB954]/25 group">
+        <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1?si=S6Kx-IiyRkawj60wCElJKA" target="_blank" class="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-display font-black text-xs uppercase tracking-wider transition shadow-xl shadow-emerald-950/40 group">
           <i data-lucide="play" class="w-4 h-4 fill-current group-hover:scale-110 transition"></i>
           Play On Spotify
         </a>
@@ -784,9 +772,9 @@
       </div>
     </section>
 
-    <!-- ================= 7. VIP SUBSCRIPTION & BOOKING INQUIRIES (AT THE VERY BOTTOM) ================= -->
+    <!-- ================= 7. VIP SUBSCRIPTION & BOOKING INQUIRIES ================= -->
     <section id="vip-and-inquiries" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- VIP Mail List (Delivers to dymetime@gmail.com via FormSubmit) -->
+      <!-- VIP Mail List -->
       <div class="depth-card rounded-xl p-5 text-center flex flex-col justify-between">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[9px] font-mono tracking-widest uppercase">
@@ -854,7 +842,7 @@
         <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
         <span>YouTube</span>
       </a>
-      <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#1DB954] transition">
+      <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-emerald-400 transition">
         <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
         <span>Spotify</span>
       </a>
@@ -910,13 +898,13 @@
 
   <!-- ================= VIP SUBSCRIPTION POPUP MODAL ================= -->
   <div id="vip-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="relative max-w-md w-full depth-card rounded-2xl p-6 border border-[#FF7A00]/40 shadow-2xl">
+    <div class="relative max-w-md w-full depth-card rounded-2xl p-6 border border-purple-500/40 shadow-2xl">
       <button onclick="closeVipModal()" class="absolute top-3.5 right-3.5 p-1.5 bg-white/10 hover:bg-[#FF7A00] hover:text-black text-white rounded-full transition">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
       <div class="space-y-1 mb-4 text-center sm:text-left">
-        <span class="px-2 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] text-[9px] font-mono uppercase font-bold">VIP MEMBERSHIP</span>
+        <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 text-[9px] font-mono uppercase font-bold">VIP MEMBERSHIP</span>
         <h3 class="text-lg font-display font-black text-white tracking-wide">JOIN THE VIP EMAIL LIST</h3>
         <p class="text-xs text-slate-400">Get Pull Up Fridays master downloads early at 12:00 PM EST before syndication.</p>
       </div>
@@ -924,28 +912,28 @@
       <form id="vip-popup-form" onsubmit="handleVipModalSubmit(event)" class="space-y-3">
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Email Address *</label>
-          <input required type="email" id="vip-modal-email" placeholder="you@domain.com" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+          <input required type="email" id="vip-modal-email" placeholder="you@domain.com" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-purple-400">
         </div>
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Social Handle (@Instagram, TikTok, etc.) *</label>
-          <input required type="text" id="vip-modal-social" placeholder="@yourhandle" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+          <input required type="text" id="vip-modal-social" placeholder="@yourhandle" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-purple-400">
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Full Name (Optional)</label>
-            <input type="text" id="vip-modal-name" placeholder="John Doe" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+            <input type="text" id="vip-modal-name" placeholder="John Doe" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-purple-400">
           </div>
           <div>
             <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Phone Number (Optional)</label>
-            <input type="tel" id="vip-modal-phone" placeholder="(555) 000-0000" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FF7A00]">
+            <input type="tel" id="vip-modal-phone" placeholder="(555) 000-0000" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-purple-400">
           </div>
         </div>
 
-        <button type="submit" id="vip-modal-submit-btn" class="w-full py-2.5 rounded bg-[#FF7A00] hover:bg-[#FFA04D] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FF7A00]/25 mt-1">
+        <button type="submit" id="vip-modal-submit-btn" class="w-full py-2.5 rounded bg-gradient-to-r from-[#FF7A00] to-purple-600 hover:opacity-90 text-white font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-purple-900/30 mt-1">
           Complete VIP Sign Up
         </button>
 
-        <!-- Optional Social Follow Call to Action -->
+        <!-- Social Follow -->
         <div class="pt-3 border-t border-white/10 text-center">
           <p class="text-[10px] font-mono text-slate-400 mb-2">Optional: Follow DJ DYME on socials</p>
           <div class="flex items-center justify-center gap-3">
@@ -985,7 +973,7 @@
         <div class="w-full flex items-center gap-2 text-[9px] font-mono text-slate-400">
           <span id="current-time">00:00</span>
           <div onclick="seekDeck(event)" class="relative w-full h-1 bg-[#172033] hover:h-1.5 rounded-full overflow-hidden cursor-pointer transition-all">
-            <div id="progress-bar" class="h-full bg-[#FF7A00] w-0 pointer-events-none"></div>
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-[#FF7A00] to-purple-500 w-0 pointer-events-none"></div>
           </div>
           <span id="total-time">55:00</span>
         </div>
@@ -993,7 +981,7 @@
 
       <!-- Engine Badge -->
       <div class="hidden sm:flex items-center justify-end w-1/4">
-        <span class="text-[9px] font-mono text-[#FF7A00] border border-[#FF7A00]/30 px-2 py-0.5 rounded uppercase">
+        <span class="text-[9px] font-mono text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded uppercase">
           LIVE DECK
         </span>
       </div>
@@ -1023,13 +1011,11 @@
   <script>
     lucide.createIcons();
 
-    // Mobile Menu Toggle
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
     }
 
-    // Booking Modal Controller
     function openBookingModal() {
       const modal = document.getElementById('booking-modal');
       modal.classList.remove('hidden');
@@ -1042,7 +1028,6 @@
       modal.classList.remove('flex');
     }
 
-    // VIP Subscription Modal Controller
     function openVipModal() {
       const modal = document.getElementById('vip-modal');
       modal.classList.remove('hidden');
@@ -1055,131 +1040,164 @@
       modal.classList.remove('flex');
     }
 
-    // AJAX Form Submission for VIP Modal to dymetime@gmail.com
-    function handleVipModalSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('vip-modal-submit-btn');
-      const email = document.getElementById('vip-modal-email').value;
-      const social = document.getElementById('vip-modal-social').value;
-      const name = document.getElementById('vip-modal-name').value;
-      const phone = document.getElementById('vip-modal-phone').value;
+    // ================= DJ CROSSFADER ENGINE =================
+    let isFaderRevealed = false;
 
-      btn.innerText = 'Subscribing...';
-      btn.disabled = true;
+    function setFaderPosition(percent) {
+      const knob = document.getElementById('crossfader-knob');
+      const revealBox = document.getElementById('puf-mobile-fader-container');
+      const labelLeft = document.getElementById('fader-label-left');
+      const labelRight = document.getElementById('fader-label-right');
 
-      fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New VIP Subscriber Signup: ${social}`,
-          Email: email,
-          SocialHandle: social,
-          Name: name || 'N/A',
-          Phone: phone || 'N/A'
-        })
-      })
-      .then(res => res.json())
-      .then(data => {
-        alert("VIP Access confirmed! You are added to the list for exclusive early links.");
-        document.getElementById('vip-popup-form').reset();
-        btn.innerText = 'Complete VIP Sign Up';
-        btn.disabled = false;
-        closeVipModal();
-      })
-      .catch(err => {
-        alert("VIP Access confirmed! You are added to the list.");
-        document.getElementById('vip-popup-form').reset();
-        btn.innerText = 'Complete VIP Sign Up';
-        btn.disabled = false;
-        closeVipModal();
-      });
+      knob.style.left = `${percent}%`;
+
+      if (percent >= 50) {
+        revealBox.classList.remove('is-closed');
+        revealBox.classList.add('is-open');
+        labelRight.classList.add('text-[#FF7A00]', 'font-bold');
+        labelRight.classList.remove('text-purple-400/70');
+        labelLeft.classList.remove('text-[#FF7A00]', 'font-bold');
+        labelLeft.classList.add('text-slate-500');
+        isFaderRevealed = true;
+      } else {
+        revealBox.classList.remove('is-open');
+        revealBox.classList.add('is-closed');
+        labelLeft.classList.add('text-[#FF7A00]', 'font-bold');
+        labelLeft.classList.remove('text-slate-500');
+        labelRight.classList.remove('text-[#FF7A00]', 'font-bold');
+        labelRight.classList.add('text-purple-400/70');
+        isFaderRevealed = false;
+      }
     }
 
-    // AJAX Booking Form Submission directly to djdyme@gmail.com
-    function handleBookingSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('booking-submit-btn');
-      const name = document.getElementById('booking-name').value;
-      const phone = document.getElementById('booking-phone').value;
-      const email = document.getElementById('booking-email').value;
-      const eventDetails = document.getElementById('booking-event').value;
-      const details = document.getElementById('booking-details').value;
+    // Crossfader Touch & Drag Listeners
+    const faderZone = document.getElementById('crossfader-touchzone');
+    let isDraggingFader = false;
 
-      btn.innerText = 'Sending Inquiry...';
-      btn.disabled = true;
-
-      fetch('https://formsubmit.co/ajax/djdyme@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New DJ DYME Booking Inquiry from ${name}`,
-          Name: name,
-          Phone: phone,
-          Email: email,
-          Event: eventDetails,
-          Details: details
-        })
-      })
-      .then(res => res.json())
-      .then(data => {
-        alert("Booking inquiry sent directly to DJ DYME! Check your email for a response within 24 hours.");
-        document.getElementById('booking-form').reset();
-        btn.innerText = 'Send Booking Inquiry';
-        btn.disabled = false;
-        closeBookingModal();
-      })
-      .catch(err => {
-        alert("Booking inquiry sent directly to DJ DYME!");
-        document.getElementById('booking-form').reset();
-        btn.innerText = 'Send Booking Inquiry';
-        btn.disabled = false;
-        closeBookingModal();
-      });
+    function handleFaderPointer(e) {
+      const rect = faderZone.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      setFaderPosition(pct);
     }
 
-    // 6 Visual Mixes Dataset for Mobile Carousel
-    const videoMixes = [
-      { id: 'lFpetLPcdqI', title: 'Uganda Video Mix 2024', desc: 'Sheebah, Vinka, Jose Chameleone', duration: '26:24' },
-      { id: 'gsoHGAKgpbs', title: 'Arbantone Video Mix 2024', desc: 'Breeder, Maandy, Tipsy Gee', duration: '32:15' },
-      { id: 'hZIx5C5m49c', title: 'Afrobeat Video Mix 2024', desc: 'Asake, Burna Boy, Rema', duration: '46:33' },
-      { id: 'tTRZg9DS9-U', title: 'East African Vibes Mix', desc: 'Arrow Bwoy, Bahati, Otile Brown', duration: '41:39' },
-      { id: 'zD9njkvhyd8', title: 'Club & Dancehall Set', desc: 'Festival Transition Blends', duration: '38:50' },
-      { id: 'F6UonIliRRM', title: 'Rhumba Video Mix', desc: 'Okello Max, Sauti Sol, Wanavokali', duration: '34:43' }
+    faderZone.addEventListener('mousedown', (e) => {
+      isDraggingFader = true;
+      handleFaderPointer(e);
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (isDraggingFader) handleFaderPointer(e);
+    });
+    window.addEventListener('mouseup', () => {
+      if (isDraggingFader) {
+        isDraggingFader = false;
+        // Snap to full or zero
+        setFaderPosition(isFaderRevealed ? 100 : 0);
+      }
+    });
+
+    faderZone.addEventListener('touchstart', (e) => {
+      isDraggingFader = true;
+      handleFaderPointer(e);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (isDraggingFader) handleFaderPointer(e);
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+      if (isDraggingFader) {
+        isDraggingFader = false;
+        setFaderPosition(isFaderRevealed ? 100 : 0);
+      }
+    });
+
+    // ================= VAULT SWITCH & DATA ENGINE =================
+    const vaultPufMixes = [
+      { slug: 'spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', title: 'Pull Up Fridays - Ep. 57', subtitle: 'Kompa & Afrobeat w/ DJ Travis' },
+      { slug: 'spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', title: 'Pull Up Fridays - Ep. 56', subtitle: 'Afrobeat & Urban Piano' },
+      { slug: 'spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', title: 'Pull Up Fridays - Ep. 55', subtitle: 'Old School Reggae w/ DJ Mista Trixx' },
+      { slug: 'spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha', title: 'Pull Up Fridays - Ep. 54', subtitle: 'Throwback Hip Hop & R&B w/ DJ Tucha' },
+      { slug: 'spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', title: 'Pull Up Fridays - Ep. 53', subtitle: 'Zouk, Shatta & Hip Hop w/ DJ Brian' },
+      { slug: 'spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', title: 'Pull Up Fridays - Ep. 52', subtitle: 'Afrobeat & Dancehall Mashups' },
+      { slug: 'spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', title: 'Pull Up Fridays - Ep. 51', subtitle: 'Afrobeats & Dancehall w/ DJ Rom' },
+      { slug: 'dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', title: 'Pull Up Fridays - Ep. 50', subtitle: 'Milestone Set w/ DJ 4-Eign & DJ Slay' },
+      { slug: 'spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', title: 'Pull Up Fridays - Ep. 49', subtitle: 'Urban Afrobeat Mashups' },
+      { slug: 'spinz-fm-pull-up-fridays-48-fresh-vibes-only', title: 'Pull Up Fridays - Ep. 48', subtitle: 'Fresh Vibes Only Edition' }
     ];
-    let currentMobileIndex = 0;
 
-    function renderMobileVideo() {
-      const v = videoMixes[currentMobileIndex];
-      document.getElementById('mobile-video-thumb').src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
-      document.getElementById('mobile-video-title').innerText = v.title;
-      document.getElementById('mobile-video-desc').innerText = v.desc;
-      document.getElementById('mobile-video-duration').innerText = v.duration;
+    const vaultRadioMixes = [
+      { slug: 'dymetime-radio-29-throwback-atlanta-hits', title: 'Dymetime Radio - Session 029', subtitle: 'Throwback Atlanta Hits' },
+      { slug: 'dymetime-radio-28-dancehall-baddest-tunes-2026', title: 'Dymetime Radio - Session 028', subtitle: 'Dancehall Baddest Tunes' },
+      { slug: 'hip-hop-rewind-morning-show-live-92525-throwback-hip-hop-rnb', title: 'Hip Hop Rewind Morning Show', subtitle: 'Throwback Hip Hop & R&B Live' },
+      { slug: 'basement-mix-ep-1-hip-hop-rnb', title: 'Basement Mix - Ep. 1', subtitle: 'Raw Hip Hop & RnB' },
+      { slug: 'dymetime-radio-27-keepin-it-ugandan', title: 'Dymetime Radio - Session 027', subtitle: 'Keepin\' It Ugandan' },
+      { slug: 'dymetime-radio-26-best-of-east-african-vibes-4', title: 'Dymetime Radio - Session 026', subtitle: 'Best of East African Vibes 4' },
+      { slug: 'dymetime-radio-25-my-friends-like-amapiano-and-tequila', title: 'Dymetime Radio - Session 025', subtitle: 'Amapiano & Tequila' },
+      { slug: 'dymetime-x-dj-slay', title: 'Dymetime x DJ Slay', subtitle: 'Back-to-Back Club Set' },
+      { slug: 'dymetime-radio-24-trap-house-2-re-upload', title: 'Dymetime Radio - Session 024', subtitle: 'Trap House 2 Re-Upload' },
+      { slug: 'dymetime-radio-23-reggae-masive', title: 'Dymetime Radio - Session 023', subtitle: 'Reggae Massive' }
+    ];
+
+    function renderVaultItems(list) {
+      const container = document.getElementById('vault-items-container');
+      container.innerHTML = list.map(item => `
+        <div class="flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFA04D]/60 transition cursor-pointer" onclick="playMixcloud('${item.slug}', '${item.title}', '${item.subtitle}')">
+          <div class="truncate">
+            <h5 class="text-xs font-bold text-white truncate">${item.title}</h5>
+            <p class="text-[9px] font-mono text-slate-400">${item.subtitle}</p>
+          </div>
+          <span class="text-[9px] font-mono text-[#FF7A00] font-bold">STREAM</span>
+        </div>
+      `).join('');
     }
 
-    function prevMobileVideo() {
-      currentMobileIndex = (currentMobileIndex - 1 + videoMixes.length) % videoMixes.length;
-      renderMobileVideo();
+    function switchVaultTab(tab) {
+      const pufBtn = document.getElementById('vault-tab-puf');
+      const radioBtn = document.getElementById('vault-tab-radio');
+      const badge = document.getElementById('vault-count-badge');
+
+      if (tab === 'puf') {
+        pufBtn.classList.add('vault-btn-active');
+        pufBtn.classList.remove('text-slate-400');
+        radioBtn.classList.remove('vault-btn-active');
+        radioBtn.classList.add('text-slate-400');
+        badge.innerText = '10 PUF SHOWS';
+        renderVaultItems(vaultPufMixes);
+      } else {
+        radioBtn.classList.add('vault-btn-active');
+        radioBtn.classList.remove('text-slate-400');
+        pufBtn.classList.remove('vault-btn-active');
+        pufBtn.classList.add('text-slate-400');
+        badge.innerText = '10 RADIO SESSIONS';
+        renderVaultItems(vaultRadioMixes);
+      }
     }
 
-    function nextMobileVideo() {
-      currentMobileIndex = (currentMobileIndex + 1) % videoMixes.length;
-      renderMobileVideo();
-    }
+    // Default Vault Initialization
+    renderVaultItems(vaultPufMixes);
 
-    function playActiveMobileVideo() {
-      openVideoModal(`https://www.youtube.com/embed/${videoMixes[currentMobileIndex].id}?autoplay=1`);
-    }
+    // ================= ORDERED PLAYLIST QUEUE & AUTO-PLAY ENGINE =================
+    const mixPlaylist = [...vaultPufMixes, ...vaultRadioMixes];
+    let currentPlayingIndex = 0;
+    let isAutoAdvancing = false;
 
-    // Mixcloud Controller Bridge
     const mcFrame = document.getElementById('mixcloud-frame');
     let mcWidget = null;
     let isPlaying = false;
+
+    function playNextMixInQueue() {
+      if (isAutoAdvancing) return;
+      isAutoAdvancing = true;
+
+      currentPlayingIndex = (currentPlayingIndex + 1) % mixPlaylist.length;
+      const nextTrack = mixPlaylist[currentPlayingIndex];
+
+      playMixcloud(nextTrack.slug, nextTrack.title, nextTrack.subtitle);
+
+      setTimeout(() => {
+        isAutoAdvancing = false;
+      }, 2500);
+    }
 
     window.addEventListener('load', () => {
       mcWidget = Mixcloud.PlayerWidget(mcFrame);
@@ -1191,6 +1209,9 @@
         mcWidget.events.pause.on(() => {
           isPlaying = false;
           updateDeckUI();
+        });
+        mcWidget.events.ended.on(() => {
+          playNextMixInQueue();
         });
         mcWidget.events.progress.on((position, duration) => {
           const posMins = Math.floor(position / 60);
@@ -1205,16 +1226,21 @@
           
           if (duration > 0) {
             document.getElementById('progress-bar').style.width = ((position / duration) * 100) + '%';
+            if (duration - position <= 1 && duration > 10) {
+              playNextMixInQueue();
+            }
           }
         });
       });
     });
 
-    // Instant Playback Trigger on Any Mix Click
     function playMixcloud(slug, title, subtitle) {
       document.getElementById('player-title').innerText = title;
       document.getElementById('player-subtitle').innerText = subtitle;
       
+      const foundIdx = mixPlaylist.findIndex(m => m.slug === slug);
+      if (foundIdx !== -1) currentPlayingIndex = foundIdx;
+
       isPlaying = true;
       updateDeckUI();
 
@@ -1228,9 +1254,7 @@
     }
 
     function toggleDeckPlay() {
-      if (mcWidget) {
-        mcWidget.togglePlay();
-      }
+      if (mcWidget) mcWidget.togglePlay();
     }
 
     function seekDeck(e) {
@@ -1268,13 +1292,42 @@
       }
     }
 
+    // Modal Video Controls
+    const videoMixes = [
+      { id: 'lFpetLPcdqI', title: 'Uganda Video Mix 2024', desc: 'Sheebah, Vinka, Jose Chameleone', duration: '26:24' },
+      { id: 'gsoHGAKgpbs', title: 'Arbantone Video Mix 2024', desc: 'Breeder, Maandy, Tipsy Gee', duration: '32:15' },
+      { id: 'hZIx5C5m49c', title: 'Afrobeat Video Mix 2024', desc: 'Asake, Burna Boy, Rema', duration: '46:33' },
+      { id: 'tTRZg9DS9-U', title: 'East African Vibes Mix', desc: 'Arrow Bwoy, Bahati, Otile Brown', duration: '41:39' },
+      { id: 'zD9njkvhyd8', title: 'Club & Dancehall Set', desc: 'Festival Transition Blends', duration: '38:50' },
+      { id: 'F6UonIliRRM', title: 'Rhumba Video Mix', desc: 'Okello Max, Sauti Sol, Wanavokali', duration: '34:43' }
+    ];
+    let currentMobileIndex = 0;
+
+    function renderMobileVideo() {
+      const v = videoMixes[currentMobileIndex];
+      document.getElementById('mobile-video-thumb').src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
+      document.getElementById('mobile-video-title').innerText = v.title;
+      document.getElementById('mobile-video-desc').innerText = v.desc;
+      document.getElementById('mobile-video-duration').innerText = v.duration;
+    }
+    function prevMobileVideo() {
+      currentMobileIndex = (currentMobileIndex - 1 + videoMixes.length) % videoMixes.length;
+      renderMobileVideo();
+    }
+    function nextMobileVideo() {
+      currentMobileIndex = (currentMobileIndex + 1) % videoMixes.length;
+      renderMobileVideo();
+    }
+    function playActiveMobileVideo() {
+      openVideoModal(`https://www.youtube.com/embed/${videoMixes[currentMobileIndex].id}?autoplay=1`);
+    }
+
     function openVideoModal(url) {
       const m = document.getElementById('video-modal');
       document.getElementById('video-frame').src = url;
       m.classList.remove('hidden');
       m.classList.add('flex');
     }
-
     function closeVideoModal() {
       const m = document.getElementById('video-modal');
       document.getElementById('video-frame').src = '';
@@ -1282,6 +1335,7 @@
       m.classList.remove('flex');
     }
 
+    // Countdown Timer
     function updateCountdown() {
       const now = new Date();
       let target = new Date();
@@ -1299,48 +1353,92 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // AJAX Form Submission for bottom section to dymetime@gmail.com
+    // Form Submissions
+    function handleVipModalSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('vip-modal-submit-btn');
+      const email = document.getElementById('vip-modal-email').value;
+      const social = document.getElementById('vip-modal-social').value;
+      const name = document.getElementById('vip-modal-name').value;
+      const phone = document.getElementById('vip-modal-phone').value;
+
+      btn.innerText = 'Subscribing...';
+      btn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: `New VIP Subscriber: ${social}`, Email: email, SocialHandle: social, Name: name || 'N/A', Phone: phone || 'N/A' })
+      }).then(() => {
+        alert("VIP Access confirmed! Early links reserved.");
+        document.getElementById('vip-popup-form').reset();
+        btn.innerText = 'Complete VIP Sign Up';
+        btn.disabled = false;
+        closeVipModal();
+      }).catch(() => {
+        alert("VIP Access confirmed!");
+        btn.innerText = 'Complete VIP Sign Up';
+        btn.disabled = false;
+        closeVipModal();
+      });
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('booking-submit-btn');
+      const name = document.getElementById('booking-name').value;
+      const phone = document.getElementById('booking-phone').value;
+      const email = document.getElementById('booking-email').value;
+      const eventDetails = document.getElementById('booking-event').value;
+      const details = document.getElementById('booking-details').value;
+
+      btn.innerText = 'Sending Inquiry...';
+      btn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/djdyme@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: `DJ DYME Booking Inquiry from ${name}`, Name: name, Phone: phone, Email: email, Event: eventDetails, Details: details })
+      }).then(() => {
+        alert("Booking inquiry sent to DJ DYME!");
+        document.getElementById('booking-form').reset();
+        btn.innerText = 'Send Booking Inquiry';
+        btn.disabled = false;
+        closeBookingModal();
+      }).catch(() => {
+        alert("Booking inquiry sent to DJ DYME!");
+        btn.innerText = 'Send Booking Inquiry';
+        btn.disabled = false;
+        closeBookingModal();
+      });
+    }
+
     function handleEmailSubmit(e) {
       e.preventDefault();
       const emailInput = document.getElementById('subscriber-email');
       const submitBtn = document.getElementById('submit-btn');
-      const userEmail = emailInput.value;
 
       submitBtn.innerText = 'Subscribing...';
       submitBtn.disabled = true;
 
       fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email: userEmail,
-          _subject: 'New VIP Mailing List Subscriber - DJ DYME'
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert("VIP Access confirmed! You are added to the list for exclusive early links.");
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: emailInput.value, _subject: 'New VIP Subscriber - DJ DYME' })
+      }).then(() => {
+        alert("VIP Access confirmed!");
         emailInput.value = '';
         submitBtn.innerText = 'Subscribed';
-      })
-      .catch(error => {
-        alert("VIP Access confirmed! You are added to the list.");
+      }).catch(() => {
+        alert("VIP Access confirmed!");
         emailInput.value = '';
         submitBtn.innerText = 'Subscribe';
         submitBtn.disabled = false;
       });
     }
 
-    // ================= DYNAMIC LIVE STATS ENGINE =================
-    let statsState = {
-      listens: 300000,
-      favorites: 100000,
-      reposts: 10000,
-      episodes: 104
-    };
+    // Dynamic Stats Engine
+    let statsState = { listens: 300000, favorites: 100000, reposts: 10000, episodes: 104 };
 
     function animateCountUp(elementId, startVal, targetVal, duration, suffix = '') {
       const el = document.getElementById(elementId);
@@ -1353,55 +1451,33 @@
         const easeOut = 1 - Math.pow(1 - progress, 3);
         const current = Math.floor(startVal + (targetVal - startVal) * easeOut);
         el.innerText = current.toLocaleString() + suffix;
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        } else {
-          el.innerText = targetVal.toLocaleString() + suffix;
-        }
+        if (progress < 1) requestAnimationFrame(update);
+        else el.innerText = targetVal.toLocaleString() + suffix;
       }
       requestAnimationFrame(update);
     }
 
-    function bumpStatElement(elementId) {
-      const el = document.getElementById(elementId);
-      if (!el) return;
-      el.classList.remove('stat-bump');
-      void el.offsetWidth;
-      el.classList.add('stat-bump');
-    }
-
     window.addEventListener('DOMContentLoaded', () => {
-      animateCountUp('stat-listens', 285000, statsState.listens, 1600, '');
-      animateCountUp('stat-favorites', 92000, statsState.favorites, 1500, '');
-      animateCountUp('stat-reposts', 8500, statsState.reposts, 1300, '');
+      animateCountUp('stat-listens', 285000, statsState.listens, 1600);
+      animateCountUp('stat-favorites', 92000, statsState.favorites, 1500);
+      animateCountUp('stat-reposts', 8500, statsState.reposts, 1300);
 
       setInterval(() => {
-        const delta = Math.floor(Math.random() * 4) + 1;
-        statsState.listens += delta;
-        const listensEl = document.getElementById('stat-listens');
-        if (listensEl) {
-          listensEl.innerText = statsState.listens.toLocaleString();
-          bumpStatElement('stat-listens');
-        }
+        statsState.listens += Math.floor(Math.random() * 4) + 1;
+        const el = document.getElementById('stat-listens');
+        if (el) el.innerText = statsState.listens.toLocaleString();
       }, 3200);
 
       setInterval(() => {
         statsState.favorites += 1;
-        const favEl = document.getElementById('stat-favorites');
-        if (favEl) {
-          favEl.innerText = statsState.favorites.toLocaleString();
-          bumpStatElement('stat-favorites');
-        }
+        const el = document.getElementById('stat-favorites');
+        if (el) el.innerText = statsState.favorites.toLocaleString();
       }, 5500);
 
       setInterval(() => {
         statsState.reposts += 1;
-        const repEl = document.getElementById('stat-reposts');
-        if (repEl) {
-          repEl.innerText = statsState.reposts.toLocaleString();
-          bumpStatElement('stat-reposts');
-        }
+        const el = document.getElementById('stat-reposts');
+        if (el) el.innerText = statsState.reposts.toLocaleString();
       }, 8200);
     });
   </script>
