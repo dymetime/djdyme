@@ -20,15 +20,17 @@
           colors: {
             palette: {
               gold: '#FFB300',
+              goldLight: '#FFD54F',
+              goldHover: '#FFA000',
               deepGreen: '#1B5E20',
-              coral: '#FF7043',
               sage: '#A5D6A7',
-              softYellow: '#FFD54F',
+              navyDark: '#070c18',
+              cardBg: '#0b1426',
             },
             gunmetal: {
               DEFAULT: '#242d3d',
-              dark: '#18202e',
-              light: '#313d52'
+              dark: '#161d2a',
+              light: '#2d3748'
             }
           },
           fontFamily: {
@@ -62,7 +64,7 @@
       pointer-events: none;
     }
 
-    /* Studio Atmosphere - Deep Dark Navy with Subtle Coral & Sage Flares */
+    /* Ambient Atmosphere: Deep Dark Navy with Warm Golden-Amber & Forest Micro-Tints */
     .bg-ambient-overlay {
       position: fixed;
       inset: 0;
@@ -70,8 +72,8 @@
       height: 100vh;
       z-index: -10;
       background: 
-        radial-gradient(circle at 80% 12%, rgba(255, 112, 67, 0.06) 0%, transparent 45%),
-        radial-gradient(circle at 20% 45%, rgba(27, 94, 32, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 12%, rgba(255, 179, 0, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 18% 42%, rgba(27, 94, 32, 0.18) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(9, 15, 28, 0.85) 0%, rgba(7, 12, 24, 0.95) 70%, rgba(2, 4, 8, 0.99) 100%);
       pointer-events: none;
     }
@@ -83,7 +85,7 @@
       overflow-x: hidden;
     }
 
-    /* Kinetic Depth Cards */
+    /* Kinetic Glassmorphic Depth Cards */
     .depth-card {
       background: linear-gradient(145deg, rgba(14, 21, 37, 0.92) 0%, rgba(8, 13, 24, 0.90) 100%) !important;
       backdrop-filter: blur(14px) saturate(130%) !important;
@@ -95,9 +97,9 @@
     }
 
     .depth-card:hover {
-      border-color: rgba(255, 179, 0, 0.4);
+      border-color: rgba(255, 179, 0, 0.45);
       transform: translateY(-2px);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.95), 0 0 24px rgba(255, 179, 0, 0.15);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.95), 0 0 24px rgba(255, 179, 0, 0.16);
     }
 
     /* Kinetic Click Shockwave */
@@ -109,7 +111,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle, rgba(255, 179, 0, 0.35) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 179, 0, 0.4) 0%, transparent 70%);
       opacity: 0;
       transform: scale(0.6);
       pointer-events: none;
@@ -119,6 +121,21 @@
       opacity: 1;
       transform: scale(1.6);
       transition: 0s;
+    }
+
+    /* Unified Button Component: Default Gold (#FFB300) -> Hover Gunmetal (#242d3d) */
+    .btn-unified-cta {
+      background-color: #FFB300 !important;
+      color: #000000 !important;
+      border: 1px solid #FFB300 !important;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-unified-cta:hover {
+      background-color: #242d3d !important;
+      color: #FFFFFF !important;
+      border-color: rgba(255, 213, 79, 0.4) !important;
+      box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.75), 0 0 16px rgba(255, 213, 79, 0.25) !important;
+      transform: translateY(-1.5px);
     }
 
     /* Seamless Infinite Ticker Loop */
@@ -154,29 +171,6 @@
       0% { transform: scale(1); color: #FFD54F; text-shadow: 0 0 14px rgba(255,179,0,0.8); }
       50% { transform: scale(1.12); color: #FFFFFF; text-shadow: 0 0 24px rgba(255,179,0,1); }
       100% { transform: scale(1); color: #FFB300; text-shadow: none; }
-    }
-
-    /* Interactive Buttons */
-    .btn-gunmetal-hover {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-gunmetal-hover:hover {
-      background-color: #242d3d !important;
-      color: #FFFFFF !important;
-      border-color: rgba(255, 255, 255, 0.25) !important;
-      box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.7), 0 0 14px rgba(255, 255, 255, 0.12) !important;
-      transform: translateY(-1px);
-    }
-
-    .btn-gold-hover {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-gold-hover:hover {
-      background-color: #FFB300 !important;
-      color: #000000 !important;
-      border-color: #FFB300 !important;
-      box-shadow: 0 8px 24px -4px rgba(255, 179, 0, 0.4) !important;
-      transform: translateY(-1px);
     }
 
     /* Hardware Smooth Drop Drawer */
@@ -240,7 +234,7 @@
       </nav>
 
       <div class="flex items-center gap-2">
-        <button onclick="openBookingModal()" class="ripple-active px-3.5 py-1.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-extrabold text-[11px] uppercase tracking-wider transition shadow-sm hover:shadow-[0_0_16px_rgba(255,179,0,0.5)]">
+        <button onclick="openBookingModal()" class="btn-unified-cta ripple-active px-3.5 py-1.5 rounded font-display font-extrabold text-[11px] uppercase tracking-wider shadow-sm">
           Bookings
         </button>
         <!-- Mobile Menu Toggle Button -->
@@ -285,7 +279,7 @@
         <svg class="w-3.5 h-3.5 fill-current shrink-0 text-[#A5D6A7]" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
         <span class="truncate">Spotify List</span>
       </a>
-      <button onclick="openVipModal()" class="btn-gunmetal-hover ripple-active flex items-center justify-center gap-1.5 px-2 sm:px-3.5 py-2 rounded border border-[#FFB300]/60 bg-[#FFB300] text-black font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow truncate">
+      <button onclick="openVipModal()" class="btn-unified-cta ripple-active flex items-center justify-center gap-1.5 px-2 sm:px-3.5 py-2 rounded font-display font-black text-[10px] sm:text-xs uppercase tracking-wider truncate">
         <i data-lucide="bell-plus" class="w-3 h-3 shrink-0"></i>
         <span class="truncate">Subscribe</span>
       </button>
@@ -295,7 +289,7 @@
   <!-- ================= MAIN CONTENT ================= -->
   <main class="max-w-4xl mx-auto px-4 py-2 space-y-10 w-full">
 
-    <!-- 1. PULL UP FRIDAYS (ALL EPISODES DISPLAYED) -->
+    <!-- 1. PULL UP FRIDAYS (ALL 9 EPISODES UNROLLED) -->
     <section id="pull-up-fridays" class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-white/10 pb-2.5">
         <div>
@@ -438,7 +432,7 @@
           </span>
           <span class="text-[10px] font-mono uppercase tracking-widest text-slate-300 font-bold">LIVE SYNDICATION METRICS</span>
         </div>
-        <span class="text-[9px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2 py-0.5 rounded uppercase">● REAL-TIME ACTIVITY</span>
+        <span class="text-[9px] font-mono text-[#A5D6A7] bg-[#1B5E20]/30 border border-[#1B5E20]/60 px-2 py-0.5 rounded uppercase font-semibold">● REAL-TIME ACTIVITY</span>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/10">
@@ -451,25 +445,25 @@
         <div class="pt-1.5 sm:pt-0">
           <div id="stat-favorites" class="text-lg sm:text-xl font-display font-black text-[#FFB300] transition-transform">100,000</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="heart" class="w-2.5 h-2.5 text-[#FF7043]"></i> Favorites
+            <i data-lucide="heart" class="w-2.5 h-2.5 text-[#A5D6A7]"></i> Favorites
           </div>
         </div>
         <div class="pt-1.5 sm:pt-0">
           <div id="stat-reposts" class="text-lg sm:text-xl font-display font-black text-[#FFB300] transition-transform">10,000</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="repeat" class="w-2.5 h-2.5 text-[#A5D6A7]"></i> Reposts
+            <i data-lucide="repeat" class="w-2.5 h-2.5 text-[#FFD54F]"></i> Reposts
           </div>
         </div>
         <div class="pt-1.5 sm:pt-0">
           <div id="stat-episodes" class="text-lg sm:text-xl font-display font-black text-[#FFB300] transition-transform">100+</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="radio" class="w-2.5 h-2.5 text-[#FFD54F]"></i> Master Shows
+            <i data-lucide="radio" class="w-2.5 h-2.5 text-[#A5D6A7]"></i> Master Shows
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ================= 2. DYMETIME RADIO (ENHANCED WITH SUBTLE CORAL/GOLD ACCENTS) ================= -->
+    <!-- ================= 2. DYMETIME RADIO (REFINED NAVY & GOLDEN AURA, NO CORAL/RED) ================= -->
     <section id="dymetime-radio" class="space-y-4">
       <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-2">
@@ -479,22 +473,22 @@
         <span class="text-slate-400 font-mono text-xs">OFFICIAL SESSIONS</span>
       </div>
 
-      <!-- FEATURED SESSION 029 -->
-      <div class="depth-card border-2 border-[#FF7043]/80 rounded-xl p-4 sm:p-5 shadow-[0_0_24px_rgba(255,112,67,0.20)] group relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#FF7043]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- FEATURED SESSION 029 (COHESIVE DEEP NAVY + GOLDEN AMBER HALO) -->
+      <div class="depth-card border border-[#FFB300]/50 rounded-xl p-4 sm:p-5 shadow-[0_0_24px_rgba(255,179,0,0.18)] group relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-[#FFB300]/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="flex flex-col sm:flex-row items-center gap-4 relative z-10">
-          <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg bg-[#070c18] border-2 border-[#FF7043] shadow-[0_0_16px_rgba(255,112,67,0.3)] flex items-center justify-center cursor-pointer group-hover:scale-105 transition duration-300" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
-            <span class="font-display font-black text-2xl text-[#FFD54F]">029</span>
+          <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg bg-[#070c18] border-2 border-[#FFB300]/60 shadow-[0_0_18px_rgba(255,179,0,0.25)] flex items-center justify-center cursor-pointer group-hover:scale-105 transition duration-300" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
+            <span class="font-display font-black text-2xl text-[#FFB300]">029</span>
           </div>
           <div class="space-y-1 flex-1 text-center sm:text-left min-w-0">
             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span class="px-2.5 py-0.5 rounded bg-gradient-to-r from-[#FF7043] to-[#FFB300] text-black font-mono font-bold text-[9px] uppercase shadow-sm">LATEST SESSION</span>
+              <span class="px-2.5 py-0.5 rounded bg-gradient-to-r from-[#FFB300] to-[#FFD54F] text-black font-mono font-bold text-[9px] uppercase shadow-sm">LATEST SESSION</span>
               <span class="text-[10px] font-mono text-[#FFD54F] font-bold tracking-wider">DYMETIME RADIO 029</span>
             </div>
             <h3 class="text-base sm:text-lg font-display font-black text-white truncate">Throwback Atlanta Hits</h3>
             <p class="text-xs text-slate-300">Southern Hip Hop, Crunk classics & Dirty South master blend.</p>
           </div>
-          <button onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')" class="ripple-active shrink-0 w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FF7043] hover:bg-[#FFB300] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FF7043]/25 hover:shadow-[0_0_24px_rgba(255,112,67,0.5)]">
+          <button onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')" class="ripple-active shrink-0 w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FFB300]/25 hover:shadow-[0_0_24px_rgba(255,179,0,0.5)]">
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
             Play Session
           </button>
@@ -538,28 +532,28 @@
       <div id="dymetime-archive-drawer" class="drawer-collapse">
         <div class="drawer-inner pt-2">
           <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FF7043]">
-              <div><span class="text-[9px] font-mono text-[#FF7043]">SESSION 027</span><h4 class="text-xs font-bold text-white truncate">Keepin' It Ugandan</h4><p class="text-[10px] text-slate-400 mt-0.5">Club anthems</p></div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 027</span><h4 class="text-xs font-bold text-white truncate">Keepin' It Ugandan</h4><p class="text-[10px] text-slate-400 mt-0.5">Club anthems</p></div>
               <button onclick="playMixcloud('dymetime-radio-27-keepin-it-ugandan', 'Dymetime Radio - 027', 'Keepin It Ugandan')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
             </div>
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FF7043]">
-              <div><span class="text-[9px] font-mono text-[#FF7043]">SESSION 026</span><h4 class="text-xs font-bold text-white truncate">East African Vibes 4</h4><p class="text-[10px] text-slate-400 mt-0.5">Bongo & Kenya</p></div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 026</span><h4 class="text-xs font-bold text-white truncate">East African Vibes 4</h4><p class="text-[10px] text-slate-400 mt-0.5">Bongo & Kenya</p></div>
               <button onclick="playMixcloud('dymetime-radio-26-best-of-east-african-vibes-4', 'Dymetime Radio - 026', 'East African Vibes 4')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
             </div>
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FF7043]">
-              <div><span class="text-[9px] font-mono text-[#FF7043]">SESSION 025</span><h4 class="text-xs font-bold text-white truncate">Amapiano & Tequila</h4><p class="text-[10px] text-slate-400 mt-0.5">Log drum cuts</p></div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 025</span><h4 class="text-xs font-bold text-white truncate">Amapiano & Tequila</h4><p class="text-[10px] text-slate-400 mt-0.5">Log drum cuts</p></div>
               <button onclick="playMixcloud('dymetime-radio-25-my-friends-like-amapiano-and-tequila', 'Dymetime Radio - 025', 'Amapiano & Tequila')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
             </div>
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FF7043]">
-              <div><span class="text-[9px] font-mono text-[#FF7043]">COLLAB CUT</span><h4 class="text-xs font-bold text-white truncate">Dymetime x DJ Slay</h4><p class="text-[10px] text-slate-400 mt-0.5">B2B Club Set</p></div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">COLLAB CUT</span><h4 class="text-xs font-bold text-white truncate">Dymetime x DJ Slay</h4><p class="text-[10px] text-slate-400 mt-0.5">B2B Club Set</p></div>
               <button onclick="playMixcloud('dymetime-x-dj-slay', 'Dymetime x DJ Slay', 'Collab Live Set')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
             </div>
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FF7043]">
-              <div><span class="text-[9px] font-mono text-[#FF7043]">SESSION 024</span><h4 class="text-xs font-bold text-white truncate">Trap House 2</h4><p class="text-[10px] text-slate-400 mt-0.5">Trap & 808s</p></div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 024</span><h4 class="text-xs font-bold text-white truncate">Trap House 2</h4><p class="text-[10px] text-slate-400 mt-0.5">Trap & 808s</p></div>
               <button onclick="playMixcloud('dymetime-radio-24-trap-house-2-re-upload', 'Dymetime Radio - 024', 'Trap House 2')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
             </div>
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FF7043]">
-              <div><span class="text-[9px] font-mono text-[#FF7043]">SESSION 023</span><h4 class="text-xs font-bold text-white truncate">Reggae Massive</h4><p class="text-[10px] text-slate-400 mt-0.5">Roots & Dub</p></div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 023</span><h4 class="text-xs font-bold text-white truncate">Reggae Massive</h4><p class="text-[10px] text-slate-400 mt-0.5">Roots & Dub</p></div>
               <button onclick="playMixcloud('dymetime-radio-23-reggae-masive', 'Dymetime Radio - 023', 'Reggae Massive')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
             </div>
           </div>
@@ -590,7 +584,7 @@
         <span>Reggae</span> <span class="mx-3 text-[#FFB300]">•</span>
         <span>Dirty South</span> <span class="mx-3 text-[#FFB300]">•</span>
       </div>
-      <!-- Track 2 (Duplicate for Seamless Infinite Loop) -->
+      <!-- Track 2 (Identical Duplicate for Seamless Infinite Loop) -->
       <div class="ticker-track text-slate-300 font-mono text-[10px] tracking-[0.2em] uppercase font-semibold" aria-hidden="true">
         <span>Hip Hop</span> <span class="mx-3 text-[#FFB300]">•</span>
         <span>Dancehall</span> <span class="mx-3 text-[#FFB300]">•</span>
@@ -784,7 +778,7 @@
         <!-- Dymetime Radio 29-23 -->
         <div class="vault-item flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFD54F]/60 transition cursor-pointer" data-category="radio" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta')">
           <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dymetime Radio - Session 029</h5><p class="text-[9px] font-mono text-slate-400">Throwback Atlanta Hits</p></div>
-          <span class="text-[9px] font-mono text-[#FF7043] bg-[#FF7043]/10 px-2 py-0.5 rounded">STREAM</span>
+          <span class="text-[9px] font-mono text-[#FFB300] bg-[#FFB300]/10 px-2 py-0.5 rounded">STREAM</span>
         </div>
         <div class="vault-item flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFD54F]/60 transition cursor-pointer" data-category="radio" onclick="playMixcloud('dymetime-radio-28-dancehall-baddest-tunes-2026', 'Dymetime Radio - 028', 'Dancehall 2026')">
           <div class="truncate"><h5 class="text-xs font-bold text-white truncate">Dancehall Baddest Tunes</h5><p class="text-[9px] font-mono text-slate-400">Current bangers.</p></div>
@@ -887,7 +881,7 @@
       </div>
     </section>
 
-    <!-- ================= 7. VIP SUBSCRIPTION & BOOKING INQUIRIES ================= -->
+    <!-- ================= 7. VIP SUBSCRIPTION & BOOKING INQUIRIES (IDENTICAL BASE & HOVER) ================= -->
     <section id="vip-and-inquiries" class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- VIP Mail List Trigger Card -->
       <div class="depth-card rounded-xl p-5 text-center flex flex-col justify-between">
@@ -904,7 +898,7 @@
           </p>
         </div>
         <div class="pt-3">
-          <button onclick="openVipModal()" class="btn-gunmetal-hover ripple-active w-full py-2.5 rounded bg-[#FFB300] border border-[#FFB300] text-black font-display font-black text-xs uppercase tracking-wider transition shadow">
+          <button onclick="openVipModal()" class="btn-unified-cta ripple-active w-full py-2.5 rounded font-display font-black text-xs uppercase tracking-wider">
             Subscribe For Early Drops
           </button>
         </div>
@@ -925,7 +919,7 @@
           </p>
         </div>
         <div class="pt-3">
-          <button onclick="openBookingModal()" class="btn-gold-hover ripple-active w-full inline-block py-2.5 rounded bg-white/10 border border-white/10 text-white font-display font-extrabold text-xs uppercase tracking-wider transition text-center">
+          <button onclick="openBookingModal()" class="btn-unified-cta ripple-active w-full inline-block py-2.5 rounded font-display font-extrabold text-xs uppercase tracking-wider text-center">
             Inquire For Dates
           </button>
         </div>
@@ -1005,7 +999,7 @@
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Event Details / Message</label>
           <textarea id="booking-details" rows="2" placeholder="Club residency, concert, private booking, hours, venue..." class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]"></textarea>
         </div>
-        <button type="submit" id="booking-submit-btn" class="ripple-active w-full py-2.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FFB300]/25">
+        <button type="submit" id="booking-submit-btn" class="btn-unified-cta ripple-active w-full py-2.5 rounded font-display font-black text-xs uppercase tracking-wider">
           Send Booking Inquiry
         </button>
       </form>
@@ -1049,7 +1043,7 @@
           </div>
         </div>
 
-        <button type="submit" id="vip-modal-submit-btn" class="btn-gunmetal-hover ripple-active w-full py-2.5 rounded bg-[#FFB300] border border-[#FFB300] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FFB300]/25 mt-1">
+        <button type="submit" id="vip-modal-submit-btn" class="btn-unified-cta ripple-active w-full py-2.5 rounded font-display font-black text-xs uppercase tracking-wider mt-1">
           Subscribe Now
         </button>
 
