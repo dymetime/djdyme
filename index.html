@@ -1031,132 +1031,164 @@
       }
     }
 
-    function handleRequestSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('req-submit-btn');
-      const name = document.getElementById('req-name').value;
-      const city = document.getElementById('req-city').value;
-      const handle = document.getElementById('req-handle').value;
-      const song = document.getElementById('req-song').value;
-      const message = document.getElementById('req-message').value;
+ async function handleRequestSubmit(e) {
+  e.preventDefault();
 
-      btn.innerText = 'Locking In...';
-      btn.disabled = true;
+  const btn = document.getElementById('req-submit-btn');
+  const form = document.getElementById('request-form');
+  const name = document.getElementById('req-name').value;
+  const city = document.getElementById('req-city').value;
+  const handle = document.getElementById('req-handle').value;
+  const song = document.getElementById('req-song').value;
+  const message = document.getElementById('req-message').value;
 
-      fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New Shoutout / Song Request from ${name} (${city})`,
-          Name: name,
-          City: city,
-          SocialHandle: handle || 'N/A',
-          RequestedSong: song,
-          ShoutoutMessage: message || 'N/A'
-        })
+  btn.innerText = 'Locking In...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `New Shoutout / Song Request from ${name} (${city})`,
+        Name: name,
+        City: city,
+        SocialHandle: handle || 'N/A',
+        RequestedSong: song,
+        ShoutoutMessage: message || 'N/A'
       })
-      .then(() => {
-        alert("Shoutout & Request locked in for the next live broadcast!");
-        document.getElementById('request-form').reset();
-        btn.innerText = 'Send Request To DJ DYME';
-        btn.disabled = false;
-        closeRequestModal();
-      })
-      .catch(() => {
-        alert("Request received! DJ Dyme will spin it on the next drop.");
-        document.getElementById('request-form').reset();
-        btn.innerText = 'Send Request To DJ DYME';
-        btn.disabled = false;
-        closeRequestModal();
-      });
+    });
+
+    const result = await response.json();
+
+    if (
+      !response.ok ||
+      !(result.success === true || result.success === 'true')
+    ) {
+      throw new Error('Request submission failed');
     }
 
-    function handleVipModalSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('vip-modal-submit-btn');
-      const email = document.getElementById('vip-modal-email').value;
-      const social = document.getElementById('vip-modal-social').value;
-      const name = document.getElementById('vip-modal-name').value;
-      const phone = document.getElementById('vip-modal-phone').value;
+    alert('Your shoutout and song request have been submitted successfully!');
+    form.reset();
+    closeRequestModal();
 
-      btn.innerText = 'Subscribing...';
-      btn.disabled = true;
+  } catch (error) {
+    alert('Sorry, your request could not be confirmed. Please try again in a moment.');
 
-      fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New VIP Subscriber: ${social}`,
-          Email: email,
-          SocialHandle: social,
-          Names: name || 'Not Provided',
-          Phone: phone || 'Not Provided'
-        })
+  } finally {
+    btn.innerText = 'Send Request To DJ DYME';
+    btn.disabled = false;
+  }
+}
+
+
+async function handleVipModalSubmit(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('vip-modal-submit-btn');
+  const form = document.getElementById('vip-popup-form');
+  const email = document.getElementById('vip-modal-email').value;
+  const social = document.getElementById('vip-modal-social').value;
+  const name = document.getElementById('vip-modal-name').value;
+  const phone = document.getElementById('vip-modal-phone').value;
+
+  btn.innerText = 'Subscribing...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `New VIP Subscriber: ${social}`,
+        Email: email,
+        SocialHandle: social,
+        Names: name || 'Not Provided',
+        Phone: phone || 'Not Provided'
       })
-      .then(() => {
-        alert("VIP Access confirmed! Your master download and early links are sent.");
-        document.getElementById('vip-popup-form').reset();
-        btn.innerText = 'Subscribe Now';
-        btn.disabled = false;
-        closeVipModal();
-      })
-      .catch(() => {
-        alert("VIP Access confirmed!");
-        document.getElementById('vip-popup-form').reset();
-        btn.innerText = 'Subscribe Now';
-        btn.disabled = false;
-        closeVipModal();
-      });
+    });
+
+    const result = await response.json();
+
+    if (
+      !response.ok ||
+      !(result.success === true || result.success === 'true')
+    ) {
+      throw new Error('VIP signup failed');
     }
 
-    function handleBookingSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('booking-submit-btn');
-      const name = document.getElementById('booking-name').value;
-      const phone = document.getElementById('booking-phone').value;
-      const email = document.getElementById('booking-email').value;
-      const eventDetails = document.getElementById('booking-event').value;
-      const details = document.getElementById('booking-details').value;
+    alert('Thanks for joining the DJ DYME VIP list! Your signup has been submitted.');
+    form.reset();
+    closeVipModal();
 
-      btn.innerText = 'Sending Inquiry...';
-      btn.disabled = true;
+  } catch (error) {
+    alert('Sorry, your VIP signup could not be confirmed. Please try again in a moment.');
 
-      fetch('https://formsubmit.co/ajax/djdyme@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New DJ DYME Booking Inquiry from ${name}`,
-          Name: name,
-          Phone: phone,
-          Email: email,
-          Event: eventDetails,
-          Details: details
-        })
+  } finally {
+    btn.innerText = 'Subscribe Now';
+    btn.disabled = false;
+  }
+}
+
+
+async function handleBookingSubmit(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('booking-submit-btn');
+  const form = document.getElementById('booking-form');
+  const name = document.getElementById('booking-name').value;
+  const phone = document.getElementById('booking-phone').value;
+  const email = document.getElementById('booking-email').value;
+  const eventDetails = document.getElementById('booking-event').value;
+  const details = document.getElementById('booking-details').value;
+
+  btn.innerText = 'Sending Inquiry...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/djdyme@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `New DJ DYME Booking Inquiry from ${name}`,
+        Name: name,
+        Phone: phone,
+        Email: email,
+        Event: eventDetails,
+        Details: details
       })
-      .then(() => {
-        alert("Booking inquiry sent directly to DJ DYME! Check your inbox within 24 hours.");
-        document.getElementById('booking-form').reset();
-        btn.innerText = 'Send Booking Inquiry';
-        btn.disabled = false;
-        closeBookingModal();
-      })
-      .catch(() => {
-        alert("Booking inquiry sent directly to DJ DYME!");
-        document.getElementById('booking-form').reset();
-        btn.innerText = 'Send Booking Inquiry';
-        btn.disabled = false;
-        closeBookingModal();
-      });
+    });
+
+    const result = await response.json();
+
+    if (
+      !response.ok ||
+      !(result.success === true || result.success === 'true')
+    ) {
+      throw new Error('Booking submission failed');
     }
+
+    alert('Your booking inquiry has been submitted successfully!');
+    form.reset();
+    closeBookingModal();
+
+  } catch (error) {
+    alert('Sorry, your booking inquiry could not be confirmed. Please try again or contact DJ DYME directly.');
+
+  } finally {
+    btn.innerText = 'Send Booking Inquiry';
+    btn.disabled = false;
+  }
+}
 
     function toggleArchiveDrawer(drawerId, textId, iconId) {
       const drawer = document.getElementById(drawerId);
