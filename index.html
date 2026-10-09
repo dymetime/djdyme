@@ -1307,16 +1307,18 @@ async function handleBookingSubmit(e) {
       const container = document.getElementById('video-desktop-grid');
       if (!container) return;
       container.innerHTML = videoMixes.map(v => `
-        <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFD54F]/60 transition">
+                <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFD54F]/60 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/${v.id}?autoplay=1')">
-           <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg"
-     loading="lazy"
-     decoding="async"
-     class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-            </div>
+            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
             <span class="absolute bottom-1.5 right-1.5 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">${v.duration}</span>
           </div>
-          <div class="p-2"><h4 class="font-display font-bold text-xs text-white truncate">${v.title}</h4><p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">${v.desc}</p></div>
+          <div class="p-2">
+            <h4 class="font-display font-bold text-xs text-white truncate">${v.title}</h4>
+            <p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">${v.desc}</p>
+          </div>
         </div>
       `).join('');
       lucide.createIcons();
