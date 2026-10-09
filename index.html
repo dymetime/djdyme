@@ -923,153 +923,28 @@
   <script>
     lucide.createIcons();
 
-    // ================= STATIC GUARANTEED CATALOG (NEVER BLANK) =================
-    const localCatalog = [
-      {
-        slug: 'spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254',
-        cat: 'puf',
-        ep: '57',
-        title: 'Episode 57',
-        sub: 'Kompa, Afrobeat & Dancehall',
-        desc: 'Spinz FM • Guest DJ Travis (254) continuous cut'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-56-afrobeat-urban-piano',
-        cat: 'puf',
-        ep: '56',
-        title: 'Episode 56',
-        sub: 'Afrobeats 360',
-        desc: 'Afrobeat • Urban • Amapiano live mix'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx',
-        cat: 'puf',
-        ep: '55',
-        title: 'Episode 55',
-        sub: 'Old School Reggae & Dancehall',
-        desc: 'Featuring Guest DJ Mista Trixx (Madness Crew)'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha',
-        cat: 'puf',
-        ep: '54',
-        title: 'Episode 54',
-        sub: 'Throwback Hip Hop & R&B',
-        desc: 'Dirty South & 2000s classics w/ Guest DJ Tucha'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254',
-        cat: 'puf',
-        ep: '53',
-        title: 'Episode 53',
-        sub: 'Zouk, Afrobeat & Shatta',
-        desc: 'Multi-genre master blend w/ Guest DJ Brian (254)'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups',
-        cat: 'puf',
-        ep: '52',
-        title: 'Episode 52',
-        sub: 'Afrobeat & Dancehall Mashups',
-        desc: 'Club mashups, edits and transition party mix'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-51-afrobeat-dancehall-hip-hop-guest-dj-rom-dj-8th-wonder',
-        cat: 'puf',
-        ep: '51',
-        title: 'Episode 51',
-        sub: 'Afrobeat, Dancehall & Hip Hop',
-        desc: 'Guest DJ Rom & DJ 8th Wonder live takeover'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-50-afrobeat-dancehall-hip-hop-guest-dj-4eign-dj-slay',
-        cat: 'puf',
-        ep: '50',
-        title: 'Episode 50',
-        sub: 'Pull Up Fridays Milestone 50',
-        desc: '50th Episode Celebration w/ DJ 4Eign & DJ Slay'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups',
-        cat: 'puf',
-        ep: '49',
-        title: 'Episode 49',
-        sub: 'Urban, Afrobeat & Mashups',
-        desc: 'Continuous energy drive broadcast cut'
-      },
-      {
-        slug: 'spinz-fm-pull-up-fridays-48-afrobeats-dancehall-vibes',
-        cat: 'puf',
-        ep: '48',
-        title: 'Episode 48',
-        sub: 'Afrobeats & Dancehall Vibes',
-        desc: 'Summer party rotation and live blends'
-      },
-      {
-        slug: 'dymetime-radio-29-throwback-atlanta-hits',
-        cat: 'radio',
-        ep: '029',
-        title: 'Session 029',
-        sub: 'Throwback Atlanta Hits',
-        desc: 'Southern Hip Hop, Crunk classics & Dirty South master blend'
-      },
-      {
-        slug: 'dymetime-radio-27-keepin-it-ugandan',
-        cat: 'radio',
-        ep: '027',
-        title: 'Session 027',
-        sub: 'Keepin It Ugandan',
-        desc: 'Ugandan party heat, Kidandali & East African club sound'
-      },
-      {
-        slug: 'dymetime-radi-20-afrobeat-party-mix-vol-1',
-        cat: 'radio',
-        ep: '020',
-        title: 'Session 020',
-        sub: 'Afrobeat Party Mix Vol 1',
-        desc: 'High-tempo Afrobeats & dancehall floorfillers'
-      },
-      {
-        slug: 'dymetime-radio-16-2mph10',
-        cat: 'radio',
-        ep: '016',
-        title: 'Session 016',
-        sub: '2MPH10 Party Mix',
-        desc: 'Hip Hop, party classics and peak-hour summer vibes'
-      },
-      {
-        slug: 'dymetime-radio-15-east-african-vibes-2',
-        cat: 'radio',
-        ep: '015',
-        title: 'Session 015',
-        sub: 'East African Vibes 2',
-        desc: 'Bongo Flava, Kenyan Gengetone & modern Afro-fusion'
-      },
-      {
-        slug: 'dymetime-radio-14-afrobeats-and-chill',
-        cat: 'radio',
-        ep: '014',
-        title: 'Session 014',
-        sub: 'AfroBeats And Chill',
-        desc: 'Smooth mid-tempo Afrobeats and mellow sunset grooves'
-      },
-      {
-        slug: 'dymetime-radio-13-throwback-rb-vibes-vol-2-mix',
-        cat: 'radio',
-        ep: '013',
-        title: 'Session 013',
-        sub: 'Throwback R&B Vibes Vol 2',
-        desc: '90s & 2000s R&B slow jams and throwback crate selections'
-      }
+    // 1. Initial 17 seed items so page renders immediately
+    const fallbackCatalog = [
+      { slug: 'spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', name: 'Spinz Fm | Pull Up Fridays 57 | Kompa . Afrobeat . Dancehall' },
+      { slug: 'spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', name: 'Spinz Fm | Pull Up Fridays 56 | Afrobeats 360' },
+      { slug: 'spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', name: 'Spinz Fm | Pull Up Fridays 55 | Old School Reggae & Dancehall' },
+      { slug: 'spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha', name: 'Spinz Fm | Pull Up Fridays 54 | Throwback Hip Hop & R&B' },
+      { slug: 'spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', name: 'Spinz Fm | Pull Up Fridays 53 | Zouk . Afrobeat . Shatta' },
+      { slug: 'spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', name: 'Spinz Fm | Pull Up Fridays 52 | Afrobeat . Dancehall . Mashups' },
+      { slug: 'spinz-fm-pull-up-fridays-51-afrobeat-dancehall-hip-hop-guest-dj-rom-dj-8th-wonder', name: 'Spinz Fm | Pull Up Fridays 51 | Afrobeat . Dancehall . Hip Hop' },
+      { slug: 'spinz-fm-pull-up-fridays-50-afrobeat-dancehall-hip-hop-guest-dj-4eign-dj-slay', name: 'Spinz Fm | Pull Up Fridays 50 | 50th Episode Celebration' },
+      { slug: 'spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', name: 'Spinz Fm | Pull Up Fridays 49 | Urban Afrobeat & Mashups' },
+      { slug: 'spinz-fm-pull-up-fridays-48-afrobeats-dancehall-vibes', name: 'Spinz Fm | Pull Up Fridays 48 | Afrobeats & Dancehall Vibes' },
+      { slug: 'dymetime-radio-29-throwback-atlanta-hits', name: 'Dymetime Radio 29 | Throwback Atlanta Hits' },
+      { slug: 'dymetime-radio-27-keepin-it-ugandan', name: 'Dymetime Radio 27 | Keepin It Ugandan' },
+      { slug: 'dymetime-radi-20-afrobeat-party-mix-vol-1', name: 'Dymetime Radio 20 | Afrobeat Party Mix Vol 1' },
+      { slug: 'dymetime-radio-16-2mph10', name: 'Dymetime Radio 16 | 2MPH10 Party Mix' },
+      { slug: 'dymetime-radio-15-east-african-vibes-2', name: 'Dymetime Radio 15 | East African Vibes 2' },
+      { slug: 'dymetime-radio-14-afrobeats-and-chill', name: 'Dymetime Radio 14 | AfroBeats And Chill' },
+      { slug: 'dymetime-radio-13-throwback-rb-vibes-vol-2-mix', name: 'Dymetime Radio 13 | Throwback R&B Vibes Vol 2' }
     ];
 
-    let playlistQueue = localCatalog.map(item => ({
-      slug: item.slug,
-      title: item.title,
-      subtitle: item.sub,
-      category: item.cat
-    }));
-
+    let playlistQueue = [];
     let currentTrackIndex = 0;
     let currentCategoryFilter = 'all';
 
@@ -1512,96 +1387,202 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // ================= DOM GRID POPULATOR =================
-    function populateAllShows() {
-      const pufShows = localCatalog.filter(i => i.cat === 'puf');
-      const radioShows = localCatalog.filter(i => i.cat === 'radio');
+    // ================= ENHANCED SMART MIX METADATA PARSER =================
+    function parseShowMetadata(rawName) {
+      const lower = rawName.toLowerCase();
 
-      // 1. Render Pull Up Fridays Grid
-      const remainingPuf = pufShows.slice(1, 7);
-      const deskGrid = document.getElementById('puf-desktop-grid');
-      const mobGrid = document.getElementById('puf-mobile-grid');
+      const isPuf = lower.includes('pull up fridays') || lower.includes('puf');
+      const isRadio = lower.includes('dymetime') || lower.includes('session') || lower.includes('radio');
 
-      if (deskGrid) {
-        deskGrid.innerHTML = remainingPuf.map(item => `
-          <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
-            <div>
-              <span class="text-[9px] font-mono text-[#FFB300]">EPISODE ${item.ep}</span>
-              <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.sub}</h4>
-              <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.desc}</p>
-            </div>
-            <button onclick="playMixcloud('${item.slug}', '${item.title}', '${item.sub.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-              <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play
-            </button>
-          </div>
-        `).join('');
+      let epMatch = rawName.match(/(?:ep(?:isode)?\.?|#|\s)(\d{1,3})\b/i);
+      let epNumber = epMatch ? epMatch[1] : '';
+
+      let clean = rawName
+        .replace(/^spinz\s*fm\s*[-|:]?\s*/i, '')
+        .replace(/^dj\s*dyme\s*(?:presents)?\s*[-|:]?\s*/i, '')
+        .trim();
+
+      let mainTitle = '';
+      let subTitle = '';
+
+      if (isPuf) {
+        mainTitle = epNumber ? `Episode ${epNumber}` : 'Pull Up Fridays';
+        let remaining = clean
+          .replace(/pull\s*up\s*fridays\s*(?:ep(?:isode)?\.?|#|\s)?\d*/i, '')
+          .replace(/^[|\-:\s]+|[|\-:\s]+$/g, '')
+          .trim();
+        subTitle = remaining || 'Continuous Master Cut';
+      } else if (isRadio) {
+        mainTitle = epNumber ? `Session ${epNumber.padStart(3, '0')}` : 'Dymetime Radio';
+        let remaining = clean
+          .replace(/dymetime\s*(?:radio)?\s*(?:session|#|\s)?\d*/i, '')
+          .replace(/^[|\-:\s]+|[|\-:\s]+$/g, '')
+          .trim();
+        subTitle = remaining || 'Syndicated Master Cut';
+      } else {
+        let parts = clean.split(/[|\-:]/).map(p => p.trim()).filter(Boolean);
+        mainTitle = parts[0] || clean;
+        subTitle = parts.slice(1).join(' • ') || 'Live DJ Set';
       }
 
-      if (mobGrid) {
-        mobGrid.innerHTML = remainingPuf.map((item, idx) => `
-          <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === remainingPuf.length - 1 && remainingPuf.length % 2 !== 0 ? 'col-span-2' : ''}">
-            <div>
-              <span class="text-[9px] font-mono text-[#FFB300]">EPISODE ${item.ep}</span>
-              <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.sub}</h4>
-              <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.desc}</p>
-            </div>
-            <button onclick="playMixcloud('${item.slug}', '${item.title}', '${item.sub.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
-          </div>
-        `).join('');
+      return { isPuf, isRadio, epNumber, mainTitle, subTitle, rawName: clean };
+    }
+
+    // ================= DYNAMIC 100-SHOW POPULATOR =================
+    function populateMixcloudCatalog(cloudcasts) {
+      if (!cloudcasts || cloudcasts.length === 0) return;
+
+      playlistQueue = cloudcasts.map(item => {
+        const m = parseShowMetadata(item.name);
+        return {
+          slug: item.slug,
+          title: m.mainTitle,
+          subtitle: m.subTitle,
+          category: m.isPuf ? 'puf' : 'radio'
+        };
+      });
+
+      const pufShows = [];
+      const radioShows = [];
+
+      cloudcasts.forEach(cast => {
+        const meta = parseShowMetadata(cast.name);
+        if (meta.isPuf) pufShows.push({ cast, meta });
+        else radioShows.push({ cast, meta });
+      });
+
+      // 1. Hero Latest Drop
+      const latest = cloudcasts[0];
+      const latestMeta = parseShowMetadata(latest.name);
+      const heroBtn = document.getElementById('hero-latest-btn');
+      if (heroBtn) {
+        heroBtn.onclick = () => playMixcloud(latest.slug, latestMeta.mainTitle, latestMeta.subTitle);
       }
 
-      // 2. Render Dymetime Radio Visible Grid (Sessions 27, 20, 16)
-      const nextThree = radioShows.slice(1, 4);
-      const rVisGrid = document.getElementById('radio-visible-grid');
-      if (rVisGrid && nextThree.length > 0) {
-        rVisGrid.innerHTML = nextThree.map((item, idx) => `
-          <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === 2 ? 'col-span-2 md:col-span-1' : ''}">
-            <div>
-              <span class="text-[9px] font-mono text-[#FFB300]">${item.title.toUpperCase()}</span>
-              <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.sub}</h4>
-              <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.desc}</p>
+      // 2. Featured PUF Card
+      if (pufShows.length > 0) {
+        const featPuf = pufShows[0];
+        const numEl = document.getElementById('puf-featured-num');
+        const tagEl = document.getElementById('puf-featured-tag');
+        const titleEl = document.getElementById('puf-featured-title');
+        const descEl = document.getElementById('puf-featured-desc');
+        const btnEl = document.getElementById('puf-featured-btn');
+        const numBox = document.getElementById('puf-featured-num-box');
+
+        if (featPuf.meta.epNumber && numEl) numEl.innerText = featPuf.meta.epNumber;
+        if (tagEl) tagEl.innerText = `PULL UP FRIDAYS EP. ${featPuf.meta.epNumber || 'LATEST'}`;
+        if (titleEl) titleEl.innerText = featPuf.meta.subTitle;
+        if (descEl) descEl.innerText = featPuf.meta.rawName;
+        
+        const pufAction = () => playMixcloud(featPuf.cast.slug, `Pull Up Fridays - Ep. ${featPuf.meta.epNumber}`, featPuf.meta.subTitle);
+        if (btnEl) btnEl.onclick = pufAction;
+        if (numBox) numBox.onclick = pufAction;
+
+        const remainingPuf = pufShows.slice(1, 10);
+        const deskGrid = document.getElementById('puf-desktop-grid');
+        const mobGrid = document.getElementById('puf-mobile-grid');
+
+        if (deskGrid) {
+          deskGrid.innerHTML = remainingPuf.map(item => `
+            <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+              <div>
+                <span class="text-[9px] font-mono text-[#FFB300]">EPISODE ${item.meta.epNumber || 'DROP'}</span>
+                <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.meta.subTitle}</h4>
+                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
+              </div>
+              <button onclick="playMixcloud('${item.cast.slug}', 'Pull Up Fridays - Ep. ${item.meta.epNumber}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
+                <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play
+              </button>
             </div>
-            <button onclick="playMixcloud('${item.slug}', '${item.title}', '${item.sub.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-              <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play
-            </button>
-          </div>
-        `).join('');
+          `).join('');
+        }
+
+        if (mobGrid) {
+          mobGrid.innerHTML = remainingPuf.map((item, idx) => `
+            <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === remainingPuf.length - 1 && remainingPuf.length % 2 !== 0 ? 'col-span-2' : ''}">
+              <div>
+                <span class="text-[9px] font-mono text-[#FFB300]">EPISODE ${item.meta.epNumber || 'DROP'}</span>
+                <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.meta.subTitle}</h4>
+                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
+              </div>
+              <button onclick="playMixcloud('${item.cast.slug}', 'Pull Up Fridays - Ep. ${item.meta.epNumber}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+            </div>
+          `).join('');
+        }
       }
 
-      // 3. Render Dymetime Radio Drawer (Sessions 15, 14, 13)
-      const extraShows = radioShows.slice(4);
-      const rDrawGrid = document.getElementById('radio-drawer-grid');
-      if (rDrawGrid && extraShows.length > 0) {
-        rDrawGrid.innerHTML = extraShows.map(item => `
-          <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
-            <div>
-              <span class="text-[9px] font-mono text-[#FFB300]">${item.title.toUpperCase()}</span>
-              <h4 class="text-xs font-bold text-white truncate mt-0.5">${item.sub}</h4>
-              <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.desc}</p>
+      // 3. Featured Dymetime Radio Card & Grids
+      if (radioShows.length > 0) {
+        const featRadio = radioShows[0];
+        const rNumEl = document.getElementById('radio-featured-num');
+        const rTagEl = document.getElementById('radio-featured-tag');
+        const rTitleEl = document.getElementById('radio-featured-title');
+        const rDescEl = document.getElementById('radio-featured-desc');
+        const rBtnEl = document.getElementById('radio-featured-btn');
+        const rNumBox = document.getElementById('radio-featured-num-box');
+
+        if (rNumEl) rNumEl.innerText = featRadio.meta.epNumber ? featRadio.meta.epNumber.padStart(3, '0') : '029';
+        if (rTagEl) rTagEl.innerText = featRadio.meta.epNumber ? `DYMETIME RADIO ${featRadio.meta.epNumber.padStart(3, '0')}` : 'DYMETIME RADIO SESSION';
+        if (rTitleEl) rTitleEl.innerText = featRadio.meta.subTitle;
+        if (rDescEl) rDescEl.innerText = featRadio.meta.rawName;
+
+        const radioAction = () => playMixcloud(featRadio.cast.slug, featRadio.meta.mainTitle, featRadio.meta.subTitle);
+        if (rBtnEl) rBtnEl.onclick = radioAction;
+        if (rNumBox) rNumBox.onclick = radioAction;
+
+        const nextThree = radioShows.slice(1, 4);
+        const rVisGrid = document.getElementById('radio-visible-grid');
+        if (rVisGrid && nextThree.length > 0) {
+          rVisGrid.innerHTML = nextThree.map((item, idx) => `
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === 2 ? 'col-span-2 md:col-span-1' : ''}">
+              <div>
+                <span class="text-[9px] font-mono text-[#FFB300]">${item.meta.mainTitle.toUpperCase()}</span>
+                <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.meta.subTitle}</h4>
+                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
+              </div>
+              <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
+                <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play
+              </button>
             </div>
-            <button onclick="playMixcloud('${item.slug}', '${item.title}', '${item.sub.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
-          </div>
-        `).join('');
+          `).join('');
+        }
+
+        const extraShows = radioShows.slice(4, 16);
+        const rDrawGrid = document.getElementById('radio-drawer-grid');
+        if (rDrawGrid && extraShows.length > 0) {
+          rDrawGrid.innerHTML = extraShows.map(item => `
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div>
+                <span class="text-[9px] font-mono text-[#FFB300]">${item.meta.mainTitle.toUpperCase()}</span>
+                <h4 class="text-xs font-bold text-white truncate mt-0.5">${item.meta.subTitle}</h4>
+                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
+              </div>
+              <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
+            </div>
+          `).join('');
+        }
       }
 
-      // 4. Render The Vault
+      // 4. Populate The Vault with FULL 100+ Mixes
       const vaultContainer = document.getElementById('vault-list');
       if (vaultContainer) {
-        vaultContainer.innerHTML = localCatalog.map(item => {
-          const displayCategory = item.cat === 'puf' ? 'PULL UP FRIDAYS' : 'DYMETIME RADIO';
-          const searchMetadata = `${item.title} ${item.sub} ${item.desc} ${displayCategory}`.toLowerCase();
+        vaultContainer.innerHTML = cloudcasts.map(item => {
+          const meta = parseShowMetadata(item.name);
+          const cat = meta.isPuf ? 'puf' : 'radio';
+          const displayCategory = meta.isPuf ? 'PULL UP FRIDAYS' : 'DYMETIME RADIO';
+          const searchMetadata = `${meta.mainTitle} ${meta.subTitle} ${meta.rawName} ${displayCategory}`.toLowerCase();
 
           return `
             <div class="vault-item flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFD54F]/60 transition cursor-pointer" 
-                 data-category="${item.cat}" 
+                 data-category="${cat}" 
                  data-search="${searchMetadata}" 
-                 onclick="playMixcloud('${item.slug}', '${item.title}', '${item.sub.replace(/'/g, "\\'")}')">
+                 onclick="playMixcloud('${item.slug}', '${meta.mainTitle.replace(/'/g, "\\'")}', '${meta.subTitle.replace(/'/g, "\\'")}')">
               <div class="truncate mr-2">
                 <div class="flex items-center gap-2">
                   <span class="text-[8px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFD54F] font-bold">${displayCategory}</span>
-                  <h5 class="text-xs font-bold text-white truncate">${item.title} - ${item.sub}</h5>
+                  <h5 class="text-xs font-bold text-white truncate">${meta.mainTitle} - ${meta.subTitle}</h5>
                 </div>
-                <p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">${item.desc}</p>
+                <p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">${meta.rawName}</p>
               </div>
               <span class="text-[9px] font-mono text-[#FFB300] bg-[#FFB300]/10 border border-[#FFB300]/20 px-2.5 py-1 rounded shrink-0">STREAM</span>
             </div>
@@ -1611,6 +1592,26 @@
       }
 
       lucide.createIcons();
+    }
+
+    // JSONP callback function — bypasses CORS completely
+    window.handleMixcloudLiveFeed = function(payload) {
+      if (payload && payload.data && payload.data.length > 0) {
+        populateMixcloudCatalog(payload.data);
+      }
+    };
+
+    function syncMixcloudLiveData() {
+      // 1. Populate initial fallback catalog so the page isn't blank for a millisecond
+      populateMixcloudCatalog(fallbackCatalog);
+
+      // 2. Inject JSONP script tag for full 100-mix catalog (CORS-immune)
+      const script = document.createElement('script');
+      script.src = 'https://api.mixcloud.com/djdyme/cloudcasts/?limit=100&callback=handleMixcloudLiveFeed';
+      script.onerror = () => {
+        console.warn('JSONP call blocked. Retaining fallback catalog.');
+      };
+      document.body.appendChild(script);
     }
 
     let statsState = {
@@ -1654,10 +1655,9 @@
       animateCountUp('stat-favorites', 92000, statsState.favorites, 1500, '');
       animateCountUp('stat-reposts', 8500, statsState.reposts, 1300, '');
 
-      // Populate cards immediately with zero network dependency
-      populateAllShows();
       renderDesktopVideos();
       renderMobileVideo();
+      syncMixcloudLiveData();
 
       setInterval(() => {
         const delta = Math.floor(Math.random() * 4) + 1;
