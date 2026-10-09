@@ -198,13 +198,13 @@
       transition: background-color 0.2s ease;
     }
 
-    /* Notification Toast */
     #share-toast {
       transform: translateY(100px);
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
     }
     #share-toast.show {
       transform: translateY(0);
+      opacity: 1;
     }
   </style>
 </head>
@@ -213,7 +213,7 @@
   <div class="bg-city-fixed"></div>
   <div class="bg-ambient-overlay"></div>
 
-  <div id="share-toast" class="fixed bottom-24 right-4 z-50 depth-card border border-[#FFB300] px-4 py-2 rounded-xl text-xs font-mono text-white flex items-center gap-2 shadow-2xl opacity-0 pointer-events-none">
+  <div id="share-toast" class="fixed bottom-24 right-4 z-50 depth-card border border-[#FFB300] px-4 py-2.5 rounded-xl text-xs font-mono text-white flex items-center gap-2 shadow-2xl opacity-0 pointer-events-none">
     <i data-lucide="check-circle" class="w-4 h-4 text-[#FFB300]"></i>
     <span id="share-toast-msg">Link copied to clipboard!</span>
   </div>
@@ -357,10 +357,109 @@
       </div>
 
       <div id="puf-desktop-grid" class="hidden sm:grid sm:grid-cols-3 gap-3">
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 56</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat & Urban Piano</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club heaters & log drums.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', 'Pull Up Fridays - Ep. 56', 'Afrobeat & Urban Piano')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', 'Pull Up Fridays - Ep. 56')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
         </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 55</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Old School Reggae</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Mista Trixx.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 54</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Throwback Hip Hop</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Tucha.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha', 'Pull Up Fridays - Ep. 54', 'Throwback Hip Hop & R&B')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha', 'Pull Up Fridays - Ep. 54')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 53</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Zouk & Shatta</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Brian.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 52</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat Mashups</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club Anthems.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Dancehall Mashups')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 51</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeats Dancehall</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ Rom & 8th Wonder.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 50</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">50th Milestone</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">w/ DJ 4-Eign & DJ Slay.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 49</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Urban Afro Mashups</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Club Transitions.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Mashups')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+        <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 48</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Fresh Vibes Only</h4><p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Global Afro Rhythms.</p></div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes Only')" class="ripple-active flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition"><i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play</button>
+            <button onclick="shareMix('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+      </div>
 
       <div id="puf-mobile-grid" class="grid sm:hidden grid-cols-2 gap-2">
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 56</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat & Piano</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">Club heaters.</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', 'Pull Up Fridays - Ep. 56', 'Afrobeat & Urban Piano')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
         </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 55</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Old School Reggae</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">w/ DJ Mista Trixx</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-55-old-school-reggae-dancehall-w-guest-dj-mista-trixx', 'Pull Up Fridays - Ep. 55', 'Old School Reggae')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 54</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Throwback Hip Hop</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">w/ DJ Tucha</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-54-throwback-hip-hop-rb-dancehall-w-guest-dj-tucha', 'Pull Up Fridays - Ep. 54', 'Throwback Hip Hop & R&B')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 53</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Zouk & Shatta</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">w/ DJ Brian</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-53-zouk-afrobeat-shatta-dancehall-hip-hop-w-guest-dj-brian-254', 'Pull Up Fridays - Ep. 53', 'Zouk & Shatta')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 52</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeat Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">Club Anthems</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-52-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 52', 'Dancehall Mashups')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 51</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Afrobeats Dancehall</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">w/ DJ Rom</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-51-afrobeats-dancehall-hip-hop-w-guest-dj-rom-dj-8th-wonder', 'Pull Up Fridays - Ep. 51', 'Afrobeats & Dancehall')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 50</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">50th Milestone</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">w/ DJ 4-Eign</p></div>
+          <button onclick="playMixcloud('dj-dyme-presents-pull-up-fridays-50-w-guest-dj-4-eign-dj-slay-dancehall-afrobeat-hip-hop', 'Pull Up Fridays - Ep. 50', 'Milestone Set')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 49</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Urban Mashups</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">Club Blends</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-49-urban-afrobeat-dancehall-mashups', 'Pull Up Fridays - Ep. 49', 'Urban Mashups')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+        <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between col-span-2">
+          <div><span class="text-[9px] font-mono text-[#FFB300]">EPISODE 48</span><h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Fresh Vibes Only</h4><p class="text-[10px] text-slate-400 mt-0.5 line-clamp-1">Global Afro Rhythms</p></div>
+          <button onclick="playMixcloud('spinz-fm-pull-up-fridays-48-fresh-vibes-only', 'Pull Up Fridays - Ep. 48', 'Fresh Vibes Only')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
+        </div>
+      </div>
     </section>
 
     <div class="w-full h-px bg-white/10"></div>
@@ -440,12 +539,71 @@
       </div>
 
       <div id="radio-visible-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
+        <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FFB300]">SESSION 028</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Dancehall Baddest</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Current bangers.</p>
+          </div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('dymetime-radio-28-dancehall-baddest-tunes-2026', 'Dymetime Radio - 028', 'Dancehall Baddest Tunes 2026')" class="ripple-active flex-1 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">Play</button>
+            <button onclick="shareMix('dymetime-radio-28-dancehall-baddest-tunes-2026', 'Dymetime Radio - 028')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
         </div>
+
+        <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-[#FFB300]">SPECIAL CUT</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Hip Hop Rewind</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Throwback Live.</p>
+          </div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('hip-hop-rewind-morning-show-live-92525-throwback-hip-hop-rnb', 'Hip Hop Rewind', 'Throwback Live')" class="ripple-active flex-1 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">Play</button>
+            <button onclick="shareMix('hip-hop-rewind-morning-show-live-92525-throwback-hip-hop-rnb', 'Hip Hop Rewind')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+
+        <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between col-span-2 md:col-span-1">
+          <div>
+            <span class="text-[9px] font-mono text-[#FFB300]">BASEMENT EP. 1</span>
+            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">Basement Mix</h4>
+            <p class="text-[10px] text-slate-400 mt-1 line-clamp-1">Raw Hip Hop & RnB.</p>
+          </div>
+          <div class="flex items-center gap-1.5 mt-2.5">
+            <button onclick="playMixcloud('basement-mix-ep-1-hip-hop-rnb', 'Basement Mix - Ep. 1', 'Hip Hop & RnB')" class="ripple-active flex-1 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">Play</button>
+            <button onclick="shareMix('basement-mix-ep-1-hip-hop-rnb', 'Basement Mix - Ep. 1')" class="p-1.5 rounded bg-white/5 hover:bg-white/10 text-slate-400 hover:text-[#FFB300] transition"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+      </div>
 
       <div id="dymetime-archive-drawer" class="drawer-collapse">
         <div class="drawer-inner pt-2">
           <div id="radio-drawer-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 027</span><h4 class="text-xs font-bold text-white truncate">Keepin' It Ugandan</h4><p class="text-[10px] text-slate-400 mt-0.5">Club anthems</p></div>
+              <button onclick="playMixcloud('dymetime-radio-27-keepin-it-ugandan', 'Dymetime Radio - 027', 'Keepin It Ugandan')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
             </div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 026</span><h4 class="text-xs font-bold text-white truncate">East African Vibes 4</h4><p class="text-[10px] text-slate-400 mt-0.5">Bongo & Kenya</p></div>
+              <button onclick="playMixcloud('dymetime-radio-26-best-of-east-african-vibes-4', 'Dymetime Radio - 026', 'East African Vibes 4')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
+            </div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 025</span><h4 class="text-xs font-bold text-white truncate">Amapiano & Tequila</h4><p class="text-[10px] text-slate-400 mt-0.5">Log drum cuts</p></div>
+              <button onclick="playMixcloud('dymetime-radio-25-my-friends-like-amapiano-and-tequila', 'Dymetime Radio - 025', 'Amapiano & Tequila')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
+            </div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">COLLAB CUT</span><h4 class="text-xs font-bold text-white truncate">Dymetime x DJ Slay</h4><p class="text-[10px] text-slate-400 mt-0.5">B2B Club Set</p></div>
+              <button onclick="playMixcloud('dymetime-x-dj-slay', 'Dymetime x DJ Slay', 'Collab Live Set')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
+            </div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 024</span><h4 class="text-xs font-bold text-white truncate">Trap House 2</h4><p class="text-[10px] text-slate-400 mt-0.5">Trap & 808s</p></div>
+              <button onclick="playMixcloud('dymetime-radio-24-trap-house-2-re-upload', 'Dymetime Radio - 024', 'Trap House 2')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
+            </div>
+            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
+              <div><span class="text-[9px] font-mono text-[#FFB300]">SESSION 023</span><h4 class="text-xs font-bold text-white truncate">Reggae Massive</h4><p class="text-[10px] text-slate-400 mt-0.5">Roots & Dub</p></div>
+              <button onclick="playMixcloud('dymetime-radio-23-reggae-masive', 'Dymetime Radio - 023', 'Reggae Massive')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -494,206 +652,4 @@
           <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">VIDEO MIXES</h2>
         </div>
         <a href="https://www.youtube.com/@dymetime" target="_blank" class="text-slate-400 hover:text-[#FFD54F] font-mono text-xs flex items-center gap-1 transition">
-          YOUTUBE <i data-lucide="external-link" class="w-3 h-3"></i>
-        </a>
-      </div>
-
-      <div class="block sm:hidden">
-        <div class="depth-card rounded-xl overflow-hidden group">
-          <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="playActiveMobileVideo()">
-            <img id="mobile-video-thumb" src="https://img.youtube.com/vi/lFpetLPcdqI/hqdefault.jpg" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-10 h-10 rounded-full bg-[#FFB300] text-black flex items-center justify-center shadow-lg"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
-            </div>
-            <span id="mobile-video-duration" class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-2 py-0.5 rounded">26:24</span>
-          </div>
-          <div class="p-3 flex items-center justify-between gap-2">
-            <div class="min-w-0 flex-1">
-              <h4 id="mobile-video-title" class="font-display font-bold text-xs text-white truncate">Uganda Video Mix 2024</h4>
-              <p id="mobile-video-desc" class="text-[10px] font-mono text-slate-400 truncate mt-0.5">Sheebah, Vinka, Jose Chameleone</p>
-            </div>
-            <div class="flex items-center gap-1.5 shrink-0">
-              <button onclick="prevMobileVideo()" class="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white">
-                <i data-lucide="chevron-left" class="w-4 h-4"></i>
-              </button>
-              <button onclick="nextMobileVideo()" class="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white">
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="video-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-        </div>
-    </section>
-
-    <div class="w-full h-px bg-white/10"></div>
-
-    <section id="mix-vault" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-2.5">
-        <div class="flex items-center gap-3">
-          <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
-          <span id="vault-count-badge" class="text-[10px] font-mono text-[#FFB300] bg-[#FFB300]/15 border border-[#FFB300]/30 px-2 py-0.5 rounded-full">LOADING SHOWS...</span>
-        </div>
-
-        <div class="inline-flex p-1 rounded-xl bg-[#090f1d] border border-white/10 shadow-inner">
-          <button id="btn-filter-all" onclick="filterVault('all')" class="deck-switch-btn active px-3 py-1 rounded-lg text-[10px] font-mono font-bold tracking-wider flex items-center gap-1.5">
-            <span class="deck-led w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span> ALL
-          </button>
-          <button id="btn-filter-puf" onclick="filterVault('puf')" class="deck-switch-btn px-3 py-1 rounded-lg text-[10px] font-mono font-bold tracking-wider text-slate-300 hover:text-white flex items-center gap-1.5">
-            <span class="deck-led w-1.5 h-1.5 rounded-full bg-slate-600"></span> PULL UP FRIDAYS
-          </button>
-          <button id="btn-filter-radio" onclick="filterVault('radio')" class="deck-switch-btn px-3 py-1 rounded-lg text-[10px] font-mono font-bold tracking-wider text-slate-300 hover:text-white flex items-center gap-1.5">
-            <span class="deck-led w-1.5 h-1.5 rounded-full bg-slate-600"></span> DYMETIME RADIO
-          </button>
-        </div>
-      </div>
-
-      <div class="relative w-full">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-          <i data-lucide="search" class="w-4 h-4"></i>
-        </div>
-        <input 
-          type="text" 
-          id="vault-search-input" 
-          onkeyup="handleVaultSearch()" 
-          placeholder="Instant search by vibe, genre, episode, or guest DJ (e.g. Kompa, Travis, 029, Dancehall)..." 
-          class="w-full bg-[#090f1d] border border-white/10 rounded-xl pl-9 pr-24 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#FFB300] transition"
-        />
-        <div id="vault-search-count" class="absolute inset-y-0 right-0 pr-3 flex items-center text-[10px] font-mono text-slate-400 pointer-events-none">
-          Live Search
-        </div>
-      </div>
-
-      <div id="vault-list" class="vault-scroll-container space-y-1.5">
-        </div>
-    </section>
-
-    <section id="about-me" class="depth-card rounded-2xl p-6 sm:p-7 border border-white/10 shadow-2xl relative overflow-hidden">
-      <div class="flex flex-col md:flex-row items-center gap-6 relative z-10">
-        <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 shrink-0 rounded-2xl overflow-hidden border-2 border-[#FFB300]/40 shadow-2xl bg-black">
-          <img src="images/dj%20dyme%201.JPG" 
-               alt="DJ DYME" 
-               class="w-full h-full object-cover grayscale contrast-125"
-               onerror="if(!this.t1){this.t1=true;this.src='dj%20dyme%201.JPG';}else if(!this.t2){this.t2=true;this.src='images/dj-dyme-1.jpg';}else{this.src='dj-dyme-1.jpg';}">
-        </div>
-
-        <div class="space-y-2.5 flex-1 text-center md:text-left">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FFB300]/15 text-[#FFB300] text-[9px] font-mono tracking-widest uppercase font-semibold">
-            OFFICIAL BIOGRAPHY
-          </div>
-          <h3 class="font-display font-black text-xl sm:text-2xl text-white tracking-wide">
-            MEET DJ DYME
-          </h3>
-          <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed">
-            DJ Dyme is a seasoned touring DJ, radio host, and former member of the Take Over DJs coalition. From dominating Atlanta's nightlife with five weekly residencies to rocking festival stages and national tours alongside headlining artists, Dyme brings undeniable energy to every stage he touches. Former manager of the Piga Picha Crew and a staple on the airwaves, he currently rocks SPiNZ FM and hosts his decade-long syndicated franchise, Pull Up Fridays. At his core, Dyme is a dedicated music curator driven by crowd connection and authentic sound.
-          </p>
-          <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2">
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">5+ Weekly Club Residencies</span>
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">SPiNZ FM Host</span>
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">10+ Year Franchise</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="spotify-playlist" class="depth-card rounded-2xl p-4 sm:p-6 border border-[#1DB954]/40 shadow-[0_12px_32px_rgba(29,185,84,0.14)] overflow-hidden">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
-        <div class="flex items-center gap-3 w-full min-w-0 text-center sm:text-left">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#1DB954]/20 border border-[#1DB954]/40 flex items-center justify-center shrink-0 text-[#1DB954]">
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center justify-center sm:justify-start gap-2">
-              <span class="px-2 py-0.5 rounded bg-[#1DB954]/20 text-[#1DB954] text-[9px] font-mono uppercase font-bold tracking-wider">OFFICIAL CURATION</span>
-              <span class="text-[10px] font-mono text-slate-400 hidden xs:inline">PULL UP FRIDAYS COMPANION</span>
-            </div>
-            <h4 class="font-display font-black text-base sm:text-lg text-white truncate mt-0.5">DJ DYME Official Playlist</h4>
-            <p class="text-xs text-slate-300 break-words line-clamp-2 sm:line-clamp-none">Listen to every new track featured on Pull Up Fridays directly on Spotify.</p>
-          </div>
-        </div>
-
-        <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1?si=S6Kx-IiyRkawj60wCElJKA" target="_blank" class="ripple-active w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-xl shadow-[#1DB954]/25 group">
-          <i data-lucide="play" class="w-4 h-4 fill-current group-hover:scale-110 transition"></i>
-          Play On Spotify
-        </a>
-      </div>
-
-      <div class="mt-4 rounded-xl overflow-hidden border border-white/10 bg-black/60 shadow-inner w-full">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/60SPCZFgu3PbSTHfJPknD1?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    </section>
-
-    <section id="fan-zone" class="depth-card rounded-2xl p-5 sm:p-6 border border-[#FFB300]/30 relative overflow-hidden">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
-        <div class="space-y-1.5 text-center md:text-left">
-          <div class="flex items-center justify-center md:justify-start gap-2">
-            <span class="px-2.5 py-0.5 rounded bg-[#FFB300]/15 text-[#FFB300] font-mono text-[9px] font-bold uppercase tracking-wider">FAN COMMUNITY & SUPPORT</span>
-            <span class="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">DIRECT TIP JAR</span>
-          </div>
-          <h3 class="text-lg sm:text-xl font-display font-black text-white">SUPPORT THE SOUND & LOCK IN REQUESTS</h3>
-          <p class="text-xs text-slate-300 max-w-xl">Send love directly to DJ DYME for studio gear & live productions, or lock in a custom song request for Pull Up Fridays.</p>
-        </div>
-        
-        <div class="flex flex-wrap items-center justify-center gap-2.5 shrink-0 w-full md:w-auto">
-          <a href="https://cash.app/$dymetime" target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-[#00D632]/20 hover:bg-[#00D632] text-[#00D632] hover:text-black border border-[#00D632]/50 font-display font-black text-xs uppercase tracking-wider transition shadow">
-            <span class="font-mono text-sm font-black">$</span> Cash App ($dymetime)
-          </a>
-          <a href="https://buymeacoffee.com/djdyme" target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-[#FFDD00]/20 hover:bg-[#FFDD00] text-[#FFDD00] hover:text-black border border-[#FFDD00]/50 font-display font-black text-xs uppercase tracking-wider transition shadow">
-            <i data-lucide="coffee" class="w-3.5 h-3.5"></i> Buy Me A Coffee
-          </a>
-          <button onclick="openRequestModal()" class="btn-unified-cta ripple-active flex-1 sm:flex-none px-4 py-2.5 rounded font-display font-black text-xs uppercase tracking-wider shadow">
-            Song Request
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section id="vip-and-inquiries" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="depth-card rounded-xl p-5 text-center flex flex-col justify-between">
-        <div class="space-y-2">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FFB300]/15 text-[#FFB300] text-[9px] font-mono tracking-widest uppercase">
-            <i data-lucide="mail" class="w-3 h-3"></i>
-            EXCLUSIVE ACCESS
-          </div>
-          <h3 class="font-display font-black text-base text-white tracking-wide">
-            JOIN THE VIP EMAIL LIST
-          </h3>
-          <p class="text-xs text-slate-400">
-            Receive Pull Up Fridays master downloads at 12:00 PM EST before syndication.
-          </p>
-        </div>
-        <div class="pt-3">
-          <button onclick="openVipModal()" class="btn-unified-cta ripple-active w-full py-2.5 rounded font-display font-black text-xs uppercase tracking-wider shadow">
-            Subscribe For Early Drops
-          </button>
-        </div>
-      </div>
-
-      <div class="depth-card rounded-xl p-5 text-center flex flex-col justify-between">
-        <div class="space-y-2">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 text-[9px] font-mono tracking-widest uppercase">
-            <i data-lucide="calendar" class="w-3 h-3"></i>
-            DIRECT INQUIRIES
-          </div>
-          <h3 class="font-display font-black text-base text-white tracking-wide">
-            LOCK IN DJ DYME
-          </h3>
-          <p class="text-xs text-slate-400">
-            Available worldwide for club dates, festival stages, and syndication slots.
-          </p>
-        </div>
-        <div class="pt-3">
-          <button onclick="openBookingModal()" class="btn-unified-cta ripple-active w-full inline-block py-2.5 rounded font-display font-extrabold text-xs uppercase tracking-wider text-center">
-            Inquire For Dates
-          </button>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="max-w-4xl mx-auto px-4 pt-8 pb-10 border-t border-white/10 text-center w-full">
-    <div class="flex flex-wrap items-center justify-center gap-5 mb-5">
-      <a href="https://www.mixcloud.com/djdyme" target="_blank" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text
+          YOUTUBE
