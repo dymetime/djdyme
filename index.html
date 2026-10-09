@@ -575,10 +575,12 @@
     <section id="about-me" class="depth-card rounded-2xl p-6 sm:p-7 border border-white/10 shadow-2xl relative overflow-hidden">
       <div class="flex flex-col md:flex-row items-center gap-6 relative z-10">
         <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 shrink-0 rounded-2xl overflow-hidden border-2 border-[#FFB300]/40 shadow-2xl bg-black">
-          <img src="images/dj%20dyme%201.JPG" 
-               alt="DJ DYME" 
-               class="w-full h-full object-cover grayscale contrast-125"
-               onerror="if(!this.t1){this.t1=true;this.src='dj%20dyme%201.JPG';}else if(!this.t2){this.t2=true;this.src='images/dj-dyme-1.jpg';}else{this.src='dj-dyme-1.jpg';}">
+          <img src="images/dj%20dyme%201.JPG"
+             alt="DJ DYME"
+             loading="lazy"
+             decoding="async"
+             class="w-full h-full object-cover grayscale contrast-125"
+             onerror="if(!this.t1){this.t1=true;this.src='dj%20dyme%201.JPG';}else if(!this.t2){this.t2=true;this.src='images/dj-dyme-1.jpg';}else{this.src='dj-dyme-1.jpg';}">
         </div>
 
         <div class="space-y-2.5 flex-1 text-center md:text-left">
@@ -1307,9 +1309,10 @@ async function handleBookingSubmit(e) {
       container.innerHTML = videoMixes.map(v => `
         <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFD54F]/60 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/${v.id}?autoplay=1')">
-            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-8 h-8 rounded-full bg-[#FFB300] text-black flex items-center justify-center shadow"><i data-lucide="play" class="w-3.5 h-3.5 fill-current ml-0.5"></i></div>
+           <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg"
+     loading="lazy"
+     decoding="async"
+     class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
             </div>
             <span class="absolute bottom-1.5 right-1.5 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">${v.duration}</span>
           </div>
