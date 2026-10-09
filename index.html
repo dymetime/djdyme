@@ -1541,7 +1541,7 @@ async function handleBookingSubmit(e) {
         if (btnEl) btnEl.onclick = pufAction;
         if (numBox) numBox.onclick = pufAction;
 
-        const remainingPuf = pufShows.slice(1, 10);
+        const remainingPuf = pufShows.slice(1, 7);
         const deskGrid = document.getElementById('puf-desktop-grid');
         const mobGrid = document.getElementById('puf-mobile-grid');
 
@@ -1561,7 +1561,7 @@ async function handleBookingSubmit(e) {
         }
 
         if (mobGrid) {
-          mobGrid.innerHTML = remainingPuf.map((item, idx) => `
+         mobGrid.innerHTML = remainingPuf.slice(0, 3).map((item, idx) => `
             <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === remainingPuf.length - 1 && remainingPuf.length % 2 !== 0 ? 'col-span-2' : ''}">
               <div>
                 <span class="text-[9px] font-mono text-[#FFB300]">EPISODE ${item.meta.epNumber || 'DROP'}</span>
@@ -1593,10 +1593,10 @@ async function handleBookingSubmit(e) {
         if (rBtnEl) rBtnEl.onclick = radioAction;
         if (rNumBox) rNumBox.onclick = radioAction;
 
-        const nextThree = radioShows.slice(1, 4);
+        const nextThree = radioShows.slice(1, 7);
         const rVisGrid = document.getElementById('radio-visible-grid');
         if (rVisGrid && nextThree.length > 0) {
-          rVisGrid.innerHTML = nextThree.map((item, idx) => `
+          rVisGrid.innerHTML = nextThree.filter((item, idx) => window.innerWidth >= 640 || idx < 3).map((item, idx) => `
             <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === 2 ? 'col-span-2 md:col-span-1' : ''}">
               <div>
                 <span class="text-[9px] font-mono text-[#FFB300]">${item.meta.mainTitle.toUpperCase()}</span>
