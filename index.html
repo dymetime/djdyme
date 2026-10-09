@@ -212,6 +212,17 @@
     .deck-led {
       transition: background-color 0.2s ease;
     }
+
+        /* Improve mobile touch targets */
+    @media (max-width: 768px) {
+      footer a,
+      #mobile-menu a,
+      #mobile-menu button {
+        min-height: 44px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-[#FFB300] selection:text-black pb-28 relative">
