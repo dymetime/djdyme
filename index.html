@@ -237,16 +237,12 @@
   <!-- MAIN TEMPLATE -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-2 space-y-12 w-full">
 
-    <!-- 01 // PULL UP FRIDAYS -->
+    <!-- 01 // PULL UP FRIDAYS (Small Pull Up Fridays badge removed; Spinz FM broadcast badge remains) -->
     <section id="pull-up-fridays" class="space-y-3 w-full">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
         <div>
           <div class="flex flex-wrap items-center gap-2 mb-1.5">
-            <span class="w-40 text-center justify-center inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FFB300]/15 text-[#FFB300] border border-[#FFB300]/30 text-[10px] font-mono uppercase font-bold tracking-wider">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#FFB300] animate-pulse"></span>
-              PULL UP FRIDAYS
-            </span>
-            <span class="w-40 text-center justify-center inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/[0.04] text-slate-300 border border-white/10 text-[10px] font-mono uppercase font-semibold tracking-wider">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-white/[0.04] text-slate-300 border border-white/10 text-[10px] font-mono uppercase font-semibold tracking-wider">
               <i data-lucide="radio" class="w-3 h-3 text-[#FFB300]"></i>
               SPINZ FM BROADCAST
             </span>
@@ -997,6 +993,11 @@
     const mcFrame = document.getElementById('mixcloud-frame');
     let mcWidget = null;
     let isPlaying = false;
+    let userHasInteracted = false;
+
+    // Pre-unlock audio permission on first interaction
+    document.addEventListener('pointerdown', () => { userHasInteracted = true; }, { once: true });
+    document.addEventListener('click', () => { userHasInteracted = true; }, { once: true });
 
     window.addEventListener('load', () => {
       mcWidget = Mixcloud.PlayerWidget(mcFrame);
@@ -1060,11 +1061,13 @@
       }
 
       if (mcWidget) {
-        mcWidget.load(`/djdyme/${slug}/`, true).then(() => {
-          mcWidget.play();
-        }).catch(() => {
-          mcWidget.play();
-        });
+        mcWidget.load(`/djdyme/${slug}/`, true)
+          .then(() => {
+            mcWidget.play();
+          })
+          .catch(() => {
+            mcWidget.play();
+          });
       }
     }
 
