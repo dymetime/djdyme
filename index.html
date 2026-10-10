@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DJ DYME | The Turn Up King</title>
   <link rel="icon" type="image/png" href="/images/dymetime-logo.png">
-     <meta name="description" content="DJ DYME | The Turn Up King. You know what time it is — it's Dymetime.">
+  <meta name="description" content="DJ DYME | The Turn Up King. You know what time it is — it's Dymetime.">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DJ DYME | The Turn Up King">
@@ -19,11 +19,10 @@
   <meta name="twitter:description" content="DJ DYME | The Turn Up King. You know what time it is — it's Dymetime.">
   <meta name="twitter:image" content="https://djdyme.vercel.app/images/dymebanner26.jpg">
 
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://widget.mixcloud.com/media/js/widgetApi.js"></script>
@@ -33,28 +32,20 @@
       theme: {
         extend: {
           colors: {
-            palette: {
+            dyme: {
               gold: '#FFB300',
-              deepGreen: '#1B5E20',
-              coral: '#FF7043',
-              sage: '#A5D6A7',
-              softYellow: '#FFD54F',
-            },
-            spotify: {
-              green: '#1DB954',
-              greenHover: '#1ed760',
-              darkBg: '#0b1610',
-            },
-            gunmetal: {
-              DEFAULT: '#242d3d',
-              dark: '#18202e',
-              light: '#313d52'
+              goldHover: '#FFD54F',
+              bg: '#050811',
+              surface: '#0b101d',
+              card: '#0e1526',
+              border: 'rgba(255, 255, 255, 0.08)'
             }
           },
           fontFamily: {
             display: ['Montserrat', 'sans-serif'],
             sans: ['Space Grotesk', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
+            hanson: ['Hanson', 'Syne', '"Cabinet Grotesk"', 'Montserrat', 'sans-serif'],
           }
         }
       }
@@ -62,111 +53,36 @@
   </script>
 
   <style>
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #070c18; }
-    ::-webkit-scrollbar-thumb { background: #FFB300; border-radius: 4px; }
-
-    .bg-city-fixed {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -20;
-      background-image: url('images/city%20night_2.jpg'), url('city%20night_2.jpg'), url('images/city%20night.jpg');
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      filter: grayscale(100%) contrast(140%) blur(4px);
-      opacity: 0.10;
-      pointer-events: none;
+    @font-face {
+      font-family: 'Hanson';
+      src: local('Hanson Bold'), local('Hanson'), local('Hanson-Bold'),
+           url('https://fonts.cdnfonts.com/s/72224/Hanson-Bold.woff') format('woff');
+      font-weight: 700 900;
+      font-style: normal;
+      font-display: swap;
     }
 
-    .bg-ambient-overlay {
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #050811; }
+    ::-webkit-scrollbar-thumb { background: #FFB300; border-radius: 4px; }
+
+    body {
+      background-color: #050811;
+      color: #cbd5e1;
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .ambient-backdrop {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
       z-index: -10;
       background: 
-        radial-gradient(circle at 80% 12%, rgba(255, 179, 0, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 20% 45%, rgba(27, 94, 32, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(9, 15, 28, 0.85) 0%, rgba(7, 12, 24, 0.95) 70%, rgba(2, 4, 8, 0.99) 100%);
+        radial-gradient(circle at 50% 0%, rgba(255, 179, 0, 0.04) 0%, transparent 55%),
+        linear-gradient(180deg, #050811 0%, #070c18 50%, #03050a 100%);
       pointer-events: none;
-    }
-
-    body {
-      background-color: #070c18;
-      color: #e2e8f0;
-      font-family: 'Space Grotesk', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .depth-card {
-      background: linear-gradient(145deg, rgba(14, 21, 37, 0.92) 0%, rgba(8, 13, 24, 0.90) 100%) !important;
-      backdrop-filter: blur(14px) saturate(130%) !important;
-      -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.85), 0 4px 12px -2px rgba(0, 0, 0, 0.5);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-    }
-
-    .depth-card:hover {
-      border-color: rgba(255, 179, 0, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.95), 0 0 24px rgba(255, 179, 0, 0.15);
-    }
-
-    .ripple-active {
-      position: relative;
-      overflow: hidden;
-    }
-    .ripple-active::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, rgba(255, 179, 0, 0.35) 0%, transparent 70%);
-      opacity: 0;
-      transform: scale(0.6);
-      pointer-events: none;
-      transition: transform 0.45s ease-out, opacity 0.45s ease-out;
-    }
-    .ripple-active:active::after {
-      opacity: 1;
-      transform: scale(1.6);
-      transition: 0s;
-    }
-
-    .btn-unified-cta {
-      background-color: #FFB300 !important;
-      color: #000000 !important;
-      border: 1px solid #FFB300 !important;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-unified-cta:hover {
-      background-color: #242d3d !important;
-      color: #FFFFFF !important;
-      border-color: rgba(255, 255, 255, 0.3) !important;
-      box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.7), 0 0 16px rgba(255, 179, 0, 0.3) !important;
-      transform: translateY(-1px);
-    }
-
-    .ticker-wrap {
-      overflow: hidden;
-      white-space: nowrap;
-      display: flex;
-    }
-    .ticker-track {
-      display: inline-flex;
-      flex-shrink: 0;
-      animation: tickerLoop 30s linear infinite;
-    }
-    @keyframes tickerLoop {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-    .ticker-wrap:hover .ticker-track {
-      animation-play-state: paused;
     }
 
     .eq-bar { animation: bounce 1.1s ease-in-out infinite alternate; }
@@ -174,19 +90,10 @@
     @keyframes bounce { 0% { height: 3px; } 100% { height: 14px; } }
     .vault-scroll-container { max-height: 480px; overflow-y: auto; padding-right: 4px; }
 
-    .stat-bump {
-      animation: statPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    @keyframes statPop {
-      0% { transform: scale(1); color: #FFD54F; text-shadow: 0 0 14px rgba(255,179,0,0.8); }
-      50% { transform: scale(1.12); color: #FFFFFF; text-shadow: 0 0 24px rgba(255,179,0,1); }
-      100% { transform: scale(1); color: #FFB300; text-shadow: none; }
-    }
-
     .drawer-collapse {
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
       opacity: 0;
     }
     .drawer-collapse.open {
@@ -197,52 +104,55 @@
       overflow: hidden;
     }
 
-    .deck-switch-btn {
-      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
-      position: relative;
-    }
     .deck-switch-btn.active {
       background-color: #FFB300;
       color: #000;
-      box-shadow: 0 0 16px rgba(255, 179, 0, 0.4);
     }
     .deck-switch-btn.active .deck-led {
       background-color: #000;
     }
-    .deck-led {
-      transition: background-color 0.2s ease;
+
+    .depth-card {
+      background: rgba(11, 16, 29, 0.65) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.2s ease;
+    }
+    .depth-card:hover {
+      border-color: rgba(255, 179, 0, 0.35);
     }
 
-        /* Improve mobile touch targets */
-    @media (max-width: 768px) {
-      footer a,
-      #mobile-menu a,
-      #mobile-menu button {
-        min-height: 44px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
+    .vault-item.active-playing {
+      border-color: #FFB300 !important;
+      background: rgba(255, 179, 0, 0.12) !important;
+      box-shadow: 0 0 18px rgba(255, 179, 0, 0.25) !important;
+    }
+    .vault-item.active-playing .vault-stream-tag {
+      background-color: #FFB300 !important;
+      color: #000000 !important;
+      font-weight: 800 !important;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-[#FFB300] selection:text-black pb-28 relative">
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#FFB300] selection:text-black pb-28">
 
-  <div class="bg-city-fixed"></div>
-  <div class="bg-ambient-overlay"></div>
+  <div class="ambient-backdrop"></div>
 
-  <header class="sticky top-0 z-40 bg-[#070c18]/95 backdrop-blur-md border-b border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-[#050811]/95 backdrop-blur-xl border-b border-white/[0.08]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between">
       <a href="#" class="flex items-center gap-1.5 group">
         <span class="font-display font-black text-lg tracking-wider text-white group-hover:text-[#FFD54F] transition">DJDYME</span>
         <span class="w-1.5 h-1.5 rounded-full bg-[#FFB300] shadow-[0_0_8px_#FFB300]"></span>
       </a>
       
-      <nav class="hidden md:flex items-center gap-3.5 text-[11px] font-mono font-medium tracking-wider text-slate-300">
+      <nav class="hidden md:flex items-center gap-3.5 text-[11px] font-mono tracking-widest text-slate-300">
         <a href="#pull-up-fridays" class="hover:text-[#FFD54F] transition">PULL UP FRIDAYS</a>
         <span class="text-slate-600">|</span>
         <a href="#dymetime-radio" class="hover:text-[#FFD54F] transition">DYMETIME RADIO</a>
         <span class="text-slate-600">|</span>
-        <a href="#video-mixes" class="hover:text-[#FFD54F] transition">VIDEO MIXES</a>
+        <a href="#video-mixes" class="hover:text-[#FFD54F] transition">VIDEOS</a>
         <span class="text-slate-600">|</span>
         <a href="#mix-vault" class="hover:text-[#FFD54F] transition">THE VAULT</a>
         <span class="text-slate-600">|</span>
@@ -250,277 +160,249 @@
       </nav>
 
       <div class="flex items-center gap-2">
-        <button onclick="openBookingModal()" class="btn-unified-cta ripple-active px-3.5 py-1.5 rounded font-display font-extrabold text-[11px] uppercase tracking-wider shadow-sm">
+        <button onclick="openBookingModal()" class="px-3 py-1.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[11px] uppercase tracking-wider transition">
           Bookings
         </button>
-        <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 rounded bg-[#0e172a] border border-white/10 text-slate-300 hover:text-[#FFD54F] transition">
-          <i data-lucide="menu" id="menu-icon" class="w-4 h-4"></i>
+        <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 text-slate-300 hover:text-white">
+          <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#070c18]/95 px-4 py-3 space-y-2.5 text-xs font-mono font-semibold tracking-wider text-slate-200">
-      <a href="#pull-up-fridays" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F] transition">PULL UP FRIDAYS</a>
-      <a href="#dymetime-radio" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F] transition">DYMETIME RADIO</a>
-      <a href="#video-mixes" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F] transition">VIDEO MIXES</a>
-      <a href="#mix-vault" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F] transition">THE VAULT</a>
-      <a href="#about-me" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F] transition">ABOUT</a>
-      <a href="#spotify-playlist" onclick="toggleMobileMenu()" class="block py-1 text-[#1DB954] hover:text-[#1ed760] transition">SPOTIFY PLAYLIST</a>
-      <a href="#fan-zone" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F] transition">FAN SHOUTOUT</a>
-      <a href="#tip-jar" onclick="toggleMobileMenu()" class="block py-1 text-[#FFD54F] hover:text-white transition">SUPPORT & TIP JAR</a>
-      <a href="#vip-and-inquiries" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F] transition">VIP & INQUIRIES</a>
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-[#050811]/98 px-5 py-3 space-y-2 text-xs font-mono tracking-wider text-slate-200">
+      <a href="#pull-up-fridays" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">PULL UP FRIDAYS</a>
+      <a href="#dymetime-radio" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">DYMETIME RADIO</a>
+      <a href="#video-mixes" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">VIDEOS</a>
+      <a href="#mix-vault" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">THE VAULT</a>
+      <a href="#about-me" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">ABOUT</a>
+      <a href="#spotify-playlist" onclick="toggleMobileMenu()" class="block py-1 text-[#1DB954]">SPOTIFY PLAYLIST</a>
+      <a href="#stage-dispatch" onclick="toggleMobileMenu()" class="block py-1 text-[#FFD54F]">TOUR & VIP ACCESS</a>
     </div>
   </header>
 
-  <section class="max-w-4xl mx-auto px-4 pt-5 pb-3 w-full">
-    <div class="w-full aspect-[4/1] rounded-lg overflow-hidden border border-[#172033] shadow-[0_16px_36px_rgba(0,0,0,0.9)] bg-[#0a1120] relative group">
+  <!-- BANNER & COMPACT ACTION RACK -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-4 pb-1 w-full">
+    <div class="w-full aspect-[4/1] rounded-xl overflow-hidden border border-white/10 shadow-xl bg-[#0b101d] relative group">
       <img src="images/dymebanner26.jpg" 
            alt="DJ DYME" 
            class="w-full h-full object-cover group-hover:scale-[1.01] transition duration-500"
            onerror="if(!this.t1){this.t1=true;this.src='dymebanner26.jpg';}else if(!this.t2){this.t2=true;this.src='images/djdymebanner26.png';}else{this.src='djdymebanner26.png';}">
     </div>
 
-    <div class="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 mt-4 w-full sm:w-auto px-0.5">
-      <button id="hero-latest-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="ripple-active flex items-center justify-center gap-1.5 px-2 sm:px-3.5 py-2 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] sm:text-xs uppercase tracking-wider transition shadow hover:shadow-[0_0_20px_rgba(255,179,0,0.4)] truncate">
-        <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i>
-        <span class="truncate">Latest Drop</span>
-      </button>
-      
-      <a href="#mix-vault" class="ripple-active flex items-center justify-center gap-1.5 px-2 sm:px-3.5 py-2 rounded bg-[#18202e] hover:bg-[#242d3d] border border-[#b91c1c] text-slate-200 hover:text-white font-display font-bold text-[10px] sm:text-xs uppercase tracking-wider transition shadow hover:shadow-[0_0_16px_rgba(185,28,28,0.4)] truncate">
-        <i data-lucide="folder-lock" class="w-3 h-3 shrink-0 text-[#b91c1c]"></i>
-        <span class="truncate">The Vault</span>
-      </a>
+    <!-- COMMAND BAR -->
+    <div class="mt-3 flex items-center justify-between gap-2.5 pb-2.5 border-b border-white/[0.08]">
+      <div class="flex items-center gap-2">
+        <button id="hero-latest-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="h-8 px-3.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,179,0,0.25)]">
+          <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+          <span>Stream Latest Drop</span>
+        </button>
 
-      <a href="#spotify-playlist" class="ripple-active flex items-center justify-center gap-1.5 px-2 sm:px-3.5 py-2 rounded bg-[#18202e] hover:bg-[#242d3d] border border-[#16a34a] text-slate-200 hover:text-white font-display font-bold text-[10px] sm:text-xs uppercase tracking-wider transition shadow hover:shadow-[0_0_16px_rgba(22,163,74,0.4)] truncate">
-        <svg class="w-3.5 h-3.5 fill-current shrink-0 text-[#1DB954]" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
-        <span class="truncate">Spotify List</span>
-      </a>
+        <a href="#mix-vault" class="h-8 px-3 rounded-md bg-white/[0.04] hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-mono text-[10px] uppercase tracking-wider transition flex items-center gap-1.5">
+          <i data-lucide="folder-lock" class="w-3 h-3 text-red-500"></i>
+          <span>The Vault</span>
+        </a>
+      </div>
 
-      <button onclick="openVipModal()" class="btn-unified-cta ripple-active flex items-center justify-center gap-1.5 px-2 sm:px-3.5 py-2 rounded font-display font-black text-[10px] sm:text-xs uppercase tracking-wider shadow truncate">
-        <i data-lucide="bell-plus" class="w-3 h-3 shrink-0"></i>
-        <span class="truncate">Subscribe</span>
-      </button>
+      <div class="hidden sm:flex items-center gap-3 text-[10px] font-mono text-slate-400">
+        <a href="#spotify-playlist" class="hover:text-white transition flex items-center gap-1">
+          <svg class="w-3 h-3 fill-current text-[#1DB954]" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
+          Spotify Feed
+        </a>
+        <span>•</span>
+        <button onclick="openVipModal()" class="hover:text-[#FFB300] transition">VIP Access</button>
+      </div>
     </div>
   </section>
 
-  <main class="max-w-4xl mx-auto px-4 py-2 space-y-10 w-full">
+  <!-- MAIN TEMPLATE -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-2 space-y-12 w-full">
 
-    <section id="pull-up-fridays" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-white/10 pb-2.5">
+    <!-- 01 // PULL UP FRIDAYS -->
+    <section id="pull-up-fridays" class="space-y-3">
+      <!-- SYNDICATION HEADER -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
         <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="px-2 py-0.5 rounded bg-[#FFB300]/15 text-[#FFB300] text-[10px] font-mono tracking-widest uppercase font-semibold border border-[#FFB300]/30">WEEKLY DROPS</span>
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded border border-white/10">SPINZ FM BROADCAST</span>
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#FFB300]/15 text-[#FFB300] border border-[#FFB300]/30 text-[9px] font-mono uppercase font-bold tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#FFB300] animate-pulse"></span>
+              WEEKLY DROPS
+            </span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/10 text-[9px] font-mono uppercase font-semibold tracking-wider">
+              <i data-lucide="radio" class="w-2.5 h-2.5 text-[#FFB300]"></i>
+              SPINZ FM BROADCAST
+            </span>
           </div>
-          <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">
-            PULL UP FRIDAYS
-          </h2>
+          <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
         </div>
-        <div class="depth-card rounded px-3 py-1 flex items-center gap-2.5 self-start sm:self-auto border border-white/10">
-          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider">Next Drop:</div>
-          <div id="drop-timer" class="font-mono text-xs font-bold text-[#FFB300] flex items-center gap-1">
+
+        <div class="flex items-center gap-2 text-[10px] font-mono text-slate-400 self-start sm:self-auto">
+          <span class="uppercase tracking-widest text-slate-500">Next Drop:</span>
+          <div id="drop-timer" class="font-bold text-[#FFB300] flex items-center gap-1">
             <span id="timer-days">00</span>d : <span id="timer-hours">00</span>h : <span id="timer-mins">00</span>m : <span id="timer-secs">00</span>s
           </div>
         </div>
       </div>
 
-      <div id="puf-featured-card" class="depth-card border border-[#FFB300]/40 rounded-xl p-4 sm:p-5 shadow-2xl group relative overflow-hidden">
-        <div class="flex flex-col sm:flex-row items-center gap-4 relative z-10 w-full">
-          <div id="puf-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg bg-[#070c18] border border-[#FFB300]/40 flex items-center justify-center cursor-pointer group-hover:border-[#FFB300] group-hover:shadow-[0_0_24px_rgba(255,179,0,0.35)] transition duration-300" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')">
-            <span id="puf-featured-num" class="font-display font-black text-2xl sm:text-3xl text-[#FFB300] group-hover:scale-110 transition">57</span>
+      <!-- Prominent Featured Mix Anchor -->
+      <div id="puf-featured-card" class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#0e1628] to-[#090f1d] border-2 border-[#FFB300]/50 shadow-[0_4px_24px_rgba(255,179,0,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5 min-w-0">
+          <div id="puf-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg bg-black border border-[#FFB300]/50 overflow-hidden flex items-center justify-center cursor-pointer hover:border-[#FFB300] transition relative group" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')">
+            <img id="puf-featured-art" src="" alt="Episode 57 Cover" class="w-full h-full object-cover hidden" />
+            <span id="puf-featured-num" class="font-display font-black text-2xl sm:text-3xl text-[#FFB300]">57</span>
           </div>
-          <div class="space-y-1 flex-1 text-center sm:text-left min-w-0 w-full">
-            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span class="px-2.5 py-0.5 rounded bg-[#FFB300] text-black font-mono font-bold text-[9px] uppercase">LATEST DROP</span>
-              <span id="puf-featured-tag" class="text-[10px] font-mono text-[#FFD54F]">PULL UP FRIDAYS EP. 57</span>
+          <div class="min-w-0 space-y-0.5">
+            <div class="flex items-center gap-2">
+              <span class="px-1.5 py-0.5 rounded bg-[#FFB300] text-black font-mono font-extrabold text-[8px] uppercase tracking-wider">FEATURED AIRING</span>
+              <span id="puf-featured-tag" class="text-[9px] font-mono text-slate-400">EPISODE 57</span>
             </div>
             <h3 id="puf-featured-title" class="text-base sm:text-lg font-display font-black text-white truncate">Kompa, Afrobeat & Dancehall</h3>
             <p id="puf-featured-desc" class="text-xs text-slate-300 truncate">Featuring Guest DJ Travis (254). Continuous broadcast cut.</p>
           </div>
-          <div class="flex flex-col sm:flex-row items-center gap-2 shrink-0 w-full sm:w-auto">
-            <button id="puf-featured-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="ripple-active w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FFB300]/25 hover:shadow-[0_0_24px_rgba(255,179,0,0.5)]">
-              <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-              Play Mix
-            </button>
-            <button onclick="toggleTracklistDrawer()" class="w-full sm:w-auto flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-mono text-[11px] uppercase transition">
-              <i data-lucide="list-music" class="w-3.5 h-3.5 text-[#FFB300]"></i>
-              <span id="tracklist-toggle-label">Tracklist</span>
-            </button>
-            <button onclick="triggerDownloadGate('Pull Up Fridays - Ep. 57')" class="w-full sm:w-auto flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-[#FFB300] font-mono text-[11px] uppercase transition" title="Download Master File">
-              <i data-lucide="download" class="w-3.5 h-3.5"></i>
-              <span>Download</span>
-            </button>
-          </div>
         </div>
 
-        <div id="featured-tracklist-drawer" class="drawer-collapse mt-3 pt-3 border-t border-white/10">
-          <div class="drawer-inner space-y-2">
-            <div class="flex items-center justify-between text-[10px] font-mono text-[#FFB300] px-1 uppercase tracking-wider font-semibold">
-              <span>FEATURED TRACK IDENTIFICATIONS</span>
-              <span class="text-slate-400">DJ DYME LIVE CURATION</span>
-            </div>
-            <div id="tracklist-content" class="bg-[#070c18]/80 rounded-lg p-3 text-xs font-mono text-slate-300 space-y-1.5 border border-white/5 max-h-48 overflow-y-auto">
-              <div class="flex items-center justify-between py-0.5 border-b border-white/5"><span>01. Joé Dwèt Filé - Pozisyon</span><span class="text-[10px] text-slate-500">Kompa</span></div>
-              <div class="flex items-center justify-between py-0.5 border-b border-white/5"><span>02. Kybba, Sean Paul - Pilot</span><span class="text-[10px] text-slate-500">Dancehall</span></div>
-              <div class="flex items-center justify-between py-0.5 border-b border-white/5"><span>03. Joshua Baraka - Nana (Remix)</span><span class="text-[10px] text-slate-500">Afrobeats</span></div>
-              <div class="flex items-center justify-between py-0.5 border-b border-white/5"><span>04. Busy Signal - Happy Days</span><span class="text-[10px] text-slate-500">Dancehall</span></div>
-              <div class="flex items-center justify-between py-0.5"><span>05. Rema - Trouble Maker (Dyme Transition)</span><span class="text-[10px] text-slate-500">Afrobeats</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="puf-desktop-grid" class="hidden sm:grid sm:grid-cols-3 gap-3"></div>
-      <div id="puf-mobile-grid" class="grid sm:hidden grid-cols-2 gap-2"></div>
-    </section>
-
-    <div class="w-full h-px bg-white/10"></div>
-
-    <div id="stats-container" class="depth-card border border-white/10 rounded-xl p-3 sm:p-4 shadow-xl">
-      <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10 px-1">
-        <div class="flex items-center gap-2">
-          <span class="flex h-2 w-2 relative">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFB300] opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#FFB300]"></span>
-          </span>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-slate-300 font-bold">LIVE SYNDICATION METRICS</span>
-        </div>
-        <span class="text-[9px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2 py-0.5 rounded uppercase">● REAL-TIME ACTIVITY</span>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-        <div class="pt-1.5 sm:pt-0">
-          <div id="stat-listens" class="text-lg sm:text-xl font-display font-black text-[#FFB300] transition-transform">300,000</div>
-          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="headphones" class="w-2.5 h-2.5 text-[#FFB300]"></i> Global Listens
-          </div>
-        </div>
-        <div class="pt-1.5 sm:pt-0">
-          <div id="stat-favorites" class="text-lg sm:text-xl font-display font-black text-[#FFB300] transition-transform">100,000</div>
-          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="heart" class="w-2.5 h-2.5 text-[#FF7043]"></i> Favorites
-          </div>
-        </div>
-        <div class="pt-1.5 sm:pt-0">
-          <div id="stat-reposts" class="text-lg sm:text-xl font-display font-black text-[#FFB300] transition-transform">10,000</div>
-          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="repeat" class="w-2.5 h-2.5 text-[#A5D6A7]"></i> Reposts
-          </div>
-        </div>
-        <div class="pt-1.5 sm:pt-0">
-          <div id="stat-episodes" class="text-lg sm:text-xl font-display font-black text-[#FFB300] transition-transform">100+</div>
-          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 mt-0.5">
-            <i data-lucide="radio" class="w-2.5 h-2.5 text-[#FFD54F]"></i> Master Shows
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section id="dymetime-radio" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
-        <div class="flex items-center gap-2">
-          <span class="px-2 py-0.5 rounded bg-white/10 text-slate-300 text-[10px] font-mono uppercase font-semibold">SYNDICATED</span>
-          <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">DYMETIME RADIO</h2>
-        </div>
-        <span class="hidden sm:inline text-slate-400 font-mono text-xs">OFFICIAL SESSIONS</span>
-      </div>
-
-      <div id="radio-featured-card" class="depth-card border border-[#FFB300]/40 rounded-xl p-4 sm:p-5 shadow-2xl group relative overflow-hidden">
-        <div class="flex flex-col sm:flex-row items-center gap-4 relative z-10 w-full">
-          <div id="radio-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg bg-[#070c18] border border-[#FFB300]/40 shadow-[0_0_16px_rgba(255,179,0,0.25)] flex items-center justify-center cursor-pointer group-hover:scale-105 transition duration-300" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
-            <span id="radio-featured-num" class="font-display font-black text-2xl sm:text-3xl text-[#FFD54F]">029</span>
-          </div>
-          <div class="space-y-1 flex-1 text-center sm:text-left min-w-0 w-full">
-            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span class="px-2.5 py-0.5 rounded bg-[#FFB300] text-black font-mono font-bold text-[9px] uppercase shadow-sm">LATEST SESSION</span>
-              <span id="radio-featured-tag" class="text-[10px] font-mono text-[#FFD54F] font-bold tracking-wider">DYMETIME RADIO 029</span>
-            </div>
-            <h3 id="radio-featured-title" class="text-base sm:text-lg font-display font-black text-white truncate">Throwback Atlanta Hits</h3>
-            <p id="radio-featured-desc" class="text-xs text-slate-300 truncate">Southern Hip Hop, Crunk classics & Dirty South master blend.</p>
-          </div>
-          <button id="radio-featured-btn" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')" class="ripple-active shrink-0 w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FFB300]/25 hover:shadow-[0_0_24px_rgba(255,179,0,0.5)]">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-            Play Session
+        <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
+          <button id="puf-featured-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="h-8 px-3.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,179,0,0.3)]">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
+          </button>
+          <button onclick="triggerDownloadGate('Pull Up Fridays - Ep. 57')" class="h-8 px-2.5 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-[#FFB300] transition" title="Download Master File">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
           </button>
         </div>
       </div>
 
-      <div id="radio-visible-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3"></div>
+      <!-- Slimmed Down Grid Mixes (Full-Card Interactive, Repetitive Buttons Dropped) -->
+      <div id="puf-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-2.5"></div>
+      <div id="puf-mobile-grid" class="grid sm:hidden grid-cols-1 gap-2"></div>
 
-      <div id="dymetime-archive-drawer" class="drawer-collapse">
+      <div id="puf-archive-drawer" class="drawer-collapse">
         <div class="drawer-inner pt-2">
-          <div id="radio-drawer-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3"></div>
+          <div id="puf-desktop-drawer-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-2.5"></div>
+          <div id="puf-mobile-drawer-grid" class="grid sm:hidden grid-cols-1 gap-2"></div>
         </div>
       </div>
 
-      <div class="flex items-center justify-center pt-2">
-        <button onclick="toggleArchiveDrawer('dymetime-archive-drawer', 'archive-toggle-text', 'archive-icon')" class="ripple-active group flex items-center gap-2.5 px-5 py-2 rounded-full depth-card border border-white/10 hover:border-[#FFB300] text-slate-200 shadow-lg transition">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#FFB300] group-hover:scale-150 transition"></span>
-          <span id="archive-toggle-text" class="font-mono text-xs font-bold tracking-wider uppercase group-hover:text-[#FFD54F] transition">Show More Sessions</span>
-          <i data-lucide="chevron-down" id="archive-icon" class="w-3.5 h-3.5 text-[#FFB300] transition-transform duration-300"></i>
+      <div id="puf-toggle-container" class="pt-1">
+        <button onclick="toggleArchiveDrawer('puf-archive-drawer', 'puf-toggle-text', 'puf-icon')" class="w-full flex items-center justify-between py-2 border-y border-white/10 hover:border-[#FFB300]/40 text-slate-400 hover:text-white transition group">
+          <span class="text-[9px] font-mono tracking-widest uppercase text-slate-500">Pull Up Fridays Archive</span>
+          <span id="puf-toggle-text" class="text-[11px] font-mono font-bold text-[#FFB300] tracking-wider uppercase group-hover:underline">Show More Episodes</span>
+          <i data-lucide="arrow-down" id="puf-icon" class="w-3.5 h-3.5 text-[#FFB300] transition-transform duration-300"></i>
         </button>
       </div>
     </section>
 
-    <div class="w-full depth-card border-y border-white/10 py-2.5 ticker-wrap my-4 select-none">
-      <div class="ticker-track font-mono text-[10px] tracking-[0.22em] uppercase font-bold">
-        <span class="text-[#FFB300]">IT'S DYMETIME</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">PULL UP FRIDAYS</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">7PM - 8PM</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">HIP - HOP</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">R&B</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">AFROBEATS</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">DANCEHALL</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">AMAPIANO</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">ARCHIVED SAME NIGHT</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">LIVE PULL UPS</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">NO DEAD AIR</span> <span class="mx-2.5 text-slate-500">•</span>
-      </div>
-      <div class="ticker-track font-mono text-[10px] tracking-[0.22em] uppercase font-bold" aria-hidden="true">
-        <span class="text-[#FFB300]">IT'S DYMETIME</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">PULL UP FRIDAYS</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">7PM - 8PM</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">HIP - HOP</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">R&B</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">AFROBEATS</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">DANCEHALL</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">AMAPIANO</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">ARCHIVED SAME NIGHT</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-[#FFB300]">LIVE PULL UPS</span> <span class="mx-2.5 text-slate-500">•</span>
-        <span class="text-slate-200">NO DEAD AIR</span> <span class="mx-2.5 text-slate-500">•</span>
-      </div>
-    </div>
-
-    <section id="video-mixes" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
-        <div class="flex items-center gap-2">
-          <span class="px-2 py-0.5 rounded bg-red-950/40 text-red-400 border border-red-900/40 text-[10px] font-mono uppercase font-semibold">VISUAL SETS</span>
-          <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">VIDEO MIXES</h2>
+    <!-- 02 // DYMETIME RADIO -->
+    <section id="dymetime-radio" class="space-y-3">
+      <div class="flex items-baseline justify-between pb-2">
+        <div class="flex items-center gap-2.5">
+          <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">DYMETIME RADIO</h2>
+          <span class="text-[9px] font-mono text-[#FFB300] uppercase tracking-widest font-bold">SYNDICATED</span>
         </div>
-        <a href="https://www.youtube.com/@dymetime" target="_blank" class="text-slate-400 hover:text-[#FFD54F] font-mono text-xs flex items-center gap-1 transition">
-          YOUTUBE <i data-lucide="external-link" class="w-3 h-3"></i>
+        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-widest">OFFICIAL SESSIONS</span>
+      </div>
+
+      <!-- Featured Radio Anchor -->
+      <div id="radio-featured-card" class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#0e1628] to-[#090f1d] border-2 border-[#FFD54F]/50 shadow-[0_4px_24px_rgba(255,213,79,0.12)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5 min-w-0">
+          <div id="radio-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg bg-black border border-[#FFD54F]/50 overflow-hidden flex items-center justify-center cursor-pointer hover:border-[#FFD54F] transition relative group" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
+            <img id="radio-featured-art" src="" alt="Session 029 Cover" class="w-full h-full object-cover hidden" />
+            <span id="radio-featured-num" class="font-display font-black text-2xl sm:text-3xl text-[#FFD54F]">029</span>
+          </div>
+          <div class="min-w-0 space-y-0.5">
+            <div class="flex items-center gap-2">
+              <span class="px-1.5 py-0.5 rounded bg-[#FFD54F] text-black font-mono font-extrabold text-[8px] uppercase tracking-wider">LATEST SESSION</span>
+              <span id="radio-featured-tag" class="text-[9px] font-mono text-slate-400">SESSION 029</span>
+            </div>
+            <h3 id="radio-featured-title" class="text-base sm:text-lg font-display font-black text-white truncate">Throwback Atlanta Hits</h3>
+            <p id="radio-featured-desc" class="text-xs text-slate-300 truncate">Southern Hip Hop, Crunk classics & Dirty South master blend.</p>
+          </div>
+        </div>
+        <button id="radio-featured-btn" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')" class="h-8 px-3.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] uppercase tracking-wider transition flex items-center gap-1.5 self-end sm:self-center shadow-[0_0_12px_rgba(255,179,0,0.3)]">
+          <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Session
+        </button>
+      </div>
+
+      <!-- Slimmed Down Grid Mixes -->
+      <div id="radio-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-2.5"></div>
+      <div id="radio-mobile-grid" class="grid sm:hidden grid-cols-1 gap-2"></div>
+
+      <div id="dymetime-archive-drawer" class="drawer-collapse">
+        <div class="drawer-inner pt-2">
+          <div id="radio-desktop-drawer-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-2.5"></div>
+          <div id="radio-mobile-drawer-grid" class="grid sm:hidden grid-cols-1 gap-2"></div>
+        </div>
+      </div>
+
+      <div id="radio-toggle-container" class="pt-1">
+        <button onclick="toggleArchiveDrawer('dymetime-archive-drawer', 'archive-toggle-text', 'archive-icon')" class="w-full flex items-center justify-between py-2 border-y border-white/10 hover:border-[#FFB300]/40 text-slate-400 hover:text-white transition group">
+          <span class="text-[9px] font-mono tracking-widest uppercase text-slate-500">Dymetime Radio Vault</span>
+          <span id="archive-toggle-text" class="text-[11px] font-mono font-bold text-[#FFB300] tracking-wider uppercase group-hover:underline">Show More Sessions</span>
+          <i data-lucide="arrow-down" id="archive-icon" class="w-3.5 h-3.5 text-[#FFB300] transition-transform duration-300"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- 03 // METRICS (HANSON FONT) -->
+    <section id="stats-container" class="border-y border-white/[0.08] py-6">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
+        <div>
+          <div id="stat-listens" class="text-2xl sm:text-3xl font-hanson text-white tracking-wide">300,000</div>
+          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
+            <i data-lucide="headphones" class="w-3 h-3 text-[#FFB300]"></i> Global Plays
+          </div>
+        </div>
+        <div class="pt-3 sm:pt-0">
+          <div id="stat-favorites" class="text-2xl sm:text-3xl font-hanson text-white tracking-wide">100,000</div>
+          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
+            <i data-lucide="heart" class="w-3 h-3 text-red-500"></i> Favorites
+          </div>
+        </div>
+        <div class="pt-3 sm:pt-0">
+          <div id="stat-reposts" class="text-2xl sm:text-3xl font-hanson text-white tracking-wide">10,000</div>
+          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
+            <i data-lucide="repeat" class="w-3 h-3 text-green-400"></i> Reposts
+          </div>
+        </div>
+        <div class="pt-3 sm:pt-0">
+          <div id="stat-episodes" class="text-2xl sm:text-3xl font-hanson text-white tracking-wide">100+</div>
+          <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
+            <i data-lucide="radio" class="w-3 h-3 text-[#FFD54F]"></i> Master Shows
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 // VIDEO MIXES -->
+    <section id="video-mixes" class="space-y-3">
+      <div class="flex items-center justify-between pb-2">
+        <div class="flex items-center gap-2">
+          <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">VISUAL SETS</h2>
+          <span class="text-[9px] font-mono text-red-400 tracking-widest uppercase font-bold">YOUTUBE</span>
+        </div>
+        <a href="https://www.youtube.com/@dymetime" target="_blank" class="text-slate-400 hover:text-white font-mono text-[11px] flex items-center gap-1 transition">
+          CHANNEL <i data-lucide="external-link" class="w-3 h-3"></i>
         </a>
       </div>
 
       <div class="block sm:hidden">
-        <div class="depth-card rounded-xl overflow-hidden group">
+        <div class="border border-white/10 rounded-xl overflow-hidden depth-card">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="playActiveMobileVideo()">
             <img id="mobile-video-thumb" src="https://img.youtube.com/vi/lFpetLPcdqI/hqdefault.jpg" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-10 h-10 rounded-full bg-[#FFB300] text-black flex items-center justify-center shadow-lg"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+              <div class="w-11 h-11 rounded-full bg-[#FFB300] text-black flex items-center justify-center shadow-lg"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
             </div>
-            <span id="mobile-video-duration" class="absolute bottom-2 right-2 bg-black/85 text-white font-mono text-[9px] px-2 py-0.5 rounded">26:24</span>
+            <span id="mobile-video-duration" class="absolute bottom-2 right-2 bg-black text-white font-mono text-[9px] px-1.5 py-0.5 rounded">26:24</span>
           </div>
-          <div class="p-3 flex items-center justify-between gap-2">
+          <div class="p-3 flex items-center justify-between gap-3">
             <div class="min-w-0 flex-1">
               <h4 id="mobile-video-title" class="font-display font-bold text-xs text-white truncate">Uganda Video Mix 2024</h4>
               <p id="mobile-video-desc" class="text-[10px] font-mono text-slate-400 truncate mt-0.5">Sheebah, Vinka, Jose Chameleone</p>
             </div>
             <div class="flex items-center gap-1.5 shrink-0">
-              <button onclick="prevMobileVideo()" class="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white">
+              <button onclick="prevMobileVideo()" class="p-1.5 rounded bg-white/5 border border-white/10 text-white">
                 <i data-lucide="chevron-left" class="w-4 h-4"></i>
               </button>
-              <button onclick="nextMobileVideo()" class="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white">
+              <button onclick="nextMobileVideo()" class="p-1.5 rounded bg-white/5 border border-white/10 text-white">
                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
               </button>
             </div>
@@ -531,9 +413,8 @@
       <div id="video-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-3"></div>
     </section>
 
-    <div class="w-full h-px bg-white/10"></div>
-
-    <section id="mix-vault" class="space-y-4">
+    <!-- 05 // THE VAULT (100% UNTOUCHED TEXT-LIST CATALOG) -->
+    <section id="mix-vault" class="space-y-4 pt-2">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-3">
           <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
@@ -572,184 +453,115 @@
       <div id="vault-list" class="vault-scroll-container space-y-1.5"></div>
     </section>
 
-    <section id="about-me" class="depth-card rounded-2xl p-6 sm:p-7 border border-white/10 shadow-2xl relative overflow-hidden">
-      <div class="flex flex-col md:flex-row items-center gap-6 relative z-10">
-        <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 shrink-0 rounded-2xl overflow-hidden border-2 border-[#FFB300]/40 shadow-2xl bg-black">
+    <!-- 06 // BIOGRAPHY (Breathed Out with Margin) -->
+    <section id="about-me" class="border-y border-white/[0.08] py-10 my-4">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="w-36 h-36 sm:w-44 sm:h-44 shrink-0 rounded-xl overflow-hidden border border-white/10 bg-black">
           <img src="images/dj%20dyme%201.JPG"
-             alt="DJ DYME"
-             loading="lazy"
-             decoding="async"
-             class="w-full h-full object-cover grayscale contrast-125"
-             onerror="if(!this.t1){this.t1=true;this.src='dj%20dyme%201.JPG';}else if(!this.t2){this.t2=true;this.src='images/dj-dyme-1.jpg';}else{this.src='dj-dyme-1.jpg';}">
+               alt="DJ DYME"
+               loading="lazy"
+               decoding="async"
+               class="w-full h-full object-cover grayscale contrast-125"
+               onerror="if(!this.t1){this.t1=true;this.src='dj%20dyme%201.JPG';}else if(!this.t2){this.t2=true;this.src='images/dj-dyme-1.jpg';}else{this.src='dj-dyme-1.jpg';}">
         </div>
 
-        <div class="space-y-2.5 flex-1 text-center md:text-left">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FFB300]/15 text-[#FFB300] text-[9px] font-mono tracking-widest uppercase font-semibold">
+        <div class="space-y-2 flex-1 text-center md:text-left">
+          <span class="text-[9px] font-mono text-[#FFB300] uppercase tracking-widest font-bold">
             OFFICIAL BIOGRAPHY
-          </div>
-          <h3 class="font-display font-black text-xl sm:text-2xl text-white tracking-wide">
+          </span>
+          <h3 class="font-display font-black text-xl text-white tracking-wide">
             MEET DJ DYME
           </h3>
-          <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed">
-            DJ Dyme is a seasoned touring DJ, radio host, and former member of the Take Over DJs coalition. From dominating Atlanta's nightlife with five weekly residencies to rocking festival stages and national tours alongside headlining artists, Dyme brings undeniable energy to every stage he touches. Former manager of the Piga Picha Crew and a staple on the airwaves, he currently rocks SPiNZ FM and hosts his decade-long syndicated franchise, Pull Up Fridays. At his core, Dyme is a dedicated music curator driven by crowd connection and authentic sound.
+          <p class="text-xs text-slate-300 leading-relaxed font-light">
+            DJ Dyme is a seasoned touring DJ, radio host, and former member of the Take Over DJs coalition. From dominating Atlanta's nightlife with five weekly residencies to rocking festival stages and national tours alongside headlining artists, Dyme brings undeniable energy to every stage he touches. Former manager of the Piga Picha Crew and a staple on the airwaves, he currently rocks SPiNZ FM and hosts his decade-long syndicated franchise, Pull Up Fridays.
           </p>
-          <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2">
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">5+ Weekly Club Residencies</span>
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">SPiNZ FM Host</span>
-            <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">10+ Year Franchise</span>
+          <div class="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-2.5 text-[9px] font-mono text-slate-400">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10">5+ Weekly Residencies</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10">SPiNZ FM Host</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10">10+ Year Franchise</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="spotify-playlist" class="depth-card rounded-2xl p-4 sm:p-6 border border-[#1DB954]/40 shadow-[0_12px_32px_rgba(29,185,84,0.14)] overflow-hidden">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
-        <div class="flex items-center gap-3 w-full min-w-0 text-center sm:text-left">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#1DB954]/20 border border-[#1DB954]/40 flex items-center justify-center shrink-0 text-[#1DB954]">
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center justify-center sm:justify-start gap-2">
-              <span class="px-2 py-0.5 rounded bg-[#1DB954]/20 text-[#1DB954] text-[9px] font-mono uppercase font-bold tracking-wider">OFFICIAL CURATION</span>
-              <span class="text-[10px] font-mono text-slate-400 hidden xs:inline">PULL UP FRIDAYS COMPANION</span>
-            </div>
-            <h4 class="font-display font-black text-base sm:text-lg text-white truncate mt-0.5">DJ DYME Official Playlist</h4>
-            <p class="text-xs text-slate-300 break-words line-clamp-2 sm:line-clamp-none">Listen to every new track featured on Pull Up Fridays directly on Spotify.</p>
-          </div>
+    <!-- 07 // SPOTIFY COMPANION (Breathed Out) -->
+    <section id="spotify-playlist" class="space-y-2.5 my-4">
+      <div class="flex items-center justify-between pb-2">
+        <div class="flex items-center gap-2">
+          <h2 class="text-base sm:text-lg font-display font-black text-white tracking-wide">SPOTIFY COMPANION</h2>
+          <span class="text-[9px] font-mono text-[#1DB954] uppercase font-bold">PLAYLIST</span>
         </div>
-
-        <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1?si=S6Kx-IiyRkawj60wCElJKA" target="_blank" class="ripple-active w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-xl shadow-[#1DB954]/25 group">
-          <i data-lucide="play" class="w-4 h-4 fill-current group-hover:scale-110 transition"></i>
-          Play On Spotify
+        <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1?si=S6Kx-IiyRkawj60wCElJKA" target="_blank" class="text-xs font-mono text-[#1DB954] hover:underline flex items-center gap-1">
+          Open Spotify <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
         </a>
       </div>
-
-      <div class="mt-4 rounded-xl overflow-hidden border border-white/10 bg-black/60 shadow-inner w-full">
+      <div class="rounded-xl overflow-hidden border border-white/[0.08] bg-black/60 w-full">
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/60SPCZFgu3PbSTHfJPknD1?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </section>
 
-    <section id="fan-zone" class="depth-card rounded-2xl p-5 border border-[#FFB300]/30 relative overflow-hidden">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="space-y-1 text-center sm:text-left">
-          <span class="px-2.5 py-0.5 rounded bg-[#FFB300]/15 text-[#FFB300] font-mono text-[9px] font-bold uppercase tracking-wider">FAN COMMUNITY</span>
-          <h3 class="text-lg font-display font-black text-white">GET YOUR SHOUTOUT ON PULL UP FRIDAYS</h3>
-          <p class="text-xs text-slate-400">Lock in your song request or shoutout for the next live broadcast.</p>
+    <!-- 08 // DISPATCH (Compact Single Deck) -->
+    <section id="stage-dispatch" class="rounded-xl depth-card p-5 sm:p-6 space-y-4 my-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
+        <div class="space-y-1 max-w-xl">
+          <span class="text-[9px] font-mono text-[#FFB300] uppercase font-bold tracking-widest flex items-center gap-1.5">
+            <i data-lucide="calendar" class="w-3 h-3"></i> TOUR & PERFORMANCE MANAGEMENT
+          </span>
+          <h3 class="text-xl sm:text-2xl font-display font-black text-white tracking-tight">SECURE DATES FOR TOURS & RESIDENCIES</h3>
+          <p class="text-xs text-slate-400 font-light">Available worldwide for club dates, concert stages, private events, and syndication slots.</p>
         </div>
-        <button onclick="openRequestModal()" class="btn-unified-cta ripple-active px-5 py-2.5 rounded font-display font-black text-xs uppercase tracking-wider shrink-0 shadow">
-          Drop A Request
+        <button onclick="openBookingModal()" class="h-9 px-5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shrink-0 flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(255,179,0,0.25)]">
+          <span>Inquire For Dates</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
       </div>
-    </section>
 
-    <!-- TIP JAR & ARTIST SUPPORT -->
-    <section id="tip-jar" class="depth-card rounded-2xl p-5 border border-[#FFB300]/40 relative overflow-hidden">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="space-y-1 text-center md:text-left">
-          <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#FFB300]/15 text-[#FFB300] text-[9px] font-mono font-bold tracking-wider uppercase">
-            <i data-lucide="coffee" class="w-3 h-3"></i> TIP JAR & FUEL
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-0.5">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded bg-[#FFB300]/10 border border-[#FFB300]/20 flex items-center justify-center shrink-0 text-[#FFB300]">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
           </div>
-          <h3 class="text-base sm:text-lg font-display font-black text-white">SUPPORT THE MUSIC</h3>
-          <p class="text-xs text-slate-400">Show love to keep weekly syndication, crate digging, and mastering rolling 100% independent.</p>
-        </div>
-        <div class="flex items-center gap-2.5 w-full md:w-auto justify-center">
-          <a href="https://cash.app/$dymetime" target="_blank"  rel="noopener noreferrer" class="ripple-active flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#00D632]/20 hover:bg-[#00D632] text-[#00D632] hover:text-black border border-[#00D632]/40 font-mono text-xs font-bold uppercase transition">
-            <span>Cash App $djdyme</span>
-          </a>
-          <a href="https://buymeacoffee.com/djdyme" target="_blank" rel="noopener noreferrer" class="ripple-active flex-1 md:flex-initial flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#FFDD00]/20 hover:bg-[#FFDD00] text-[#FFDD00] hover:text-black border border-[#FFDD00]/40 font-mono text-xs font-bold uppercase transition">
-            <i data-lucide="coffee" class="w-3.5 h-3.5"></i>
-            <span>Buy Me Coffee</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="vip-and-inquiries" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="depth-card rounded-xl p-5 text-center flex flex-col justify-between">
-        <div class="space-y-2">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FFB300]/15 text-[#FFB300] text-[9px] font-mono tracking-widest uppercase">
-            <i data-lucide="mail" class="w-3 h-3"></i>
-            EXCLUSIVE ACCESS
+          <div>
+            <h4 class="font-display font-bold text-xs text-white">Join the VIP Email List</h4>
+            <p class="text-[11px] text-slate-400">Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.</p>
           </div>
-          <h3 class="font-display font-black text-base text-white tracking-wide">
-            JOIN THE VIP EMAIL LIST
-          </h3>
-          <p class="text-xs text-slate-400">
-            Receive Pull Up Fridays master downloads at 12:00 PM EST before syndication.
-          </p>
         </div>
-        <div class="pt-3">
-          <button onclick="openVipModal()" class="btn-unified-cta ripple-active w-full py-2.5 rounded font-display font-black text-xs uppercase tracking-wider shadow">
-            Subscribe For Early Drops
-          </button>
-        </div>
-      </div>
-
-      <div class="depth-card rounded-xl p-5 text-center flex flex-col justify-between">
-        <div class="space-y-2">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 text-[9px] font-mono tracking-widest uppercase">
-            <i data-lucide="calendar" class="w-3 h-3"></i>
-            DIRECT INQUIRIES
-          </div>
-          <h3 class="font-display font-black text-base text-white tracking-wide">
-            LOCK IN DJ DYME
-          </h3>
-          <p class="text-xs text-slate-400">
-            Available worldwide for club dates, festival stages, and syndication slots.
-          </p>
-        </div>
-        <div class="pt-3">
-          <button onclick="openBookingModal()" class="btn-unified-cta ripple-active w-full inline-block py-2.5 rounded font-display font-extrabold text-xs uppercase tracking-wider text-center">
-            Inquire For Dates
-          </button>
-        </div>
+        <button onclick="openVipModal()" class="h-8 px-4 rounded bg-white/[0.05] hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-mono text-[11px] uppercase tracking-wider shrink-0 transition flex items-center justify-center gap-1.5">
+          <span>Subscribe</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </button>
       </div>
     </section>
 
   </main>
 
-  <footer class="max-w-4xl mx-auto px-4 pt-8 pb-10 border-t border-white/10 text-center w-full">
+  <!-- FOOTER -->
+  <footer class="max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-10 border-t border-white/[0.08] text-center w-full">
     <div class="flex flex-wrap items-center justify-center gap-5 mb-5">
-      <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFD54F] transition">
-        <i data-lucide="radio" class="w-3.5 h-3.5"></i>
-        <span>Mixcloud</span>
+      <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition flex items-center gap-1.5">
+        <i data-lucide="radio" class="w-3.5 h-3.5 text-[#FFB300]"></i> Mixcloud
       </a>
-      <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFD54F] transition">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        <span>Instagram</span>
-      </a>
-      <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFD54F] transition">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.595 0 9 1.583 9 4.615V8z"/></svg>
-        <span>Facebook</span>
-      </a>
-      <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFD54F] transition">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.86-4.49V8.71a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.86-.14z"/></svg>
-        <span>TikTok</span>
-      </a>
-      <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#FFD54F] transition">
-        <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
-        <span>YouTube</span>
-      </a>
-      <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-[#1DB954] transition">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.307c-.218.358-.684.474-1.042.256-2.859-1.747-6.457-2.142-10.697-1.173-.41.094-.817-.162-.911-.572-.094-.41.162-.817.572-.911 4.636-1.06 8.608-.614 11.822 1.358.358.218.474.684.256 1.042zm1.468-3.26c-.275.448-.862.59-1.31.314-3.273-2.012-8.261-2.596-12.13-1.42-.505.153-1.042-.136-1.195-.641-.153-.505.136-1.042.641-1.195 4.417-1.34 9.914-.687 13.68 1.632.448.276.59.862.314 1.31zm.126-3.393C15.174 8.32 8.742 8.107 5.093 9.215c-.602.183-1.24-.162-1.423-.764-.183-.602.162-1.24.764-1.423 4.205-1.277 11.31-1.026 15.82 1.652.542.321.72 1.022.399 1.564-.321.542-1.022.72-1.561.41z"/></svg>
-        <span>Spotify</span>
-      </a>
+      <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition">Instagram</a>
+      <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition">Facebook</a>
+      <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition">TikTok</a>
+      <a href="https://www.youtube.com/@dymetime" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition">YouTube</a>
+      <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition">Spotify</a>
     </div>
 
-    <div class="text-[10px] font-mono text-slate-500">
-      © 2027 DYMETIME ENT.
+    <div class="text-[10px] font-mono text-slate-400 tracking-widest uppercase">
+      © 2026 | Music Is For Promo Use Only
     </div>
   </footer>
 
-  <!-- FIXED BOTTOM CONTROLLER WITH PREV / PLAY / NEXT -->
-  <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#03060c]/98 backdrop-blur-xl border-t border-white/10 py-2 px-3 sm:px-4 shadow-[0_-16px_36px_rgba(0,0,0,0.95)]">
-    <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2.5 min-w-0 w-1/3">
-        <div class="w-9 h-9 rounded bg-[#090f1d] border border-white/10 flex items-center justify-center shrink-0">
+  <!-- PERSISTENT FOOTER PLAYER -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#050811]/98 backdrop-blur-2xl border-t border-white/[0.08] py-2 px-4 shadow-[0_-16px_36px_rgba(0,0,0,0.95)]">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 min-w-0 w-1/3">
+        <div class="w-9 h-9 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
           <div id="playing-eq" class="eq-paused flex items-end gap-[2px] h-3.5">
-            <span class="eq-bar w-[2px] bg-[#FFB300] rounded-full" style="animation-delay: 0.1s"></span>
-            <span class="eq-bar w-[2px] bg-[#FFD54F] rounded-full" style="animation-delay: 0.3s"></span>
-            <span class="eq-bar w-[2px] bg-[#FFB300] rounded-full" style="animation-delay: 0.2s"></span>
+            <span class="eq-bar w-[2px] bg-[#FFB300]"></span>
+            <span class="eq-bar w-[2px] bg-[#FFD54F]"></span>
+            <span class="eq-bar w-[2px] bg-[#FFB300]"></span>
           </div>
         </div>
         <div class="truncate">
@@ -759,28 +571,28 @@
       </div>
 
       <div class="flex flex-col items-center gap-1 w-1/2 max-w-xs">
-        <div class="flex items-center gap-3">
-          <button onclick="playPrevTrack()" title="Previous Show" class="p-1 rounded text-slate-400 hover:text-white transition">
+        <div class="flex items-center gap-3.5">
+          <button onclick="playPrevTrack()" title="Previous Show" class="text-slate-400 hover:text-white transition">
             <i data-lucide="skip-back" class="w-3.5 h-3.5"></i>
           </button>
-          <button onclick="toggleDeckPlay()" class="ripple-active w-7 h-7 rounded-full bg-[#FFB300] hover:bg-[#FFD54F] flex items-center justify-center text-black transition shadow hover:shadow-[0_0_16px_rgba(255,179,0,0.6)]">
+          <button onclick="toggleDeckPlay()" class="w-7 h-7 rounded-full bg-[#FFB300] hover:bg-[#FFD54F] flex items-center justify-center text-black transition shadow-[0_0_12px_rgba(255,179,0,0.4)]">
             <i data-lucide="play" id="play-icon" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
           </button>
-          <button onclick="playNextTrack()" title="Next Show" class="p-1 rounded text-slate-400 hover:text-white transition">
+          <button onclick="playNextTrack()" title="Next Show" class="text-slate-400 hover:text-white transition">
             <i data-lucide="skip-forward" class="w-3.5 h-3.5"></i>
           </button>
         </div>
         <div class="w-full flex items-center gap-2 text-[9px] font-mono text-slate-400">
           <span id="current-time">00:00</span>
-          <div onclick="seekDeck(event)" class="relative w-full h-1 bg-[#172033] hover:h-1.5 rounded-full overflow-hidden cursor-pointer transition-all">
-            <div id="progress-bar" class="h-full bg-gradient-to-r from-[#FFB300] to-[#FFD54F] w-0 pointer-events-none"></div>
+          <div onclick="seekDeck(event)" class="relative w-full h-1 bg-white/10 rounded-full overflow-hidden cursor-pointer">
+            <div id="progress-bar" class="h-full bg-[#FFB300] w-0 pointer-events-none"></div>
           </div>
           <span id="total-time">55:00</span>
         </div>
       </div>
 
       <div class="hidden sm:flex items-center justify-end w-1/4">
-        <span class="text-[9px] font-mono text-slate-400 border border-white/10 px-2 py-0.5 rounded uppercase flex items-center gap-1.5">
+        <span class="text-[9px] font-mono text-slate-400 border border-white/10 px-2 py-0.5 rounded uppercase flex items-center gap-1">
           <span class="w-1.5 h-1.5 rounded-full bg-[#FFB300] animate-pulse"></span> AUTOPLAY ON
         </span>
       </div>
@@ -793,153 +605,90 @@
           allow="autoplay *; encrypted-media *">
   </iframe>
 
-  <!-- MODALS -->
+  <!-- POPUP MODALS -->
   <div id="booking-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="relative max-w-md w-full depth-card rounded-2xl p-6 border border-[#FFB300]/40 shadow-2xl">
-      <button onclick="closeBookingModal()" class="absolute top-3.5 right-3.5 p-1.5 bg-white/10 hover:bg-[#FFB300] hover:text-black text-white rounded-full transition">
+    <div class="relative max-w-md w-full bg-[#0b101d] border border-white/10 rounded-xl p-6 shadow-2xl">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 p-1.5 bg-white/10 hover:bg-[#FFB300] hover:text-black text-white rounded-full transition">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
-      <div class="space-y-1 mb-4 text-center sm:text-left">
-        <span class="px-2 py-0.5 rounded bg-[#FFB300]/20 text-[#FFB300] text-[9px] font-mono uppercase font-bold">RESERVATIONS & GIGS</span>
-        <h3 class="text-lg font-display font-black text-white tracking-wide">BOOK DJ DYME</h3>
-        <p class="text-xs text-slate-400">Submit your event details. We review and respond within 24 hours.</p>
+      <div class="space-y-1 mb-4">
+        <span class="text-[9px] font-mono text-[#FFB300] uppercase font-bold tracking-widest">RESERVATIONS & GIGS</span>
+        <h3 class="text-lg font-display font-black text-white">BOOK DJ DYME</h3>
+        <p class="text-xs text-slate-400">Submit your event details. Management responds within 24 hours.</p>
       </div>
 
       <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-3">
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Your Full Name *</label>
-          <input required type="text" id="booking-name" placeholder="John Doe" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+          <input required type="text" id="booking-name" placeholder="John Doe" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Phone Number *</label>
-            <input required type="tel" id="booking-phone" placeholder="(555) 000-0000" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+            <input required type="tel" id="booking-phone" placeholder="(555) 000-0000" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
           </div>
           <div>
             <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Email Address *</label>
-            <input required type="email" id="booking-email" placeholder="you@domain.com" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+            <input required type="email" id="booking-email" placeholder="you@domain.com" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
           </div>
         </div>
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Event Date & City *</label>
-          <input required type="text" id="booking-event" placeholder="e.g. Nov 20, 2026 - Philadelphia, PA" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+          <input required type="text" id="booking-event" placeholder="e.g. Nov 20, 2026 - Philadelphia, PA" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
         </div>
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Event Details / Message</label>
-          <textarea id="booking-details" rows="2" placeholder="Club residency, concert, private booking, hours, venue..." class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]"></textarea>
+          <textarea id="booking-details" rows="2" placeholder="Club residency, concert, private booking, hours, venue..." class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]"></textarea>
         </div>
-        <button type="submit" id="booking-submit-btn" class="ripple-active w-full py-2.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-lg shadow-[#FFB300]/25">
+        <button type="submit" id="booking-submit-btn" class="w-full py-2.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition">
           Send Booking Inquiry
         </button>
       </form>
     </div>
   </div>
 
-  <div id="request-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="relative max-w-md w-full depth-card rounded-2xl p-6 border border-[#FFB300]/40 shadow-2xl">
-      <button onclick="closeRequestModal()" class="absolute top-3.5 right-3.5 p-1.5 bg-white/10 hover:bg-[#FFB300] hover:text-black text-white rounded-full transition">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
-
-      <div class="space-y-1 mb-4 text-center sm:text-left">
-        <span class="px-2 py-0.5 rounded bg-[#FFB300]/20 text-[#FFB300] text-[9px] font-mono uppercase font-bold tracking-wider">LIVE ON AIR</span>
-        <h3 class="text-lg font-display font-black text-white tracking-wide">SHOUTOUT & SONG REQUEST</h3>
-        <p class="text-xs text-slate-400">Lock in your request or city shoutout for the next Pull Up Fridays drop.</p>
-      </div>
-
-      <form id="request-form" onsubmit="handleRequestSubmit(event)" class="space-y-3">
-        <div>
-          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Your Name / DJ Alias *</label>
-          <input required type="text" id="req-name" placeholder="John from Philly" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">City & State *</label>
-            <input required type="text" id="req-city" placeholder="Philadelphia, PA" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
-          </div>
-          <div>
-            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">IG Handle (Optional)</label>
-            <input type="text" id="req-handle" placeholder="@yourhandle" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
-          </div>
-        </div>
-        <div>
-          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Requested Song & Artist *</label>
-          <input required type="text" id="req-song" placeholder="Song Title - Artist" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
-        </div>
-        <div>
-          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Shoutout Message</label>
-          <textarea id="req-message" rows="2" placeholder="What do you want Dyme to say on air?" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]"></textarea>
-        </div>
-        <button type="submit" id="req-submit-btn" class="btn-unified-cta ripple-active w-full py-2.5 rounded font-display font-black text-xs uppercase tracking-wider shadow">
-          Send Request To DJ DYME
-        </button>
-      </form>
-    </div>
-  </div>
-
   <div id="vip-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="relative max-w-md w-full depth-card rounded-2xl p-6 border border-[#FFB300]/40 shadow-2xl">
-      <button onclick="closeVipModal()" class="absolute top-3.5 right-3.5 p-1.5 bg-white/10 hover:bg-[#FFB300] hover:text-black text-white rounded-full transition">
+    <div class="relative max-w-md w-full bg-[#0b101d] border border-white/10 rounded-xl p-6 shadow-2xl">
+      <button onclick="closeVipModal()" class="absolute top-4 right-4 p-1.5 bg-white/10 hover:bg-[#FFB300] hover:text-black text-white rounded-full transition">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
-      <div class="space-y-1 mb-4 text-center sm:text-left">
-        <span class="px-2 py-0.5 rounded bg-[#FFB300]/20 text-[#FFB300] text-[9px] font-mono uppercase font-bold tracking-wider">VIP MEMBERSHIP</span>
-        <h3 id="vip-modal-heading" class="text-lg font-display font-black text-white tracking-wide">JOIN THE VIP EMAIL LIST</h3>
-        <p id="vip-modal-subheading" class="text-xs text-slate-400">Get Pull Up Fridays master downloads early at 12:00 PM EST before syndication.</p>
+      <div class="space-y-1 mb-4">
+        <span class="text-[9px] font-mono text-[#FFB300] uppercase font-bold tracking-widest">VIP MEMBERSHIP</span>
+        <h3 id="vip-modal-heading" class="text-lg font-display font-black text-white">VIP MASTER LIST</h3>
+        <p id="vip-modal-subheading" class="text-xs text-slate-400">Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.</p>
       </div>
 
       <form id="vip-popup-form" onsubmit="handleVipModalSubmit(event)" class="space-y-3">
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Email Address *</label>
-          <input required type="email" id="vip-modal-email" placeholder="you@domain.com" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+          <input required type="email" id="vip-modal-email" placeholder="you@domain.com" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
         </div>
-
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Social Media Handle *</label>
-          <input required type="text" id="vip-modal-social" placeholder="@yourhandle" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+          <input required type="text" id="vip-modal-social" placeholder="@yourhandle" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Full Names <span class="text-slate-500 lowercase">(optional)</span></label>
-            <input type="text" id="vip-modal-name" placeholder="John Doe" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Full Names</label>
+            <input type="text" id="vip-modal-name" placeholder="John Doe" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
           </div>
           <div>
-            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Phone Number <span class="text-slate-500 lowercase">(optional)</span></label>
-            <input type="tel" id="vip-modal-phone" placeholder="(555) 000-0000" class="w-full bg-[#070c18] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
+            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Phone Number</label>
+            <input type="tel" id="vip-modal-phone" placeholder="(555) 000-0000" class="w-full bg-[#050811] border border-white/10 rounded px-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-[#FFB300]">
           </div>
         </div>
-
-        <button type="submit" id="vip-modal-submit-btn" class="btn-unified-cta ripple-active w-full py-2.5 rounded font-display font-black text-xs uppercase tracking-wider shadow-lg shadow-[#FFB300]/25 mt-1">
+        <button type="submit" id="vip-modal-submit-btn" class="w-full py-2.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition">
           Subscribe Now
         </button>
-
-        <div class="pt-3.5 mt-2 border-t border-white/10 text-center space-y-1.5">
-          <p class="text-[9px] font-mono uppercase tracking-widest text-slate-400">Follow DJ DYME</p>
-          <div class="flex items-center justify-center gap-3">
-            <a href="https://www.instagram.com/djdyme" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-black hover:bg-[#FFB300] hover:border-[#FFB300] transition duration-200">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/djdyme" target="_blank" rel="noopener noreferrer" title="Facebook" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-black hover:bg-[#FFB300] hover:border-[#FFB300] transition duration-200">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.595 0 9 1.583 9 4.615V8z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@djdyme" target="_blank" rel="noopener noreferrer" title="TikTok" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-black hover:bg-[#FFB300] hover:border-[#FFB300] transition duration-200">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.86-4.49V8.71a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.86-.14z"/></svg>
-            </a>
-            <a href="https://www.mixcloud.com/djdyme" target="_blank" rel="noopener noreferrer" title="Mixcloud" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-black hover:bg-[#FFB300] hover:border-[#FFB300] transition duration-200">
-              <i data-lucide="radio" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
       </form>
     </div>
   </div>
 
-  <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="relative max-w-2xl w-full bg-black rounded-lg overflow-hidden border border-[#172033] shadow-2xl">
-      <button onclick="closeVideoModal()" class="absolute top-2 right-2 z-10 p-1.5 bg-black/70 text-white rounded-full hover:text-[#FFD54F]">
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="relative max-w-2xl w-full bg-black rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+      <button onclick="closeVideoModal()" class="absolute top-3 right-3 z-10 p-1 bg-black text-white rounded-full hover:text-[#FFD54F]">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
       <div class="aspect-video w-full">
@@ -948,10 +697,10 @@
     </div>
   </div>
 
+  <!-- JAVASCRIPT LOGIC -->
   <script>
     lucide.createIcons();
 
-    // 1. Initial seed catalog so page renders immediately
     const fallbackCatalog = [
       { slug: 'spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', name: 'Spinz Fm | Pull Up Fridays 57 | Kompa . Afrobeat . Dancehall' },
       { slug: 'spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', name: 'Spinz Fm | Pull Up Fridays 56 | Afrobeats 360' },
@@ -975,6 +724,7 @@
     let playlistQueue = [];
     let currentTrackIndex = 0;
     let currentCategoryFilter = 'all';
+    let currentActiveSlug = '';
 
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
@@ -993,23 +743,11 @@
       modal.classList.remove('flex');
     }
 
-    function openRequestModal() {
-      const modal = document.getElementById('request-modal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeRequestModal() {
-      const modal = document.getElementById('request-modal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
     function openVipModal() {
       const heading = document.getElementById('vip-modal-heading');
       const sub = document.getElementById('vip-modal-subheading');
-      if (heading) heading.innerText = 'JOIN THE VIP EMAIL LIST';
-      if (sub) sub.innerText = 'Get Pull Up Fridays master downloads early at 12:00 PM EST before syndication.';
+      if (heading) heading.innerText = 'VIP MASTER LIST';
+      if (sub) sub.innerText = 'Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.';
       const modal = document.getElementById('vip-modal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
@@ -1025,183 +763,97 @@
       const heading = document.getElementById('vip-modal-heading');
       const sub = document.getElementById('vip-modal-subheading');
       if (heading) heading.innerText = 'FREE MASTER DOWNLOAD';
-      if (sub) sub.innerText = `Enter your email to unlock your high-res broadcast download for: ${trackTitle}`;
+      if (sub) sub.innerText = `Enter your email to unlock high-res broadcast download for: ${trackTitle}`;
       const modal = document.getElementById('vip-modal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
 
-    function toggleTracklistDrawer() {
-      const drawer = document.getElementById('featured-tracklist-drawer');
-      const label = document.getElementById('tracklist-toggle-label');
-      const isOpen = drawer.classList.contains('open');
-      if (isOpen) {
-        drawer.classList.remove('open');
-        label.innerText = 'Tracklist';
-      } else {
-        drawer.classList.add('open');
-        label.innerText = 'Hide List';
+    async function handleVipModalSubmit(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('vip-modal-submit-btn');
+      const form = document.getElementById('vip-popup-form');
+      const email = document.getElementById('vip-modal-email').value;
+      const social = document.getElementById('vip-modal-social').value;
+      const name = document.getElementById('vip-modal-name').value;
+      const phone = document.getElementById('vip-modal-phone').value;
+
+      btn.innerText = 'Subscribing...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `New VIP Subscriber: ${social}`,
+            Email: email,
+            SocialHandle: social,
+            Names: name || 'Not Provided',
+            Phone: phone || 'Not Provided'
+          })
+        });
+
+        const result = await response.json();
+        if (!response.ok || !(result.success === true || result.success === 'true')) {
+          throw new Error('VIP signup failed');
+        }
+
+        alert('Subscribed! Check your inbox for the next master download drop.');
+        form.reset();
+        closeVipModal();
+      } catch (error) {
+        alert('Could not submit signup. Please try again.');
+      } finally {
+        btn.innerText = 'Subscribe Now';
+        btn.disabled = false;
       }
     }
 
- async function handleRequestSubmit(e) {
-  e.preventDefault();
+    async function handleBookingSubmit(e) {
+      e.preventDefault();
 
-  const btn = document.getElementById('req-submit-btn');
-  const form = document.getElementById('request-form');
-  const name = document.getElementById('req-name').value;
-  const city = document.getElementById('req-city').value;
-  const handle = document.getElementById('req-handle').value;
-  const song = document.getElementById('req-song').value;
-  const message = document.getElementById('req-message').value;
+      const btn = document.getElementById('booking-submit-btn');
+      const form = document.getElementById('booking-form');
+      const name = document.getElementById('booking-name').value;
+      const phone = document.getElementById('booking-phone').value;
+      const email = document.getElementById('booking-email').value;
+      const eventDetails = document.getElementById('booking-event').value;
+      const details = document.getElementById('booking-details').value;
 
-  btn.innerText = 'Locking In...';
-  btn.disabled = true;
+      btn.innerText = 'Sending Inquiry...';
+      btn.disabled = true;
 
-  try {
-    const response = await fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        _subject: `New Shoutout / Song Request from ${name} (${city})`,
-        Name: name,
-        City: city,
-        SocialHandle: handle || 'N/A',
-        RequestedSong: song,
-        ShoutoutMessage: message || 'N/A'
-      })
-    });
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/djdyme@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `New DJ DYME Booking Inquiry from ${name}`,
+            Name: name,
+            Phone: phone,
+            Email: email,
+            Event: eventDetails,
+            Details: details
+          })
+        });
 
-    const result = await response.json();
+        const result = await response.json();
+        if (!response.ok || !(result.success === true || result.success === 'true')) {
+          throw new Error('Booking submission failed');
+        }
 
-    if (
-      !response.ok ||
-      !(result.success === true || result.success === 'true')
-    ) {
-      throw new Error('Request submission failed');
+        alert('Your booking inquiry has been submitted successfully!');
+        form.reset();
+        closeBookingModal();
+      } catch (error) {
+        alert('Could not send booking inquiry. Please try again.');
+      } finally {
+        btn.innerText = 'Send Booking Inquiry';
+        btn.disabled = false;
+      }
     }
-
-    alert('Your shoutout and song request have been submitted successfully!');
-    form.reset();
-    closeRequestModal();
-
-  } catch (error) {
-    alert('Sorry, your request could not be confirmed. Please try again in a moment.');
-
-  } finally {
-    btn.innerText = 'Send Request To DJ DYME';
-    btn.disabled = false;
-  }
-}
-
-
-async function handleVipModalSubmit(e) {
-  e.preventDefault();
-
-  const btn = document.getElementById('vip-modal-submit-btn');
-  const form = document.getElementById('vip-popup-form');
-  const email = document.getElementById('vip-modal-email').value;
-  const social = document.getElementById('vip-modal-social').value;
-  const name = document.getElementById('vip-modal-name').value;
-  const phone = document.getElementById('vip-modal-phone').value;
-
-  btn.innerText = 'Subscribing...';
-  btn.disabled = true;
-
-  try {
-    const response = await fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        _subject: `New VIP Subscriber: ${social}`,
-        Email: email,
-        SocialHandle: social,
-        Names: name || 'Not Provided',
-        Phone: phone || 'Not Provided'
-      })
-    });
-
-    const result = await response.json();
-
-    if (
-      !response.ok ||
-      !(result.success === true || result.success === 'true')
-    ) {
-      throw new Error('VIP signup failed');
-    }
-
-    alert('Thanks for joining the DJ DYME VIP list! Your signup has been submitted.');
-    form.reset();
-    closeVipModal();
-
-  } catch (error) {
-    alert('Sorry, your VIP signup could not be confirmed. Please try again in a moment.');
-
-  } finally {
-    btn.innerText = 'Subscribe Now';
-    btn.disabled = false;
-  }
-}
-
-
-async function handleBookingSubmit(e) {
-  e.preventDefault();
-
-  const btn = document.getElementById('booking-submit-btn');
-  const form = document.getElementById('booking-form');
-  const name = document.getElementById('booking-name').value;
-  const phone = document.getElementById('booking-phone').value;
-  const email = document.getElementById('booking-email').value;
-  const eventDetails = document.getElementById('booking-event').value;
-  const details = document.getElementById('booking-details').value;
-
-  btn.innerText = 'Sending Inquiry...';
-  btn.disabled = true;
-
-  try {
-    const response = await fetch('https://formsubmit.co/ajax/djdyme@gmail.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        _subject: `New DJ DYME Booking Inquiry from ${name}`,
-        Name: name,
-        Phone: phone,
-        Email: email,
-        Event: eventDetails,
-        Details: details
-      })
-    });
-
-    const result = await response.json();
-
-    if (
-      !response.ok ||
-      !(result.success === true || result.success === 'true')
-    ) {
-      throw new Error('Booking submission failed');
-    }
-
-    alert('Your booking inquiry has been submitted successfully!');
-    form.reset();
-    closeBookingModal();
-
-  } catch (error) {
-    alert('Sorry, your booking inquiry could not be confirmed. Please try again or contact DJ DYME directly.');
-
-  } finally {
-    btn.innerText = 'Send Booking Inquiry';
-    btn.disabled = false;
-  }
-}
 
     function toggleArchiveDrawer(drawerId, textId, iconId) {
       const drawer = document.getElementById(drawerId);
@@ -1211,11 +863,11 @@ async function handleBookingSubmit(e) {
 
       if (isOpen) {
         drawer.classList.remove('open');
-        text.innerText = 'Show More Sessions';
+        text.innerText = drawerId === 'puf-archive-drawer' ? 'Show More Episodes' : 'Show More Sessions';
         if (icon) icon.style.transform = 'rotate(0deg)';
       } else {
         drawer.classList.add('open');
-        text.innerText = 'Hide Extra Sessions';
+        text.innerText = drawerId === 'puf-archive-drawer' ? 'Hide Extra Episodes' : 'Hide Extra Sessions';
         if (icon) icon.style.transform = 'rotate(180deg)';
       }
     }
@@ -1307,17 +959,17 @@ async function handleBookingSubmit(e) {
       const container = document.getElementById('video-desktop-grid');
       if (!container) return;
       container.innerHTML = videoMixes.map(v => `
-                <div class="depth-card rounded-lg overflow-hidden group hover:border-[#FFD54F]/60 transition">
+        <div class="rounded-xl border border-white/10 overflow-hidden depth-card group hover:border-[#FFB300]/50 transition">
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/${v.id}?autoplay=1')">
             <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg"
                  loading="lazy"
                  decoding="async"
-                 class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-            <span class="absolute bottom-1.5 right-1.5 bg-black/85 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">${v.duration}</span>
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute bottom-1.5 right-1.5 bg-black text-white font-mono text-[9px] px-1.5 py-0.5 rounded">${v.duration}</span>
           </div>
-          <div class="p-2">
+          <div class="p-2.5">
             <h4 class="font-display font-bold text-xs text-white truncate">${v.title}</h4>
-            <p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">${v.desc}</p>
+            <p class="text-[10px] font-mono text-slate-400 truncate mt-0.5">${v.desc}</p>
           </div>
         </div>
       `).join('');
@@ -1360,12 +1012,29 @@ async function handleBookingSubmit(e) {
       });
     });
 
+    function highlightActiveVaultTrack(slug) {
+      currentActiveSlug = slug;
+      document.querySelectorAll('.vault-item').forEach(el => {
+        const match = el.getAttribute('data-slug') === slug || el.getAttribute('onclick')?.includes(slug);
+        if (match) {
+          el.classList.add('active-playing');
+          const tag = el.querySelector('.vault-stream-tag');
+          if (tag) tag.innerText = 'PLAYING';
+        } else {
+          el.classList.remove('active-playing');
+          const tag = el.querySelector('.vault-stream-tag');
+          if (tag) tag.innerText = 'STREAM';
+        }
+      });
+    }
+
     function playMixcloud(slug, title, subtitle) {
       document.getElementById('player-title').innerText = title;
       document.getElementById('player-subtitle').innerText = subtitle;
       
       isPlaying = true;
       updateDeckUI();
+      highlightActiveVaultTrack(slug);
 
       const idx = playlistQueue.findIndex(t => t.slug === slug);
       if (idx !== -1) currentTrackIndex = idx;
@@ -1437,20 +1106,34 @@ async function handleBookingSubmit(e) {
       const now = new Date();
       let target = new Date();
       const dayOfWeek = now.getDay();
-      let days = (5 - dayOfWeek + 7) % 7;
-      target.setDate(now.getDate() + days);
-      target.setHours(12, 0, 0, 0);
-      if (dayOfWeek === 5 && now >= target) target.setDate(target.getDate() + 7);
+      
+      let daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+      target.setDate(now.getDate() + daysUntilFriday);
+      target.setHours(19, 0, 0, 0);
+
+      if (dayOfWeek === 5 && now >= target) {
+        target.setDate(target.getDate() + 7);
+      }
+
       const diff = target - now;
-      document.getElementById('timer-days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-      document.getElementById('timer-hours').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-      document.getElementById('timer-mins').innerText = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
-      document.getElementById('timer-secs').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+      const mins = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
+      const secs = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+
+      const dEl = document.getElementById('timer-days');
+      const hEl = document.getElementById('timer-hours');
+      const mEl = document.getElementById('timer-mins');
+      const sEl = document.getElementById('timer-secs');
+
+      if (dEl) dEl.innerText = days;
+      if (hEl) hEl.innerText = hours;
+      if (mEl) mEl.innerText = mins;
+      if (sEl) sEl.innerText = secs;
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // ================= ENHANCED SMART MIX METADATA PARSER =================
     function parseShowMetadata(rawName) {
       const lower = rawName.toLowerCase();
 
@@ -1491,7 +1174,6 @@ async function handleBookingSubmit(e) {
       return { isPuf, isRadio, epNumber, mainTitle, subTitle, rawName: clean };
     }
 
-    // ================= DYNAMIC 100-SHOW POPULATOR =================
     function populateMixcloudCatalog(cloudcasts) {
       if (!cloudcasts || cloudcasts.length === 0) return;
 
@@ -1514,7 +1196,6 @@ async function handleBookingSubmit(e) {
         else radioShows.push({ cast, meta });
       });
 
-      // 1. Hero Latest Drop
       const latest = cloudcasts[0];
       const latestMeta = parseShowMetadata(latest.name);
       const heroBtn = document.getElementById('hero-latest-btn');
@@ -1522,17 +1203,59 @@ async function handleBookingSubmit(e) {
         heroBtn.onclick = () => playMixcloud(latest.slug, latestMeta.mainTitle, latestMeta.subTitle);
       }
 
-      // 2. Featured PUF Card
+      // SLIMMED DOWN FULL-CARD INTERACTIVE RENDERER (NO REPETITIVE PLAY BUTTONS)
+      const renderCoverCard = (item, isDrawer = false, extraClasses = '', badgeLabel = 'EPISODE') => {
+        const artworkUrl = item.cast.pictures?.large || item.cast.pictures?.['320wx320h'] || item.cast.pictures?.medium || '';
+        return `
+          <div onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="p-2.5 rounded-xl depth-card flex items-center justify-between gap-3 group hover:border-[#FFB300]/60 transition cursor-pointer ${extraClasses}">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="relative w-12 h-12 rounded-lg overflow-hidden bg-black/60 shrink-0 border border-white/10 group-hover:scale-105 transition duration-300">
+                ${artworkUrl ? `
+                  <img src="${artworkUrl}" alt="${item.meta.subTitle}" loading="lazy" class="w-full h-full object-cover">
+                ` : `
+                  <div class="w-full h-full flex items-center justify-center font-display font-bold text-xs text-[#FFB300]">
+                    ${item.meta.epNumber || '•'}
+                  </div>
+                `}
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                  <i data-lucide="play" class="w-4 h-4 fill-[#FFB300] text-[#FFB300]"></i>
+                </div>
+              </div>
+              <div class="min-w-0">
+                <span class="text-[9px] font-mono text-[#FFB300] font-bold block">${badgeLabel} ${item.meta.epNumber || 'DROP'}</span>
+                <h4 class="font-display font-bold text-xs text-white truncate group-hover:text-[#FFD54F] transition">${item.meta.subTitle}</h4>
+                <p class="text-[10px] text-slate-400 font-mono truncate">${item.meta.rawName}</p>
+              </div>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-white/5 group-hover:bg-[#FFB300] text-slate-400 group-hover:text-black flex items-center justify-center shrink-0 transition">
+              <i data-lucide="play" class="w-3 h-3 fill-current ml-0.5"></i>
+            </div>
+          </div>
+        `;
+      };
+
+      // 1. Pull Up Fridays (7 desktop, 4 mobile)
       if (pufShows.length > 0) {
         const featPuf = pufShows[0];
         const numEl = document.getElementById('puf-featured-num');
+        const artEl = document.getElementById('puf-featured-art');
         const tagEl = document.getElementById('puf-featured-tag');
         const titleEl = document.getElementById('puf-featured-title');
         const descEl = document.getElementById('puf-featured-desc');
         const btnEl = document.getElementById('puf-featured-btn');
         const numBox = document.getElementById('puf-featured-num-box');
 
-        if (featPuf.meta.epNumber && numEl) numEl.innerText = featPuf.meta.epNumber;
+        const featArt = featPuf.cast.pictures?.large || featPuf.cast.pictures?.['320wx320h'] || featPuf.cast.pictures?.medium || '';
+        if (featArt && artEl) {
+          artEl.src = featArt;
+          artEl.classList.remove('hidden');
+          if (numEl) numEl.classList.add('hidden');
+        } else if (numEl) {
+          if (featPuf.meta.epNumber) numEl.innerText = featPuf.meta.epNumber;
+          numEl.classList.remove('hidden');
+          if (artEl) artEl.classList.add('hidden');
+        }
+
         if (tagEl) tagEl.innerText = `PULL UP FRIDAYS EP. ${featPuf.meta.epNumber || 'LATEST'}`;
         if (titleEl) titleEl.innerText = featPuf.meta.subTitle;
         if (descEl) descEl.innerText = featPuf.meta.rawName;
@@ -1541,51 +1264,62 @@ async function handleBookingSubmit(e) {
         if (btnEl) btnEl.onclick = pufAction;
         if (numBox) numBox.onclick = pufAction;
 
-        const remainingPuf = pufShows.slice(1, 10);
-        const deskGrid = document.getElementById('puf-desktop-grid');
-        const mobGrid = document.getElementById('puf-mobile-grid');
+        const pufDeskInitial = pufShows.slice(1, 7);
+        const pufDeskDrawer = pufShows.slice(7, 16);
+        const pufMobInitial = pufShows.slice(1, 4);
+        const pufMobDrawer = pufShows.slice(4, 16);
 
-        if (deskGrid) {
-          deskGrid.innerHTML = remainingPuf.map(item => `
-            <div class="depth-card rounded-lg p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between">
-              <div>
-                <span class="text-[9px] font-mono text-[#FFB300]">EPISODE ${item.meta.epNumber || 'DROP'}</span>
-                <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.meta.subTitle}</h4>
-                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
-              </div>
-              <button onclick="playMixcloud('${item.cast.slug}', 'Pull Up Fridays - Ep. ${item.meta.epNumber}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-                <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play
-              </button>
-            </div>
-          `).join('');
+        const pufDeskGrid = document.getElementById('puf-desktop-grid');
+        const pufMobGrid = document.getElementById('puf-mobile-grid');
+        const pufDeskDrawerGrid = document.getElementById('puf-desktop-drawer-grid');
+        const pufMobDrawerGrid = document.getElementById('puf-mobile-drawer-grid');
+        const pufToggleContainer = document.getElementById('puf-toggle-container');
+
+        if (pufDeskGrid) {
+          pufDeskGrid.innerHTML = pufDeskInitial.map(item => renderCoverCard(item, false, '', 'EPISODE')).join('');
         }
-
-        if (mobGrid) {
-          mobGrid.innerHTML = remainingPuf.map((item, idx) => `
-            <div class="depth-card rounded-lg p-2.5 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === remainingPuf.length - 1 && remainingPuf.length % 2 !== 0 ? 'col-span-2' : ''}">
-              <div>
-                <span class="text-[9px] font-mono text-[#FFB300]">EPISODE ${item.meta.epNumber || 'DROP'}</span>
-                <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.meta.subTitle}</h4>
-                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
-              </div>
-              <button onclick="playMixcloud('${item.cast.slug}', 'Pull Up Fridays - Ep. ${item.meta.epNumber}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold">Play</button>
-            </div>
-          `).join('');
+        if (pufMobGrid) {
+          pufMobGrid.innerHTML = pufMobInitial.map((item, idx) => 
+            renderCoverCard(item, false, idx === 2 ? 'col-span-2' : '', 'EPISODE')
+          ).join('');
+        }
+        if (pufDeskDrawerGrid) {
+          pufDeskDrawerGrid.innerHTML = pufDeskDrawer.map(item => renderCoverCard(item, true, '', 'EPISODE')).join('');
+        }
+        if (pufMobDrawerGrid) {
+          pufMobDrawerGrid.innerHTML = pufMobDrawer.map((item, idx) => {
+            const isLastOdd = idx === pufMobDrawer.length - 1 && pufMobDrawer.length % 2 !== 0;
+            return renderCoverCard(item, true, isLastOdd ? 'col-span-2' : '', 'EPISODE');
+          }).join('');
+        }
+        if (pufToggleContainer) {
+          pufToggleContainer.style.display = pufShows.length > 4 ? 'block' : 'none';
         }
       }
 
-      // 3. Featured Dymetime Radio Card & Grids
+      // 2. Dymetime Radio (7 desktop, 4 mobile)
       if (radioShows.length > 0) {
         const featRadio = radioShows[0];
         const rNumEl = document.getElementById('radio-featured-num');
+        const rArtEl = document.getElementById('radio-featured-art');
         const rTagEl = document.getElementById('radio-featured-tag');
         const rTitleEl = document.getElementById('radio-featured-title');
         const rDescEl = document.getElementById('radio-featured-desc');
         const rBtnEl = document.getElementById('radio-featured-btn');
         const rNumBox = document.getElementById('radio-featured-num-box');
 
-        if (rNumEl) rNumEl.innerText = featRadio.meta.epNumber ? featRadio.meta.epNumber.padStart(3, '0') : '029';
-        if (rTagEl) rTagEl.innerText = featRadio.meta.epNumber ? `DYMETIME RADIO ${featRadio.meta.epNumber.padStart(3, '0')}` : 'DYMETIME RADIO SESSION';
+        const radioArt = featRadio.cast.pictures?.large || featRadio.cast.pictures?.['320wx320h'] || featRadio.cast.pictures?.medium || '';
+        if (radioArt && rArtEl) {
+          rArtEl.src = radioArt;
+          rArtEl.classList.remove('hidden');
+          if (rNumEl) rNumEl.classList.add('hidden');
+        } else if (rNumEl) {
+          rNumEl.innerText = featRadio.meta.epNumber ? featRadio.meta.epNumber.padStart(3, '0') : '029';
+          rNumEl.classList.remove('hidden');
+          if (rArtEl) rArtEl.classList.add('hidden');
+        }
+
+        if (rTagEl) rTagEl.innerText = `DYMETIME RADIO ${featRadio.meta.epNumber ? featRadio.meta.epNumber.padStart(3, '0') : 'SESSION'}`;
         if (rTitleEl) rTitleEl.innerText = featRadio.meta.subTitle;
         if (rDescEl) rDescEl.innerText = featRadio.meta.rawName;
 
@@ -1593,40 +1327,40 @@ async function handleBookingSubmit(e) {
         if (rBtnEl) rBtnEl.onclick = radioAction;
         if (rNumBox) rNumBox.onclick = radioAction;
 
-        const nextThree = radioShows.slice(1, 4);
-        const rVisGrid = document.getElementById('radio-visible-grid');
-        if (rVisGrid && nextThree.length > 0) {
-          rVisGrid.innerHTML = nextThree.map((item, idx) => `
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 hover:border-[#FFD54F]/60 transition flex flex-col justify-between ${idx === 2 ? 'col-span-2 md:col-span-1' : ''}">
-              <div>
-                <span class="text-[9px] font-mono text-[#FFB300]">${item.meta.mainTitle.toUpperCase()}</span>
-                <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.meta.subTitle}</h4>
-                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
-              </div>
-              <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2.5 flex items-center justify-center gap-1.5 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-                <i data-lucide="play" class="w-3 h-3 fill-current shrink-0"></i> Play
-              </button>
-            </div>
-          `).join('');
-        }
+        const radioDeskInitial = radioShows.slice(1, 7);
+        const radioDeskDrawer = radioShows.slice(7, 16);
+        const radioMobInitial = radioShows.slice(1, 4);
+        const radioMobDrawer = radioShows.slice(4, 16);
 
-        const extraShows = radioShows.slice(4, 16);
-        const rDrawGrid = document.getElementById('radio-drawer-grid');
-        if (rDrawGrid && extraShows.length > 0) {
-          rDrawGrid.innerHTML = extraShows.map(item => `
-            <div class="depth-card rounded-lg p-2.5 sm:p-3 flex flex-col justify-between border-l-2 border-l-[#FFB300]">
-              <div>
-                <span class="text-[9px] font-mono text-[#FFB300]">${item.meta.mainTitle.toUpperCase()}</span>
-                <h4 class="text-xs font-bold text-white truncate mt-0.5">${item.meta.subTitle}</h4>
-                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${item.meta.rawName}</p>
-              </div>
-              <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="ripple-active w-full mt-2 py-1.5 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-bold transition">Play</button>
-            </div>
-          `).join('');
+        const radioDeskGrid = document.getElementById('radio-desktop-grid');
+        const radioMobGrid = document.getElementById('radio-mobile-grid');
+        const radioDeskDrawerGrid = document.getElementById('radio-desktop-drawer-grid');
+        const radioMobDrawerGrid = document.getElementById('radio-mobile-drawer-grid');
+        const radioToggleContainer = document.getElementById('radio-toggle-container');
+
+        if (radioDeskGrid) {
+          radioDeskGrid.innerHTML = radioDeskInitial.map(item => renderCoverCard(item, false, '', 'SESSION')).join('');
+        }
+        if (radioMobGrid) {
+          radioMobGrid.innerHTML = radioMobInitial.map((item, idx) => 
+            renderCoverCard(item, false, idx === 2 ? 'col-span-2' : '', 'SESSION')
+          ).join('');
+        }
+        if (radioDeskDrawerGrid) {
+          radioDeskDrawerGrid.innerHTML = radioDeskDrawer.map(item => renderCoverCard(item, true, '', 'SESSION')).join('');
+        }
+        if (radioMobDrawerGrid) {
+          radioMobDrawerGrid.innerHTML = radioMobDrawer.map((item, idx) => {
+            const isLastOdd = idx === radioMobDrawer.length - 1 && radioMobDrawer.length % 2 !== 0;
+            return renderCoverCard(item, true, isLastOdd ? 'col-span-2' : '', 'SESSION');
+          }).join('');
+        }
+        if (radioToggleContainer) {
+          radioToggleContainer.style.display = radioShows.length > 4 ? 'block' : 'none';
         }
       }
 
-      // 4. Populate The Vault with FULL 100+ Mixes
+      // 3. The Vault (WITH NOW-PLAYING HIGHLIGHT CAPABILITY)
       const vaultContainer = document.getElementById('vault-list');
       if (vaultContainer) {
         vaultContainer.innerHTML = cloudcasts.map(item => {
@@ -1634,10 +1368,12 @@ async function handleBookingSubmit(e) {
           const cat = meta.isPuf ? 'puf' : 'radio';
           const displayCategory = meta.isPuf ? 'PULL UP FRIDAYS' : 'DYMETIME RADIO';
           const searchMetadata = `${meta.mainTitle} ${meta.subTitle} ${meta.rawName} ${displayCategory}`.toLowerCase();
+          const isCurrentlyPlaying = item.slug === currentActiveSlug;
 
           return `
-            <div class="vault-item flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFD54F]/60 transition cursor-pointer" 
+            <div class="vault-item flex items-center justify-between p-2.5 rounded-lg depth-card hover:border-[#FFD54F]/60 transition cursor-pointer ${isCurrentlyPlaying ? 'active-playing' : ''}" 
                  data-category="${cat}" 
+                 data-slug="${item.slug}" 
                  data-search="${searchMetadata}" 
                  onclick="playMixcloud('${item.slug}', '${meta.mainTitle.replace(/'/g, "\\'")}', '${meta.subTitle.replace(/'/g, "\\'")}')">
               <div class="truncate mr-2">
@@ -1647,7 +1383,7 @@ async function handleBookingSubmit(e) {
                 </div>
                 <p class="text-[9px] font-mono text-slate-400 truncate mt-0.5">${meta.rawName}</p>
               </div>
-              <span class="text-[9px] font-mono text-[#FFB300] bg-[#FFB300]/10 border border-[#FFB300]/20 px-2.5 py-1 rounded shrink-0">STREAM</span>
+              <span class="vault-stream-tag text-[9px] font-mono text-[#FFB300] bg-[#FFB300]/10 border border-[#FFB300]/20 px-2.5 py-1 rounded shrink-0">${isCurrentlyPlaying ? 'PLAYING' : 'STREAM'}</span>
             </div>
           `;
         }).join('');
@@ -1657,7 +1393,6 @@ async function handleBookingSubmit(e) {
       lucide.createIcons();
     }
 
-    // JSONP callback function — bypasses CORS completely
     window.handleMixcloudLiveFeed = function(payload) {
       if (payload && payload.data && payload.data.length > 0) {
         populateMixcloudCatalog(payload.data);
@@ -1665,10 +1400,8 @@ async function handleBookingSubmit(e) {
     };
 
     function syncMixcloudLiveData() {
-      // 1. Populate initial fallback catalog so the page isn't blank for a millisecond
       populateMixcloudCatalog(fallbackCatalog);
 
-      // 2. Inject JSONP script tag for full 100-mix catalog (CORS-immune)
       const script = document.createElement('script');
       script.src = 'https://api.mixcloud.com/djdyme/cloudcasts/?limit=100&callback=handleMixcloudLiveFeed';
       script.onerror = () => {
@@ -1705,14 +1438,6 @@ async function handleBookingSubmit(e) {
       requestAnimationFrame(update);
     }
 
-    function bumpStatElement(elementId) {
-      const el = document.getElementById(elementId);
-      if (!el) return;
-      el.classList.remove('stat-bump');
-      void el.offsetWidth;
-      el.classList.add('stat-bump');
-    }
-
     window.addEventListener('DOMContentLoaded', () => {
       animateCountUp('stat-listens', 285000, statsState.listens, 1600, '');
       animateCountUp('stat-favorites', 92000, statsState.favorites, 1500, '');
@@ -1726,28 +1451,19 @@ async function handleBookingSubmit(e) {
         const delta = Math.floor(Math.random() * 4) + 1;
         statsState.listens += delta;
         const listensEl = document.getElementById('stat-listens');
-        if (listensEl) {
-          listensEl.innerText = statsState.listens.toLocaleString();
-          bumpStatElement('stat-listens');
-        }
+        if (listensEl) listensEl.innerText = statsState.listens.toLocaleString();
       }, 3200);
 
       setInterval(() => {
         statsState.favorites += 1;
         const favEl = document.getElementById('stat-favorites');
-        if (favEl) {
-          favEl.innerText = statsState.favorites.toLocaleString();
-          bumpStatElement('stat-favorites');
-        }
+        if (favEl) favEl.innerText = statsState.favorites.toLocaleString();
       }, 5500);
 
       setInterval(() => {
         statsState.reposts += 1;
         const repEl = document.getElementById('stat-reposts');
-        if (repEl) {
-          repEl.innerText = statsState.reposts.toLocaleString();
-          bumpStatElement('stat-reposts');
-        }
+        if (repEl) repEl.innerText = statsState.reposts.toLocaleString();
       }, 8200);
     });
   </script>
