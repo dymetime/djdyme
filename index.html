@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@800;900&family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -45,6 +45,7 @@
             display: ['Montserrat', 'sans-serif'],
             sans: ['Space Grotesk', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
+            avantgarde: ['"League Spartan"', '"ITC Avant Garde Gothic"', '"Avant Garde"', '"Century Gothic"', 'sans-serif'],
           }
         }
       }
@@ -118,7 +119,7 @@
 
   <div class="ambient-backdrop"></div>
 
-  <!-- HEADER -->
+  <!-- HEADER (PULL UP FRIDAYS | DYMETIME RADIO | VIDEOS | ABOUT) -->
   <header class="sticky top-0 z-40 bg-[#050811]/95 backdrop-blur-xl border-b border-white/[0.08]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between">
       <a href="#" class="flex items-center gap-1.5 group">
@@ -126,18 +127,18 @@
         <span class="w-1.5 h-1.5 rounded-full bg-[#FFB300] shadow-[0_0_8px_#FFB300]"></span>
       </a>
       
-      <!-- User Requested Exact Navigation Hierarchy -->
       <nav class="hidden md:flex items-center gap-4 text-[11px] font-mono tracking-widest text-slate-300">
         <a href="#pull-up-fridays" class="hover:text-[#FFD54F] transition">PULL UP FRIDAYS</a>
         <span class="text-slate-600">|</span>
         <a href="#dymetime-radio" class="hover:text-[#FFD54F] transition">DYMETIME RADIO</a>
         <span class="text-slate-600">|</span>
-        <a href="#video-mixes" class="hover:text-[#FFD54F] transition">VISUALS</a>
+        <a href="#video-mixes" class="hover:text-[#FFD54F] transition">VIDEOS</a>
         <span class="text-slate-600">|</span>
+        <a href="#about-me" class="hover:text-[#FFD54F] transition">ABOUT</a>
       </nav>
 
       <div class="flex items-center gap-2">
-        <button onclick="openBookingModal()" class="px-3.5 py-1.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[11px] uppercase tracking-wider transition">
+        <button onclick="openBookingModal()" class="px-3 py-1.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[11px] uppercase tracking-wider transition">
           Bookings
         </button>
         <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 text-slate-300 hover:text-white">
@@ -150,9 +151,9 @@
     <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-[#050811]/98 px-5 py-3 space-y-2 text-xs font-mono tracking-wider text-slate-200">
       <a href="#pull-up-fridays" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">PULL UP FRIDAYS</a>
       <a href="#dymetime-radio" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">DYMETIME RADIO</a>
-      <a href="#video-mixes" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">VISUALS</a>
-      <a href="#mix-vault" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">THE VAULT</a>
+      <a href="#video-mixes" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">VIDEOS</a>
       <a href="#about-me" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">ABOUT</a>
+      <a href="#mix-vault" onclick="toggleMobileMenu()" class="block py-1 hover:text-[#FFD54F]">THE VAULT</a>
       <a href="#spotify-playlist" onclick="toggleMobileMenu()" class="block py-1 text-[#1DB954]">SPOTIFY PLAYLIST</a>
       <a href="#stage-dispatch" onclick="toggleMobileMenu()" class="block py-1 text-[#FFD54F]">TOUR & VIP ACCESS</a>
     </div>
@@ -167,16 +168,16 @@
            onerror="if(!this.t1){this.t1=true;this.src='dymebanner26.jpg';}else if(!this.t2){this.t2=true;this.src='images/djdymebanner26.png';}else{this.src='djdymebanner26.png';}">
     </div>
 
-    <!-- REFINED COMMAND BAR: Stream Latest Drop + The Vault (Returned & Sized Down) -->
+    <!-- COMMAND BAR: Stream Latest Drop + The Vault (Sized Down) -->
     <div class="mt-3 flex items-center justify-between gap-2.5 pb-2.5 border-b border-white/[0.08]">
       <div class="flex items-center gap-2">
-        <button id="hero-latest-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="h-9 px-4 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[11px] uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_14px_rgba(255,179,0,0.25)]">
-          <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+        <button id="hero-latest-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="h-8 px-3.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,179,0,0.25)]">
+          <i data-lucide="play" class="w-3 h-3 fill-current"></i>
           <span>Stream Latest Drop</span>
         </button>
 
-        <a href="#mix-vault" class="h-9 px-3.5 rounded-md bg-white/[0.04] hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-mono text-[11px] uppercase tracking-wider transition flex items-center gap-1.5">
-          <i data-lucide="folder-lock" class="w-3.5 h-3.5 text-red-500"></i>
+        <a href="#mix-vault" class="h-8 px-3 rounded-md bg-white/[0.04] hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-mono text-[10px] uppercase tracking-wider transition flex items-center gap-1.5">
+          <i data-lucide="folder-lock" class="w-3 h-3 text-red-500"></i>
           <span>The Vault</span>
         </a>
       </div>
@@ -197,12 +198,23 @@
 
     <!-- 01 // PULL UP FRIDAYS -->
     <section id="pull-up-fridays" class="space-y-3">
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 border-b border-white/[0.08] pb-2">
-        <div class="flex items-center gap-2.5">
+      <!-- OFFICIAL SYNDICATION BROADCAST HEADER -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.08] pb-2.5">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#FFB300]/15 text-[#FFB300] border border-[#FFB300]/30 text-[9px] font-mono uppercase font-bold tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#FFB300] animate-pulse"></span>
+              WEEKLY DROPS
+            </span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/10 text-[9px] font-mono uppercase font-semibold tracking-wider">
+              <i data-lucide="radio" class="w-2.5 h-2.5 text-[#FFB300]"></i>
+              SPINZ FM BROADCAST
+            </span>
+          </div>
           <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">PULL UP FRIDAYS</h2>
-          <span class="text-[9px] font-mono text-[#FFB300] uppercase tracking-widest font-bold">SPINZ FM</span>
         </div>
-        <div class="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+
+        <div class="flex items-center gap-2 text-[10px] font-mono text-slate-400 self-start sm:self-auto">
           <span class="uppercase tracking-widest text-slate-500">Next Drop:</span>
           <div id="drop-timer" class="font-bold text-[#FFB300] flex items-center gap-1">
             <span id="timer-days">00</span>d : <span id="timer-hours">00</span>h : <span id="timer-mins">00</span>m : <span id="timer-secs">00</span>s
@@ -210,7 +222,7 @@
         </div>
       </div>
 
-      <!-- Prominent Featured Mix Anchor (Distinctly Larger & Hero Styled) -->
+      <!-- Prominent Featured Mix Anchor -->
       <div id="puf-featured-card" class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#0e1628] to-[#090f1d] border-2 border-[#FFB300]/50 shadow-[0_4px_24px_rgba(255,179,0,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div class="flex items-center gap-3.5 min-w-0">
           <div id="puf-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg bg-black border border-[#FFB300]/50 overflow-hidden flex items-center justify-center cursor-pointer hover:border-[#FFB300] transition relative group" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')">
@@ -228,16 +240,16 @@
         </div>
 
         <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
-          <button id="puf-featured-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="h-9 px-4 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[11px] uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,179,0,0.3)]">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Mix
+          <button id="puf-featured-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="h-8 px-3.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] uppercase tracking-wider transition flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,179,0,0.3)]">
+            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Mix
           </button>
-          <button onclick="triggerDownloadGate('Pull Up Fridays - Ep. 57')" class="h-9 px-3 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-[#FFB300] transition" title="Download Master File">
+          <button onclick="triggerDownloadGate('Pull Up Fridays - Ep. 57')" class="h-8 px-2.5 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-[#FFB300] transition" title="Download Master File">
             <i data-lucide="download" class="w-3.5 h-3.5"></i>
           </button>
         </div>
       </div>
 
-      <!-- Slimmed Down Grid Mixes (Landscape Compact Orientation) -->
+      <!-- Slimmed Down Grid Mixes -->
       <div id="puf-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-2.5"></div>
       <div id="puf-mobile-grid" class="grid sm:hidden grid-cols-1 gap-2"></div>
 
@@ -283,8 +295,8 @@
             <p id="radio-featured-desc" class="text-xs text-slate-300 truncate">Southern Hip Hop, Crunk classics & Dirty South master blend.</p>
           </div>
         </div>
-        <button id="radio-featured-btn" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')" class="h-9 px-4 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[11px] uppercase tracking-wider transition flex items-center gap-1.5 self-end sm:self-center shadow-[0_0_12px_rgba(255,179,0,0.3)]">
-          <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Play Session
+        <button id="radio-featured-btn" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')" class="h-8 px-3.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] uppercase tracking-wider transition flex items-center gap-1.5 self-end sm:self-center shadow-[0_0_12px_rgba(255,179,0,0.3)]">
+          <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play Session
         </button>
       </div>
 
@@ -308,29 +320,29 @@
       </div>
     </section>
 
-    <!-- 03 // METRICS (Space Grotesk Tight Heavy Numbers — Font Audit Fix) -->
+    <!-- 03 // METRICS (AVANT-GARDE BLACK NUMBER STYLING) -->
     <section id="stats-container" class="border-y border-white/[0.08] py-6">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
         <div>
-          <div id="stat-listens" class="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tighter">300,000</div>
+          <div id="stat-listens" class="text-3xl sm:text-4xl font-avantgarde font-black text-white tracking-tight">300,000</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
             <i data-lucide="headphones" class="w-3 h-3 text-[#FFB300]"></i> Global Plays
           </div>
         </div>
         <div class="pt-3 sm:pt-0">
-          <div id="stat-favorites" class="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tighter">100,000</div>
+          <div id="stat-favorites" class="text-3xl sm:text-4xl font-avantgarde font-black text-white tracking-tight">100,000</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
             <i data-lucide="heart" class="w-3 h-3 text-red-500"></i> Favorites
           </div>
         </div>
         <div class="pt-3 sm:pt-0">
-          <div id="stat-reposts" class="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tighter">10,000</div>
+          <div id="stat-reposts" class="text-3xl sm:text-4xl font-avantgarde font-black text-white tracking-tight">10,000</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
             <i data-lucide="repeat" class="w-3 h-3 text-green-400"></i> Reposts
           </div>
         </div>
         <div class="pt-3 sm:pt-0">
-          <div id="stat-episodes" class="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tighter">100+</div>
+          <div id="stat-episodes" class="text-3xl sm:text-4xl font-avantgarde font-black text-white tracking-tight">100+</div>
           <div class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 flex items-center justify-center gap-1">
             <i data-lucide="radio" class="w-3 h-3 text-[#FFD54F]"></i> Master Shows
           </div>
@@ -355,7 +367,7 @@
           <div class="relative w-full aspect-video bg-black cursor-pointer overflow-hidden" onclick="playActiveMobileVideo()">
             <img id="mobile-video-thumb" src="https://img.youtube.com/vi/lFpetLPcdqI/hqdefault.jpg" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-10 h-10 rounded-full bg-[#FFB300] text-black flex items-center justify-center shadow-lg"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
+              <div class="w-11 h-11 rounded-full bg-[#FFB300] text-black flex items-center justify-center shadow-lg"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
             </div>
             <span id="mobile-video-duration" class="absolute bottom-2 right-2 bg-black text-white font-mono text-[9px] px-1.5 py-0.5 rounded">26:24</span>
           </div>
@@ -476,7 +488,7 @@
           <h3 class="text-xl sm:text-2xl font-display font-black text-white tracking-tight">SECURE DATES FOR TOURS & RESIDENCIES</h3>
           <p class="text-xs text-slate-400 font-light">Available worldwide for club dates, concert stages, private events, and syndication slots.</p>
         </div>
-        <button onclick="openBookingModal()" class="h-10 px-6 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shrink-0 flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(255,179,0,0.25)]">
+        <button onclick="openBookingModal()" class="h-9 px-5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shrink-0 flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(255,179,0,0.25)]">
           <span>Inquire For Dates</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
@@ -494,7 +506,7 @@
         </div>
         <button onclick="openVipModal()" class="h-8 px-4 rounded bg-white/[0.05] hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-mono text-[11px] uppercase tracking-wider shrink-0 transition flex items-center justify-center gap-1.5">
           <span>Subscribe</span>
-          <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
         </button>
       </div>
     </section>
@@ -514,7 +526,6 @@
       <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition">Spotify</a>
     </div>
 
-    <!-- Exact Requested Copyright Line -->
     <div class="text-[10px] font-mono text-slate-400 tracking-widest uppercase">
       © 2026 | Music Is For Promo Use Only
     </div>
@@ -713,7 +724,7 @@
       const heading = document.getElementById('vip-modal-heading');
       const sub = document.getElementById('vip-modal-subheading');
       if (heading) heading.innerText = 'VIP MASTER LIST';
-      if (sub) sub.innerText = 'Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before broadcast.';
+      if (sub) sub.innerText = 'Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.';
       const modal = document.getElementById('vip-modal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
@@ -1051,19 +1062,36 @@
       m.classList.remove('flex');
     }
 
+    // RESET TO EVERY FRIDAY 7:00 PM EST (19:00:00)
     function updateCountdown() {
       const now = new Date();
       let target = new Date();
-      const dayOfWeek = now.getDay();
-      let days = (5 - dayOfWeek + 7) % 7;
-      target.setDate(now.getDate() + days);
-      target.setHours(12, 0, 0, 0);
-      if (dayOfWeek === 5 && now >= target) target.setDate(target.getDate() + 7);
+      const dayOfWeek = now.getDay(); // 0 is Sunday, 5 is Friday
+      
+      let daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+      target.setDate(now.getDate() + daysUntilFriday);
+      target.setHours(19, 0, 0, 0); // 7:00 PM EST
+
+      // If today is Friday and 7:00 PM has passed, target next Friday 7:00 PM
+      if (dayOfWeek === 5 && now >= target) {
+        target.setDate(target.getDate() + 7);
+      }
+
       const diff = target - now;
-      document.getElementById('timer-days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-      document.getElementById('timer-hours').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-      document.getElementById('timer-mins').innerText = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
-      document.getElementById('timer-secs').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+      const mins = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
+      const secs = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+
+      const dEl = document.getElementById('timer-days');
+      const hEl = document.getElementById('timer-hours');
+      const mEl = document.getElementById('timer-mins');
+      const sEl = document.getElementById('timer-secs');
+
+      if (dEl) dEl.innerText = days;
+      if (hEl) hEl.innerText = hours;
+      if (mEl) mEl.innerText = mins;
+      if (sEl) sEl.innerText = secs;
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
@@ -1137,7 +1165,7 @@
         heroBtn.onclick = () => playMixcloud(latest.slug, latestMeta.mainTitle, latestMeta.subTitle);
       }
 
-      // SLIMMED DOWN MIX CARD RENDERER (Compact horizontal row style)
+      // SLIMMED DOWN MIX CARD RENDERER
       const renderCoverCard = (item, isDrawer = false, extraClasses = '', badgeLabel = 'EPISODE') => {
         const artworkUrl = item.cast.pictures?.large || item.cast.pictures?.['320wx320h'] || item.cast.pictures?.medium || '';
         return `
@@ -1158,8 +1186,8 @@
                 <p class="text-[10px] text-slate-400 font-mono truncate">${item.meta.rawName}</p>
               </div>
             </div>
-            <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="h-8 px-3 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition shrink-0 flex items-center gap-1">
-              <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play
+            <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="h-7 px-3 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition shrink-0 flex items-center gap-1">
+              <i data-lucide="play" class="w-2.5 h-2.5 fill-current"></i> Play
             </button>
           </div>
         `;
