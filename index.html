@@ -72,32 +72,10 @@
       scrollbar-width: thin;
     }
 
-    /* Yellow Scrollbar */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
     ::-webkit-scrollbar-track { background: #050811; }
     ::-webkit-scrollbar-thumb { background: #FFB300; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #FFD54F; }
-
-    /* Yellow Scrolling Bar */
-    .marquee-container {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      display: flex;
-      width: 100%;
-      background: #FFB300;
-      color: #000000;
-    }
-    .marquee-track {
-      display: flex;
-      flex-shrink: 0;
-      will-change: transform;
-      animation: marqueeScroll 22s linear infinite;
-    }
-    @keyframes marqueeScroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
-    }
 
     .ambient-backdrop {
       position: fixed;
@@ -252,48 +230,6 @@
         </a>
         <span>•</span>
         <button onclick="openVipModal()" class="hover:text-[#FFB300] transition">VIP Access</button>
-      </div>
-    </div>
-
-    <!-- YELLOW SCROLLING BAR (MOBILE & DESKTOP) -->
-    <div class="mt-2.5 rounded-md overflow-hidden border border-[#FFB300]/40 shadow-[0_0_14px_rgba(255,179,0,0.2)]">
-      <div class="marquee-container py-1.5">
-        <div class="marquee-track flex items-center gap-6 text-[10px] font-mono font-black tracking-widest uppercase">
-          <span>⚡ IT'S DYMETIME</span>
-          <span>•</span>
-          <span>PULL UP FRIDAYS LIVE ON SPINZ FM 7:00 PM EST</span>
-          <span>•</span>
-          <span>THE TURN UP KING</span>
-          <span>•</span>
-          <span>STREAM LATEST DROPS & EXCLUSIVE SESSIONS</span>
-          <span>•</span>
-          <span>⚡ IT'S DYMETIME</span>
-          <span>•</span>
-          <span>PULL UP FRIDAYS LIVE ON SPINZ FM 7:00 PM EST</span>
-          <span>•</span>
-          <span>THE TURN UP KING</span>
-          <span>•</span>
-          <span>STREAM LATEST DROPS & EXCLUSIVE SESSIONS</span>
-          <span>•</span>
-        </div>
-        <div class="marquee-track flex items-center gap-6 text-[10px] font-mono font-black tracking-widest uppercase" aria-hidden="true">
-          <span>⚡ IT'S DYMETIME</span>
-          <span>•</span>
-          <span>PULL UP FRIDAYS LIVE ON SPINZ FM 7:00 PM EST</span>
-          <span>•</span>
-          <span>THE TURN UP KING</span>
-          <span>•</span>
-          <span>STREAM LATEST DROPS & EXCLUSIVE SESSIONS</span>
-          <span>•</span>
-          <span>⚡ IT'S DYMETIME</span>
-          <span>•</span>
-          <span>PULL UP FRIDAYS LIVE ON SPINZ FM 7:00 PM EST</span>
-          <span>•</span>
-          <span>THE TURN UP KING</span>
-          <span>•</span>
-          <span>STREAM LATEST DROPS & EXCLUSIVE SESSIONS</span>
-          <span>•</span>
-        </div>
       </div>
     </div>
   </section>
