@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Syne:wght@800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -220,7 +220,8 @@
 
     <!-- 01 // PULL UP FRIDAYS -->
     <section id="pull-up-fridays" class="space-y-3">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.08] pb-2.5">
+      <!-- SYNDICATION HEADER -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
         <div>
           <div class="flex flex-wrap items-center gap-2 mb-1">
             <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#FFB300]/15 text-[#FFB300] border border-[#FFB300]/30 text-[9px] font-mono uppercase font-bold tracking-wider">
@@ -243,7 +244,7 @@
         </div>
       </div>
 
-      <!-- Featured Mix Anchor -->
+      <!-- Prominent Featured Mix Anchor -->
       <div id="puf-featured-card" class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#0e1628] to-[#090f1d] border-2 border-[#FFB300]/50 shadow-[0_4px_24px_rgba(255,179,0,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div class="flex items-center gap-3.5 min-w-0">
           <div id="puf-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg bg-black border border-[#FFB300]/50 overflow-hidden flex items-center justify-center cursor-pointer hover:border-[#FFB300] transition relative group" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')">
@@ -270,7 +271,7 @@
         </div>
       </div>
 
-      <!-- Slimmed Down Grid Mixes -->
+      <!-- Slimmed Down Grid Mixes (Full-Card Interactive, Repetitive Buttons Dropped) -->
       <div id="puf-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-2.5"></div>
       <div id="puf-mobile-grid" class="grid sm:hidden grid-cols-1 gap-2"></div>
 
@@ -292,7 +293,7 @@
 
     <!-- 02 // DYMETIME RADIO -->
     <section id="dymetime-radio" class="space-y-3">
-      <div class="flex items-baseline justify-between border-b border-white/[0.08] pb-2">
+      <div class="flex items-baseline justify-between pb-2">
         <div class="flex items-center gap-2.5">
           <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">DYMETIME RADIO</h2>
           <span class="text-[9px] font-mono text-[#FFB300] uppercase tracking-widest font-bold">SYNDICATED</span>
@@ -300,7 +301,7 @@
         <span class="text-[9px] font-mono text-slate-500 uppercase tracking-widest">OFFICIAL SESSIONS</span>
       </div>
 
-      <!-- Prominent Featured Radio Anchor -->
+      <!-- Featured Radio Anchor -->
       <div id="radio-featured-card" class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#0e1628] to-[#090f1d] border-2 border-[#FFD54F]/50 shadow-[0_4px_24px_rgba(255,213,79,0.12)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div class="flex items-center gap-3.5 min-w-0">
           <div id="radio-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg bg-black border border-[#FFD54F]/50 overflow-hidden flex items-center justify-center cursor-pointer hover:border-[#FFD54F] transition relative group" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
@@ -341,7 +342,7 @@
       </div>
     </section>
 
-    <!-- 03 // METRICS (HANSON FONT APPLIED) -->
+    <!-- 03 // METRICS (HANSON FONT) -->
     <section id="stats-container" class="border-y border-white/[0.08] py-6">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
         <div>
@@ -373,7 +374,7 @@
 
     <!-- 04 // VIDEO MIXES -->
     <section id="video-mixes" class="space-y-3">
-      <div class="flex items-center justify-between border-b border-white/[0.08] pb-2">
+      <div class="flex items-center justify-between pb-2">
         <div class="flex items-center gap-2">
           <h2 class="text-lg sm:text-xl font-display font-black text-white tracking-wide">VISUAL SETS</h2>
           <span class="text-[9px] font-mono text-red-400 tracking-widest uppercase font-bold">YOUTUBE</span>
@@ -390,7 +391,7 @@
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
               <div class="w-11 h-11 rounded-full bg-[#FFB300] text-black flex items-center justify-center shadow-lg"><i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i></div>
             </div>
-            <span id="mobile-video-duration" class="absolute bottom-2 right-2 bg-black text-white font-mono text-[9px] px-2 py-0.5 rounded">26:24</span>
+            <span id="mobile-video-duration" class="absolute bottom-2 right-2 bg-black text-white font-mono text-[9px] px-1.5 py-0.5 rounded">26:24</span>
           </div>
           <div class="p-3 flex items-center justify-between gap-3">
             <div class="min-w-0 flex-1">
@@ -413,7 +414,7 @@
     </section>
 
     <!-- 05 // THE VAULT (100% UNTOUCHED TEXT-LIST CATALOG) -->
-    <section id="mix-vault" class="space-y-4">
+    <section id="mix-vault" class="space-y-4 pt-2">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-3">
           <h2 class="text-lg sm:text-xl font-display font-extrabold text-white tracking-wide">THE VAULT</h2>
@@ -452,8 +453,8 @@
       <div id="vault-list" class="vault-scroll-container space-y-1.5"></div>
     </section>
 
-    <!-- 06 // BIOGRAPHY -->
-    <section id="about-me" class="border-y border-white/[0.08] py-8">
+    <!-- 06 // BIOGRAPHY (Breathed Out with Margin) -->
+    <section id="about-me" class="border-y border-white/[0.08] py-10 my-4">
       <div class="flex flex-col md:flex-row items-center gap-6">
         <div class="w-36 h-36 sm:w-44 sm:h-44 shrink-0 rounded-xl overflow-hidden border border-white/10 bg-black">
           <img src="images/dj%20dyme%201.JPG"
@@ -483,9 +484,9 @@
       </div>
     </section>
 
-    <!-- 07 // SPOTIFY COMPANION -->
-    <section id="spotify-playlist" class="space-y-2.5">
-      <div class="flex items-center justify-between border-b border-white/[0.08] pb-2">
+    <!-- 07 // SPOTIFY COMPANION (Breathed Out) -->
+    <section id="spotify-playlist" class="space-y-2.5 my-4">
+      <div class="flex items-center justify-between pb-2">
         <div class="flex items-center gap-2">
           <h2 class="text-base sm:text-lg font-display font-black text-white tracking-wide">SPOTIFY COMPANION</h2>
           <span class="text-[9px] font-mono text-[#1DB954] uppercase font-bold">PLAYLIST</span>
@@ -500,7 +501,7 @@
     </section>
 
     <!-- 08 // DISPATCH (Compact Single Deck) -->
-    <section id="stage-dispatch" class="rounded-xl depth-card p-5 sm:p-6 space-y-4">
+    <section id="stage-dispatch" class="rounded-xl depth-card p-5 sm:p-6 space-y-4 my-4">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
         <div class="space-y-1 max-w-xl">
           <span class="text-[9px] font-mono text-[#FFB300] uppercase font-bold tracking-widest flex items-center gap-1.5">
@@ -746,7 +747,7 @@
       const heading = document.getElementById('vip-modal-heading');
       const sub = document.getElementById('vip-modal-subheading');
       if (heading) heading.innerText = 'VIP MASTER LIST';
-      if (sub) sub.innerText = 'Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before broadcast.';
+      if (sub) sub.innerText = 'Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.';
       const modal = document.getElementById('vip-modal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
@@ -1101,7 +1102,6 @@
       m.classList.remove('flex');
     }
 
-    // STRICT COUNTDOWN: TARGET EVERY FRIDAY AT 7:00 PM EST (19:00:00)
     function updateCountdown() {
       const now = new Date();
       let target = new Date();
@@ -1203,13 +1203,13 @@
         heroBtn.onclick = () => playMixcloud(latest.slug, latestMeta.mainTitle, latestMeta.subTitle);
       }
 
-      // SLIMMED DOWN MIX CARD RENDERER
+      // SLIMMED DOWN FULL-CARD INTERACTIVE RENDERER (NO REPETITIVE PLAY BUTTONS)
       const renderCoverCard = (item, isDrawer = false, extraClasses = '', badgeLabel = 'EPISODE') => {
         const artworkUrl = item.cast.pictures?.large || item.cast.pictures?.['320wx320h'] || item.cast.pictures?.medium || '';
         return `
-          <div class="p-2.5 rounded-xl depth-card flex items-center justify-between gap-3 group hover:border-[#FFB300]/60 transition ${extraClasses}">
+          <div onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="p-2.5 rounded-xl depth-card flex items-center justify-between gap-3 group hover:border-[#FFB300]/60 transition cursor-pointer ${extraClasses}">
             <div class="flex items-center gap-3 min-w-0">
-              <div class="relative w-12 h-12 rounded-lg overflow-hidden bg-black/60 shrink-0 border border-white/10">
+              <div class="relative w-12 h-12 rounded-lg overflow-hidden bg-black/60 shrink-0 border border-white/10 group-hover:scale-105 transition duration-300">
                 ${artworkUrl ? `
                   <img src="${artworkUrl}" alt="${item.meta.subTitle}" loading="lazy" class="w-full h-full object-cover">
                 ` : `
@@ -1217,6 +1217,9 @@
                     ${item.meta.epNumber || '•'}
                   </div>
                 `}
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                  <i data-lucide="play" class="w-4 h-4 fill-[#FFB300] text-[#FFB300]"></i>
+                </div>
               </div>
               <div class="min-w-0">
                 <span class="text-[9px] font-mono text-[#FFB300] font-bold block">${badgeLabel} ${item.meta.epNumber || 'DROP'}</span>
@@ -1224,9 +1227,9 @@
                 <p class="text-[10px] text-slate-400 font-mono truncate">${item.meta.rawName}</p>
               </div>
             </div>
-            <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="h-7 px-3 rounded bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition shrink-0 flex items-center gap-1">
-              <i data-lucide="play" class="w-2.5 h-2.5 fill-current"></i> Play
-            </button>
+            <div class="w-7 h-7 rounded-full bg-white/5 group-hover:bg-[#FFB300] text-slate-400 group-hover:text-black flex items-center justify-center shrink-0 transition">
+              <i data-lucide="play" class="w-3 h-3 fill-current ml-0.5"></i>
+            </div>
           </div>
         `;
       };
@@ -1357,7 +1360,7 @@
         }
       }
 
-      // 3. The Vault (WITH HIGHLIGHT IDENTIFIERS)
+      // 3. The Vault (WITH NOW-PLAYING HIGHLIGHT CAPABILITY)
       const vaultContainer = document.getElementById('vault-list');
       if (vaultContainer) {
         vaultContainer.innerHTML = cloudcasts.map(item => {
