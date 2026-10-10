@@ -144,7 +144,7 @@
 
     .vault-item.active-playing {
       border-color: #FFB300 !important;
-      background: rgba(255, 179, 0, 0.12) !important;
+      background: rgba(255, 179, 0, 0.14) !important;
       box-shadow: 0 0 18px rgba(255, 179, 0, 0.25) !important;
     }
     .vault-item.active-playing .vault-stream-tag {
@@ -237,7 +237,7 @@
   <!-- MAIN TEMPLATE -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-2 space-y-12 w-full">
 
-    <!-- 01 // PULL UP FRIDAYS (Small Pull Up Fridays badge removed; Spinz FM broadcast badge remains) -->
+    <!-- 01 // PULL UP FRIDAYS -->
     <section id="pull-up-fridays" class="space-y-3 w-full">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
         <div>
@@ -427,7 +427,7 @@
       <div id="video-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-3 w-full"></div>
     </section>
 
-    <!-- 05 // THE VAULT (CONTINUOUS AUDIO QUEUE FULLY WIRED) -->
+    <!-- 05 // THE VAULT (REPAIRED AUTOPLAY & CONTINUOUS STREAMING) -->
     <section id="mix-vault" class="space-y-4 pt-2 w-full">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-3">
@@ -487,7 +487,7 @@
             MEET DJ DYME
           </h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-            DJ Dyme is a seasoned touring DJ, radio host, and former member of the Take Over DJs coalition[cite: 1]. From dominating Atlanta's nightlife with five weekly residencies to rocking festival stages and national tours alongside headlining artists, Dyme brings undeniable energy to every stage he touches[cite: 1]. Former manager of the Piga Picha Crew and a staple on the airwaves, he currently rocks SPiNZ FM and hosts his decade-long syndicated franchise, Pull Up Fridays[cite: 1].
+            DJ Dyme is a seasoned touring DJ, radio host, and former member of the Take Over DJs coalition. From dominating Atlanta's nightlife with five weekly residencies to rocking festival stages and national tours alongside headlining artists, Dyme brings undeniable energy to every stage he touches. Former manager of the Piga Picha Crew and a staple on the airwaves, he currently rocks SPiNZ FM and hosts his decade-long syndicated franchise, Pull Up Fridays.
           </p>
           <div class="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-2.5 text-[9px] font-mono text-slate-400">
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10">5+ Weekly Residencies</span>
@@ -998,7 +998,7 @@
     document.addEventListener('pointerdown', () => { userHasInteracted = true; }, { once: true });
     document.addEventListener('click', () => { userHasInteracted = true; }, { once: true });
 
-    window.addEventListener('load', () => {
+    function initMixcloudWidget() {
       mcWidget = Mixcloud.PlayerWidget(mcFrame);
       mcWidget.ready.then(() => {
         mcWidget.events.play.on(() => {
@@ -1010,7 +1010,7 @@
           updateDeckUI();
         });
         mcWidget.events.ended.on(() => {
-          playNextTrack();
+          playNextTrack(); // Continuous autoplay handoff
         });
         mcWidget.events.progress.on((position, duration) => {
           const posMins = Math.floor(position / 60);
@@ -1027,8 +1027,12 @@
             document.getElementById('progress-bar').style.width = ((position / duration) * 100) + '%';
           }
         });
+      }).catch(err => {
+        console.warn('Mixcloud Widget initialization retry scheduled:', err);
       });
-    });
+    }
+
+    window.addEventListener('load', initMixcloudWidget);
 
     function highlightActiveVaultTrack(slug) {
       currentActiveSlug = slug;
@@ -1059,13 +1063,16 @@
         currentTrackIndex = idx;
       }
 
+      const feedUrl = `/djdyme/${slug}/`;
+
       if (mcWidget) {
-        mcWidget.load(`/djdyme/${slug}/`, true)
+        mcWidget.load(feedUrl, true)
           .then(() => {
-            mcWidget.play();
+            return mcWidget.play();
           })
           .catch(() => {
-            mcWidget.play();
+            // Re-trigger play in case promise was rejected by browser policy
+            if (mcWidget.play) mcWidget.play();
           });
       }
     }
