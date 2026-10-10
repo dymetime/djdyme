@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -157,7 +157,7 @@
     </div>
   </header>
 
-  <!-- BANNER & FLOATING HEADLINER BAR (Option B) -->
+  <!-- BANNER & STREAM BAR -->
   <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-2 w-full">
     <div class="w-full aspect-[4/1] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0b101d] relative group">
       <img src="images/dymebanner26.jpg" 
@@ -166,36 +166,26 @@
            onerror="if(!this.t1){this.t1=true;this.src='dymebanner26.jpg';}else if(!this.t2){this.t2=true;this.src='images/djdymebanner26.png';}else{this.src='djdymebanner26.png';}">
     </div>
 
-    <!-- FLOATING HEADLINER BAR (No box, edge-to-edge breathing room) -->
-    <div class="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-2 border-b border-white/[0.08]">
+    <!-- CLEAN DIRECT STREAM TRIGGER (Vault button & On-Air text removed) -->
+    <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 pb-3 border-b border-white/[0.08]">
       <div class="flex items-center gap-3">
-        <span class="flex h-2.5 w-2.5 relative shrink-0">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFB300] opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFB300]"></span>
-        </span>
-        <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-[#FFB300] font-bold block">PULL UP FRIDAYS EP. 57 // ON AIR</span>
-          <h2 class="text-sm font-display font-black text-white truncate">Kompa, Afrobeat & Dancehall Set</h2>
-        </div>
+        <span class="w-2 h-2 rounded-full bg-[#FFB300]"></span>
+        <span class="text-xs font-mono uppercase tracking-widest text-slate-300 font-bold">LATEST FEATURED MIXSTREAM</span>
       </div>
 
       <div class="flex items-center gap-2.5 w-full sm:w-auto">
-        <button id="hero-latest-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="min-h-[44px] flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-[0_0_20px_rgba(255,179,0,0.3)]">
+        <button id="hero-latest-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')" class="min-h-[44px] w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-xs uppercase tracking-wider transition shadow-[0_0_20px_rgba(255,179,0,0.3)]">
           <i data-lucide="play" class="w-4 h-4 fill-current"></i>
-          <span>Stream Now</span>
+          <span>Stream Latest Drop</span>
         </button>
-        <a href="#mix-vault" class="min-h-[44px] flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 hover:text-white font-mono text-xs uppercase tracking-wider transition">
-          <i data-lucide="folder-lock" class="w-3.5 h-3.5 text-red-500"></i>
-          <span>The Vault</span>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- MAIN OPEN TEMPLATE -->
+  <!-- MAIN CONTENT -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-4 space-y-16 w-full">
 
-    <!-- 01 // PULL UP FRIDAYS -->
+    <!-- 01 // PULL UP FRIDAYS (With Mixcloud Cover Art) -->
     <section id="pull-up-fridays" class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-white/[0.08] pb-3">
         <div class="flex items-center gap-3">
@@ -210,10 +200,11 @@
         </div>
       </div>
 
-      <!-- Featured Mix Card (Clean Horizontal Format, Tracklist removed) -->
+      <!-- Featured Mix Card with Dynamic Album Artwork -->
       <div id="puf-featured-card" class="p-5 sm:p-6 rounded-2xl depth-card flex flex-col sm:flex-row sm:items-center justify-between gap-5">
         <div class="flex items-center gap-4 min-w-0">
-          <div id="puf-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl bg-black/60 border border-[#FFB300]/40 flex items-center justify-center cursor-pointer hover:border-[#FFB300] transition" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')">
+          <div id="puf-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl bg-black/60 border border-[#FFB300]/40 overflow-hidden flex items-center justify-center cursor-pointer hover:border-[#FFB300] transition relative group" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall')">
+            <img id="puf-featured-art" src="" alt="Episode 57 Cover" class="w-full h-full object-cover hidden" />
             <span id="puf-featured-num" class="font-display font-black text-3xl sm:text-4xl text-[#FFB300]">57</span>
           </div>
           <div class="min-w-0 space-y-1">
@@ -236,7 +227,7 @@
         </div>
       </div>
 
-      <!-- Linear Open Stream (7 Desktop, 4 Mobile) -->
+      <!-- Grids with Artwork (7 Desktop, 4 Mobile) -->
       <div id="puf-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-3"></div>
       <div id="puf-mobile-grid" class="grid sm:hidden grid-cols-1 divide-y divide-white/[0.08]"></div>
 
@@ -256,7 +247,7 @@
       </div>
     </section>
 
-    <!-- 02 // DYMETIME RADIO -->
+    <!-- 02 // DYMETIME RADIO (With Mixcloud Cover Art) -->
     <section id="dymetime-radio" class="space-y-4">
       <div class="flex items-baseline justify-between border-b border-white/[0.08] pb-3">
         <div class="flex items-center gap-3">
@@ -268,7 +259,8 @@
 
       <div id="radio-featured-card" class="p-5 sm:p-6 rounded-2xl depth-card flex flex-col sm:flex-row sm:items-center justify-between gap-5">
         <div class="flex items-center gap-4 min-w-0">
-          <div id="radio-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl bg-black/60 border border-[#FFD54F]/40 flex items-center justify-center cursor-pointer hover:border-[#FFD54F] transition" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
+          <div id="radio-featured-num-box" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl bg-black/60 border border-[#FFD54F]/40 overflow-hidden flex items-center justify-center cursor-pointer hover:border-[#FFD54F] transition relative group" onclick="playMixcloud('dymetime-radio-29-throwback-atlanta-hits', 'Dymetime Radio - 029', 'Throwback Atlanta Hits')">
+            <img id="radio-featured-art" src="" alt="Session 029 Cover" class="w-full h-full object-cover hidden" />
             <span id="radio-featured-num" class="font-display font-black text-3xl sm:text-4xl text-[#FFD54F]">029</span>
           </div>
           <div class="min-w-0 space-y-1">
@@ -304,30 +296,30 @@
       </div>
     </section>
 
-    <!-- 03 // METRICS (Borderless Scoreboard) -->
+    <!-- 03 // METRICS (Adjusted Font for Large Numbers) -->
     <section id="stats-container" class="border-y border-white/[0.08] py-8">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
         <div>
-          <div id="stat-listens" class="text-3xl font-display font-black text-white">300,000</div>
-          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1 flex items-center justify-center gap-1.5">
+          <div id="stat-listens" class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight">300,000</div>
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1.5 flex items-center justify-center gap-1.5">
             <i data-lucide="headphones" class="w-3.5 h-3.5 text-[#FFB300]"></i> Global Plays
           </div>
         </div>
         <div class="pt-4 sm:pt-0">
-          <div id="stat-favorites" class="text-3xl font-display font-black text-white">100,000</div>
-          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1 flex items-center justify-center gap-1.5">
+          <div id="stat-favorites" class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight">100,000</div>
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1.5 flex items-center justify-center gap-1.5">
             <i data-lucide="heart" class="w-3.5 h-3.5 text-red-500"></i> Favorites
           </div>
         </div>
         <div class="pt-4 sm:pt-0">
-          <div id="stat-reposts" class="text-3xl font-display font-black text-white">10,000</div>
-          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1 flex items-center justify-center gap-1.5">
+          <div id="stat-reposts" class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight">10,000</div>
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1.5 flex items-center justify-center gap-1.5">
             <i data-lucide="repeat" class="w-3.5 h-3.5 text-green-400"></i> Reposts
           </div>
         </div>
         <div class="pt-4 sm:pt-0">
-          <div id="stat-episodes" class="text-3xl font-display font-black text-white">100+</div>
-          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1 flex items-center justify-center gap-1.5">
+          <div id="stat-episodes" class="text-3xl sm:text-4xl font-mono font-extrabold text-white tracking-tight">100+</div>
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1.5 flex items-center justify-center gap-1.5">
             <i data-lucide="radio" class="w-3.5 h-3.5 text-[#FFD54F]"></i> Master Shows
           </div>
         </div>
@@ -375,7 +367,7 @@
       <div id="video-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
     </section>
 
-    <!-- 05 // THE VAULT (100% UNTOUCHED) -->
+    <!-- 05 // THE VAULT (100% UNTOUCHED TEXT-LIST CATALOG) -->
     <section id="mix-vault" class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-3">
@@ -462,9 +454,8 @@
       </div>
     </section>
 
-    <!-- 08 // UNIFIED STAGE DISPATCH (Option B: Single High-Impact Terminal) -->
+    <!-- 08 // STAGE DISPATCH (VIP & Tour Bookings) -->
     <section id="stage-dispatch" class="rounded-2xl depth-card p-6 sm:p-8 space-y-6">
-      <!-- Top Deck: Headliner Booking Call -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/[0.08]">
         <div class="space-y-1.5 max-w-xl">
           <span class="text-[10px] font-mono text-[#FFB300] uppercase font-bold tracking-widest flex items-center gap-1.5">
@@ -479,7 +470,6 @@
         </button>
       </div>
 
-      <!-- Bottom Deck: Inline VIP Early Access Dispatch -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 rounded-lg bg-[#FFB300]/10 border border-[#FFB300]/20 flex items-center justify-center shrink-0 text-[#FFB300]">
@@ -512,8 +502,9 @@
       <a href="https://open.spotify.com/playlist/60SPCZFgu3PbSTHfJPknD1" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white transition">Spotify</a>
     </div>
 
-    <div class="text-[10px] font-mono text-slate-500 tracking-widest uppercase">
-      © 2027 DYMETIME ENT. ALL RIGHTS RESERVED.
+    <!-- UPDATED COPYRIGHT (Change 4) -->
+    <div class="text-[10px] font-mono text-slate-400 tracking-widest uppercase">
+      © 2026 | Music Is For Promo Use Only
     </div>
   </footer>
 
@@ -549,7 +540,7 @@
         <div class="w-full flex items-center gap-2 text-[9px] font-mono text-slate-400">
           <span id="current-time">00:00</span>
           <div onclick="seekDeck(event)" class="relative w-full h-1 bg-white/10 rounded-full overflow-hidden cursor-pointer">
-            <div id="progress-bar" class="h-full bg-gradient-to-r from-[#FFB300] to-[#FFD54F] w-0 pointer-events-none"></div>
+            <div id="progress-bar" class="h-full bg-[#FFB300] w-0 pointer-events-none"></div>
           </div>
           <span id="total-time">55:00</span>
         </div>
@@ -1134,31 +1125,57 @@
         heroBtn.onclick = () => playMixcloud(latest.slug, latestMeta.mainTitle, latestMeta.subTitle);
       }
 
-      // Compact Audio Card Renderer
-      const renderMixCard = (item, isDrawer = false, extraClasses = '', badgeLabel = 'EPISODE') => `
-        <div class="p-3.5 rounded-xl depth-card flex flex-col justify-between ${extraClasses}">
-          <div>
-            <span class="text-[9px] font-mono text-[#FFB300] font-bold">${badgeLabel} ${item.meta.epNumber || 'DROP'}</span>
-            <h4 class="font-display font-bold text-xs text-white truncate mt-0.5">${item.meta.subTitle}</h4>
-            <p class="text-[10px] text-slate-400 font-mono truncate mt-0.5">${item.meta.rawName}</p>
+      // CARD RENDERER WITH DYNAMIC ALBUM COVER ART
+      const renderCoverCard = (item, isDrawer = false, extraClasses = '', badgeLabel = 'EPISODE') => {
+        const artworkUrl = item.cast.pictures?.large || item.cast.pictures?.['320wx320h'] || item.cast.pictures?.medium || '';
+        return `
+          <div class="p-3 rounded-2xl depth-card flex flex-col justify-between group hover:border-[#FFB300]/60 transition ${extraClasses}">
+            <div>
+              <div class="relative w-full aspect-square bg-[#070b14] rounded-xl overflow-hidden mb-2.5 border border-white/5">
+                ${artworkUrl ? `
+                  <img src="${artworkUrl}" alt="${item.meta.subTitle}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                ` : `
+                  <div class="w-full h-full flex flex-col items-center justify-center bg-black/40 text-[#FFB300]">
+                    <span class="font-mono text-[9px] uppercase tracking-widest text-slate-500">${badgeLabel}</span>
+                    <span class="font-display font-black text-2xl">${item.meta.epNumber || '•'}</span>
+                  </div>
+                `}
+                <span class="absolute top-2 left-2 bg-black/85 text-[#FFB300] font-mono text-[9px] font-bold px-2 py-0.5 rounded tracking-wider border border-white/10 uppercase">
+                  ${badgeLabel} ${item.meta.epNumber || 'DROP'}
+                </span>
+              </div>
+              <h4 class="font-display font-bold text-xs text-white truncate group-hover:text-[#FFD54F] transition">${item.meta.subTitle}</h4>
+              <p class="text-[10px] text-slate-400 font-mono truncate mt-0.5">${item.meta.rawName}</p>
+            </div>
+            <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
+              <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play
+            </button>
           </div>
-          <button onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}')" class="w-full mt-3 flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#FFB300] text-slate-200 hover:text-black text-[10px] font-display font-bold uppercase transition">
-            <i data-lucide="play" class="w-3 h-3 fill-current"></i> Play
-          </button>
-        </div>
-      `;
+        `;
+      };
 
-      // 1. Pull Up Fridays (7 desktop, 4 mobile)
+      // 1. Pull Up Fridays (Cover Art on Featured + Grids)
       if (pufShows.length > 0) {
         const featPuf = pufShows[0];
         const numEl = document.getElementById('puf-featured-num');
+        const artEl = document.getElementById('puf-featured-art');
         const tagEl = document.getElementById('puf-featured-tag');
         const titleEl = document.getElementById('puf-featured-title');
         const descEl = document.getElementById('puf-featured-desc');
         const btnEl = document.getElementById('puf-featured-btn');
         const numBox = document.getElementById('puf-featured-num-box');
 
-        if (featPuf.meta.epNumber && numEl) numEl.innerText = featPuf.meta.epNumber;
+        const featArt = featPuf.cast.pictures?.large || featPuf.cast.pictures?.['320wx320h'] || featPuf.cast.pictures?.medium || '';
+        if (featArt && artEl) {
+          artEl.src = featArt;
+          artEl.classList.remove('hidden');
+          if (numEl) numEl.classList.add('hidden');
+        } else if (numEl) {
+          if (featPuf.meta.epNumber) numEl.innerText = featPuf.meta.epNumber;
+          numEl.classList.remove('hidden');
+          if (artEl) artEl.classList.add('hidden');
+        }
+
         if (tagEl) tagEl.innerText = `PULL UP FRIDAYS EP. ${featPuf.meta.epNumber || 'LATEST'}`;
         if (titleEl) titleEl.innerText = featPuf.meta.subTitle;
         if (descEl) descEl.innerText = featPuf.meta.rawName;
@@ -1179,20 +1196,20 @@
         const pufToggleContainer = document.getElementById('puf-toggle-container');
 
         if (pufDeskGrid) {
-          pufDeskGrid.innerHTML = pufDeskInitial.map(item => renderMixCard(item, false, '', 'EPISODE')).join('');
+          pufDeskGrid.innerHTML = pufDeskInitial.map(item => renderCoverCard(item, false, '', 'EPISODE')).join('');
         }
         if (pufMobGrid) {
           pufMobGrid.innerHTML = pufMobInitial.map((item, idx) => 
-            renderMixCard(item, false, idx === 2 ? 'col-span-2' : '', 'EPISODE')
+            renderCoverCard(item, false, idx === 2 ? 'col-span-2' : '', 'EPISODE')
           ).join('');
         }
         if (pufDeskDrawerGrid) {
-          pufDeskDrawerGrid.innerHTML = pufDeskDrawer.map(item => renderMixCard(item, true, '', 'EPISODE')).join('');
+          pufDeskDrawerGrid.innerHTML = pufDeskDrawer.map(item => renderCoverCard(item, true, '', 'EPISODE')).join('');
         }
         if (pufMobDrawerGrid) {
           pufMobDrawerGrid.innerHTML = pufMobDrawer.map((item, idx) => {
             const isLastOdd = idx === pufMobDrawer.length - 1 && pufMobDrawer.length % 2 !== 0;
-            return renderMixCard(item, true, isLastOdd ? 'col-span-2' : '', 'EPISODE');
+            return renderCoverCard(item, true, isLastOdd ? 'col-span-2' : '', 'EPISODE');
           }).join('');
         }
         if (pufToggleContainer) {
@@ -1200,18 +1217,29 @@
         }
       }
 
-      // 2. Dymetime Radio (7 desktop, 4 mobile)
+      // 2. Dymetime Radio (Cover Art on Featured + Grids)
       if (radioShows.length > 0) {
         const featRadio = radioShows[0];
         const rNumEl = document.getElementById('radio-featured-num');
+        const rArtEl = document.getElementById('radio-featured-art');
         const rTagEl = document.getElementById('radio-featured-tag');
         const rTitleEl = document.getElementById('radio-featured-title');
         const rDescEl = document.getElementById('radio-featured-desc');
         const rBtnEl = document.getElementById('radio-featured-btn');
         const rNumBox = document.getElementById('radio-featured-num-box');
 
-        if (rNumEl) rNumEl.innerText = featRadio.meta.epNumber ? featRadio.meta.epNumber.padStart(3, '0') : '029';
-        if (rTagEl) rTagEl.innerText = featRadio.meta.epNumber ? `DYMETIME RADIO ${featRadio.meta.epNumber.padStart(3, '0')}` : 'DYMETIME RADIO SESSION';
+        const radioArt = featRadio.cast.pictures?.large || featRadio.cast.pictures?.['320wx320h'] || featRadio.cast.pictures?.medium || '';
+        if (radioArt && rArtEl) {
+          rArtEl.src = radioArt;
+          rArtEl.classList.remove('hidden');
+          if (rNumEl) rNumEl.classList.add('hidden');
+        } else if (rNumEl) {
+          rNumEl.innerText = featRadio.meta.epNumber ? featRadio.meta.epNumber.padStart(3, '0') : '029';
+          rNumEl.classList.remove('hidden');
+          if (rArtEl) rArtEl.classList.add('hidden');
+        }
+
+        if (rTagEl) rTagEl.innerText = `DYMETIME RADIO ${featRadio.meta.epNumber ? featRadio.meta.epNumber.padStart(3, '0') : 'SESSION'}`;
         if (rTitleEl) rTitleEl.innerText = featRadio.meta.subTitle;
         if (rDescEl) rDescEl.innerText = featRadio.meta.rawName;
 
@@ -1231,20 +1259,20 @@
         const radioToggleContainer = document.getElementById('radio-toggle-container');
 
         if (radioDeskGrid) {
-          radioDeskGrid.innerHTML = radioDeskInitial.map(item => renderMixCard(item, false, '', 'SESSION')).join('');
+          radioDeskGrid.innerHTML = radioDeskInitial.map(item => renderCoverCard(item, false, '', 'SESSION')).join('');
         }
         if (radioMobGrid) {
           radioMobGrid.innerHTML = radioMobInitial.map((item, idx) => 
-            renderMixCard(item, false, idx === 2 ? 'col-span-2' : '', 'SESSION')
+            renderCoverCard(item, false, idx === 2 ? 'col-span-2' : '', 'SESSION')
           ).join('');
         }
         if (radioDeskDrawerGrid) {
-          radioDeskDrawerGrid.innerHTML = radioDeskDrawer.map(item => renderMixCard(item, true, '', 'SESSION')).join('');
+          radioDeskDrawerGrid.innerHTML = radioDeskDrawer.map(item => renderCoverCard(item, true, '', 'SESSION')).join('');
         }
         if (radioMobDrawerGrid) {
           radioMobDrawerGrid.innerHTML = radioMobDrawer.map((item, idx) => {
             const isLastOdd = idx === radioMobDrawer.length - 1 && radioMobDrawer.length % 2 !== 0;
-            return renderMixCard(item, true, isLastOdd ? 'col-span-2' : '', 'SESSION');
+            return renderCoverCard(item, true, isLastOdd ? 'col-span-2' : '', 'SESSION');
           }).join('');
         }
         if (radioToggleContainer) {
@@ -1252,7 +1280,7 @@
         }
       }
 
-      // 3. The Vault (100% UNTOUCHED)
+      // 3. The Vault (100% PRESERVED TEXT-LIST)
       const vaultContainer = document.getElementById('vault-list');
       if (vaultContainer) {
         vaultContainer.innerHTML = cloudcasts.map(item => {
