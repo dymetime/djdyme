@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book DJ DYME | Weddings, Corporate & Private Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070b12;
+      --bg-surface: #0e1526;
+      --bg-card: rgba(14, 21, 38, 0.7);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --yellow: #f5c400;
+      --yellow-hover: #ffd83b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding-bottom: 90px;
+      overflow-x: hidden;
+    }
+
+    /* Top Strip */
+    .top-banner {
+      background: var(--yellow);
+      color: #070b12;
+      text-align: center;
+      padding: 7px 16px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-color);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .brand-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .brand-logo span {
+      color: var(--yellow);
+    }
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .back-link {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #fff;
+    }
+    .nav-btn {
+      background: var(--yellow);
+      color: #070b12;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: var(--yellow-hover);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 70px 24px 50px;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto 32px;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-main {
+      background: var(--yellow);
+      color: #070b12;
+      padding: 13px 26px;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      padding: 13px 26px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+    }
+    .btn-outline:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    /* Genres Bar */
+    .genre-bar {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 20px;
+      margin: 30px 0 60px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: rgba(14, 21, 38, 0.4);
+    }
+    .genre-bar span {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .genre-bar b {
+      color: var(--yellow);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Service Cards */
+    .section-eyebrow {
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 34px;
+      font-size: 0.95rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 70px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 28px;
+      transition: border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: rgba(245, 196, 0, 0.3);
+    }
+    .card .num {
+      color: var(--yellow);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Stats Grid */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 36px 0;
+      margin-bottom: 70px;
+      text-align: center;
+      gap: 20px;
+    }
+    .stat h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Form Container */
+    .form-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 40px 32px;
+      margin-bottom: 50px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .col-full {
+      grid-column: span 2;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+    input, select, textarea {
+      width: 100%;
+      background: #070b12;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 13px 14px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--yellow);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .submit-button {
+      width: 100%;
+      background: var(--yellow);
+      color: #070b12;
+      padding: 15px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s ease;
+    }
+    .submit-button:hover {
+      background: var(--yellow-hover);
+    }
+
+    /* Floating Dock */
+    .sticky-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(7, 11, 18, 0.96);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 12px 16px;
+      z-index: 999;
+    }
+    .sticky-dock a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .dock-cta {
+      background: var(--yellow);
+      color: #070b12 !important;
+      padding: 9px 18px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 680px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .col-full {
+        grid-column: span 1;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+      .hero {
+        padding: 50px 18px 30px;
+      }
+      .form-box {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-banner">
+    The Soundtrack To Your Best Moments
+  </div>
+
+  <header>
+    <a href="/" class="brand-logo">DJ <span>DYME</span></a>
+    <div class="header-links">
+      <a href="/" class="back-link">← Back to Mixes</a>
+      <a href="#booking" class="nav-btn">Check Availability</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="hero-eyebrow">Dymetime Sound & Production</span>
+    <h1>Sound. Energy. <em>Style.</em></h1>
+    <p>
+      High-caliber open-format DJ sets, pristine sound engineering, and flawless event curation tailored to your celebration.
+    </p>
+    <div class="hero-buttons">
+      <a href="#booking" class="btn-main">Plan Your Event</a>
+      <a href="https://instagram.com/djdyme" target="_blank" rel="noopener" class="btn-outline">Instagram</a>
+    </div>
+  </section>
+
+  <div class="genre-bar">
+    <span>Afrobeats <b>✦</b></span>
+    <span>Amapiano <b>✦</b></span>
+    <span>Dancehall <b>✦</b></span>
+    <span>Hip-Hop <b>✦</b></span>
+    <span>R&B <b>✦</b></span>
+    <span>Reggae <b>✦</b></span>
+    <span>East African <b>✦</b></span>
+    <span>Classics</span>
+  </div>
+
+  <main class="container">
+    <section>
+      <div class="section-eyebrow">Our Services</div>
+      <h2 class="section-title">Everything your event needs to feel complete.</h2>
+      <p class="section-desc">From club-level crowd reading to corporate precision and curated wedding moments.</p>
+
+      <div class="services-grid">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>DJ & MC Services</h3>
+          <p>Seamless open-format mixing, instinctive room reading, and confident hosting that keeps guests engaged.</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>Sound & Lighting</h3>
+          <p>Crystal-clear acoustic coverage, clean cable setups, and wireless microphones balanced for speeches and party anthems.</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>Weddings & Galas</h3>
+          <p>Bespoke ceremony scoring, relaxed cocktail hours, and packed receptions planned down to the minute.</p>
+        </div>
+        <div class="card">
+          <div class="num">04</div>
+          <h3>Private Events & Festivals</h3>
+          <p>High-energy birthday sets, club pop-ups, and live broadcast events with dynamic sound presence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <h4>10+</h4>
+        <p>Years Behind The Decks</p>
+      </div>
+      <div class="stat">
+        <h4>All</h4>
+        <p>Genres & Cultures Covered</p>
+      </div>
+      <div class="stat">
+        <h4>One</h4>
+        <p>Direct Point of Contact</p>
+      </div>
+    </section>
+
+    <section class="form-box" id="booking">
+      <div class="section-eyebrow">Direct Inquiry</div>
+      <h2 class="section-title">Let’s make your event unforgettable.</h2>
+      <p class="section-desc">Submit your details below to check availability and lock in your date.</p>
+
+      <form id="bookingForm">
+        <div class="grid-2">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="First and last name" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Best Phone Number</label>
+            <input type="tel" id="phone" placeholder="(000) 000-0000" required />
+          </div>
+
+          <div class="field">
+            <label for="eventType">Event Type</label>
+            <select id="eventType" required>
+              <option value="Wedding">Wedding</option>
+              <option value="Corporate / Gala">Corporate / Gala</option>
+              <option value="Private Celebration / Birthday">Private Celebration / Birthday</option>
+              <option value="Club / Concert / Festival">Club / Concert / Festival</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="eventDate">Event Date</label>
+            <input type="date" id="eventDate" required />
+          </div>
+
+          <div class="field col-full">
+            <label for="location">Event City & Venue Name</label>
+            <input type="text" id="location" placeholder="e.g. Philadelphia, PA / The Bellevue" required />
+          </div>
+
+          <div class="field col-full">
+            <label for="details">Additional Notes (Optional)</label>
+            <textarea id="details" placeholder="Expected guest count, sound/lighting needs, or music preferences..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button">Send Booking Request</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="sticky-dock">
+    <a href="https://instagram.com/djdyme" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://mixcloud.com/djdyme" target="_blank" rel="noopener">Mixcloud</a>
+    <a href="#booking" class="dock-cta">Get A Quote</a>
+  </div>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const eventType = document.getElementById('eventType').value;
+      const date = document.getElementById('eventDate').value;
+      const location = document.getElementById('location').value.trim();
+      const details = document.getElementById('details').value.trim();
+
+      const subject = encodeURIComponent(`Booking Inquiry: ${eventType} - ${date} (${name})`);
+      const body = encodeURIComponent(
+        `Hi DJ DYME,\n\nI would like to check availability for the following event:\n\n` +
+        `• Name: ${name}\n` +
+        `• Phone: ${phone}\n` +
+        `• Event Type: ${eventType}\n` +
+        `• Date: ${date}\n` +
+        `• Location / Venue: ${location}\n` +
+        `• Additional Notes:\n${details || 'None provided'}\n\n` +
+        `Looking forward to hearing from you!`
+      );
+
+      window.location.href = `mailto:booking@djdyme.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
