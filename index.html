@@ -209,7 +209,7 @@
            onerror="if(!this.t1){this.t1=true;this.src='dymebanner26.jpg';}else if(!this.t2){this.t2=true;this.src='images/djdymebanner26.png';}else{this.src='djdymebanner26.png';}">
     </div>
 
-    <!-- COMMAND BAR: Stream Latest Drop -->
+    <!-- COMMAND BAR -->
     <div class="mt-3 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:justify-between pb-2.5 border-b border-white/[0.08]">
       <div class="contents sm:flex sm:items-center sm:gap-2">
         <button id="hero-latest-btn" onclick="playMixcloud('spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', 'Pull Up Fridays - Ep. 57', 'Kompa, Afrobeat & Dancehall', 'puf')" class="h-9 px-2 sm:px-3.5 rounded-md bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[9.5px] sm:text-[11px] uppercase tracking-wider transition flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(255,179,0,0.25)] min-w-0">
@@ -518,7 +518,7 @@
       </div>
     </section>
 
-    <!-- 08 // DISPATCH (SECURE DATES FOR BOOKINGS) -->
+    <!-- 08 // DISPATCH (SECURE DATES, JOIN VIP, CASH APP & BUY ME COFFEE) -->
     <section id="stage-dispatch" class="rounded-xl depth-card p-5 sm:p-6 space-y-4 my-4 w-full">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
         <div class="space-y-1 max-w-xl">
@@ -534,20 +534,39 @@
         </button>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-0.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded bg-[#FFB300]/10 border border-[#FFB300]/20 flex items-center justify-center shrink-0 text-[#FFB300]">
-            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+      <!-- VIP EMAIL LIST & SLIM SUPPORT TABS -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-1">
+        <div class="flex items-center justify-between sm:justify-start gap-3 flex-1 min-w-0">
+          <div class="flex items-center gap-2.5 min-w-0">
+            <div class="w-8 h-8 rounded bg-[#FFB300]/10 border border-[#FFB300]/20 flex items-center justify-center shrink-0 text-[#FFB300]">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            </div>
+            <div class="truncate">
+              <h4 class="font-display font-bold text-xs text-white truncate">Join the VIP Email List</h4>
+              <p class="text-[11px] text-slate-400 truncate">Master downloads Friday at 12:00 PM EST before syndication.</p>
+            </div>
           </div>
-          <div>
-            <h4 class="font-display font-bold text-xs text-white">Join the VIP Email List</h4>
-            <p class="text-[11px] text-slate-400">Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.</p>
-          </div>
+          <button onclick="openVipModal()" class="h-8 px-3.5 rounded bg-white/[0.05] hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-mono text-[10px] uppercase tracking-wider shrink-0 transition flex items-center justify-center gap-1">
+            <span>Subscribe</span>
+            <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+          </button>
         </div>
-        <button onclick="openVipModal()" class="h-8 px-4 rounded bg-white/[0.05] hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-mono text-[11px] uppercase tracking-wider shrink-0 transition flex items-center justify-center gap-1.5">
-          <span>Subscribe</span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-        </button>
+
+        <!-- SLIM TABS: CASH APP & BUY ME COFFEE -->
+        <div class="flex items-center gap-2 shrink-0 border-t lg:border-t-0 border-white/[0.08] pt-2.5 lg:pt-0">
+          <a href="https://cash.app/$dymetime" target="_blank" rel="noopener noreferrer" class="h-8 px-3 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:text-emerald-300 font-mono text-[10px] font-bold uppercase tracking-wider transition flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Cash App</span>
+            <span class="text-white/60 text-[9px]">$dymetime</span>
+            <i data-lucide="external-link" class="w-2.5 h-2.5 ml-0.5 opacity-70"></i>
+          </a>
+
+          <a href="https://buymeacoffee.com/djdyme" target="_blank" rel="noopener noreferrer" class="h-8 px-3 rounded-lg bg-[#FF813F]/10 hover:bg-[#FF813F]/20 border border-[#FF813F]/30 text-[#FF813F] hover:text-[#FFA16F] font-mono text-[10px] font-bold uppercase tracking-wider transition flex items-center justify-center gap-1.5">
+            <i data-lucide="coffee" class="w-3 h-3 text-[#FF813F]"></i>
+            <span>Buy Me A Coffee</span>
+            <i data-lucide="external-link" class="w-2.5 h-2.5 ml-0.5 opacity-70"></i>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -1117,7 +1136,6 @@
       playbackOrigin = origin;
       isAdvancing = false;
 
-      // Update persistent bottom player instantly
       document.getElementById('player-title').innerText = title;
       document.getElementById('player-subtitle').innerText = subtitle;
       document.getElementById('progress-bar').style.width = '0%';
@@ -1131,7 +1149,6 @@
       if (idx !== -1) currentTrackIndex = idx;
 
       if (mcWidget) {
-        // Halt existing audio before loading the new mix to eliminate race conditions
         mcWidget.pause().then(() => {
           const path = slug.startsWith('/djdyme/') ? slug : `/djdyme/${slug}/`;
           return mcWidget.load(path, true);
@@ -1144,7 +1161,6 @@
       }
     }
 
-    // Vault-exclusive next mix auto-advancement
     function playNextVaultTrack() {
       if (!playlistQueue || playlistQueue.length === 0) return;
       currentTrackIndex = (currentTrackIndex + 1) % playlistQueue.length;
