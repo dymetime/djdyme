@@ -158,8 +158,8 @@
 
   <div class="ambient-backdrop"></div>
 
-  <!-- Background audio bridge for mobile background lockscreen playback -->
-  <audio id="lockscreen-audio-bridge" loop preload="none" class="hidden">
+  <!-- Background audio bridge for mobile lock screen metadata and continuous playback -->
+  <audio id="lockscreen-audio-bridge" loop preload="auto" class="hidden">
     <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
   </audio>
 
@@ -432,7 +432,7 @@
       <div id="video-desktop-grid" class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-3 w-full"></div>
     </section>
 
-    <!-- 05 // THE VAULT (UNTOUCHED STRUCTURE WITH CONTINUOUS PLAY QUEUE) -->
+    <!-- 05 // THE VAULT -->
     <section id="mix-vault" class="space-y-4 pt-2 w-full">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-2.5">
         <div class="flex items-center gap-3">
@@ -476,11 +476,11 @@
     <section id="about-me" class="border-y border-white/[0.08] py-10 my-4 w-full">
       <div class="flex flex-col md:flex-row items-center gap-6">
         <div class="w-36 h-36 sm:w-44 sm:h-44 shrink-0 rounded-xl overflow-hidden border border-white/10 bg-black">
-          <img src="images/dj%20dyme%201.JPG"
-               alt="DJ DYME"
-               loading="lazy"
-               decoding="async"
-               class="w-full h-full object-cover grayscale contrast-125"
+          <img src="images/dj%20dyme%201.JPG" 
+               alt="DJ DYME" 
+               loading="lazy" 
+               decoding="async" 
+               class="w-full h-full object-cover grayscale contrast-125" 
                onerror="if(!this.t1){this.t1=true;this.src='dj%20dyme%201.JPG';}else if(!this.t2){this.t2=true;this.src='images/dj-dyme-1.jpg';}else{this.src='dj-dyme-1.jpg';}">
         </div>
 
@@ -519,7 +519,7 @@
       </div>
     </section>
 
-    <!-- 08 // SLIMMED-DOWN FLUSH INTERACTION HUB: TOUR MANAGEMENT, VIP EMAIL, SHOUTOUT, CASH APP & BUY ME A COFFEE -->
+    <!-- 08 // SLIMMED-DOWN FLUSH INTERACTION HUB -->
     <section id="stage-dispatch" class="rounded-xl depth-card overflow-hidden border border-white/10 my-4 w-full divide-y divide-white/[0.08]">
       
       <!-- Tour & Performance Management -->
@@ -537,7 +537,7 @@
         </button>
       </div>
 
-      <!-- Join the VIP Email List (Slimmed Down) -->
+      <!-- Join the VIP Email List -->
       <div class="p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-white/[0.01]">
         <div class="flex items-center gap-2.5 min-w-0">
           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#FFB300]/10 border border-[#FFB300]/20 flex items-center justify-center shrink-0 text-[#FFB300]">
@@ -550,14 +550,14 @@
         </div>
         <button onclick="openVipModal()" class="h-7 sm:h-8 px-3.5 rounded bg-[#FFB300] hover:bg-[#FFD54F] text-black font-display font-black text-[10px] sm:text-[11px] uppercase tracking-wider shrink-0 transition flex items-center justify-center gap-1 self-start sm:self-auto shadow-[0_0_10px_rgba(255,179,0,0.2)]">
           <span>Subscribe</span>
-          <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
         </button>
       </div>
 
-      <!-- Shoutout, Song Request, Cash App & Buy Me A Coffee (Flush Mobile Row) -->
+      <!-- Shoutout, Song Request, Cash App & Buy Me A Coffee -->
       <div class="p-3 sm:px-5 flex flex-wrap items-center justify-between gap-2.5 text-[11px] font-mono text-slate-300 bg-white/[0.02]">
         <button onclick="openBookingModal('Shoutout & Song Request')" class="hover:text-[#FFB300] transition flex items-center gap-1.5 text-left text-[11px]">
-          <i data-lucide="music-2" class="w-3 h-3 text-[#FFB300]"></i>
+          <i data-lucide="music-2" class="w-3.5 h-3.5 text-[#FFB300]"></i>
           <span>Shoutout & Song Request</span>
         </button>
 
@@ -567,7 +567,7 @@
           </a>
           <span class="text-slate-700">|</span>
           <a href="https://buymeacoffee.com/djdyme" target="_blank" rel="noopener noreferrer" class="hover:text-[#FFDD00] transition flex items-center gap-1 font-bold">
-            <i data-lucide="coffee" class="w-3 h-3 text-[#FFDD00]"></i> Buy Me a Coffee
+            <i data-lucide="coffee" class="w-3.5 h-3.5 text-[#FFDD00]"></i> Buy Me a Coffee
           </a>
         </div>
       </div>
@@ -643,9 +643,10 @@
     </div>
   </div>
 
+  <!-- Mixcloud Engine (Positioned Offscreen to preserve browser audio session & WebKit postMessage channels) -->
   <iframe id="mixcloud-frame" 
           src="https://player-widget.mixcloud.com/widget/iframe/?mini=1&light=0&autoplay=1&feed=%2Fdjdyme%2Fspinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254%2F" 
-          class="hidden" 
+          style="position: absolute; width: 1px; height: 1px; opacity: 0.01; left: -9999px; pointer-events: none;" 
           allow="autoplay *; encrypted-media *">
   </iframe>
 
@@ -661,6 +662,8 @@
         <h3 id="booking-modal-title" class="text-lg font-display font-black text-white">BOOK DJ DYME</h3>
         <p id="booking-modal-desc" class="text-xs text-slate-400">Submit your event details. Management responds within 24 hours.</p>
       </div>
+
+      <div id="booking-modal-alert" class="hidden mb-3 p-2.5 rounded bg-[#FFB300]/20 border border-[#FFB300]/40 text-xs text-[#FFD54F] font-mono text-center"></div>
 
       <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-3">
         <div>
@@ -704,6 +707,8 @@
         <p id="vip-modal-subheading" class="text-xs text-slate-400">Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.</p>
       </div>
 
+      <div id="vip-modal-alert" class="hidden mb-3 p-2.5 rounded bg-[#FFB300]/20 border border-[#FFB300]/40 text-xs text-[#FFD54F] font-mono text-center"></div>
+
       <form id="vip-popup-form" onsubmit="handleVipModalSubmit(event)" class="space-y-3">
         <div>
           <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Email Address *</label>
@@ -745,7 +750,6 @@
   <script>
     lucide.createIcons();
 
-    // Standard Fallback Catalog (Guarantees zero-blank UI & prevents any JS crashes)
     const fallbackCatalog = [
       { slug: 'spinz-fm-pull-up-fridays-57-kompa-afrobeat-dancehall-w-guest-dj-travis-254', name: 'Spinz Fm | Pull Up Fridays 57 | Kompa . Afrobeat . Dancehall' },
       { slug: 'spinz-fm-pull-up-fridays-56-afrobeat-urban-piano', name: 'Spinz Fm | Pull Up Fridays 56 | Afrobeats 360' },
@@ -770,7 +774,7 @@
     let currentTrackIndex = 0;
     let currentCategoryFilter = 'all';
     let currentActiveSlug = '';
-    let activePlayOrigin = 'vault'; // Tracks whether current playback is from The Vault, PUF, or Radio
+    let isTransitioning = false;
 
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
@@ -787,6 +791,8 @@
       const detailsLabel = document.getElementById('booking-details-label');
       const detailsInput = document.getElementById('booking-details');
       const submitBtn = document.getElementById('booking-submit-btn');
+      const alertBox = document.getElementById('booking-modal-alert');
+      if (alertBox) alertBox.classList.add('hidden');
 
       if (mode === 'Shoutout & Song Request') {
         if (badge) badge.innerText = 'ON-AIR & LIVE REQUESTS';
@@ -821,6 +827,8 @@
     function openVipModal() {
       const heading = document.getElementById('vip-modal-heading');
       const sub = document.getElementById('vip-modal-subheading');
+      const alertBox = document.getElementById('vip-modal-alert');
+      if (alertBox) alertBox.classList.add('hidden');
       if (heading) heading.innerText = 'VIP MASTER LIST';
       if (sub) sub.innerText = 'Receive Pull Up Fridays master downloads on Friday at 12:00 PM EST before syndication.';
       const modal = document.getElementById('vip-modal');
@@ -837,6 +845,8 @@
     function triggerDownloadGate(trackTitle) {
       const heading = document.getElementById('vip-modal-heading');
       const sub = document.getElementById('vip-modal-subheading');
+      const alertBox = document.getElementById('vip-modal-alert');
+      if (alertBox) alertBox.classList.add('hidden');
       if (heading) heading.innerText = 'FREE MASTER DOWNLOAD';
       if (sub) sub.innerText = `Enter your email to unlock high-res broadcast download for: ${trackTitle}`;
       const modal = document.getElementById('vip-modal');
@@ -844,12 +854,13 @@
       modal.classList.add('flex');
     }
 
-    // Fast form submission with clean instant feedback (eliminates gateway hangs)
+    // Fast, Non-Blocking Form Submissions (Never freezes audio with popup alert boxes)
     async function handleVipModalSubmit(e) {
       e.preventDefault();
 
       const btn = document.getElementById('vip-modal-submit-btn');
       const form = document.getElementById('vip-popup-form');
+      const alertBox = document.getElementById('vip-modal-alert');
       const email = document.getElementById('vip-modal-email').value;
       const social = document.getElementById('vip-modal-social').value;
       const name = document.getElementById('vip-modal-name').value;
@@ -868,7 +879,7 @@
 
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3500);
+        const timeoutId = setTimeout(() => controller.abort(), 2800);
 
         await fetch('https://formsubmit.co/ajax/dymetime@gmail.com', {
           method: 'POST',
@@ -880,11 +891,16 @@
       } catch (err) {
         console.warn('VIP Form background delivery notice:', err);
       } finally {
-        alert('Subscribed! Check your inbox for the next master download drop.');
+        if (alertBox) {
+          alertBox.innerText = 'Subscribed! Check your inbox for the next drop.';
+          alertBox.classList.remove('hidden');
+        }
         form.reset();
-        closeVipModal();
-        btn.innerText = 'Subscribe Now';
-        btn.disabled = false;
+        setTimeout(() => {
+          closeVipModal();
+          btn.innerText = 'Subscribe Now';
+          btn.disabled = false;
+        }, 1200);
       }
     }
 
@@ -893,6 +909,7 @@
 
       const btn = document.getElementById('booking-submit-btn');
       const form = document.getElementById('booking-form');
+      const alertBox = document.getElementById('booking-modal-alert');
       const name = document.getElementById('booking-name').value;
       const phone = document.getElementById('booking-phone').value;
       const email = document.getElementById('booking-email').value;
@@ -900,7 +917,7 @@
       const details = document.getElementById('booking-details').value;
       const isShoutout = document.getElementById('booking-modal-title').innerText.includes('SHOUTOUT');
 
-      btn.innerText = 'Sending...';
+      btn.innerText = 'Submitting...';
       btn.disabled = true;
 
       const payload = {
@@ -914,7 +931,7 @@
 
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3500);
+        const timeoutId = setTimeout(() => controller.abort(), 2800);
 
         await fetch('https://formsubmit.co/ajax/djdyme@gmail.com', {
           method: 'POST',
@@ -926,11 +943,16 @@
       } catch (err) {
         console.warn('Booking Form background delivery notice:', err);
       } finally {
-        alert(isShoutout ? 'Your shoutout / song request has been submitted!' : 'Your booking inquiry has been submitted successfully!');
+        if (alertBox) {
+          alertBox.innerText = isShoutout ? 'Your shoutout has been received!' : 'Booking inquiry sent! Management responds within 24h.';
+          alertBox.classList.remove('hidden');
+        }
         form.reset();
-        closeBookingModal();
-        btn.innerText = isShoutout ? 'Send Request / Shoutout' : 'Send Booking Inquiry';
-        btn.disabled = false;
+        setTimeout(() => {
+          closeBookingModal();
+          btn.innerText = isShoutout ? 'Send Request / Shoutout' : 'Send Booking Inquiry';
+          btn.disabled = false;
+        }, 1200);
       }
     }
 
@@ -1055,7 +1077,7 @@
       lucide.createIcons();
     }
 
-    // Mixcloud Widget Engine & Lockscreen Continuity Bridge
+    // Mixcloud Widget Engine & Lock Screen Bridge
     const mcFrame = document.getElementById('mixcloud-frame');
     const lockAudio = document.getElementById('lockscreen-audio-bridge');
     let mcWidget = null;
@@ -1096,6 +1118,7 @@
         mcWidget.ready.then(() => {
           mcWidget.events.play.on(() => {
             isPlaying = true;
+            isTransitioning = false;
             if (lockAudio && lockAudio.paused) {
               lockAudio.play().catch(() => {});
             }
@@ -1103,25 +1126,24 @@
             updateDeckUI();
             syncSectionPlayButtons();
           });
+
           mcWidget.events.pause.on(() => {
-            isPlaying = false;
-            if (lockAudio && !lockAudio.paused) {
-              lockAudio.pause();
-            }
-            if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
-            updateDeckUI();
-            syncSectionPlayButtons();
-          });
-          mcWidget.events.ended.on(() => {
-            // Autoplay next mix continuously when in The Vault
-            if (activePlayOrigin === 'vault') {
-              playNextTrack();
-            } else {
+            if (!isTransitioning) {
               isPlaying = false;
+              if (lockAudio && !lockAudio.paused) {
+                lockAudio.pause();
+              }
+              if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
               updateDeckUI();
               syncSectionPlayButtons();
             }
           });
+
+          mcWidget.events.ended.on(() => {
+            // Clean auto-advance next show without freeze
+            playNextTrack();
+          });
+
           mcWidget.events.progress.on((position, duration) => {
             const posMins = Math.floor(position / 60);
             const posSecs = Math.floor(position % 60);
@@ -1219,46 +1241,48 @@
       syncSectionPlayButtons();
     }
 
-    // Instant, zero-lag mix playback with immediate user feedback
-    function playMixcloud(slug, title, subtitle, artworkUrl = '', origin = 'vault') {
-      activePlayOrigin = origin;
-
-      // Toggle play/pause if user tapped the currently active mix
+    // Simplified, zero-lag mix playback (Starts immediately from beginning with no race conditions)
+    function playMixcloud(slug, title, subtitle, artworkUrl = '') {
+      // Toggle play/pause if user tapped currently playing mix
       if (currentActiveSlug === slug && mcWidget) {
         mcWidget.togglePlay();
         return;
       }
 
-      // 1. Immediately reflect UI change without waiting for network response
-      document.getElementById('player-title').innerText = title;
-      document.getElementById('player-subtitle').innerText = subtitle;
+      isTransitioning = true;
       isPlaying = true;
       currentActiveSlug = slug;
+
+      document.getElementById('player-title').innerText = title;
+      document.getElementById('player-subtitle').innerText = subtitle;
       updateDeckUI();
       highlightActiveVaultTrack(slug);
 
-      // 2. Synchronize queue index
       const idx = playlistQueue.findIndex(t => t.slug === slug);
       if (idx !== -1) {
         currentTrackIndex = idx;
         if (!artworkUrl) artworkUrl = playlistQueue[idx].artwork || '';
       }
 
-      // 3. Keep lock screen and background media engine active
+      // Sync mobile lock screen metadata immediately
+      updateLockScreenMetadata(title, subtitle, artworkUrl);
+
+      // Start lockscreen audio bridge cleanly on user gesture
       if (lockAudio && lockAudio.paused) {
         lockAudio.play().catch(() => {});
       }
-      updateLockScreenMetadata(title, subtitle, artworkUrl);
 
-      // 4. Fire load immediately
-      const feedUrl = `/djdyme/${slug}/`;
+      // Direct, clean widget execution with zero delay
+      const feedKey = `/djdyme/${slug}/`;
       if (mcWidget) {
-        mcWidget.load(feedUrl, true).catch(() => {});
-      } else {
-        const iframe = document.getElementById('mixcloud-frame');
-        if (iframe) {
-          iframe.src = `https://player-widget.mixcloud.com/widget/iframe/?mini=1&light=0&autoplay=1&feed=${encodeURIComponent(feedUrl)}`;
-        }
+        mcWidget.load(feedKey, true)
+          .then(() => {
+            mcWidget.seek(0);
+            mcWidget.play();
+          })
+          .catch(() => {
+            if (mcWidget.play) mcWidget.play();
+          });
       }
     }
 
@@ -1266,14 +1290,14 @@
       if (!playlistQueue.length) return;
       currentTrackIndex = (currentTrackIndex + 1) % playlistQueue.length;
       const next = playlistQueue[currentTrackIndex];
-      playMixcloud(next.slug, next.title, next.subtitle, next.artwork, activePlayOrigin);
+      playMixcloud(next.slug, next.title, next.subtitle, next.artwork);
     }
 
     function playPrevTrack() {
       if (!playlistQueue.length) return;
       currentTrackIndex = (currentTrackIndex - 1 + playlistQueue.length) % playlistQueue.length;
       const prev = playlistQueue[currentTrackIndex];
-      playMixcloud(prev.slug, prev.title, prev.subtitle, prev.artwork, activePlayOrigin);
+      playMixcloud(prev.slug, prev.title, prev.subtitle, prev.artwork);
     }
 
     function toggleDeckPlay() {
@@ -1417,13 +1441,13 @@
       const latestArt = latest.pictures?.large || latest.pictures?.['320wx320h'] || latest.pictures?.medium || '';
       const heroBtn = document.getElementById('hero-latest-btn');
       if (heroBtn) {
-        heroBtn.onclick = () => playMixcloud(latest.slug, latestMeta.mainTitle, latestMeta.subTitle, latestArt, 'puf');
+        heroBtn.onclick = () => playMixcloud(latest.slug, latestMeta.mainTitle, latestMeta.subTitle, latestArt);
       }
 
-      const renderCoverCard = (item, isDrawer = false, extraClasses = '', badgeLabel = 'EPISODE', originSection = 'puf') => {
+      const renderCoverCard = (item, isDrawer = false, extraClasses = '', badgeLabel = 'EPISODE') => {
         const artworkUrl = item.cast.pictures?.large || item.cast.pictures?.['320wx320h'] || item.cast.pictures?.medium || '';
         return `
-          <div data-slug="${item.cast.slug}" onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}', '${artworkUrl}', '${originSection}')" class="mix-card-action p-2.5 rounded-xl depth-card flex items-center justify-between gap-3 group hover:border-[#FFB300]/60 transition cursor-pointer min-w-0 w-full ${extraClasses}">
+          <div data-slug="${item.cast.slug}" onclick="playMixcloud('${item.cast.slug}', '${item.meta.mainTitle.replace(/'/g, "\\'")}', '${item.meta.subTitle.replace(/'/g, "\\'")}', '${artworkUrl}')" class="mix-card-action p-2.5 rounded-xl depth-card flex items-center justify-between gap-3 group hover:border-[#FFB300]/60 transition cursor-pointer min-w-0 w-full ${extraClasses}">
             <div class="flex items-center gap-3 min-w-0 flex-1">
               <div class="relative w-12 h-12 rounded-lg overflow-hidden bg-black/60 shrink-0 border border-white/10 group-hover:scale-105 transition duration-300">
                 ${artworkUrl ? `
@@ -1476,7 +1500,7 @@
         if (titleEl) titleEl.innerText = featPuf.meta.subTitle;
         if (descEl) descEl.innerText = featPuf.meta.rawName;
         
-        const pufAction = () => playMixcloud(featPuf.cast.slug, `Pull Up Fridays - Ep. ${featPuf.meta.epNumber}`, featPuf.meta.subTitle, featArt, 'puf');
+        const pufAction = () => playMixcloud(featPuf.cast.slug, `Pull Up Fridays - Ep. ${featPuf.meta.epNumber}`, featPuf.meta.subTitle, featArt);
         if (btnEl) {
           btnEl.setAttribute('data-slug', featPuf.cast.slug);
           btnEl.onclick = pufAction;
@@ -1495,10 +1519,10 @@
         const pufMobDrawerGrid = document.getElementById('puf-mobile-drawer-grid');
         const pufToggleContainer = document.getElementById('puf-toggle-container');
 
-        if (pufDeskGrid) pufDeskGrid.innerHTML = pufDeskInitial.map(item => renderCoverCard(item, false, '', 'EPISODE', 'puf')).join('');
-        if (pufMobGrid) pufMobGrid.innerHTML = pufMobInitial.map((item, idx) => renderCoverCard(item, false, idx === 2 ? 'col-span-1' : '', 'EPISODE', 'puf')).join('');
-        if (pufDeskDrawerGrid) pufDeskDrawerGrid.innerHTML = pufDeskDrawer.map(item => renderCoverCard(item, true, '', 'EPISODE', 'puf')).join('');
-        if (pufMobDrawerGrid) pufMobDrawerGrid.innerHTML = pufMobDrawer.map(item => renderCoverCard(item, true, '', 'EPISODE', 'puf')).join('');
+        if (pufDeskGrid) pufDeskGrid.innerHTML = pufDeskInitial.map(item => renderCoverCard(item, false, '', 'EPISODE')).join('');
+        if (pufMobGrid) pufMobGrid.innerHTML = pufMobInitial.map((item, idx) => renderCoverCard(item, false, idx === 2 ? 'col-span-1' : '', 'EPISODE')).join('');
+        if (pufDeskDrawerGrid) pufDeskDrawerGrid.innerHTML = pufDeskDrawer.map(item => renderCoverCard(item, true, '', 'EPISODE')).join('');
+        if (pufMobDrawerGrid) pufMobDrawerGrid.innerHTML = pufMobDrawer.map(item => renderCoverCard(item, true, '', 'EPISODE')).join('');
         if (pufToggleContainer) pufToggleContainer.style.display = pufShows.length > 4 ? 'block' : 'none';
       }
 
@@ -1527,7 +1551,7 @@
         if (rTitleEl) rTitleEl.innerText = featRadio.meta.subTitle;
         if (rDescEl) rDescEl.innerText = featRadio.meta.rawName;
 
-        const radioAction = () => playMixcloud(featRadio.cast.slug, featRadio.meta.mainTitle, featRadio.meta.subTitle, radioArt, 'radio');
+        const radioAction = () => playMixcloud(featRadio.cast.slug, featRadio.meta.mainTitle, featRadio.meta.subTitle, radioArt);
         if (rBtnEl) {
           rBtnEl.setAttribute('data-slug', featRadio.cast.slug);
           rBtnEl.onclick = radioAction;
@@ -1545,10 +1569,10 @@
         const radioMobDrawerGrid = document.getElementById('radio-mobile-drawer-grid');
         const radioToggleContainer = document.getElementById('radio-toggle-container');
 
-        if (radioDeskGrid) radioDeskGrid.innerHTML = radioDeskInitial.map(item => renderCoverCard(item, false, '', 'SESSION', 'radio')).join('');
-        if (radioMobGrid) radioMobGrid.innerHTML = radioMobInitial.map((item, idx) => renderCoverCard(item, false, idx === 2 ? 'col-span-1' : '', 'SESSION', 'radio')).join('');
-        if (radioDeskDrawerGrid) radioDeskDrawerGrid.innerHTML = radioDeskDrawer.map(item => renderCoverCard(item, true, '', 'SESSION', 'radio')).join('');
-        if (radioMobDrawerGrid) radioMobDrawerGrid.innerHTML = radioMobDrawer.map(item => renderCoverCard(item, true, '', 'SESSION', 'radio')).join('');
+        if (radioDeskGrid) radioDeskGrid.innerHTML = radioDeskInitial.map(item => renderCoverCard(item, false, '', 'SESSION')).join('');
+        if (radioMobGrid) radioMobGrid.innerHTML = radioMobInitial.map((item, idx) => renderCoverCard(item, false, idx === 2 ? 'col-span-1' : '', 'SESSION')).join('');
+        if (radioDeskDrawerGrid) radioDeskDrawerGrid.innerHTML = radioDeskDrawer.map(item => renderCoverCard(item, true, '', 'SESSION')).join('');
+        if (radioMobDrawerGrid) radioMobDrawerGrid.innerHTML = radioMobDrawer.map(item => renderCoverCard(item, true, '', 'SESSION')).join('');
         if (radioToggleContainer) radioToggleContainer.style.display = radioShows.length > 4 ? 'block' : 'none';
       }
 
@@ -1567,7 +1591,7 @@
                  data-category="${cat}" 
                  data-slug="${item.slug}" 
                  data-search="${searchMetadata}" 
-                 onclick="playMixcloud('${item.slug}', '${meta.mainTitle.replace(/'/g, "\\'")}', '${meta.subTitle.replace(/'/g, "\\'")}', '${art}', 'vault')">
+                 onclick="playMixcloud('${item.slug}', '${meta.mainTitle.replace(/'/g, "\\'")}', '${meta.subTitle.replace(/'/g, "\\'")}', '${art}')">
               <div class="truncate mr-2 flex-1 min-w-0">
                 <div class="flex items-center gap-2">
                   <span class="text-[8px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFD54F] font-bold shrink-0">${displayCategory}</span>
@@ -1593,10 +1617,8 @@
     };
 
     function syncMixcloudLiveData() {
-      // 1. Immediately render fallback catalog so cards & player are instantly clickable
       populateMixcloudCatalog(fallbackCatalog);
 
-      // 2. Fetch live updates in background
       const script = document.createElement('script');
       script.src = 'https://api.mixcloud.com/djdyme/cloudcasts/?limit=100&callback=handleMixcloudLiveFeed';
       script.onerror = () => {
